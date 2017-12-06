@@ -72,11 +72,11 @@ and fixes various bugs. See the list of changes below for details.</p>
 <p>Python-Markdown version 2.6 supports Python versions 2.7, 3.2, 3.3, and 3.4 as well as PyPy.</p>
 <h2 id="backwards-incompatible-changes">Backwards-incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
 <h3 id="safe_mode-deprecated"><code>safe_mode</code> Deprecated<a class="headerlink" href="#safe_mode-deprecated" title="Permanent link">&para;</a></h3>
-<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords are deprecated 
+<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords are deprecated
 in version 2.6 and will raise a <strong><code>DeprecationWarning</code></strong>. The <code>safe_mode</code> and
 <code>html_replacement_text</code> keywords will be ignored in version 2.7. The so-called
-&ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in many people having a false 
-sense of security when using it. As an alternative, the developers of Python-Markdown 
+&ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in many people having a false
+sense of security when using it. As an alternative, the developers of Python-Markdown
 recommend that any untrusted content be passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>)
 after being converted to HTML by markdown.</p>
 <p>If your code previously looked like this:</p>
@@ -122,16 +122,16 @@ previously looked like this:</p>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the 
-<code>safe_mode</code> argument was one of the positional arguments. When that argument 
-is removed, the two arguments following it will no longer be at the correct 
+<p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the
+<code>safe_mode</code> argument was one of the positional arguments. When that argument
+is removed, the two arguments following it will no longer be at the correct
 position. It is recommended that you always use keywords when they are supported
 for this reason.</p>
 </div>
 <h3 id="shortened-extension-names-deprecated">&ldquo;Shortened&rdquo; Extension Names Deprecated<a class="headerlink" href="#shortened-extension-names-deprecated" title="Permanent link">&para;</a></h3>
 <p>In previous versions of Python-Markdown, the built-in extensions received
 special status and did not require the full path to be provided. Additionally,
-third party extensions whose name started with <code>"mdx_"</code> received the same 
+third party extensions whose name started with <code>"mdx_"</code> received the same
 special treatment. This behavior is deprecated and will raise a
 <strong><code>DeprecationWarning</code></strong> in version 2.6 and an error in 2.7. Ensure that you
 always use the full path to your extensions. For example, if you previously
@@ -166,17 +166,17 @@ as follows (assuming the file <code>mdx_math.py</code> is installed at the root 
 <p>See the <a href="../../reference/#extensions">documentation</a> for a full explanation
 of the current behavior.</p>
 <h3 id="extension-configuration-as-part-of-extension-name-deprecated">Extension Configuration as Part of Extension Name Deprecated<a class="headerlink" href="#extension-configuration-as-part-of-extension-name-deprecated" title="Permanent link">&para;</a></h3>
-<p>The previously documented method of appending the extension configuration options as 
+<p>The previously documented method of appending the extension configuration options as
 a string to the extension name is deprecated and will raise a
 <strong><code>DeprecationWarning</code></strong> in version 2.6 and an error in 2.7.
-The <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should 
-be used instead. See the <a href="../../reference/#extension-configs">documentation</a> 
+The <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should
+be used instead. See the <a href="../../reference/#extension-configs">documentation</a>
 for a full explanation of the current behavior.</p>
 <h3 id="headerid-extension-pending-deprecation">HeaderId Extension Pending Deprecation<a class="headerlink" href="#headerid-extension-pending-deprecation" title="Permanent link">&para;</a></h3>
-<p>The HeaderId Extension is pending deprecation and will raise a
+<p>The <a href="../../extensions/header_id/">HeaderId</a> Extension is pending deprecation and will raise a
 <strong><code>PendingDeprecationWarning</code></strong> in version 2.6. The extension will be
 deprecated in version 2.7 and raise an error in version 2.8. Use the
-Table of Contents Extension instead, which offers most of the
+<a href="../../extensions/toc/">Table of Contents</a> Extension instead, which offers most of the
 features of the HeaderId Extension and more (support for meta data is missing).</p>
 <p>Extension authors who have been using the <code>slugify</code> and <code>unique</code> functions
 defined in the HeaderId Extension should note that those functions are now
@@ -236,7 +236,7 @@ See the <a href="../../extensions/api/#configsettings">documentation</a> for mor
 <p>Official support for <a href="http://pypy.org/">PyPy</a> has been added. While Python-Markdown has most likely
 worked on PyPy for some time, it is now officially supported and tested on PyPy.</p>
 <h3 id="yaml-style-meta-data">YAML Style Meta-Data<a class="headerlink" href="#yaml-style-meta-data" title="Permanent link">&para;</a></h3>
-<p>The Meta-Data Extension now includes optional support for <a href="http://yaml.org/">YAML</a> style
+<p>The <a href="../../extensions/meta_data/">Meta-Data</a> Extension now includes optional support for <a href="http://yaml.org/">YAML</a> style
 meta-data. By default, the YAML deliminators are recognized, however, the
 actual data is parsed as previously.  This follows the syntax of
 <a href="http://fletcherpenney.net/MultiMarkdown_Syntax_Guide#metadata">MultiMarkdown</a>, which inspired this extension.</p>
@@ -245,7 +245,7 @@ actual data is parsed as previously.  This follows the syntax of
 party extension be used if you want true YAML support. See <a href="https://github.com/Python-Markdown/markdown/issues/390">Issue #390</a> for a full
 explanation.</ins></p>
 <h3 id="table-of-contents-extension-refactored">Table of Contents Extension Refactored<a class="headerlink" href="#table-of-contents-extension-refactored" title="Permanent link">&para;</a></h3>
-<p>The Table of Contents Extension has been refactored and some new features
+<p>The <a href="../../extensions/toc/">Table of Contents</a> Extension has been refactored and some new features
 have been added.  See the documentation for a full explanation of each feature
 listed below:</p>
 <ul>
@@ -276,16 +276,17 @@ listed below:</p>
 </li>
 </ul>
 <h3 id="pygments-can-now-be-disabled">Pygments can now be disabled<a class="headerlink" href="#pygments-can-now-be-disabled" title="Permanent link">&para;</a></h3>
-<p>The CodeHilite Extension has gained a new configuration option: <code>use_pygments</code>.
+<p>The <a href="../../extensions/code_hilite/">CodeHilite</a> Extension has gained a new configuration option: <code>use_pygments</code>.
 The option is <code>True</code> by default, however, it allows one to turn off Pygments code
 highlighting (set to <code>False</code>) while preserving the language detection features of
 the extension. Note that Pygments language guessing is not used as that would &lsquo;use
-Pygments&rsquo;. If a language is defined for a code block, it will be assigned to the <code>&lt;code&gt;</code> tag as a class in the manner suggested by the <a href="http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5 spec</a>
+Pygments&rsquo;. If a language is defined for a code block, it will be assigned to the
+<code>&lt;code&gt;</code> tag as a class in the manner suggested by the <a href="http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5 spec</a>
 (alternate output will not be entertained) and could potentially be used by a JavaScript
 library in the browser to highlight the code block.</p>
 <h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">&para;</a></h3>
 <p>Test coverage has been improved including running <a href="https://flake8.readthedocs.io/en/latest/">flake8</a>. While those changes
-will not directly effect end users, the code is being better tested which will 
+will not directly effect end users, the code is being better tested which will
 benefit everyone.</p>
 <p>Various bug fixes have been made.  See the
 <a href="https://github.com/Python-Markdown/markdown/commits/master">commit log</a>
@@ -445,7 +446,7 @@ for a complete history of the changes.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 21:11:41
+        Docs Build Date UTC : 2017-12-06 23:52:12
         -->
     </body>
 </html>

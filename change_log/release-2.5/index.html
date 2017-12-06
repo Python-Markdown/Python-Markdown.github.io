@@ -73,20 +73,20 @@ and fixes various bugs. See the list of changes below for details.</p>
 <h2 id="backwards-incompatible-changes">Backwards-incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>Python-Markdown no longer supports Python version 2.6. You must be using Python 
+<p>Python-Markdown no longer supports Python version 2.6. You must be using Python
   versions 2.7, 3.2, 3.3, or 3.4.</p>
 </li>
 <li>
-<p>The <code>force_linenos</code> configuration key on the CodeHilite Extension has been <strong>deprecated</strong>
-  and will raise a <code>KeyError</code> if provided. In the previous release (2.4), it was 
-  issuing a <code>DeprecationWarning</code>. The <code>linenums</code> keyword should be used 
+<p>The <code>force_linenos</code> configuration key on the <a href="../../extensions/code_hilite/">CodeHilite Extension</a> has been <strong>deprecated</strong>
+  and will raise a <code>KeyError</code> if provided. In the previous release (2.4), it was
+  issuing a <code>DeprecationWarning</code>. The <a href="../../extensions/code_hilite/#usage"><code>linenums</code></a> keyword should be used
   instead, which provides more control of the output.</p>
 </li>
 <li>
-<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords will be deprecated 
+<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords will be deprecated
   in version 2.6 and will raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. The so-called
-  &ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in many people having a false 
-  sense of security when using it. As an alternative, the developers of Python-Markdown 
+  &ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in many people having a false
+  sense of security when using it. As an alternative, the developers of Python-Markdown
   recommend that any untrusted content be passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>)
   after being converted to HTML by markdown.</p>
 <p>If your code previously looked like this:</p>
@@ -132,9 +132,9 @@ escape the raw HTML, which is exactly what happens now when <code>safe_mode="esc
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the 
-<code>safe_mode</code> argument was one of the positional arguments. When that argument 
-is removed, the two arguments following it will no longer be at the correct 
+<p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the
+<code>safe_mode</code> argument was one of the positional arguments. When that argument
+is removed, the two arguments following it will no longer be at the correct
 position. It is recommended that you always use keywords when they are supported
 for this reason.</p>
 </div>
@@ -142,9 +142,9 @@ for this reason.</p>
 <li>
 <p>In previous versions of Python-Markdown, the built-in extensions received
   special status and did not require the full path to be provided. Additionally,
-  third party extensions whose name started with <code>"mdx_"</code> received the same 
+  third party extensions whose name started with <code>"mdx_"</code> received the same
   special treatment. This behavior will be deprecated in version 2.6 and will
-  raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. Ensure that you always use the full 
+  raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. Ensure that you always use the full
   path to your extensions. For example, if you previously did the following:</p>
 <div class="codehilite"><pre><span></span>markdown.markdown(text, extensions=[&#39;extra&#39;])
 </pre></div>
@@ -164,31 +164,31 @@ for this reason.</p>
 of the current behavior.</p>
 </li>
 <li>
-<p>The previously documented method of appending the extension configuration as 
-  a string to the extension name will be deprecated in Python-Markdown 
-  version 2.6 and will raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. The 
-  <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should 
-  be used instead. See the <a href="../../reference/#extension-configs">documentation</a> 
+<p>The previously documented method of appending the extension configuration as
+  a string to the extension name will be deprecated in Python-Markdown
+  version 2.6 and will raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. The
+  <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should
+  be used instead. See the <a href="../../reference/#extension-configs">documentation</a>
   for a full explanation of the current behavior.</p>
 </li>
 </ul>
 <h2 id="whats-new-in-python-markdown-25">What&rsquo;s New in Python-Markdown 2.5<a class="headerlink" href="#whats-new-in-python-markdown-25" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>The Smarty Extension has had a number of additional configuration settings
+<p>The <a href="../../extensions/smarty/">Smarty Extension</a> has had a number of additional configuration settings
     added, which allows one to define their own substitutions to better support
-    languages other than English. Thanks to <a href="https://github.com/MartinAltmayer">Martin Altmayer</a> for implementing this 
+    languages other than English. Thanks to <a href="https://github.com/MartinAltmayer">Martin Altmayer</a> for implementing this
     feature.</p>
 </li>
 <li>
-<p>Named Extensions (strings passed to the <a href="../../reference/#extensions"><code>extensions</code></a> keyword of 
-    <code>markdown.Markdown</code>) can now point to any module and/or Class on your PYTHONPATH. 
-    While dot notation was previously supported, a module could not be at the root of 
-    your PYTHONPATH. The name had to contain at least one dot (requiring it to be a 
-    sub-module). This restriction no longer exists. </p>
-<p>Additionally, a Class may be specified in the name. The class must be at the end of 
-the name (which uses dot notation from PYTHONPATH) and be separated by a colon from 
-the module. </p>
+<p>Named Extensions (strings passed to the <a href="../../reference/#extensions"><code>extensions</code></a> keyword of
+    <code>markdown.Markdown</code>) can now point to any module and/or Class on your PYTHONPATH.
+    While dot notation was previously supported, a module could not be at the root of
+    your PYTHONPATH. The name had to contain at least one dot (requiring it to be a
+    sub-module). This restriction no longer exists.</p>
+<p>Additionally, a Class may be specified in the name. The class must be at the end of
+the name (which uses dot notation from PYTHONPATH) and be separated by a colon from
+the module.</p>
 <p>Therefore, if you were to import the class like this:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
 </pre></div>
@@ -199,41 +199,41 @@ the module. </p>
 </pre></div>
 
 
-<p>This allows multiple extensions to be implemented within the same module and still 
-accessible when the user is not able to import the extension directly (perhaps from 
+<p>This allows multiple extensions to be implemented within the same module and still
+accessible when the user is not able to import the extension directly (perhaps from
 a template filter or the command line).</p>
-<p>This also means that extension modules are no longer required to include the 
-<code>makeExtension</code> function which returns an instance of the extension class. However, 
+<p>This also means that extension modules are no longer required to include the
+<code>makeExtension</code> function which returns an instance of the extension class. However,
 if the user does not specify the class name (she only provides <code>"path.to.module"</code>)
 the extension will fail to load without the <code>makeExtension</code> function included in
 the module. Extension authors will want to document carefully what is required to
 load their extensions.</p>
 </li>
 <li>
-<p>The Extension Configuration code has been refactored to make it a little easier 
-    for extension authors to work with configuration settings. As a result, the 
-    <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword now accepts a dictionary rather than requiring 
-    a list of tuples. A list of tuples is still supported so no one needs to change 
+<p>The Extension Configuration code has been refactored to make it a little easier
+    for extension authors to work with configuration settings. As a result, the
+    <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword now accepts a dictionary rather than requiring
+    a list of tuples. A list of tuples is still supported so no one needs to change
     their existing code. This should also simplify the learning curve for new users.</p>
-<p>Extension authors are encouraged to review the new methods available on the 
+<p>Extension authors are encouraged to review the new methods available on the
 <code>markdown.extnesions.Extension</code> class for handling configuration and adjust their
 code going forward. The included extensions provide a model for best practices.
 See the <a href="../../extensions/api/#configsettings">API</a> documentation for a full explanation.</p>
 </li>
 <li>
-<p>The <a href="../../cli/#using-extensions">Command Line Interface</a> now accepts a <code>--extensions_config</code> (or <code>-c</code>) 
-    option which accepts a file name and passes the parsed content of a <a href="http://yaml.org/">YAML</a> or 
+<p>The <a href="../../cli/#using-extensions">Command Line Interface</a> now accepts a <code>--extensions_config</code> (or <code>-c</code>)
+    option which accepts a file name and passes the parsed content of a <a href="http://yaml.org/">YAML</a> or
     <a href="http://json.org/">JSON</a>   file to the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword of the <code>markdown.Markdown</code>
-    class. The contents of the YAML or JSON must map to a Python Dictionary which 
-    matches the format required by the <code>extension_configs</code> keyword. Note that 
+    class. The contents of the YAML or JSON must map to a Python Dictionary which
+    matches the format required by the <code>extension_configs</code> keyword. Note that
     <a href="http://pyyaml.org/">PyYAML</a> is required to parse YAML files.</p>
 </li>
 <li>
-<p>The Admonition Extension is no longer considered &ldquo;experimental.&rdquo;</p>
+<p>The <a href="../../extensions/admonition/">Admonition Extension</a> is no longer considered &ldquo;experimental.&rdquo;</p>
 </li>
 <li>
 <p>There have been various refactors of the testing framework. While those changes
-    will not directly effect end users, the code is being better tested which will 
+    will not directly effect end users, the code is being better tested which will
     benefit everyone.</p>
 </li>
 <li>
@@ -349,7 +349,7 @@ See the <a href="../../extensions/api/#configsettings">API</a> documentation for
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 21:11:41
+        Docs Build Date UTC : 2017-12-06 23:52:12
         -->
     </body>
 </html>

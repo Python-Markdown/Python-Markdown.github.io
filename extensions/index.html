@@ -76,7 +76,7 @@ actual source files.</p>
 
 
 <p>See the <a href="../reference/#extensions">Library Reference</a> for more details.</p>
-<p>From the command line, specify an extension with the <code>-x</code> option. </p>
+<p>From the command line, specify an extension with the <code>-x</code> option.</p>
 <div class="codehilite"><pre><span></span>$ python -m markdown -x markdown.extensions.footnotes -x markdown.extensions.tables input.txt &gt; output.html
 </pre></div>
 
@@ -88,11 +88,11 @@ actual source files.</p>
 <a href="api/">Extension API</a> for details.</p>
 </div>
 <h2 id="officially-supported-extensions">Officially Supported Extensions<a class="headerlink" href="#officially-supported-extensions" title="Permanent link">&para;</a></h2>
-<p>The extensions listed below are maintained and officially supported by
-the Python-Markdown team. However, no extensions ship with Python-Markdown
-by default. If you would like to use any of the extensions listed below,
-you will need to install each of them individually.  See the documentation
-for each extension for specifics in instalation and usage. </p>
+<p>The extensions listed below are included with (at least) the most recent release
+and are officially supported by Python-Markdown. Any documentation is
+maintained here and all bug reports should be made to the project. If you
+have a typical install of Python-Markdown, these extensions are already
+available to you using the &ldquo;name&rdquo; listed in the second column below.</p>
 <table>
 <thead>
 <tr>
@@ -102,68 +102,72 @@ for each extension for specifics in instalation and usage. </p>
 </thead>
 <tbody>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_extra">Extra</a></td>
-<td><code>extra</code></td>
+<td><a href="extra/">Extra</a></td>
+<td><code>markdown.extensions.extra</code></td>
 </tr>
 <tr>
-<td>&nbsp; &nbsp; <a href="https://github.com/Python-Markdown/mdx_abbreviations">Abbreviations</a></td>
-<td><code>abbr</code></td>
+<td>&nbsp; &nbsp; <a href="abbreviations/">Abbreviations</a></td>
+<td><code>markdown.extensions.abbr</code></td>
 </tr>
 <tr>
-<td>&nbsp; &nbsp; <a href="https://github.com/Python-Markdown/mdx_attr_list">Attribute Lists</a></td>
-<td><code>attr_list</code></td>
+<td>&nbsp; &nbsp; <a href="attr_list/">Attribute Lists</a></td>
+<td><code>markdown.extensions.attr_list</code></td>
 </tr>
 <tr>
-<td>&nbsp; &nbsp; <a href="https://github.com/Python-Markdown/mdx_definition_lists">Definition Lists</a></td>
-<td><code>def_list</code></td>
+<td>&nbsp; &nbsp; <a href="definition_lists/">Definition Lists</a></td>
+<td><code>markdown.extensions.def_list</code></td>
 </tr>
 <tr>
-<td>&nbsp; &nbsp; <a href="https://github.com/Python-Markdown/mdx_fenced_code_blocks">Fenced Code Blocks</a></td>
-<td><code>fenced_code</code></td>
+<td>&nbsp; &nbsp; <a href="fenced_code_blocks/">Fenced Code Blocks</a></td>
+<td><code>markdown.extensions.fenced_code</code></td>
 </tr>
 <tr>
-<td>&nbsp; &nbsp; <a href="https://github.com/Python-Markdown/mdx_footnotes">Footnotes</a></td>
-<td><code>footnotes</code></td>
+<td>&nbsp; &nbsp; <a href="footnotes/">Footnotes</a></td>
+<td><code>markdown.extensions.footnotes</code></td>
 </tr>
 <tr>
-<td>&nbsp; &nbsp; <a href="https://github.com/Python-Markdown/mdx_tables">Tables</a></td>
-<td><code>tables</code></td>
+<td>&nbsp; &nbsp; <a href="tables/">Tables</a></td>
+<td><code>markdown.extensions.tables</code></td>
 </tr>
 <tr>
-<td>&nbsp; &nbsp; <a href="https://github.com/Python-Markdown/mdx_smart_strong">Smart Strong</a></td>
-<td><code>smart_strong</code></td>
+<td>&nbsp; &nbsp; <a href="smart_strong/">Smart Strong</a></td>
+<td><code>markdown.extensions.smart_strong</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_admonition">Admonition</a></td>
-<td><code>admonition</code></td>
+<td><a href="admonition/">Admonition</a></td>
+<td><code>markdown.extensions.admonition</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_code_hilite">CodeHilite</a></td>
-<td><code>codehilite</code></td>
+<td><a href="code_hilite/">CodeHilite</a></td>
+<td><code>markdown.extensions.codehilite</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_meta_data">Meta-Data</a></td>
-<td><code>meta</code></td>
+<td><a href="header_id/">HeaderId</a></td>
+<td><code>markdown.extensions.headerid</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_nl2br">New Line to Break</a></td>
-<td><code>nl2br</code></td>
+<td><a href="meta_data/">Meta-Data</a></td>
+<td><code>markdown.extensions.meta</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_sane_lists">Sane Lists</a></td>
-<td><code>sane_lists</code></td>
+<td><a href="nl2br/">New Line to Break</a></td>
+<td><code>markdown.extensions.nl2br</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_smarty">SmartyPants</a></td>
-<td><code>smarty</code></td>
+<td><a href="sane_lists/">Sane Lists</a></td>
+<td><code>markdown.extensions.sane_lists</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_toc">Table of Contents</a></td>
-<td><code>toc</code></td>
+<td><a href="smarty/">SmartyPants</a></td>
+<td><code>markdown.extensions.smarty</code></td>
 </tr>
 <tr>
-<td><a href="https://github.com/Python-Markdown/mdx_wikilinks">WikiLinks</a></td>
-<td><code>wikilinks</code></td>
+<td><a href="toc/">Table of Contents</a></td>
+<td><code>markdown.extensions.toc</code></td>
+</tr>
+<tr>
+<td><a href="wikilinks/">WikiLinks</a></td>
+<td><code>markdown.extensions.wikilinks</code></td>
 </tr>
 </tbody>
 </table>
@@ -280,7 +284,7 @@ each extension for support.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 21:11:39
+        Docs Build Date UTC : 2017-12-06 23:52:10
         -->
     </body>
 </html>
