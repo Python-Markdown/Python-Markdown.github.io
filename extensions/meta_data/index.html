@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/meta_data/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="New Line to Break" href="../nl2br/" />
+        <link rel="prev" title="HeaderId" href="../header_id/" />
+        <title>Meta-Data &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../nl2br/" title="New Line to Break" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../header_id/" title="HeaderId" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Meta-Data</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="meta-data">Meta-Data<a class="headerlink" href="#meta-data" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The Meta-Data extension adds a syntax for defining meta-data about a document.
+It is inspired by and follows the syntax of <a href="http://fletcherpenney.net/MultiMarkdown_Syntax_Guide#metadata">MultiMarkdown</a>. Currently,
+this extension does not use the meta-data in any way, but simply provides it as
+a <code>Meta</code> attribute of a Markdown instance for use by other extensions or
+directly by your python code.</p>
+<p>This extension is included in the standard Markdown library.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>Meta-data consists of a series of keywords and values defined at the beginning 
+of a markdown document like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">Title</span><span class="o">:</span>   <span class="n">My</span> <span class="n">Document</span>
+<span class="n">Summary</span><span class="o">:</span> <span class="n">A</span> <span class="n">brief</span> <span class="n">description</span> <span class="n">of</span> <span class="n">my</span> <span class="n">document</span><span class="o">.</span>
+<span class="n">Authors</span><span class="o">:</span> <span class="n">Waylan</span> <span class="n">Limberg</span>
+         <span class="n">John</span> <span class="n">Doe</span>
+<span class="n">Date</span><span class="o">:</span>    <span class="n">October</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2007</span>
+<span class="n">blank</span><span class="o">-</span><span class="n">value</span><span class="o">:</span> 
+<span class="n">base_url</span><span class="o">:</span> <span class="n">http</span><span class="o">://</span><span class="n">example</span><span class="o">.</span><span class="na">com</span>
+
+<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">first</span> <span class="n">paragraph</span> <span class="n">of</span> <span class="n">the</span> <span class="n">document</span><span class="o">.</span>
+</pre></div>
+
+
+<p>The keywords are case-insensitive and may consist of letters, numbers, 
+underscores and dashes and must end with a colon. The values consist of 
+anything following the colon on the line and may even be blank.</p>
+<p>If a line is indented by 4 or more spaces, that line is assumed to be an
+additional line of the value for the previous keyword. A keyword may have as
+many lines as desired. </p>
+<p>The first blank line ends all meta-data for the document. Therefore, the first
+line of a document must not be blank.</p>
+<p>Alternatively, You may use YAML style deliminators to mark the start and/or end
+of your meta-data. When doing so, the first line of your document must be <code>---</code>.
+The meta-data ends at the first blank line or the first line containing an end
+deliminator (either <code>---</code> or <code>...</code>), whichever comes first. Even though YAML
+deliminators are supported, meta-data is not parsed as YAML.</p>
+<p>All meta-data is stripped from the document prior to any further processing
+by Markdown.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>See <a href="../">Extensions</a> for general extension usage, specify
+<code>markdown.extensions.meta</code> as the name of the extension.</p>
+<h2 id="accessing-the-meta-data">Accessing the Meta-Data<a class="headerlink" href="#accessing-the-meta-data" title="Permanent link">&para;</a></h2>
+<p>The meta-data is made available as a python Dict in the <code>Meta</code> attribute of an 
+instance of the Markdown class. For example, using the above document:</p>
+<div class="codehilite"><pre><span></span>&gt;&gt;&gt; md = markdown.Markdown(extensions = [&#39;markdown.extensions.meta&#39;])
+&gt;&gt;&gt; html = md.convert(text)
+&gt;&gt;&gt; # Meta-data has been stripped from output
+&gt;&gt;&gt; print html
+<span class="nt">&lt;p&gt;</span>This is the first paragraph of the document.<span class="nt">&lt;/p&gt;</span>
+
+&gt;&gt;&gt; # View meta-data
+&gt;&gt;&gt; print md.Meta
+{
+&#39;title&#39; : [&#39;My Document&#39;],
+&#39;summary&#39; : [&#39;A brief description of my document.&#39;],
+&#39;authors&#39; : [&#39;Waylan Limberg&#39;, &#39;John Doe&#39;],
+&#39;date&#39; : [&#39;October 2, 2007&#39;],
+&#39;blank-value&#39; : [&#39;&#39;],
+&#39;base_url&#39; : [&#39;http://example.com&#39;]
+}
+</pre></div>
+
+
+<p>Note that the keys are all lowercase and the values consist of a list of 
+strings where each item is one line for that key. This way, one could preserve 
+line breaks if desired. Or the items could be joined where appropriate. No 
+assumptions are made regarding the data. It is simply passed as found to the 
+<code>Meta</code> attribute.</p>
+<p>Perhaps the meta-data could be passed into a template system, or used by
+various Markdown extensions. The possibilities are left to the imagination of
+the developer.</p>
+<h2 id="compatible-extensions">Compatible Extensions<a class="headerlink" href="#compatible-extensions" title="Permanent link">&para;</a></h2>
+<p>The following extensions are currently known to work with the Meta-Data 
+extension. The keywords they are known to support are also listed.</p>
+<ul>
+<li><a href="../header_id/">HeaderId</a><ul>
+<li><code>header_level</code></li>
+<li><code>header_forceid</code></li>
+</ul>
+</li>
+<li><a href="../wikilinks/">WikiLinks</a><ul>
+<li><code>wiki_base_url</code></li>
+<li><code>wiki_end_url</code></li>
+<li><code>wiki_html_class</code></li>
+</ul>
+</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#meta-data">Meta-Data</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#summary">Summary</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usage">Usage</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#accessing-the-meta-data">Accessing the Meta-Data</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#compatible-extensions">Compatible Extensions</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../header_id/" title="previous page">HeaderId</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../nl2br/" title="next page">New Line to Break</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/meta_data.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../nl2br/" title="New Line to Break" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../header_id/" title="HeaderId" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Meta-Data</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:47
+        -->
+    </body>
+</html>

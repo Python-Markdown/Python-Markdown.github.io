@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/smarty/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Smart Strong" href="../smart_strong/" />
+        <link rel="prev" title="Sane Lists" href="../sane_lists/" />
+        <title>SmartyPants &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../smart_strong/" title="Smart Strong" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">SmartyPants</a>
+         &#187; </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="smartypants">SmartyPants<a class="headerlink" href="#smartypants" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The SmartyPants extension converts ASCII dashes, quotes and ellipses to
+their HTML entity equivalents.</p>
+<table>
+<thead>
+<tr>
+<th>ASCII symbol</th>
+<th>Replacements</th>
+<th>HTML Entities</th>
+<th>Substitution Keys</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'</code></td>
+<td>&lsquo; &rsquo;</td>
+<td><code>&amp;lsquo;</code> <code>&amp;rsquo;</code></td>
+<td><code>'left-single-quote'</code>, <code>'right-single-quote'</code></td>
+</tr>
+<tr>
+<td><code>"</code></td>
+<td>&ldquo; &rdquo;</td>
+<td><code>&amp;ldquo;</code> <code>&amp;rdquo;</code></td>
+<td><code>'left-double-quote'</code>, <code>'right-double-quote'</code></td>
+</tr>
+<tr>
+<td><code>&lt;&lt; &gt;&gt;</code></td>
+<td>&laquo; &raquo;</td>
+<td><code>&amp;laquo;</code> <code>&amp;raquo;</code></td>
+<td><code>'left-angle-quote'</code>, <code>'right-angle-quote'</code></td>
+</tr>
+<tr>
+<td><code>...</code></td>
+<td>&hellip;</td>
+<td><code>&amp;hellip;</code></td>
+<td><code>'ellipsis'</code></td>
+</tr>
+<tr>
+<td><code>--</code></td>
+<td>&ndash;</td>
+<td><code>&amp;ndash;</code></td>
+<td><code>'ndash'</code></td>
+</tr>
+<tr>
+<td><code>---</code></td>
+<td>&mdash;</td>
+<td><code>&amp;mdash;</code></td>
+<td><code>'mdash'</code></td>
+</tr>
+</tbody>
+</table>
+<p>Using the configuration option &lsquo;substitutions&rsquo; you can overwrite the
+default substitutions. Just pass a dict mapping (a subset of) the 
+keys to the substitution strings.</p>
+<p>For example, one might use the following configuration to get correct quotes for 
+the German language:</p>
+<div class="codehilite"><pre><span></span>extension_configs = {
+    &#39;markdown.extensions.smarty&#39;: {
+        &#39;substitutions&#39;: {
+            &#39;left-single-quote&#39;: &#39;&amp;sbquo;&#39;, # sb is not a typo!
+            &#39;right-single-quote&#39;: &#39;&amp;lsquo;&#39;,
+            &#39;left-double-quote&#39;: &#39;&amp;bdquo;&#39;,
+            &#39;right-double-quote&#39;: &#39;&amp;ldquo;&#39;
+        }
+    }
+}
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This extension re-implements the Python <a href="http://pythonhosted.org/smartypants/">SmartyPants</a> 
+library by integrating it into the markdown parser.
+While this does not provide any additional features,
+it does offer a few advantages. Notably, it will not 
+try to work on highlighted code blocks (using the 
+<a href="../code_hilite.html">CodeHilite</a> Extension) like the third party library 
+has been known to do.</p>
+</div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>See <a href="../">Extensions</a> for general extension usage, specify 
+<code>markdown.extensions.smarty</code> as the name of the extension.</p>
+<p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
+configuring extensions.</p>
+<p>The following options are provided to configure the output:</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>smart_dashes</code></td>
+<td><code>True</code></td>
+<td>whether to convert dashes</td>
+</tr>
+<tr>
+<td><code>smart_quotes</code></td>
+<td><code>True</code></td>
+<td>whether to convert straight quotes</td>
+</tr>
+<tr>
+<td><code>smart_angled_quotes</code></td>
+<td><code>False</code></td>
+<td>whether to convert angled quotes</td>
+</tr>
+<tr>
+<td><code>smart_ellipses</code></td>
+<td><code>True</code></td>
+<td>whether to convert ellipses</td>
+</tr>
+<tr>
+<td><code>substitutions</code></td>
+<td><code>{}</code></td>
+<td>overwrite default substitutions</td>
+</tr>
+</tbody>
+</table>
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<p>SmartyPants extension is based on the original SmartyPants implementation
+by John Gruber. Please read it&rsquo;s <a href="http://daringfireball.net/projects/smartypants/">documentation</a> for details.</p>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#smartypants">SmartyPants</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#summary">Summary</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usage">Usage</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#further-reading">Further reading</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../sane_lists/" title="previous page">Sane Lists</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../smart_strong/" title="next page">Smart Strong</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/smarty.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../smart_strong/" title="Smart Strong" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">SmartyPants</a>
+         &#187; </li>
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:47
+        -->
+    </body>
+</html>

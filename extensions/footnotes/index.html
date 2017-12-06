@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/footnotes/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="HeaderId" href="../header_id/" />
+        <link rel="prev" title="Fenced Code Blocks" href="../fenced_code_blocks/" />
+        <title>Footnotes &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../header_id/" title="HeaderId" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../fenced_code_blocks/" title="Fenced Code Blocks" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Footnotes</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="footnotes">Footnotes<a class="headerlink" href="#footnotes" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The Footnotes extension adds syntax for defining footnotes in Markdown
+documents.</p>
+<p>This extension is included in the standard Markdown library.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>Python-Markdown&rsquo;s Footnote syntax follows the generally accepted syntax of the 
+Markdown community at large and almost exactly matches <a href="http://michelf.com/projects/php-markdown/extra/#footnotes">PHP Markdown Extra</a>&lsquo;s
+implementation of footnotes. The only differences involve a few subtleties in 
+the output.</p>
+<p>Example:</p>
+<div class="codehilite"><pre><span></span>Footnotes[^1] have a label[^@#$%] and the footnote&#39;s content.
+
+[^1]: This is a footnote content.
+[^@#$%]: A footnote on the label: &quot;@#$%&quot;.
+</pre></div>
+
+
+<p>A footnote label must start with a caret <code>^</code> and may contain any inline text 
+(including spaces) between a set of square brackets <code>[]</code>. Only the first
+caret has any special meaning.</p>
+<p>A footnote content must start with the label followed by a colon and at least 
+one space. The label used to define the content must exactly match the label used
+in the body (including capitalization and white space). The content would then 
+follow the label either on the same line or on the next line. The content may 
+contain multiple lines, paragraphs, code blocks, blockquotes and most any other 
+markdown syntax. The additional lines must be indented one level (four spaces or 
+one tab). </p>
+<p>When working with multiple blocks, it may be helpful to start the content on a 
+separate line from the label which defines the content. This way the entire block 
+is indented consistently and any errors are more easily discernible by the author.</p>
+<div class="codehilite"><pre><span></span>[^1]: 
+    The first paragraph of the definition.
+
+    Paragraph two of the definition.
+
+    &gt; A blockquote with
+    &gt; multiple lines.
+
+        a code block
+
+    A final paragraph.
+</pre></div>
+
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>See <a href="../">Extensions</a> for general extension usage, specify
+<code>markdown.extensions.footnotes</code> as the name of the extension.</p>
+<p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
+configuring extensions.</p>
+<p>The following options are provided to configure the output:</p>
+<ul>
+<li>
+<p><strong><code>PLACE_MARKER</code></strong>:
+    A text string used to mark the position where the footnotes are rendered.
+    Defaults to <code>///Footnotes Go Here///</code>.</p>
+<p>If the place marker text is not found in the document, the footnote
+definitions are placed at the end of the resulting HTML document.</p>
+</li>
+<li>
+<p><strong><code>UNIQUE_IDS</code></strong>:
+    Whether to avoid collisions across multiple calls to <code>reset()</code>. Defaults to
+    <code>False</code>.</p>
+</li>
+<li>
+<p><strong><code>BACKLINK_TEXT</code></strong>:
+    The text string that links from the footnote definition back to the position
+    in the document. Defaults to <code>&amp;#8617;</code>.</p>
+</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#footnotes">Footnotes</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#summary">Summary</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usage">Usage</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../fenced_code_blocks/" title="previous page">Fenced Code Blocks</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../header_id/" title="next page">HeaderId</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/footnotes.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../header_id/" title="HeaderId" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../fenced_code_blocks/" title="Fenced Code Blocks" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Footnotes</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:47
+        -->
+    </body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/change_log/release-2.2/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Release Notes for v.2.1" href="../release-2.1/" />
+        <link rel="prev" title="Release Notes for v.2.3" href="../release-2.3/" />
+        <title>Release Notes for v.2.2 &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../release-2.1/" title="Release Notes for v.2.1" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../release-2.3/" title="Release Notes for v.2.3" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Release Notes for v.2.2</a>
+         &#187; </li>
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="python-markdown-22-release-notes">Python-Markdown 2.2 Release Notes<a class="headerlink" href="#python-markdown-22-release-notes" title="Permanent link">&para;</a></h1>
+<p>We are pleased to release Python-Markdown 2.2 which makes improvements on 2.1. 
+While 2.2 is primarily a bug fix release, some internal improvements were made 
+to the parser, and a few security issues were resolved.</p>
+<p>Python-Markdown supports Python versions 2.5, 2.6, 2.7, 3.1, and 3.2 out 
+of the box. </p>
+<h2 id="backwards-incompatible-changes">Backwards-incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
+<p>While Python-Markdown has received only minor internal changes since the last
+release, there are a few backward-incompatible changes to note:</p>
+<ul>
+<li>
+<p>Support had been dropped for Python 2.4. No guarantees are made that the 
+library will work in any version of Python lower than 2.5. Additionally, while 
+the library had been tested with Python 2.5, consider Python 2.5 support to be 
+depreciated. It is not likely that any future versions will continue to support
+any version of Python less than 2.6.</p>
+</li>
+<li>
+<p>For many years Python-Markdown has identified <code>&lt;ins&gt;</code> and <code>&lt;del&gt;</code> tags in 
+raw HTML input as block level tags. As they are actually inline level tags,
+this behavior has been changed. This may result in slightly different output.
+While in most cases, the new output is more correct, there may be a few edge
+cases where a document author has relied on the previous incorrect behavior.
+It is likely that a few adjustments may need to be made to those documents.</p>
+</li>
+<li>
+<p>The behavior of the <code>enable_attributes</code> keyword has been slightly altered.
+If authors have been using attributes in documents with <code>safe_mode</code> on, those 
+attributes will no longer be parsed unless <code>enable_attributes</code> is explicitly
+set to <code>True</code>. This change was made to prevent untrusted authors from injecting
+potentially harmful JavaScript in documents. This change had no effect when 
+not in <code>safe_mode</code>.</p>
+</li>
+</ul>
+<h2 id="whats-new-in-python-markdown-22">What&rsquo;s New in Python-Markdown 2.2<a class="headerlink" href="#whats-new-in-python-markdown-22" title="Permanent link">&para;</a></h2>
+<p>The docs were refactored and can now be found at 
+<a href="http://packages.python.org/Markdown/">http://packages.python.org/Markdown/</a>. The docs are now maintained in the
+Repository and are generated by the <code>setup.py build_docs</code> command.</p>
+<p>The Sane_Lists
+extension was added. The Sane Lists Extension alters the behavior of the 
+Markdown List syntax to be less surprising by not allowing the mixing of list
+types. In other words, an ordered list will not continue when an unordered list
+item is encountered and vice versa.</p>
+<p>Markdown now excepts a full path to an extension module. In other words, your
+extensions no longer need to be in the primary namespace (and start with <code>mdx_</code>)
+for Markdown to find them. Just do <code>Markdown(extension=['path.to.some.module'])</code>.
+As long as the provided module contains a compatible extension, the extension
+will be loaded.</p>
+<p>The BlockParser API was slightly altered to allow <code>blockprocessor.run</code> to return
+<code>True</code> or <code>False</code> which provides more control to the block processor loop from 
+within any Blockprocessor instance.</p>
+<p>Various bug fixes have been made. See the 
+<a href="https://github.com/Python-Markdown/markdown/commits/master">commit log</a> 
+for a complete history of the changes.</p>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#python-markdown-22-release-notes">Python-Markdown 2.2 Release Notes</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#backwards-incompatible-changes">Backwards-incompatible Changes</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#whats-new-in-python-markdown-22">What's New in Python-Markdown 2.2</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../release-2.3/" title="previous page">Release Notes for v.2.3</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../release-2.1/" title="next page">Release Notes for v.2.1</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/change_log/release-2.2.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../release-2.1/" title="Release Notes for v.2.1" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../release-2.3/" title="Release Notes for v.2.3" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Release Notes for v.2.2</a>
+         &#187; </li>
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:48
+        -->
+    </body>
+</html>

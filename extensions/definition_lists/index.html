@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/definition_lists/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Extra" href="../extra/" />
+        <link rel="prev" title="CodeHilite" href="../code_hilite/" />
+        <title>Definition Lists &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../extra/" title="Extra" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../code_hilite/" title="CodeHilite" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Definition Lists</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="definition-lists">Definition Lists<a class="headerlink" href="#definition-lists" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The Definition Lists extension adds the ability to create definition lists in
+Markdown documents.</p>
+<p>This extension is included in the standard Markdown library.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>Definition lists are defined using the syntax established in 
+<a href="http://www.michelf.com/projects/php-markdown/extra/#def-list">PHP Markdown Extra</a>.</p>
+<p>Thus, the following text (taken from the above referenced PHP documentation):</p>
+<div class="codehilite"><pre><span></span><span class="n">Apple</span>
+<span class="o">:</span>   <span class="n">Pomaceous</span> <span class="n">fruit</span> <span class="n">of</span> <span class="n">plants</span> <span class="n">of</span> <span class="n">the</span> <span class="n">genus</span> <span class="n">Malus</span> <span class="k">in</span> 
+    <span class="n">the</span> <span class="n">family</span> <span class="n">Rosaceae</span><span class="o">.</span>
+
+<span class="n">Orange</span>
+<span class="o">:</span>   <span class="n">The</span> <span class="n">fruit</span> <span class="n">of</span> <span class="n">an</span> <span class="n">evergreen</span> <span class="n">tree</span> <span class="n">of</span> <span class="n">the</span> <span class="n">genus</span> <span class="n">Citrus</span><span class="o">.</span>
+</pre></div>
+
+
+<p>will be rendered as:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;dl&gt;</span>
+<span class="nt">&lt;dt&gt;</span>Apple<span class="nt">&lt;/dt&gt;</span>
+<span class="nt">&lt;dd&gt;</span>Pomaceous fruit of plants of the genus Malus in 
+the family Rosaceae.<span class="nt">&lt;/dd&gt;</span>
+
+<span class="nt">&lt;dt&gt;</span>Orange<span class="nt">&lt;/dt&gt;</span>
+<span class="nt">&lt;dd&gt;</span>The fruit of an evergreen tree of the genus Citrus.<span class="nt">&lt;/dd&gt;</span>
+<span class="nt">&lt;/dl&gt;</span>
+</pre></div>
+
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>See <a href="../">Extensions</a> for general extension usage, specify
+<code>markdown.extensions.def_list</code> as the name of the extension.</p>
+<p>This extension does not accept any special configuration options.</p>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#definition-lists">Definition Lists</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#summary">Summary</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usage">Usage</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../code_hilite/" title="previous page">CodeHilite</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../extra/" title="next page">Extra</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/definition_lists.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../extra/" title="Extra" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../code_hilite/" title="CodeHilite" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Definition Lists</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:47
+        -->
+    </body>
+</html>

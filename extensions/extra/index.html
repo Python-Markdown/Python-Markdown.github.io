@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/extra/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Fenced Code Blocks" href="../fenced_code_blocks/" />
+        <link rel="prev" title="Definition Lists" href="../definition_lists/" />
+        <title>Extra &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../fenced_code_blocks/" title="Fenced Code Blocks" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../definition_lists/" title="Definition Lists" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Extra</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="python-markdown-extra">Python-Markdown Extra<a class="headerlink" href="#python-markdown-extra" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>A compilation of various Python-Markdown extensions that (mostly) imitates
+<a href="http://michelf.com/projects/php-markdown/extra/">PHP Markdown Extra</a>.</p>
+<p>The supported extensions include:</p>
+<ul>
+<li><a href="../abbreviations/">Abbreviations</a></li>
+<li><a href="../attr_list/">Attribute Lists</a></li>
+<li><a href="../definition_lists/">Definition Lists</a></li>
+<li><a href="../fenced_code_blocks/">Fenced Code Blocks</a></li>
+<li><a href="../footnotes/">Footnotes</a></li>
+<li><a href="../tables/">Tables</a></li>
+<li><a href="../smart_strong/">Smart Strong</a></li>
+</ul>
+<p>See each individual extension for syntax documentation. Extra and all its 
+supported extensions are included in the standard Markdown library.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>From the Python interpreter:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">markdown</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;markdown.extensions.extra&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p>There may be <a href="../">additional extensions</a> that are distributed with
+Python-Markdown that are not included here in Extra. The features 
+of those extensions are not part of PHP Markdown Extra, and 
+therefore, not part of Python-Markdown Extra. If you really would 
+like Extra to include additional extensions, we suggest creating 
+your own clone of Extra under a different name 
+(see the <a href="../api/">Extension API</a>).  </p>
+<h2 id="markdown-inside-html-blocks">Markdown Inside HTML Blocks<a class="headerlink" href="#markdown-inside-html-blocks" title="Permanent link">&para;</a></h2>
+<p>Unlike the other Extra features, this feature is built into the markdown core and
+is turned on when <code>markdown.extensions.extra</code> is enabled.</p>
+<p>The content of any raw HTML block element can be Markdown-formatted simply by
+adding a <code>markdown</code> attribute to the opening tag. The markdown attribute will be
+stripped from the output, but all other attributes will be preserved.</p>
+<p>If the markdown value is set to <code>1</code> (recommended) or any value other than <code>span</code>
+or <code>block</code>, the default behavior will be executed: <code>p</code>,<code>h[1-6]</code>,<code>li</code>,<code>dd</code>,<code>dt</code>,
+<code>td</code>,<code>th</code>,<code>legend</code>, and <code>address</code> elements skip block parsing while others do not.
+If the default is overridden by a value of <code>span</code>, <em>block parsing will be skipped</em>
+regardless of tag. If the default is overridden by a value of <code>block</code>,
+<em>block parsing will occur</em> regardless of tag.</p>
+<h4 id="simple-example">Simple Example:<a class="headerlink" href="#simple-example" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span>This is *true* markdown text.
+
+<span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+This is *true* markdown text.
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<h4 id="result">Result:<a class="headerlink" href="#result" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;p&gt;</span>This is <span class="nt">&lt;em&gt;</span>true<span class="nt">&lt;/em&gt;</span> markdown text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is <span class="nt">&lt;em&gt;</span>true<span class="nt">&lt;/em&gt;</span> markdown text.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<h3 id="nested-markdown-inside-html-blocks">Nested Markdown Inside HTML Blocks<a class="headerlink" href="#nested-markdown-inside-html-blocks" title="Permanent link">&para;</a></h3>
+<p>Nested elements are more sensitive and must be used cautiously. To avoid
+unexpected results:</p>
+<ul>
+<li>Only nest elements within block mode elements.</li>
+<li>Follow the closing tag of inner elements with a blank line.</li>
+<li>Only have one level of nesting.</li>
+</ul>
+<h4 id="complex-example">Complex Example:<a class="headerlink" href="#complex-example" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;Example&quot;</span><span class="nt">&gt;</span>
+
+The text of the `Example` element.
+
+<span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;DefaultBlockMode&quot;</span><span class="nt">&gt;</span>
+This text gets wrapped in `p` tags.
+<span class="nt">&lt;/div&gt;</span>
+
+The tail of the `DefaultBlockMode` subelement.
+
+<span class="nt">&lt;p</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span> <span class="na">name=</span><span class="s">&quot;DefaultSpanMode&quot;</span><span class="nt">&gt;</span>
+This text *is not* wrapped in additional `p` tags.
+<span class="nt">&lt;/p&gt;</span>
+
+The tail of the `DefaultSpanMode` subelement.
+
+<span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">&quot;span&quot;</span> <span class="na">name=</span><span class="s">&quot;SpanModeOverride&quot;</span><span class="nt">&gt;</span>
+This `div` block is not wrapped in paragraph tags.
+Note: Subelements are not required to have tail text.
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;p</span> <span class="na">markdown=</span><span class="s">&quot;block&quot;</span> <span class="na">name=</span><span class="s">&quot;BlockModeOverride&quot;</span><span class="nt">&gt;</span>
+This `p` block *is* foolishly wrapped in further paragraph tags.
+<span class="nt">&lt;/p&gt;</span>
+
+The tail of the `BlockModeOverride` subelement.
+
+<span class="nt">&lt;div</span> <span class="na">name=</span><span class="s">&quot;RawHtml&quot;</span><span class="nt">&gt;</span>
+Raw HTML blocks may also be nested.
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+
+This text is after the markdown in HTML.
+</pre></div>
+
+
+<h4 id="result_1">Result:<a class="headerlink" href="#result_1" title="Permanent link">&para;</a></h4>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;div</span> <span class="na">name=</span><span class="s">&quot;Example&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;p&gt;</span>The text of the <span class="nt">&lt;code&gt;</span>Example<span class="nt">&lt;/code&gt;</span> element.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">name=</span><span class="s">&quot;DefaultBlockMode&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;p&gt;</span>This text gets wrapped in <span class="nt">&lt;code&gt;</span>p<span class="nt">&lt;/code&gt;</span> tags.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;p&gt;</span>The tail of the <span class="nt">&lt;code&gt;</span>DefaultBlockMode<span class="nt">&lt;/code&gt;</span> subelement.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">name=</span><span class="s">&quot;DefaultSpanMode&quot;</span><span class="nt">&gt;</span>
+This text <span class="nt">&lt;em&gt;</span>is not<span class="nt">&lt;/em&gt;</span> wrapped in additional <span class="nt">&lt;code&gt;</span>p<span class="nt">&lt;/code&gt;</span> tags.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>The tail of the <span class="nt">&lt;code&gt;</span>DefaultSpanMode<span class="nt">&lt;/code&gt;</span> subelement.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">name=</span><span class="s">&quot;SpanModeOverride&quot;</span><span class="nt">&gt;</span>
+This <span class="nt">&lt;code&gt;</span>div<span class="nt">&lt;/code&gt;</span> block is not wrapped in paragraph tags.
+Note: Subelements are not required to have tail text.<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">name=</span><span class="s">&quot;BlockModeOverride&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;p&gt;</span>This <span class="nt">&lt;code&gt;</span>p<span class="nt">&lt;/code&gt;</span> block <span class="nt">&lt;em&gt;</span>is<span class="nt">&lt;/em&gt;</span> foolishly wrapped in further paragraph tags.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>The tail of the <span class="nt">&lt;code&gt;</span>BlockModeOverride<span class="nt">&lt;/code&gt;</span> subelement.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">name=</span><span class="s">&quot;RawHtml&quot;</span><span class="nt">&gt;</span>
+Raw HTML blocks may also be nested.
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;p&gt;</span>This text is after the markdown in HTML.<span class="nt">&lt;/p&gt;</span>
+</pre></div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#python-markdown-extra">Python-Markdown Extra</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#summary">Summary</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usage">Usage</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown-inside-html-blocks">Markdown Inside HTML Blocks</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#simple-example">Simple Example:</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#result">Result:</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#nested-markdown-inside-html-blocks">Nested Markdown Inside HTML Blocks</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#complex-example">Complex Example:</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#result_1">Result:</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../definition_lists/" title="previous page">Definition Lists</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../fenced_code_blocks/" title="next page">Fenced Code Blocks</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/extra.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../fenced_code_blocks/" title="Fenced Code Blocks" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../definition_lists/" title="Definition Lists" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">Extra</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:47
+        -->
+    </body>
+</html>

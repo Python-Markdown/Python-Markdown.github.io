@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/code_hilite/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Definition Lists" href="../definition_lists/" />
+        <link rel="prev" title="Attribute Lists" href="../attr_list/" />
+        <title>CodeHilite &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../definition_lists/" title="Definition Lists" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../attr_list/" title="Attribute Lists" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">CodeHilite</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="codehilite">CodeHilite<a class="headerlink" href="#codehilite" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The CodeHilite extension adds code/syntax highlighting to standard
+Python-Markdown code blocks using <a href="http://pygments.org/">Pygments</a>.</p>
+<p>This extension is included in the standard Markdown library.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-download-and-install-pygments">Step 1: Download and Install Pygments<a class="headerlink" href="#step-1-download-and-install-pygments" title="Permanent link">&para;</a></h3>
+<p>You will also need to <a href="http://pygments.org/download/">download</a> and install the Pygments package on your
+<code>PYTHONPATH</code>. The CodeHilite extension will produce HTML output without
+Pygments, but it won&rsquo;t highlight anything (same behavior as setting<code>use_pygments</code> to <code>False</code>).</p>
+<h3 id="step-2-add-css-classes">Step 2: Add CSS Classes<a class="headerlink" href="#step-2-add-css-classes" title="Permanent link">&para;</a></h3>
+<p>You will need to define the appropriate CSS classes with appropriate rules.
+The CSS rules either need to be defined in or linked from the header of your
+HTML templates. Pygments can generate CSS rules for you. Just run the following
+command from the command line:</p>
+<div class="codehilite"><pre><span></span>pygmentize -S default -f html -a .codehilite &gt; styles.css
+</pre></div>
+
+
+<p>If you are using a different <code>css_class</code> (default: <code>.codehilite</code>), then
+set the value of the <code>-a</code> option to that class name. The CSS rules will be
+written to the <code>styles.css</code> file which you can copy to your site and link from
+your HTML templates.</p>
+<p>If you would like to use a different theme, swap out <code>default</code> for the desired
+theme. For a list of themes installed on your system (additional themes can be
+installed via Pygments plugins), run the following command:</p>
+<div class="codehilite"><pre><span></span>pygmentize -L style
+</pre></div>
+
+
+<p>See Pygments&rsquo; excellent <a href="http://pygments.org/docs/">documentation</a> for more details. If no language is
+defined, Pygments will attempt to guess the language. When that fails, the code
+block will not be highlighted.</p>
+<div class="admonition note">
+<p class="admonition-title">See Also</p>
+<p>GitHub user <a href="https://github.com/richleland">richeland</a> has provided a number of different <a href="https://github.com/richleland/pygments-css">CSS style
+sheets</a> which work with Pygments along with a <a href="http://richleland.github.io/pygments-css/">preview</a> of each theme.
+The <code>css_class</code> used is the same as the default value for that option
+(<code>.codehilite</code>). However, the Python-Markdown project makes no guarantee that
+richeland&rsquo;s CSS styles will work with the version of Pygments you are using.
+To ensure complete compatibility, you should generate the CSS rules from
+your own installation of Pygments.</p>
+</div>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>The CodeHilite extension follows the same <a href="http://daringfireball.net/projects/markdown/syntax#precode">syntax</a> as regular Markdown code
+blocks, with one exception. The highlighter needs to know what language to use for
+the code block. There are three ways to tell the highlighter what language the
+code block contains and each one has a different result.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The format of the language identifier only effects the display of line numbers
+if <code>linenums</code> is set to <code>None</code> (the default). If set to <code>True</code> or <code>False</code>
+(see <a href="#usage">Usage</a> below) the format of the identifier has no effect on the
+display of line numbers &ndash; it only serves as a means to define the language
+of the code block.</p>
+</div>
+<h3 id="shebang-with-path">Shebang (with path)<a class="headerlink" href="#shebang-with-path" title="Permanent link">&para;</a></h3>
+<p>If the first line of the code block contains a shebang, the language is derived
+from that and line numbers are used.</p>
+<div class="codehilite"><pre><span></span>    #!/usr/bin/python
+    # Code goes here ...
+</pre></div>
+
+
+<p>Will result in:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># Code goes here ...</span>
+</pre></div>
+</td></tr></table>
+
+<h3 id="shebang-no-path">Shebang (no path)<a class="headerlink" href="#shebang-no-path" title="Permanent link">&para;</a></h3>
+<p>If the first line contains a shebang, but the shebang line does not contain a
+path (a single <code>/</code> or even a space), then that line is removed from the code
+block before processing. Line numbers are used.</p>
+<div class="codehilite"><pre><span></span>    #!python
+    # Code goes here ...
+</pre></div>
+
+
+<p>Will result in:</p>
+<div class="codehilite"><pre><span></span># Code goes here ...
+</pre></div>
+
+
+<h3 id="colons">Colons<a class="headerlink" href="#colons" title="Permanent link">&para;</a></h3>
+<p>If the first line begins with three or more colons, the text following the
+colons identifies the language. The first line is removed from the code block
+before processing and line numbers are not used.</p>
+<div class="codehilite"><pre><span></span>    :::python
+    # Code goes here ...
+</pre></div>
+
+
+<p>Will result in:</p>
+<div class="codehilite"><pre><span></span># Code goes here ...
+</pre></div>
+
+
+<p>Certain lines can be selected for emphasis with the colon syntax. When
+using Pygments&rsquo; default CSS styles, emphasized lines have a yellow background.
+This is useful to direct the reader&rsquo;s attention to specific lines.</p>
+<div class="codehilite"><pre><span></span><span class="hll"><span class="c1"># This line is emphasized</span>
+</span><span class="c1"># This line isn&#39;t</span>
+<span class="hll"><span class="c1"># This line is emphasized</span>
+</span></pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code>hl_lines</code> is named for Pygments&rsquo; option meaning &ldquo;highlighted lines&rdquo;.</p>
+</div>
+<h3 id="when-no-language-is-defined">When No Language is Defined<a class="headerlink" href="#when-no-language-is-defined" title="Permanent link">&para;</a></h3>
+<p>CodeHilite is completely backwards compatible so that if a code block is
+encountered that does not define a language, the block is simply wrapped in
+<code>&lt;pre&gt;</code> tags and output.</p>
+<div class="codehilite"><pre><span></span>    # Code goes here ...
+</pre></div>
+
+
+<p>Will result in:</p>
+<div class="codehilite"><pre><span></span># Code goes here ...
+</pre></div>
+
+
+<p>Lets see the source for that:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;codehilite&quot;</span><span class="nt">&gt;&lt;pre&gt;&lt;code&gt;</span># Code goes here ...
+<span class="nt">&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When no language is defined, the Pygments highlighting engine will try to guess
+the language (unless <code>guess_lang</code> is set to <code>False</code>). Upon failure, the same
+behavior will happen as described above.</p>
+</div>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>See <a href="../">Extensions</a> for general extension usage, specify
+<code>markdown.extensions.codehilite</code> as the name of the extension.</p>
+<p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
+configuring extensions.</p>
+<p>The following options are provided to configure the output:</p>
+<ul>
+<li>
+<p><strong><code>linenums</code></strong>:
+    Use line numbers. Possible values are <code>True</code> for yes, <code>False</code> for no and
+    <code>None</code> for auto. Defaults to <code>None</code>.</p>
+<p>Using <code>True</code> will force every code block to have line numbers, even when
+using colons (<code>:::</code>) for language identification.</p>
+<p>Using <code>False</code> will turn off all line numbers, even when using shebangs
+(<code>#!</code>) for language identification.</p>
+</li>
+<li>
+<p><strong><code>guess_lang</code></strong>:
+    Automatic language detection. Defaults to <code>True</code>.</p>
+<p>Using <code>False</code> will prevent Pygments from guessing the language, and thus
+highlighting blocks only when you explicitly set the language.</p>
+</li>
+<li>
+<p><strong><code>css_class</code></strong>:
+    Set CSS class name for the wrapper <code>&lt;div&gt;</code> tag. Defaults to
+    <code>codehilite</code>.</p>
+</li>
+<li>
+<p><strong><code>pygments_style</code></strong>:
+    Pygments HTML Formatter Style (<code>ColorScheme</code>). Defaults to <code>default</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is useful only when <code>noclasses</code> is set to <code>True</code>, otherwise the
+CSS styles must be provided by the end user.</p>
+</div>
+</li>
+<li>
+<p><strong><code>noclasses</code></strong>:
+    Use inline styles instead of CSS classes. Defaults to <code>False</code>.</p>
+</li>
+<li>
+<p><strong><code>use_pygments</code></strong>:
+    Defaults to <code>True</code>. Set to <code>False</code> to disable the use of Pygments.
+    If a language is defined for a code block, it will be assigned to the
+    <code>&lt;code&gt;</code> tag as a class in the manner suggested by the <a href="http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5 spec</a>
+    (alternate output will not be entertained) and might be used by a JavaScript
+    library in the browser to highlight the code block.</p>
+</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#codehilite">CodeHilite</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#summary">Summary</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#setup">Setup</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#step-1-download-and-install-pygments">Step 1: Download and Install Pygments</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#step-2-add-css-classes">Step 2: Add CSS Classes</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#syntax">Syntax</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#shebang-with-path">Shebang (with path)</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#shebang-no-path">Shebang (no path)</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#colons">Colons</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#when-no-language-is-defined">When No Language is Defined</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usage">Usage</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../attr_list/" title="previous page">Attribute Lists</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../definition_lists/" title="next page">Definition Lists</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/code_hilite.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../definition_lists/" title="Definition Lists" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../attr_list/" title="Attribute Lists" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">CodeHilite</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:47
+        -->
+    </body>
+</html>

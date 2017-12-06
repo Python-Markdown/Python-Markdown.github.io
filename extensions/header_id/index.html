@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/header_id/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Meta-Data" href="../meta_data/" />
+        <link rel="prev" title="Footnotes" href="../footnotes/" />
+        <title>HeaderId &#8212; Python-Markdown 2.6.9 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script>
+        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../meta_data/" title="Meta-Data" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../footnotes/" title="Footnotes" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">HeaderId</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="headerid">HeaderId<a class="headerlink" href="#headerid" title="Permanent link">&para;</a></h1>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>The HeaderId extension automatically generates <code>id</code> attributes for the header
+elements (<code>h1</code>-<code>h6</code>) in the resulting HTML document.</p>
+<p>This extension is included in the standard Markdown library.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This extension is <strong>Pending Deprecation</strong>. The <a href="../toc/">Table of Contents</a>
+Extension should be used instead, which offers most the features of this
+extension and more.</p>
+</div>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>By default, all headers will automatically have unique <code>id</code> attributes 
+generated based upon the text of the header (see below to turn this off). 
+Note this example, in which all three headers would have the same <code>id</code>:</p>
+<div class="codehilite"><pre><span></span>#Header
+#Header
+#Header
+</pre></div>
+
+
+<p>Results in:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;header&quot;</span><span class="nt">&gt;</span>Header<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;header_1&quot;</span><span class="nt">&gt;</span>Header<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;header_2&quot;</span><span class="nt">&gt;</span>Header<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>See <a href="../">Extensions</a> for general extension usage, specify
+<code>markdown.extensions.headerid</code> as the name of the extension.</p>
+<p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
+configuring extensions.</p>
+<p>The following options are provided to configure the output:</p>
+<ul>
+<li>
+<p><strong><code>level</code></strong>: Base level for headers.</p>
+<p>Default: <code>1</code></p>
+<p>The <code>level</code> setting allows you to automatically adjust the header levels to
+fit within the hierarchy of your HTML templates. For example, suppose the 
+markdown text for a page should not contain any headers higher than level 3
+(<code>&lt;h3&gt;</code>). The following will accomplish that:</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span>  <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">... #Some Header</span>
+<span class="s1">... ## Next Level&#39;&#39;&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">markdown.extensions.headerid</span> <span class="kn">import</span> <span class="n">HeaderIdExtension</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">HeaderIdExtension</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">3</span><span class="p">)])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">print</span> <span class="n">html</span>
+<span class="o">&lt;</span><span class="n">h3</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;some_header&quot;</span><span class="o">&gt;</span><span class="n">Some</span> <span class="n">Header</span><span class="o">&lt;/</span><span class="n">h3</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">h4</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;next_level&quot;</span><span class="o">&gt;</span><span class="n">Next</span> <span class="n">Level</span><span class="o">&lt;/</span><span class="n">h4</span><span class="o">&gt;</span><span class="s1">&#39;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong><code>forceid</code></strong>: Force all headers to have an id.</p>
+<p>Default: <code>True</code></p>
+<p>The <code>forceid</code> setting turns on or off the automatically generated ids for 
+headers that do not have one explicitly defined (using the
+<a href="../attr_list/">Attribute List</a> extension).</p>
+<div class="codehilite"><pre><span></span>&gt;&gt;&gt; text = &#39;&#39;&#39;
+... # Some Header
+... # Header with ID # { #foo }&#39;&#39;&#39;
+&gt;&gt;&gt; html = markdown.markdown(text,
+                             extensions=[&#39;markdown.extensions.attr_list&#39;,
+                                         HeaderIdExtension(forceid=False)])
+&gt;&gt;&gt; print html
+<span class="nt">&lt;h1&gt;</span>Some Header<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;foo&quot;</span><span class="nt">&gt;</span>Header with ID<span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong><code>separator</code></strong>: Word separator. Character which replaces white space in id.</p>
+<p>Default: <code>-</code></p>
+</li>
+<li>
+<p><strong><code>slugify</code></strong>: Callable to generate anchors.</p>
+<p>Default: <code>markdown.extensions.headerid.slugify</code></p>
+<p>If you would like to use a different algorithm to define the ids, you can
+pass in a callable which takes two arguments:</p>
+<ul>
+<li><code>value</code>: The string to slugify.</li>
+<li><code>separator</code>: The Word Separator.</li>
+</ul>
+</li>
+</ul>
+<h2 id="using-with-meta-data">Using with Meta-Data<a class="headerlink" href="#using-with-meta-data" title="Permanent link">&para;</a></h2>
+<p>The HeaderId extension also supports the <a href="../meta_data/">Meta-Data</a> extension.
+Please see the documentation for that extension for specifics. The supported 
+meta-data keywords are:</p>
+<ul>
+<li><code>header_level</code></li>
+<li><code>header_forceid</code></li>
+</ul>
+<p>When used, the meta-data will override the settings provided through the<br />
+<code>extension_configs</code> interface. </p>
+<p>This document:</p>
+<div class="codehilite"><pre><span></span><span class="n">header_level</span><span class="o">:</span> <span class="mi">2</span>
+<span class="n">header_forceid</span><span class="o">:</span> <span class="n">Off</span>
+
+<span class="err">#</span> <span class="n">A</span> <span class="n">Header</span>
+</pre></div>
+
+
+<p>Will result in the following output:</p>
+<div class="codehilite"><pre><span></span><span class="nt">&lt;h2&gt;</span>A Header<span class="nt">&lt;/h2&gt;</span>
+</pre></div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#headerid">HeaderId</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#summary">Summary</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#syntax">Syntax</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usage">Usage</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#using-with-meta-data">Using with Meta-Data</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../footnotes/" title="previous page">Footnotes</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../meta_data/" title="next page">Meta-Data</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/header_id.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../meta_data/" title="Meta-Data" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../footnotes/" title="Footnotes" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 2.6.9 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            Officially Supported Extensions
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        <li class="nav-item">
+            <a href="./">HeaderId</a>
+         &#187; </li>
+            
+            
+            
+            
+            
+            
+            
+            
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/require.js"></script>
+        <script src="../../search/search.js"></script>
+
+        <!--
+        MkDocs version      : 0.17.2
+        Docs Build Date UTC : 2017-12-06 21:05:47
+        -->
+    </body>
+</html>
