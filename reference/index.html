@@ -97,18 +97,18 @@ method appropriately (<a href="#convert">see below</a>).</p>
 some simple ASCII strings <em>may</em> work) and returns output as Unicode.
 Do not pass encoded strings to it! If your input is encoded, (e.g. as
 UTF-8), it is your responsibility to decode it.  For example:</p>
-<div class="codehilite"><pre><span></span>input_file = codecs.open(&quot;some_file.txt&quot;, mode=&quot;r&quot;, encoding=&quot;utf-8&quot;)
-text = input_file.read()
-html = markdown.markdown(text)
+<div class="codehilite"><pre><span></span><span class="n">input_file</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;some_file.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">text</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </pre></div>
 
 
 <p>If you want to write the output to disk, you <em>must</em> encode it yourself:</p>
-<div class="codehilite"><pre><span></span>output_file = codecs.open(&quot;some_file.html&quot;, &quot;w&quot;,
-                          encoding=&quot;utf-8&quot;,
-                          errors=&quot;xmlcharrefreplace&quot;
-)
-output_file.write(html)
+<div class="codehilite"><pre><span></span><span class="n">output_file</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;some_file.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
+                          <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
+                          <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span>
+<span class="p">)</span>
+<span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 </pre></div>
 
 
@@ -124,7 +124,7 @@ library. See the <a href="../extensions/">extension documentation</a> for a
 list of available extensions.</p>
 <p>The list of extensions may contain instances of extensions and/or strings
 of extension names.</p>
-<div class="codehilite"><pre><span></span>extensions=[MyExtension(), &#39;path.to.my.ext&#39;]
+<div class="codehilite"><pre><span></span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(),</span> <span class="s1">&#39;path.to.my.ext&#39;</span><span class="p">]</span>
 </pre></div>
 
 
@@ -149,16 +149,16 @@ defined when initiating the class instance rather than using the
 <p>If an extension name is provided as a string, the extension must be
 importable as a python module on your PYTHONPATH. Python&rsquo;s dot notation is
 supported. Therefore, to import the &lsquo;extra&rsquo; extension, one could do
-<code>extensions=['markdown.extensions.extra']</code>  </p>
-<p>Additionally, a Class may be specified in the name. The class must be at the end of
-the name and be separated by a colon from the module.</p>
+<code>extensions=['markdown.extensions.extra']</code></p>
+<p>Additionally, a Class may be specified in the name. The class must be at the
+end of the name and be separated by a colon from the module.</p>
 <p>Therefore, if you were to import the class like this:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
 </pre></div>
 
 
 <p>Then the named extension would comprise this string:</p>
-<div class="codehilite"><pre><span></span>&quot;path.to.module:SomeExtensionClass&quot;
+<div class="codehilite"><pre><span></span><span class="s2">&quot;path.to.module:SomeExtensionClass&quot;</span>
 </pre></div>
 
 
@@ -191,15 +191,15 @@ does not require use of the <code>extension_configs</code> keyword at all.
 See the <a href="#extensions">extensions</a> keyword for details.</p>
 </div>
 <p>The dictionary of configuration settings must be in the following format:</p>
-<div class="codehilite"><pre><span></span>extension_configs = {
-    &#39;extension_name_1&#39;: {
-        &#39;option_1&#39;: &#39;value_1&#39;,
-        &#39;option_2&#39;: &#39;value_2&#39;
-    },
-    &#39;extension_name_2&#39;: {
-        &#39;option_1&#39;: &#39;value_1&#39;
-    }
-}
+<div class="codehilite"><pre><span></span><span class="n">extension_configs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;extension_name_1&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;option_1&#39;</span><span class="p">:</span> <span class="s1">&#39;value_1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;option_2&#39;</span><span class="p">:</span> <span class="s1">&#39;value_2&#39;</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;extension_name_2&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;option_1&#39;</span><span class="p">:</span> <span class="s1">&#39;value_1&#39;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
@@ -211,8 +211,12 @@ specifying configuration settings for that extension.</p>
 <p>Format of output.</p>
 <p>Supported formats are:</p>
 <ul>
-<li><code>"xhtml"</code>: Outputs XHTML style tags. <strong>Default</strong>.</li>
-<li><code>"html"</code>: Outputs HTML style tags.</li>
+<li><code>"xhtml1"</code>: Outputs XHTML 1.x. <strong>Default</strong>.</li>
+<li><code>"xhtml5"</code>: Outputs XHTML style tags of HTML 5</li>
+<li><code>"xhtml"</code>: Outputs latest supported version of XHTML (currently XHTML 1.1).</li>
+<li><code>"html4"</code>: Outputs HTML 4</li>
+<li><code>"html5"</code>: Outputs HTML style tags of HTML 5</li>
+<li><code>"html"</code>: Outputs latest supported version of HTML (currently HTML 4).</li>
 </ul>
 <p>The values can be in either lowercase or uppercase.</p>
 <div class="admonition warning">
@@ -222,10 +226,9 @@ specifying configuration settings for that extension.</p>
 change in the future if it makes sense at that time.</p>
 </div>
 </dd>
-</dl>
-<ul>
-<li>
-<p><strong id="safe_mode"><code>safe_mode</code></strong>: Disallow raw HTML.</p>
+<dt><strong id="safe_mode">safe_mode</strong>:</dt>
+<dd>
+<p>Disallow raw HTML.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>&ldquo;<code>safe_mode</code>&rdquo; is deprecated and should not be used.</p>
@@ -237,64 +240,71 @@ dealing with markdown text submitted by untrusted users.</p>
 </pre></div>
 
 
-<p>See the <a href="../release-2.6.html">release notes</a> for more info.</p>
+<p>See the <a href="../change_log/release-2.6/">release notes</a> for more info.</p>
 </div>
 <p>The following values are accepted:</p>
-<ul>
-<li>
-<p><code>False</code> (Default): Raw HTML is passed through unaltered.</p>
-</li>
-<li>
-<p><code>replace</code>: Replace all HTML blocks with the text assigned to
-  <code>html_replacement_text</code> To maintain backward compatibility, setting
-  <code>safe_mode=True</code> will have the same effect as <code>safe_mode='replace'</code>.   </p>
+<dl>
+<dt><code>False</code> (Default):</dt>
+<dd>
+<p>Raw HTML is passed through unaltered.</p>
+</dd>
+<dt><code>replace</code>:</dt>
+<dd>
+<p>Replace all HTML blocks with the text assigned to
+  <code>html_replacement_text</code>. To maintain backward compatibility, setting
+  <code>safe_mode=True</code> will have the same effect as <code>safe_mode='replace'</code>.</p>
 <p>To replace raw HTML with something other than the default, do:</p>
-<div class="codehilite"><pre><span></span>md = markdown.Markdown(safe_mode=&#39;replace&#39;,
-                   html_replacement_text=&#39;--RAW HTML NOT ALLOWED--&#39;)
+<div class="codehilite"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span>
+    <span class="n">safe_mode</span><span class="o">=</span><span class="s1">&#39;replace&#39;</span><span class="p">,</span>
+    <span class="n">html_replacement_text</span><span class="o">=</span><span class="s1">&#39;--RAW HTML NOT ALLOWED--&#39;</span>
+<span class="p">)</span>
 </pre></div>
 
 
-</li>
-<li>
-<p><code>remove</code>: All raw HTML will be completely stripped from the text with
+</dd>
+<dt><code>remove</code>:</dt>
+<dd>
+<p>All raw HTML will be completely stripped from the text with
   no warning to the author.</p>
-</li>
-<li>
-<p><code>escape</code>: All raw HTML will be escaped and included in the document.</p>
+</dd>
+<dt><code>escape</code>:</dt>
+<dd>
+<p>All raw HTML will be escaped and included in the document.</p>
 <p>For example, the following source:</p>
-<div class="codehilite"><pre><span></span>Foo <span class="nt">&lt;b&gt;</span>bar<span class="nt">&lt;/b&gt;</span>.
+<div class="codehilite"><pre><span></span>Foo &lt;b&gt;bar&lt;/b&gt;.
 </pre></div>
 
 
 <p>Will result in the following HTML:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;p&gt;</span>Foo <span class="ni">&amp;lt;</span>b<span class="ni">&amp;gt;</span>bar<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;</span>.<span class="nt">&lt;/p&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Foo <span class="ni">&amp;lt;</span>b<span class="ni">&amp;gt;</span>bar<span class="ni">&amp;lt;</span>/b<span class="ni">&amp;gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </pre></div>
 
 
-</li>
-</ul>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>&ldquo;safe_mode&rdquo; also alters the default value for the
 <a href="#enable_attributes"><code>enable_attributes</code></a> option.</p>
 </div>
-</li>
-<li>
-<p><strong id="html_replacement_text"><code>html_replacement_text</code></strong>: Text used when
-  safe_mode is set to <code>replace</code>. Defaults to <code>[HTML_REMOVED]</code>.</p>
+</dd>
+<dt><strong id="html_replacement_text">html_replacement_text</strong>:</dt>
+<dd>
+<p>Text used when safe_mode is set to <code>replace</code>. Defaults to <code>[HTML_REMOVED]</code>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>&ldquo;<code>html_replacement_text</code>&rdquo; is deprecated and should not be used.
-See the <a href="../release-2.6.html">release notes</a> for more info.</p>
+See the <a href="../change_log/release-2.6/">release notes</a> for more info.</p>
 </div>
-</li>
-<li>
-<p><strong id="tab_length"><code>tab_length</code></strong>: Length of tabs in the source. Default: 4</p>
-</li>
-<li>
-<p><strong id="enable_attributes"><code>enable_attributes</code></strong>: Enable the conversion of
-  attributes. Defaults to <code>True</code>, unless <a href="#safe_mode"><code>safe_mode</code></a> is enabled,
-  in which case the default is <code>False</code>.</p>
+</dd>
+<dt><strong id="tab_length">tab_length</strong>:</dt>
+<dd>
+<p>Length of tabs in the source. Default: 4</p>
+</dd>
+<dt><strong id="enable_attributes">enable_attributes</strong>:</dt>
+<dd>
+<p>Enable the conversion of attributes. Defaults to <code>True</code>, unless
+  <a href="#safe_mode"><code>safe_mode</code></a> is enabled, in which case the default is <code>False</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><code>safe_mode</code> only overrides the default. If <code>enable_attributes</code>
@@ -302,18 +312,18 @@ is explicitly set, the explicit value is used regardless of <code>safe_mode</cod
 However, this could potentially allow an untrusted user to inject
 JavaScript into your documents.</p>
 </div>
-</li>
-<li>
-<p><strong id="smart_emphasis"><code>smart_emphasis</code></strong>: Treat <code>_connected_words_</code>
-  intelligently Default: True</p>
-</li>
-<li>
-<p><strong id="lazy_ol"><code>lazy_ol</code></strong>: Ignore number of first item of ordered lists.
-  Default: True</p>
+</dd>
+<dt><strong id="smart_emphasis">smart_emphasis</strong>:</dt>
+<dd>
+<p>Treat <code>_connected_words_</code> intelligently Default: True</p>
+</dd>
+<dt><strong id="lazy_ol">lazy_ol</strong>:</dt>
+<dd>
+<p>Ignore number of first item of ordered lists. Default: True</p>
 <p>Given the following list:</p>
-<div class="codehilite"><pre><span></span>4. Apples
-5. Oranges
-6. Pears
+<div class="codehilite"><pre><span></span><span class="k">4.</span> Apples
+<span class="k">5.</span> Oranges
+<span class="k">6.</span> Pears
 </pre></div>
 
 
@@ -321,18 +331,15 @@ JavaScript into your documents.</p>
 with item number &ldquo;4&rdquo; and the HTML list will start with a number &ldquo;1&rdquo;.
 If <code>lazy_ol</code> is set to <code>False</code>, then markdown will output the following
 HTML:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;ol</span> <span class="na">start=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Apples<span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Oranges<span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Pears<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ol&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">start</span><span class="o">=</span><span class="s">&quot;4&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Apples<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Oranges<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Pears<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 </pre></div>
 
 
-</li>
-</ul>
-<dl>
-<dd>Length of tabs in the source. Default: 4</dd>
+</dd>
 </dl>
 <h3 id="markdownFromFile"><code>markdown.markdownFromFile (**kwargs)</code><a class="headerlink" href="#markdownFromFile" title="Permanent link">&para;</a></h3>
 <p>With a few exceptions, <code>markdown.markdownFromFile</code> accepts the same options as
@@ -383,23 +390,23 @@ string must be passed to one of two instance methods:</p>
 argument of the <a href="#markdown"><code>markdown.markdown</code></a> function.</p>
 <p>You should also use this method if you want to process multiple strings
 without creating a new instance of the class for each string.</p>
-<div class="codehilite"><pre><span></span>md = markdown.Markdown()
-html1 = md.convert(text1)
-html2 = md.convert(text2)
+<div class="codehilite"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">()</span>
+<span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
+<span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Depending on which options and/or extensions are being used, the parser may
 need its state reset between each call to <code>convert</code>, otherwise performance
 can degrade drastically:</p>
-<div class="codehilite"><pre><span></span>html1 = md.convert(text1)
-md.reset()
-html2 = md.convert(text2)
+<div class="codehilite"><pre><span></span><span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
 </pre></div>
 
 
 <p>To make this easier, you can also chain calls to <code>reset</code> together:</p>
-<div class="codehilite"><pre><span></span>html3 = md.reset().convert(text3)
+<div class="codehilite"><pre><span></span><span class="n">html3</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
 </pre></div>
 
 
@@ -542,7 +549,7 @@ each document. State may need to be <code>reset</code> between each call to
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:44
+        Docs Build Date UTC : 2017-12-07 04:03:46
         -->
     </body>
 </html>

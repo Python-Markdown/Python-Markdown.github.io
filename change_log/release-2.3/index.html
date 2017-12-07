@@ -76,76 +76,77 @@ below for details.</p>
 <ul>
 <li>
 <p>Support has been dropped for Python 2.5. No guarantees are made that the
-library will work in any version of Python lower than 2.6. As all supported
-Python versions include the ElementTree library, Python-Markdown will no
-longer try to import a third-party installation of ElementTree.</p>
+  library will work in any version of Python lower than 2.6. As all supported
+  Python versions include the ElementTree library, Python-Markdown will no
+  longer try to import a third-party installation of ElementTree.</p>
 </li>
 <li>
-<p>All classes are now &ldquo;new-style&rdquo; classes. In other words, all classes
-subclass from &lsquo;object&rsquo;. While this is not likely to affect most users,
-extension authors may need to make a few minor adjustments to their code.</p>
+<p>All classes are now &ldquo;new-style&rdquo; classes. In other words, all classes subclass
+  from &lsquo;object&rsquo;. While this is not likely to affect most users, extension
+  authors may need to make a few minor adjustments to their code.</p>
 </li>
 <li>
-<p>&ldquo;safe_mode&rdquo; has been further restricted. Markdown formatted links must be
-of a known white-listed scheme when in &ldquo;safe_mode&rdquo; or the URL is discarded.
-The white-listed schemes are: &lsquo;HTTP&rsquo;, &lsquo;HTTPS&rsquo;, &lsquo;FTP&rsquo;, &lsquo;FTPS&rsquo;, &lsquo;MAILTO&rsquo;, and
-&lsquo;news&rsquo;. Schemeless URLs are also permitted, but are checked in other ways -
-as they have been for some time.</p>
+<p>&ldquo;safe_mode&rdquo; has been further restricted. Markdown formatted links must be of a
+  known white-listed scheme when in &ldquo;safe_mode&rdquo; or the URL is discarded. The
+  white-listed schemes are: &lsquo;HTTP&rsquo;, &lsquo;HTTPS&rsquo;, &lsquo;FTP&rsquo;, &lsquo;FTPS&rsquo;, &lsquo;MAILTO&rsquo;, and
+  &lsquo;news&rsquo;. Schemeless URLs are also permitted, but are checked in other ways - as
+  they have been for some time.</p>
 </li>
 <li>
 <p>The ids assigned to footnotes now contain a dash (<code>-</code>) rather than a colon
-(<code>:</code>) when <code>output_format</code> it set to <code>"html5"</code> or <code>"xhtml5"</code>. If you are making
-reference to those ids in your JavaScript or CSS and using the HTML5 output,
-you will need to update your code accordingly. No changes are necessary if
-you are outputting XHTML (the default) or HTML4.</p>
+  (<code>:</code>) when <code>output_format</code> it set to <code>"html5"</code> or <code>"xhtml5"</code>. If you are
+  making reference to those ids in your JavaScript or CSS and using the HTML5
+  output, you will need to update your code accordingly. No changes are
+  necessary if you are outputting XHTML (the default) or HTML4.</p>
 </li>
 <li>
 <p>The <code>force_linenos</code> configuration setting of the CodeHilite extension has been
-marked as <strong>Pending Deprecation</strong> and a new setting <code>linenums</code> has been added to
-replace it. See documentation for the <a href="../../extensions/code_hilite/">CodeHilite Extension</a> for an explanation
-of the new <code>linenums</code> setting. The new setting will honor the old
-<code>force_linenos</code> if it is set, but it will raise a <code>PendingDeprecationWarning</code>
-and will likely be removed in a future version of Python-Markdown.</p>
+  marked as <strong>Pending Deprecation</strong> and a new setting <code>linenums</code> has been added
+  to replace it. See documentation for the <a href="../../extensions/code_hilite/">CodeHilite Extension</a> for an
+  explanation of the new <code>linenums</code> setting. The new setting will honor the old
+  <code>force_linenos</code> if it is set, but it will raise a <code>PendingDeprecationWarning</code>
+  and will likely be removed in a future version of Python-Markdown.</p>
 </li>
 <li>
 <p>The &ldquo;RSS&rdquo; extension has been removed and no longer ships with Python-Markdown.
-If you would like to continue using the extension (not recommended), it is
-archived on <a href="https://gist.github.com/waylan/4773365">GitHub</a>.</p>
+  If you would like to continue using the extension (not recommended), it is
+  archived on <a href="https://gist.github.com/waylan/4773365">GitHub</a>.</p>
 </li>
 <li>
-<p>The &ldquo;HTML Tidy&rdquo; Extension has been removed and no longer ships with Python-Markdown.
-If you would like to continue using the extension (not recommended), it is
-archived on <a href="https://gist.github.com/waylan/5152650">GitHub</a>. Note that the
-underlying library, uTidylib, is not Python 3 compatible. Instead, it is
-recommended that the newer <a href="http://countergram.com/open-source/pytidylib">PyTidyLib</a> (version 0.2.2+ for Python 3
-comparability - install from GitHub not PyPI) be used. As the API for that
-library is rather simple, it is recommended that the output of Markdown be
-wrapped in a call to PyTidyLib rather than using an extension (for example:
-<code>tidylib.tidy_fragment(markdown.markdown(source), options={...})</code>).</p>
+<p>The &ldquo;HTML Tidy&rdquo; Extension has been removed and no longer ships with
+  Python-Markdown. If you would like to continue using the extension (not
+  recommended), it is archived on
+  <a href="https://gist.github.com/waylan/5152650">GitHub</a>. Note that the underlying
+  library, uTidylib, is not Python 3 compatible. Instead, it is recommended that
+  the newer <a href="http://countergram.com/open-source/pytidylib">PyTidyLib</a> (version 0.2.2+ for Python 3 comparability - install
+  from GitHub not PyPI) be used. As the API for that library is rather simple,
+  it is recommended that the output of Markdown be wrapped in a call to
+  PyTidyLib rather than using an extension (for example:
+  <code>tidylib.tidy_fragment(markdown.markdown(source), options={...})</code>).</p>
 </li>
 </ul>
 <h2 id="whats-new-in-python-markdown-23">What&rsquo;s New in Python-Markdown 2.3<a class="headerlink" href="#whats-new-in-python-markdown-23" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
-<p>The entire code base now universally runs in Python 2 and Python 3 without
-any need for running the 2to3 conversion tool. This not only simplifies testing,
-but by using Unicode_literals, results in more consistent behavior across
-Python versions. Additionally, the relative imports (made possible in Python 2
-via absolute_import) allows the entire library to more easily be embedded in a
-sub-directory of another project. The various files within the library will
-still import each other properly even though &lsquo;markdown&rsquo; may not be in Python&rsquo;s
-root namespace.</p>
+<p>The entire code base now universally runs in Python 2 and Python 3 without any
+  need for running the 2to3 conversion tool. This not only simplifies testing,
+  but by using Unicode_literals, results in more consistent behavior across
+  Python versions. Additionally, the relative imports (made possible in Python 2
+  via absolute_import) allows the entire library to more easily be embedded in a
+  sub-directory of another project. The various files within the library will
+  still import each other properly even though &lsquo;markdown&rsquo; may not be in Python&rsquo;s
+  root namespace.</p>
 </li>
 <li>
 <p>The <a href="../../extensions/admonition/">Admonition Extension</a> has been added, which implements <a href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#specific-admonitions">rST-style</a>
-admonitions in the Markdown syntax. However, be warned that this extension
-is experimental and the syntax and behavior is still subject to change. Please
-try it out and report bugs and/or improvements.</p>
+  admonitions in the Markdown syntax. However, be warned that this extension is
+  experimental and the syntax and behavior is still subject to change. Please
+  try it out and report bugs and/or improvements.</p>
 </li>
 <li>
-<p>Various bug fixes have been made.  See the
-<a href="https://github.com/Python-Markdown/markdown/commits/master">commit log</a>
-for a complete history of the changes.</p>
+<p>Various bug fixes have been made. See the <a href="https://github.com/Python-Markdown/markdown/commits/master">commit
+  log</a> for a
+  complete history of the changes.</p>
 </li>
 </ul>
 
@@ -255,7 +256,7 @@ for a complete history of the changes.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:45
+        Docs Build Date UTC : 2017-12-07 04:03:47
         -->
     </body>
 </html>

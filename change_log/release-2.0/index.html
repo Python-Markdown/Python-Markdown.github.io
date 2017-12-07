@@ -67,29 +67,29 @@
             <div class="documentwrapper">
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="python-markdown-20-release-notes">Python-Markdown 2.0 Release Notes<a class="headerlink" href="#python-markdown-20-release-notes" title="Permanent link">&para;</a></h1>
-<p>We are happy to release Python-Markdown 2.0, which has been over a year in the 
-making. We have rewritten significant portions of the code, dramatically 
-extending the extension API, increased performance, and added numerous 
+<p>We are happy to release Python-Markdown 2.0, which has been over a year in the
+making. We have rewritten significant portions of the code, dramatically
+extending the extension API, increased performance, and added numerous
 extensions to the distribution (including an extension that mimics PHP Markdown
 Extra), all while maintaining backward compatibility with the end user API in
 version 1.7.</p>
-<p>Python-Markdown supports Python versions 2.3, 2.4, 2.5, and 2.6. We have even 
+<p>Python-Markdown supports Python versions 2.3, 2.4, 2.5, and 2.6. We have even
 released a version converted to Python 3.0!</p>
 <h2 id="backwards-incompatible-changes">Backwards-incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
-<p>While Python-Markdown has experienced numerous internal changes, those changes 
-should only affect extension authors. If you have not written your own 
-extensions, then you should not need to make any changes to your code. 
+<p>While Python-Markdown has experienced numerous internal changes, those changes
+should only affect extension authors. If you have not written your own
+extensions, then you should not need to make any changes to your code.
 However, you may want to ensure that any third party extensions you are using
 are compatible with the new API.</p>
-<p>The new extension API is fully <a href="../../extensions/api/">documented</a> in the docs. 
+<p>The new extension API is fully <a href="../../extensions/api/">documented</a> in the docs.
 Below is a summary of the significant changes:</p>
 <ul>
 <li>The old home-grown NanoDOM has been replaced with ElementTree. Therefore all
   extensions must use ElementTree rather than the old NanoDOM.</li>
-<li>The various processors and patterns are now stored with OrderedDicts rather 
-  than lists. Any code adding processors and/or patterns into Python-Markdown 
+<li>The various processors and patterns are now stored with OrderedDicts rather
+  than lists. Any code adding processors and/or patterns into Python-Markdown
   will need to be adjusted to use the new API using OrderedDicts.</li>
-<li>The various types of processors available have been either combined, added, 
+<li>The various types of processors available have been either combined, added,
   or removed. Ensure that your processors match the currently supported types.</li>
 </ul>
 <h2 id="whats-new-in-python-markdown-20">What&rsquo;s New in Python-Markdown 2.0<a class="headerlink" href="#whats-new-in-python-markdown-20" title="Permanent link">&para;</a></h2>
@@ -97,17 +97,17 @@ Below is a summary of the significant changes:</p>
 ElementTree internally to build the (X)HTML document from markdown source text.
 This has resolved various issues with the older home-grown NanoDOM and made
 notable increases in performance.</p>
-<p>Artem also refactored the Inline Patterns to better support nested patterns 
-which has resolved many inconsistencies in Python-Markdown&rsquo;s parsing of the 
+<p>Artem also refactored the Inline Patterns to better support nested patterns
+which has resolved many inconsistencies in Python-Markdown&rsquo;s parsing of the
 markdown syntax.</p>
-<p>The core parser had been completely rewritten, increasing performance and, for 
+<p>The core parser had been completely rewritten, increasing performance and, for
 the first time, making it possible to override/add/change the way block level
 content is parsed.</p>
-<p>Python-Markdown now parses markdown source text more closely to the other 
+<p>Python-Markdown now parses markdown source text more closely to the other
 popular implementations (Perl, PHP, etc.) than it ever has before. With the
 exception of a few minor insignificant differences, any difference should be
 considered a bug, rather than a limitation of the parser.</p>
-<p>The option to return HTML4 output as apposed to XHTML has been added. In 
+<p>The option to return HTML4 output as apposed to XHTML has been added. In
 addition, extensions should be able to easily add additional output formats.</p>
 <p>As part of implementing markdown in the Dr. Project project (a Trac fork), among
 other things, David Wolever refactored the &ldquo;extension&rdquo; keyword so that it
@@ -223,7 +223,7 @@ makes it possible to include multiple extensions in a single module.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:45
+        Docs Build Date UTC : 2017-12-07 04:03:47
         -->
     </body>
 </html>

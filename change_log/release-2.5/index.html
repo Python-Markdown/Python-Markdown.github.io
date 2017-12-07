@@ -83,12 +83,13 @@ and fixes various bugs. See the list of changes below for details.</p>
   instead, which provides more control of the output.</p>
 </li>
 <li>
-<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords will be deprecated
-  in version 2.6 and will raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. The so-called
-  &ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in many people having a false
-  sense of security when using it. As an alternative, the developers of Python-Markdown
-  recommend that any untrusted content be passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>)
-  after being converted to HTML by markdown.</p>
+<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords will be
+  deprecated in version 2.6 and will raise a <strong><code>PendingDeprecationWarning</code></strong> in
+  2.5. The so-called &ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in
+  many people having a false sense of security when using it. As an alternative,
+  the developers of Python-Markdown recommend that any untrusted content be
+  passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>) after being converted to HTML
+  by markdown.</p>
 <p>If your code previously looked like this:</p>
 <div class="codehilite"><pre><span></span>html = markdown.markdown(text, same_mode=True)
 </pre></div>
@@ -100,8 +101,9 @@ and fixes various bugs. See the list of changes below for details.</p>
 </pre></div>
 
 
-<p>If you are not interested in sanitizing untrusted text, but simply desire to escape
-raw HTML, then that can be accomplished through an extension which removes HTML parsing:</p>
+<p>If you are not interested in sanitizing untrusted text, but simply desire to
+escape raw HTML, then that can be accomplished through an extension which
+removes HTML parsing:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
 
 <span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
@@ -113,8 +115,9 @@ raw HTML, then that can be accomplished through an extension which removes HTML 
 </pre></div>
 
 
-<p>As the HTML would not be parsed with the above Extension, then the serializer will
-escape the raw HTML, which is exactly what happens now when <code>safe_mode="escape"</code>.</p>
+<p>As the HTML would not be parsed with the above Extension, then the
+serializer will escape the raw HTML, which is exactly what happens now when
+<code>safe_mode="escape"</code>.</p>
 </li>
 <li>
 <p>Positional arguments on the <code>markdown.Markdown()</code> are pending deprecation as are
@@ -144,8 +147,9 @@ for this reason.</p>
   special status and did not require the full path to be provided. Additionally,
   third party extensions whose name started with <code>"mdx_"</code> received the same
   special treatment. This behavior will be deprecated in version 2.6 and will
-  raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. Ensure that you always use the full
-  path to your extensions. For example, if you previously did the following:</p>
+  raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. Ensure that you always use the
+  full path to your extensions. For example, if you previously did the
+  following:</p>
 <div class="codehilite"><pre><span></span>markdown.markdown(text, extensions=[&#39;extra&#39;])
 </pre></div>
 
@@ -176,19 +180,19 @@ of the current behavior.</p>
 <ul>
 <li>
 <p>The <a href="../../extensions/smarty/">Smarty Extension</a> has had a number of additional configuration settings
-    added, which allows one to define their own substitutions to better support
-    languages other than English. Thanks to <a href="https://github.com/MartinAltmayer">Martin Altmayer</a> for implementing this
-    feature.</p>
+  added, which allows one to define their own substitutions to better support
+  languages other than English. Thanks to <a href="https://github.com/MartinAltmayer">Martin Altmayer</a> for implementing this
+  feature.</p>
 </li>
 <li>
 <p>Named Extensions (strings passed to the <a href="../../reference/#extensions"><code>extensions</code></a> keyword of
-    <code>markdown.Markdown</code>) can now point to any module and/or Class on your PYTHONPATH.
-    While dot notation was previously supported, a module could not be at the root of
-    your PYTHONPATH. The name had to contain at least one dot (requiring it to be a
-    sub-module). This restriction no longer exists.</p>
-<p>Additionally, a Class may be specified in the name. The class must be at the end of
-the name (which uses dot notation from PYTHONPATH) and be separated by a colon from
-the module.</p>
+  <code>markdown.Markdown</code>) can now point to any module and/or Class on your
+  PYTHONPATH. While dot notation was previously supported, a module could not
+  be at the root of your PYTHONPATH. The name had to contain at least one dot
+  (requiring it to be a sub-module). This restriction no longer exists.</p>
+<p>Additionally, a Class may be specified in the name. The class must be at the
+end of the name (which uses dot notation from PYTHONPATH) and be separated
+by a colon from the module.</p>
 <p>Therefore, if you were to import the class like this:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
 </pre></div>
@@ -199,47 +203,49 @@ the module.</p>
 </pre></div>
 
 
-<p>This allows multiple extensions to be implemented within the same module and still
-accessible when the user is not able to import the extension directly (perhaps from
-a template filter or the command line).</p>
+<p>This allows multiple extensions to be implemented within the same module and
+still accessible when the user is not able to import the extension directly
+(perhaps from a template filter or the command line).</p>
 <p>This also means that extension modules are no longer required to include the
-<code>makeExtension</code> function which returns an instance of the extension class. However,
-if the user does not specify the class name (she only provides <code>"path.to.module"</code>)
-the extension will fail to load without the <code>makeExtension</code> function included in
-the module. Extension authors will want to document carefully what is required to
-load their extensions.</p>
+<code>makeExtension</code> function which returns an instance of the extension class.
+However, if the user does not specify the class name (she only provides
+<code>"path.to.module"</code>) the extension will fail to load without the
+<code>makeExtension</code> function included in the module. Extension authors will want
+to document carefully what is required to load their extensions.</p>
 </li>
 <li>
-<p>The Extension Configuration code has been refactored to make it a little easier
-    for extension authors to work with configuration settings. As a result, the
-    <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword now accepts a dictionary rather than requiring
-    a list of tuples. A list of tuples is still supported so no one needs to change
-    their existing code. This should also simplify the learning curve for new users.</p>
+<p>The Extension Configuration code has been refactored to make it a little
+  easier for extension authors to work with configuration settings. As a
+  result, the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword now accepts a dictionary
+  rather than requiring a list of tuples. A list of tuples is still supported
+  so no one needs to change their existing code. This should also simplify the
+  learning curve for new users.</p>
 <p>Extension authors are encouraged to review the new methods available on the
-<code>markdown.extnesions.Extension</code> class for handling configuration and adjust their
-code going forward. The included extensions provide a model for best practices.
-See the <a href="../../extensions/api/#configsettings">API</a> documentation for a full explanation.</p>
+<code>markdown.extnesions.Extension</code> class for handling configuration and adjust
+their code going forward. The included extensions provide a model for best
+practices. See the <a href="../../extensions/api/#configsettings">API</a> documentation for a full explanation.</p>
 </li>
 <li>
-<p>The <a href="../../cli/#using-extensions">Command Line Interface</a> now accepts a <code>--extensions_config</code> (or <code>-c</code>)
-    option which accepts a file name and passes the parsed content of a <a href="http://yaml.org/">YAML</a> or
-    <a href="http://json.org/">JSON</a>   file to the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword of the <code>markdown.Markdown</code>
-    class. The contents of the YAML or JSON must map to a Python Dictionary which
-    matches the format required by the <code>extension_configs</code> keyword. Note that
-    <a href="http://pyyaml.org/">PyYAML</a> is required to parse YAML files.</p>
+<p>The <a href="../../cli/#using-extensions">Command Line Interface</a> now accepts a <code>--extensions_config</code> (or
+  <code>-c</code>) option which accepts a file name and passes the parsed content of a
+  <a href="http://yaml.org/">YAML</a> or <a href="http://json.org/">JSON</a> file to the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword of the
+  <code>markdown.Markdown</code> class. The contents of the YAML or JSON must map to a
+  Python Dictionary which matches the format required by the
+  <code>extension_configs</code> keyword. Note that <a href="http://pyyaml.org/">PyYAML</a> is required to parse YAML
+  files.</p>
 </li>
 <li>
 <p>The <a href="../../extensions/admonition/">Admonition Extension</a> is no longer considered &ldquo;experimental.&rdquo;</p>
 </li>
 <li>
-<p>There have been various refactors of the testing framework. While those changes
-    will not directly effect end users, the code is being better tested which will
-    benefit everyone.</p>
+<p>There have been various refactors of the testing framework. While those
+  changes will not directly effect end users, the code is being better tested
+  which will benefit everyone.</p>
 </li>
 <li>
-<p>Various bug fixes have been made.  See the
-    <a href="https://github.com/Python-Markdown/markdown/commits/master">commit log</a>
-    for a complete history of the changes.</p>
+<p>Various bug fixes have been made. See the <a href="https://github.com/Python-Markdown/markdown/commits/master">commit
+  log</a> for a
+  complete history of the changes.</p>
 </li>
 </ul>
 
@@ -349,7 +355,7 @@ See the <a href="../../extensions/api/#configsettings">API</a> documentation for
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:45
+        Docs Build Date UTC : 2017-12-07 04:03:47
         -->
     </body>
 </html>

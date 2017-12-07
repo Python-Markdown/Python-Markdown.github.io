@@ -141,13 +141,14 @@ more convenient to have <code>markdown_py</code> on your path.</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Python-Markdown uses <code>"markdown_py"</code> as a script name because
-the Perl implementation has already taken the more obvious name &ldquo;markdown&rdquo;.
+<p>Python-Markdown uses <code>"markdown_py"</code> as a script name because the Perl
+implementation has already taken the more obvious name &ldquo;markdown&rdquo;.
 Additionally, the default Python configuration on some systems would cause a
-script named <code>"markdown.py"</code> to fail by importing itself rather than the markdown
-library. Therefore, the script has been named <code>"markdown_py"</code> as a compromise. If
-you prefer a different name for the script on your system, it is suggested that
-you create a symbolic link to <code>markdown_py</code> with your preferred name.</p>
+script named <code>"markdown.py"</code> to fail by importing itself rather than the
+markdown library. Therefore, the script has been named <code>"markdown_py"</code> as a
+compromise. If you prefer a different name for the script on your system, it
+is suggested that you create a symbolic link to <code>markdown_py</code> with your
+preferred name.</p>
 </div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>To use <code>markdown_py</code> from the command line, run it as</p>
@@ -186,28 +187,29 @@ can pass them in as well:</p>
 </pre></div>
 
 
-<p>The <code>-c</code> (or <code>--extension_configs</code>) option accepts a file name. The file must be in
-either the <a href="http://yaml.org/">YAML</a> or <a href="http://json.org/">JSON</a> format and contain YAML or JSON data that would map to
-a Python Dictionary in the format required by the <a href="../reference.html#extension_configs"><code>extension_configs</code></a> keyword
-of the <code>markdown.Markdown</code> class. Therefore, the file <code>config.yaml</code> referenced in the
-above example might look like this:</p>
+<p>The <code>-c</code> (or <code>--extension_configs</code>) option accepts a file name. The file must be
+in either the <a href="http://yaml.org/">YAML</a> or <a href="http://json.org/">JSON</a> format and contain YAML or JSON data that would
+map to a Python Dictionary in the format required by the
+<a href="../reference.html#extension_configs"><code>extension_configs</code></a> keyword of the <code>markdown.Markdown</code> class. Therefore,
+the file <code>config.yaml</code> referenced in the above example might look like this:</p>
 <div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">markdown.extensions.footnotes</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">PLACE_MARKER</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">~~~~~~~~</span>
     <span class="l l-Scalar l-Scalar-Plain">UNIQUE_IDS</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
 </pre></div>
 
 
-<p>Note that while the <code>--extension_configs</code> option does specify the &ldquo;markdown.extensions.footnotes&rdquo;
-extension, you still need to load the extension with the <code>-x</code> option, or the configuration for that
-extension will be ignored.</p>
-<p>The <code>--extension_configs</code> option will only support YAML configuration files if <a href="http://pyyaml.org/">PyYAML</a> is
-installed on your system. JSON should work with no additional dependencies. The format
-of your configuration file is automatically detected.</p>
+<p>Note that while the <code>--extension_configs</code> option does specify the
+&ldquo;markdown.extensions.footnotes&rdquo; extension, you still need to load the extension
+with the <code>-x</code> option, or the configuration for that extension will be ignored.</p>
+<p>The <code>--extension_configs</code> option will only support YAML configuration files if
+<a href="http://pyyaml.org/">PyYAML</a> is installed on your system. JSON should work with no additional
+dependencies. The format of your configuration file is automatically detected.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The previously documented method of appending the extension configuration options as a string to the
-extension name will be deprecated in Python-Markdown version 2.6. The <code>--extension_configs</code>
-option should be used instead. See the <a href="../change_log/release-2.5/">2.5 release notes</a> for more information.</p>
+<p>The previously documented method of appending the extension configuration
+options as a string to the extension name will be deprecated in
+Python-Markdown version 2.6. The <code>--extension_configs</code> option should be used
+instead. See the <a href="../change_log/release-2.5/">2.5 release notes</a> for more information.</p>
 </div>
 
                     </div>
@@ -320,7 +322,7 @@ option should be used instead. See the <a href="../change_log/release-2.5/">2.5 
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:44
+        Docs Build Date UTC : 2017-12-07 04:03:46
         -->
     </body>
 </html>

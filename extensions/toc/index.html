@@ -133,9 +133,10 @@ marker. The marker defaults to <code>[TOC]</code> so the following document:</p>
 </pre></div>
 
 
-<p>Regardless of whether a <code>marker</code> is found in the document (or disabled), the Table of
-Contents is available as an attribute (<code>toc</code>) on the Markdown class. This allows
-one to insert the Table of Contents elsewhere in their page template. For example:</p>
+<p>Regardless of whether a <code>marker</code> is found in the document (or disabled), the
+Table of Contents is available as an attribute (<code>toc</code>) on the Markdown class.
+This allows one to insert the Table of Contents elsewhere in their page
+template. For example:</p>
 <div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.toc&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">page</span> <span class="o">=</span> <span class="n">render_some_template</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="n">html</span><span class="p">,</span> <span class="s1">&#39;toc&#39;</span><span class="p">:</span> <span class="n">md</span><span class="o">.</span><span class="n">toc</span><span class="p">})</span>
@@ -152,8 +153,8 @@ configuring extensions.</p>
 <li>
 <p><strong><code>marker</code></strong>:
     Text to find and replace with the Table of Contents. Defaults to <code>[TOC]</code>.</p>
-<p>Set to an empty string to disable searching for a marker, which may save some time,
-especially on long documents.</p>
+<p>Set to an empty string to disable searching for a marker, which may save
+some time, especially on long documents.</p>
 </li>
 <li>
 <p><strong><code>title</code></strong>:
@@ -167,16 +168,17 @@ especially on long documents.</p>
 <p><strong><code>permalink</code></strong>:
     Set to <code>True</code> or a string to generate permanent links at the end of each header.
     Useful with Sphinx style sheets.</p>
-<p>When set to <code>True</code> the paragraph symbol (&para; or &ldquo;<code>&amp;para;</code>&rdquo;) is used as the link
-text. When set to a string, the provided string is used as the link text.</p>
+<p>When set to <code>True</code> the paragraph symbol (&para; or &ldquo;<code>&amp;para;</code>&rdquo;) is used as
+the link text. When set to a string, the provided string is used as the link
+text.</p>
 </li>
 <li>
 <p><strong><code>baselevel</code></strong>:
     Base level for headers. Defaults to <code>1</code>.</p>
-<p>The <code>baselevel</code> setting allows the header levels to be automatically adjusted to
-fit within the hierarchy of your HTML templates. For example, suppose the
-Markdown text for a page should not contain any headers higher than level 3
-(<code>&lt;h3&gt;</code>). The following will accomplish that:</p>
+<p>The <code>baselevel</code> setting allows the header levels to be automatically
+adjusted to fit within the hierarchy of your HTML templates. For example,
+suppose the Markdown text for a page should not contain any headers higher
+than level 3 (<code>&lt;h3&gt;</code>). The following will accomplish that:</p>
 <div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="gp">... </span><span class="s1">#Some Header</span>
 <span class="gp">... </span><span class="s1">## Next Level&#39;&#39;&#39;</span>
@@ -337,7 +339,7 @@ pass in a callable which takes the following two arguments:</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:45
+        Docs Build Date UTC : 2017-12-07 04:03:47
         -->
     </body>
 </html>

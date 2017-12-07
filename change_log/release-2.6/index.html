@@ -69,29 +69,35 @@
                     <div class="body" role="main"><h1 id="python-markdown-26-release-notes">Python-Markdown 2.6 Release Notes<a class="headerlink" href="#python-markdown-26-release-notes" title="Permanent link">&para;</a></h1>
 <p>We are pleased to release Python-Markdown 2.6 which adds a few new features
 and fixes various bugs. See the list of changes below for details.</p>
-<p>Python-Markdown version 2.6 supports Python versions 2.7, 3.2, 3.3, and 3.4 as well as PyPy.</p>
+<p>Python-Markdown version 2.6 supports Python versions 2.7, 3.2, 3.3, and 3.4 as
+well as PyPy.</p>
 <h2 id="backwards-incompatible-changes">Backwards-incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
 <h3 id="safe_mode-deprecated"><code>safe_mode</code> Deprecated<a class="headerlink" href="#safe_mode-deprecated" title="Permanent link">&para;</a></h3>
-<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords are deprecated
-in version 2.6 and will raise a <strong><code>DeprecationWarning</code></strong>. The <code>safe_mode</code> and
-<code>html_replacement_text</code> keywords will be ignored in version 2.7. The so-called
-&ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in many people having a false
-sense of security when using it. As an alternative, the developers of Python-Markdown
-recommend that any untrusted content be passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>)
-after being converted to HTML by markdown.</p>
+<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords are
+deprecated in version 2.6 and will raise a <strong><code>DeprecationWarning</code></strong>. The
+<code>safe_mode</code> and <code>html_replacement_text</code> keywords will be ignored in the next
+release. The so-called &ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted
+in many people having a false sense of security when using it. As an
+alternative, the developers of Python-Markdown recommend that any untrusted
+content be passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>) after being
+converted to HTML by markdown. In fact, <a href="https://github.com/yourcelf/bleach-whitelist">Bleach Whitelist</a> provides a curated
+list of tags, attributes, and styles suitable for filtering user-provided HTML
+using bleach.</p>
 <p>If your code previously looked like this:</p>
-<div class="codehilite"><pre><span></span>html = markdown.markdown(text, safe_mode=True)
+<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Then it is recommended that you change your code to read something like this:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">bleach</span>
-<span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+<span class="kn">from</span> <span class="nn">bleach_whitelist</span> <span class="kn">import</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span><span class="p">)</span>
 </pre></div>
 
 
-<p>If you are not interested in sanitizing untrusted text, but simply desire to escape
-raw HTML, then that can be accomplished through an extension which removes HTML parsing:</p>
+<p>If you are not interested in sanitizing untrusted text, but simply desire to
+escape raw HTML, then that can be accomplished through an extension which
+removes HTML parsing:</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
 
 <span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
@@ -103,20 +109,21 @@ raw HTML, then that can be accomplished through an extension which removes HTML 
 </pre></div>
 
 
-<p>As the HTML would not be parsed with the above Extension, then the serializer will
-escape the raw HTML, which is exactly what happens now when <code>safe_mode="escape"</code>.</p>
+<p>As the HTML would not be parsed with the above Extension, then the serializer
+will escape the raw HTML, which is exactly what happens now when
+<code>safe_mode="escape"</code>.</p>
 <h3 id="positional-arguments-deprecated">Positional Arguments Deprecated<a class="headerlink" href="#positional-arguments-deprecated" title="Permanent link">&para;</a></h3>
 <p>Positional arguments on the <code>markdown.Markdown()</code> class are deprecated as are
 all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
-Using positional arguments will raise a <strong><code>DeprecationWarning</code></strong> in 2.6 and an error
-in version 2.7. Only keyword arguments should be used. For example, if your code
-previously looked like this:</p>
-<div class="codehilite"><pre><span></span>html = markdown.markdown(text, [SomeExtension()])
+Using positional arguments will raise a <strong><code>DeprecationWarning</code></strong> in 2.6 and an
+error in the next release. Only keyword arguments should be used. For example,
+if your code previously looked like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
 </pre></div>
 
 
 <p>Then it is recommended that you change it to read something like this:</p>
-<div class="codehilite"><pre><span></span>html = markdown.markdown(text, extensions=[SomeExtension()])
+<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
 </pre></div>
 
 
@@ -125,165 +132,176 @@ previously looked like this:</p>
 <p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the
 <code>safe_mode</code> argument was one of the positional arguments. When that argument
 is removed, the two arguments following it will no longer be at the correct
-position. It is recommended that you always use keywords when they are supported
-for this reason.</p>
+position. It is recommended that you always use keywords when they are
+supported for this reason.</p>
 </div>
 <h3 id="shortened-extension-names-deprecated">&ldquo;Shortened&rdquo; Extension Names Deprecated<a class="headerlink" href="#shortened-extension-names-deprecated" title="Permanent link">&para;</a></h3>
 <p>In previous versions of Python-Markdown, the built-in extensions received
 special status and did not require the full path to be provided. Additionally,
 third party extensions whose name started with <code>"mdx_"</code> received the same
 special treatment. This behavior is deprecated and will raise a
-<strong><code>DeprecationWarning</code></strong> in version 2.6 and an error in 2.7. Ensure that you
-always use the full path to your extensions. For example, if you previously
-did the following:</p>
-<div class="codehilite"><pre><span></span>markdown.markdown(text, extensions=[&#39;extra&#39;])
+<strong><code>DeprecationWarning</code></strong> in version 2.6 and an error in the next release. Ensure
+that you always use the full path to your extensions. For example, if you
+previously did the following:</p>
+<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
 </pre></div>
 
 
 <p>You should change your code to the following:</p>
-<div class="codehilite"><pre><span></span>markdown.markdown(text, extensions=[&#39;markdown.extensions.extra&#39;])
+<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.extra&#39;</span><span class="p">])</span>
 </pre></div>
 
 
 <p>The same applies to the command line:</p>
-<div class="codehilite"><pre><span></span>$ python -m markdown -x markdown.extensions.extra input.txt
+<div class="codehilite"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">x</span> <span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">extra</span> <span class="nb">input</span><span class="o">.</span><span class="n">txt</span>
 </pre></div>
 
 
-<p>Similarly, if you have used a third party extension (for example <code>mdx_math</code>), previously
-you might have called it like this:</p>
-<div class="codehilite"><pre><span></span>markdown.markdown(text, extensions=[&#39;math&#39;])
+<p>Similarly, if you have used a third party extension (for example <code>mdx_math</code>),
+previously you might have called it like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;math&#39;</span><span class="p">])</span>
 </pre></div>
 
 
-<p>As the <code>"mdx"</code> prefix will no longer be appended, you will need to change your code
-as follows (assuming the file <code>mdx_math.py</code> is installed at the root of your PYTHONPATH):</p>
-<div class="codehilite"><pre><span></span>markdown.markdown(text, extensions=[&#39;mdx_math&#39;])
+<p>As the <code>"mdx"</code> prefix will no longer be appended, you will need to change your
+code as follows (assuming the file <code>mdx_math.py</code> is installed at the root of
+your PYTHONPATH):</p>
+<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mdx_math&#39;</span><span class="p">])</span>
 </pre></div>
 
 
-<p>Extension authors will want to update their documentation to reflect the new behavior.</p>
+<p>Extension authors will want to update their documentation to reflect the new
+behavior.</p>
 <p>See the <a href="../../reference/#extensions">documentation</a> for a full explanation
 of the current behavior.</p>
 <h3 id="extension-configuration-as-part-of-extension-name-deprecated">Extension Configuration as Part of Extension Name Deprecated<a class="headerlink" href="#extension-configuration-as-part-of-extension-name-deprecated" title="Permanent link">&para;</a></h3>
-<p>The previously documented method of appending the extension configuration options as
-a string to the extension name is deprecated and will raise a
-<strong><code>DeprecationWarning</code></strong> in version 2.6 and an error in 2.7.
-The <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should
-be used instead. See the <a href="../../reference/#extension-configs">documentation</a>
-for a full explanation of the current behavior.</p>
+<p>The previously documented method of appending the extension configuration
+options as a string to the extension name is deprecated and will raise a
+<strong><code>DeprecationWarning</code></strong> in version 2.6 and an error in 2.7. The
+<a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should be used
+instead. See the <a href="../../reference/#extension-configs">documentation</a> for a full
+explanation of the current behavior.</p>
 <h3 id="headerid-extension-pending-deprecation">HeaderId Extension Pending Deprecation<a class="headerlink" href="#headerid-extension-pending-deprecation" title="Permanent link">&para;</a></h3>
 <p>The <a href="../../extensions/header_id/">HeaderId</a> Extension is pending deprecation and will raise a
-<strong><code>PendingDeprecationWarning</code></strong> in version 2.6. The extension will be
-deprecated in version 2.7 and raise an error in version 2.8. Use the
-<a href="../../extensions/toc/">Table of Contents</a> Extension instead, which offers most of the
-features of the HeaderId Extension and more (support for meta data is missing).</p>
+<strong><code>PendingDeprecationWarning</code></strong> in version 2.6. The extension will be deprecated
+in the next release and raise an error in the release after that. Use the <a href="../../extensions/toc/">Table
+of Contents</a> Extension instead, which offers most of the features of the
+HeaderId Extension and more (support for meta data is missing).</p>
 <p>Extension authors who have been using the <code>slugify</code> and <code>unique</code> functions
 defined in the HeaderId Extension should note that those functions are now
 defined in the Table of Contents extension and should adjust their import
 statements accordingly (<code>from markdown.extensions.toc import slugify, unique</code>).</p>
 <h3 id="the-configs-keyword-is-deprecated">The <code>configs</code> Keyword is Deprecated<a class="headerlink" href="#the-configs-keyword-is-deprecated" title="Permanent link">&para;</a></h3>
-<p>Positional arguments and the <code>configs</code> keyword on the <code>markdown.extension.Extension</code> class
-(and its subclasses) are deprecated. Each individual configuration option should be passed
-to the class as a keyword/value pair. For example. one might have previously initiated
-an extension subclass like this:</p>
-<div class="codehilite"><pre><span></span>ext = SomeExtension(configs={&#39;somekey&#39;: &#39;somevalue&#39;})
+<p>Positional arguments and the <code>configs</code> keyword on the
+<code>markdown.extension.Extension</code> class (and its subclasses) are deprecated. Each
+individual configuration option should be passed to the class as a keyword/value
+pair. For example. one might have previously initiated an extension subclass
+like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">ext</span> <span class="o">=</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;somekey&#39;</span><span class="p">:</span> <span class="s1">&#39;somevalue&#39;</span><span class="p">})</span>
 </pre></div>
 
 
 <p>That code should be updated to pass in the options directly:</p>
-<div class="codehilite"><pre><span></span>ext = SomeExtension(somekey=&#39;somevalue&#39;)
+<div class="codehilite"><pre><span></span><span class="n">ext</span> <span class="o">=</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="n">somekey</span><span class="o">=</span><span class="s1">&#39;somevalue&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Extension authors will want to note that this affects the <code>makeExtension</code> function as well.
-Previously it was common for the function to be defined as follows:</p>
-<div class="codehilite"><pre><span></span>def makeExtension(configs=None):
-    return SomeExtension(configs=configs)
+<p>Extension authors will want to note that this affects the <code>makeExtension</code>
+function as well. Previously it was common for the function to be defined as
+follows:</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">makeExtension</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="n">configs</span><span class="p">)</span>
 </pre></div>
 
 
 <p>Extension authors will want to update their code to the following instead:</p>
-<div class="codehilite"><pre><span></span>def makeExtension(**kwargs):
-    return SomeExtension(**kwargs)
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">makeExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Failing to do so will result in a <strong><code>DeprecationWarning</code></strong> and will raise an error in the next
-release. See the <a href="../../extensions/api/#makeextension">Extension API</a> documentation for more information.</p>
-<p>In the event that an <code>markdown.extension.Extension</code> subclass overrides the <code>__init__</code> method
-and implements its own configuration handling, then the above may not apply. However, it is
-recommended that the subclass still calls the parent <code>__init__</code> method to handle configuration
-options like so:</p>
-<div class="codehilite"><pre><span></span><span class="kr">class</span> <span class="nx">SomeExtension</span><span class="p">(</span><span class="nx">markdown</span><span class="p">.</span><span class="nx">extension</span><span class="p">.</span><span class="nx">Extension</span><span class="p">)</span><span class="o">:</span>
-    <span class="nx">def</span> <span class="nx">__init__</span><span class="p">(</span><span class="o">**</span><span class="nx">kwargs</span><span class="p">)</span><span class="o">:</span>
-        <span class="err">#</span> <span class="nx">Do</span> <span class="nx">pre</span><span class="o">-</span><span class="nx">config</span> <span class="nx">stuff</span> <span class="nx">here</span>
-        <span class="err">#</span> <span class="nx">Set</span> <span class="nx">config</span> <span class="nx">defaults</span>
-        <span class="nx">self</span><span class="p">.</span><span class="nx">config</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;option1&#39;</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;option2&#39;</span> <span class="o">:</span> <span class="p">[</span><span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;description2&#39;</span><span class="p">]</span>
+<p>Failing to do so will result in a <strong><code>DeprecationWarning</code></strong> and will raise an
+error in the next release. See the <a href="../../extensions/api/#makeextension">Extension API</a> documentation for more
+information.</p>
+<p>In the event that an <code>markdown.extension.Extension</code> subclass overrides the
+<code>__init__</code> method and implements its own configuration handling, then the above
+may not apply. However, it is recommended that the subclass still calls the
+parent <code>__init__</code> method to handle configuration options like so:</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">SomeExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extension</span><span class="o">.</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># Do pre-config stuff here</span>
+        <span class="c1"># Set config defaults</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;option1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;option2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;description2&#39;</span><span class="p">]</span>
         <span class="p">}</span>
-        <span class="err">#</span> <span class="nx">Set</span> <span class="nx">user</span> <span class="nx">defined</span> <span class="nx">configs</span>
-        <span class="kr">super</span><span class="p">(</span><span class="nx">MyExtension</span><span class="p">,</span> <span class="nx">self</span><span class="p">).</span><span class="nx">__init__</span><span class="p">(</span><span class="o">**</span><span class="nx">kwargs</span><span class="p">)</span>
-        <span class="err">#</span> <span class="nx">Do</span> <span class="nx">post</span><span class="o">-</span><span class="nx">config</span> <span class="nx">stuff</span> <span class="nx">here</span>
+        <span class="c1"># Set user defined configs</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyExtension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Do post-config stuff here</span>
 </pre></div>
 
 
-<p>Note the call to <code>super</code> to get the benefits of configuration handling from the parent class.
-See the <a href="../../extensions/api/#configsettings">documentation</a> for more information.</p>
+<p>Note the call to <code>super</code> to get the benefits of configuration handling from the
+parent class. See the <a href="../../extensions/api/#configsettings">documentation</a> for more information.</p>
 <h2 id="whats-new-in-python-markdown-26">What&rsquo;s New in Python-Markdown 2.6<a class="headerlink" href="#whats-new-in-python-markdown-26" title="Permanent link">&para;</a></h2>
 <h3 id="official-support-for-pypy">Official Support for PyPy<a class="headerlink" href="#official-support-for-pypy" title="Permanent link">&para;</a></h3>
-<p>Official support for <a href="http://pypy.org/">PyPy</a> has been added. While Python-Markdown has most likely
-worked on PyPy for some time, it is now officially supported and tested on PyPy.</p>
+<p>Official support for <a href="http://pypy.org/">PyPy</a> has been added. While Python-Markdown has most
+likely worked on PyPy for some time, it is now officially supported and tested
+on PyPy.</p>
 <h3 id="yaml-style-meta-data">YAML Style Meta-Data<a class="headerlink" href="#yaml-style-meta-data" title="Permanent link">&para;</a></h3>
-<p>The <a href="../../extensions/meta_data/">Meta-Data</a> Extension now includes optional support for <a href="http://yaml.org/">YAML</a> style
-meta-data. By default, the YAML deliminators are recognized, however, the
-actual data is parsed as previously.  This follows the syntax of
-<a href="http://fletcherpenney.net/MultiMarkdown_Syntax_Guide#metadata">MultiMarkdown</a>, which inspired this extension.</p>
-<p><del>Alternatively, if the <code>yaml</code> option is set, then the data is parsed as YAML.</del>
-<ins>As the <code>yaml</code> option was buggy, it was removed in 2.6.1. It is suggested that a third
-party extension be used if you want true YAML support. See <a href="https://github.com/Python-Markdown/markdown/issues/390">Issue #390</a> for a full
+<p><del>The <a href="../../extensions/meta_data/">Meta-Data</a> Extension now includes optional support for <a href="http://yaml.org/">YAML</a> style
+meta-data.</del> By default, the YAML deliminators are recognized, however, the
+actual data is parsed as previously. This follows the syntax of <a href="http://fletcherpenney.net/MultiMarkdown_Syntax_Guide#metadata">MultiMarkdown</a>,
+which inspired this extension.</p>
+<p><del>Alternatively, if the <code>yaml</code> option is set, then the data is parsed as
+YAML.</del> <ins>As the <code>yaml</code> option was buggy, it was removed in 2.6.1. It is
+suggested that a preprocessor (like <a href="https://github.com/waylan/docdata">docdata</a>) or a third party extension be
+used if you want true YAML support. See <a href="https://github.com/Python-Markdown/markdown/issues/390">Issue #390</a> for a full
 explanation.</ins></p>
 <h3 id="table-of-contents-extension-refactored">Table of Contents Extension Refactored<a class="headerlink" href="#table-of-contents-extension-refactored" title="Permanent link">&para;</a></h3>
 <p>The <a href="../../extensions/toc/">Table of Contents</a> Extension has been refactored and some new features
-have been added.  See the documentation for a full explanation of each feature
+have been added. See the documentation for a full explanation of each feature
 listed below:</p>
 <ul>
 <li>
 <p>The extension now assigns the Table of Contents to the <code>toc</code> attribute of
-    the Markdown class regardless of whether a &ldquo;marker&rdquo; was found in the document.
-    Third party frameworks no longer need to insert a &ldquo;marker,&rdquo; run the document
-    through Markdown, then extract the Table of Contents from the document.</p>
+  the Markdown class regardless of whether a &ldquo;marker&rdquo; was found in the
+  document. Third party frameworks no longer need to insert a &ldquo;marker,&rdquo; run
+  the document through Markdown, then extract the Table of Contents from the
+  document.</p>
 </li>
 <li>
-<p>The Table of Contents Extension is now a &ldquo;registered extension.&rdquo; Therefore, when the <code>reset</code>
-    method of the Markdown class is called, the <code>toc</code> attribute on the Markdown
-    class is cleared (set to an empty string).</p>
+<p>The Table of Contents Extension is now a &ldquo;registered extension.&rdquo; Therefore,
+  when the <code>reset</code> method of the Markdown class is called, the <code>toc</code> attribute
+  on the Markdown class is cleared (set to an empty string).</p>
 </li>
 <li>
-<p>When the <code>marker</code> configuration option is set to an empty string, the parser completely
-    skips the process of searching the document for markers. This should save parsing
-    time when the Table of Contents Extension is being used only to assign ids to headers.</p>
+<p>When the <code>marker</code> configuration option is set to an empty string, the parser
+  completely skips the process of searching the document for markers. This
+  should save parsing time when the Table of Contents Extension is being used
+  only to assign ids to headers.</p>
 </li>
 <li>
-<p>A <code>separator</code> configuration option has been added allowing users to override the
-    separator character used by the slugify function.</p>
+<p>A <code>separator</code> configuration option has been added allowing users to override
+  the separator character used by the slugify function.</p>
 </li>
 <li>
-<p>A <code>baselevel</code> configuration option has been added allowing users to set the base level
-    of headers in their documents (h1-h6). This allows the header levels to be
-    automatically adjusted to fit within the hierarchy of an HTML template.</p>
+<p>A <code>baselevel</code> configuration option has been added allowing users to set the
+  base level of headers in their documents (h1-h6). This allows the header
+  levels to be automatically adjusted to fit within the hierarchy of an HTML
+  template.</p>
 </li>
 </ul>
 <h3 id="pygments-can-now-be-disabled">Pygments can now be disabled<a class="headerlink" href="#pygments-can-now-be-disabled" title="Permanent link">&para;</a></h3>
-<p>The <a href="../../extensions/code_hilite/">CodeHilite</a> Extension has gained a new configuration option: <code>use_pygments</code>.
-The option is <code>True</code> by default, however, it allows one to turn off Pygments code
-highlighting (set to <code>False</code>) while preserving the language detection features of
-the extension. Note that Pygments language guessing is not used as that would &lsquo;use
-Pygments&rsquo;. If a language is defined for a code block, it will be assigned to the
-<code>&lt;code&gt;</code> tag as a class in the manner suggested by the <a href="http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5 spec</a>
-(alternate output will not be entertained) and could potentially be used by a JavaScript
-library in the browser to highlight the code block.</p>
+<p>The <a href="../../extensions/code_hilite/">CodeHilite</a> Extension has gained a new configuration option:
+<code>use_pygments</code>. The option is <code>True</code> by default, however, it allows one to turn
+off Pygments code highlighting (set to <code>False</code>) while preserving the language
+detection features of the extension. Note that Pygments language guessing is not
+used as that would &lsquo;use Pygments&rsquo;. If a language is defined for a code block, it
+will be assigned to the <code>&lt;code&gt;</code> tag as a class in the manner suggested by the
+<a href="http://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5 spec</a> (alternate output will not be entertained) and could
+potentially be used by a JavaScript library in the browser to highlight the code
+block.</p>
 <h3 id="miscellaneous">Miscellaneous<a class="headerlink" href="#miscellaneous" title="Permanent link">&para;</a></h3>
 <p>Test coverage has been improved including running <a href="https://flake8.readthedocs.io/en/latest/">flake8</a>. While those changes
 will not directly effect end users, the code is being better tested which will
@@ -446,7 +464,7 @@ for a complete history of the changes.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:45
+        Docs Build Date UTC : 2017-12-07 04:03:47
         -->
     </body>
 </html>

@@ -164,7 +164,7 @@ provide some common functionality. For example, both emphasis and strong are
 implemented with separate instances of the <code>SimpleTagPattern</code> listed below.
 Feel free to use or extend any of the Pattern classes found at
 <code>markdown.inlinepatterns</code>.</p>
-<p><strong>Generic Pattern Classes</strong></p>
+<h3 id="generic-pattern-classes">Generic Pattern Classes<a class="headerlink" href="#generic-pattern-classes" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p><strong><code>SimpleTextPattern(pattern)</code></strong>:</p>
@@ -671,8 +671,8 @@ extensions.</p>
 </pre></div>
 
 
-<p>Markdown also accepts &ldquo;named&rdquo; third party extensions for those occasions
-when it is impractical to import an extension directly (from the command line or from
+<p>Markdown also accepts &ldquo;named&rdquo; third party extensions for those occasions when it
+is impractical to import an extension directly (from the command line or from
 within templates).</p>
 <p>The &ldquo;name&rdquo; of your extension must be a string consisting of the importable path to
 your module using Python&rsquo;s dot notation. Therefore, if you are providing a library
@@ -692,11 +692,12 @@ Therefore, if you were to import the class like this:</p>
 
 <p>You do not need to do anything special to support this feature. As long as your
 extension class is able to be imported, a user can include it with the above syntax.</p>
-<p>The above two methods are especially useful if you need to implement a large number of
-extensions with more than one residing in a module. However, if you do not want to require
-that your users include the class name in their string, you must define only one extension
-per module and that module must contain a module-level function called <code>makeExtension</code>
-that accepts <code>**kwargs</code> and returns an extension instance.  </p>
+<p>The above two methods are especially useful if you need to implement a large
+number of extensions with more than one residing in a module. However, if you do
+not want to require that your users include the class name in their string, you
+must define only one extension per module and that module must contain a
+module-level function called <code>makeExtension</code> that accepts <code>**kwargs</code> and returns
+an extension instance.</p>
 <p>For example:</p>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">)</span>
     <span class="c1"># Define extension here...</span>
@@ -706,8 +707,9 @@ that accepts <code>**kwargs</code> and returns an extension instance.  </p>
 </pre></div>
 
 
-<p>When Markdown is passed the &ldquo;name&rdquo; of your extension as a dot notation string, it will import
-the module and call the <code>makeExtension</code> function to initiate your extension.</p>
+<p>When Markdown is passed the &ldquo;name&rdquo; of your extension as a dot notation string,
+it will import the module and call the <code>makeExtension</code> function to initiate your
+extension.</p>
 
                     </div>
                 </div>
@@ -727,6 +729,12 @@ the module and call the <code>makeExtension</code> function to initiate your ext
             
     <li>
         <a class="reference internal" href="#inlinepatterns">Inline Patterns</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#generic-pattern-classes">Generic Pattern Classes</a>
+    </li>
+        </ul>
     </li>
             
     <li>
@@ -857,7 +865,7 @@ the module and call the <code>makeExtension</code> function to initiate your ext
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:45
+        Docs Build Date UTC : 2017-12-07 04:03:47
         -->
     </body>
 </html>

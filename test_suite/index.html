@@ -68,10 +68,10 @@
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="test-suite">Test Suite<a class="headerlink" href="#test-suite" title="Permanent link">&para;</a></h1>
 <p>Python-Markdown comes with a test suite which uses the <a href="http://somethingaboutorange.com/mrl/projects/nose/">Nose</a> testing
-framework and <a href="http://yaml.org/">YAML</a>. The test suite primarily serves to ensure that new bugs 
-are not introduced as existing bugs are patched or new features are added. It 
-also allows Python-Markdown to be tested with the tests from other 
-implementations such as John Gruber&rsquo;s <a href="http://daringfireball.net/projects/markdown/">Perl</a> implementation or Michel 
+framework and <a href="http://yaml.org/">YAML</a>. The test suite primarily serves to ensure that new bugs
+are not introduced as existing bugs are patched or new features are added. It
+also allows Python-Markdown to be tested with the tests from other
+implementations such as John Gruber&rsquo;s <a href="http://daringfireball.net/projects/markdown/">Perl</a> implementation or Michel
 Fortin&rsquo;s <a href="http://michelf.com/projects/php-markdown/">PHP</a> implementation.</p>
 <p>The test suite can be run by calling the <code>run_tests.py</code> command at the root of
 the distribution tarball or by calling the <code>nosetests</code> command directly. Either
@@ -82,8 +82,8 @@ line (i.e.: verbosity level or use of a plugin like coverage).</p>
 temporary file in <code>test-output.html</code>. Open the file in a browser to view
 the report.</p>
 <p>A <code>tox.ini</code> file is also provided, so <a href="http://testrun.org/tox/latest/">tox</a> can be used to automatically create
-virtual environments, install all testing dependencies and run the tests on 
-each supported Python version. See the wiki for instructions on 
+virtual environments, install all testing dependencies and run the tests on
+each supported Python version. See the wiki for instructions on
 <a href="https://github.com/Python-Markdown/markdown/wiki/Test-Environment-Setup">setting up a testing environment</a> to use tox.</p>
 <p>The test suite contains two kinds of tests: Markdown Syntax Tests and Unit
 Tests.</p>
@@ -113,18 +113,18 @@ MarkdownSyntaxError: TestSyntax: &quot;misc/lists3&quot;
 MarkdownSyntaxError: Output from &quot;/home/waylan/code/python-markdown/te
 sts/misc/lists3.txt&quot; failed to match expected output.
 
---- /home/waylan/code/python-markdown/tests/misc/lists3.html 
-+++ actual_output.html 
-@@ -1,5 +1,5 @@ 
- <span class="nt">&lt;ul&gt;</span> 
- <span class="nt">&lt;li&gt;</span>blah blah blah 
--sdf asdf asdf asdf asdf 
--asda asdf asdfasd<span class="nt">&lt;/li&gt;</span> 
-+    sdf asdf asdf asdf asdf 
-+    asda asdf asdfasd<span class="nt">&lt;/li&gt;</span> 
+--- /home/waylan/code/python-markdown/tests/misc/lists3.html
++++ actual_output.html
+@@ -1,5 +1,5 @@
+ <span class="nt">&lt;ul&gt;</span>
+ <span class="nt">&lt;li&gt;</span>blah blah blah
+-sdf asdf asdf asdf asdf
+-asda asdf asdfasd<span class="nt">&lt;/li&gt;</span>
++    sdf asdf asdf asdf asdf
++    asda asdf asdfasd<span class="nt">&lt;/li&gt;</span>
  <span class="nt">&lt;/ul&gt;</span>
 
----------------------------------------------------------------------- 
+----------------------------------------------------------------------
 Ran 219 tests in 7.698s
 
 FAILED (MarkdownSyntaxError=1, SKIP=53)
@@ -158,23 +158,23 @@ settings under a specific file section will override anything in the
 <p>Below are the configuration options available and the defaults used when they
 are not explicitly set.</p>
 <ul>
-<li><code>normalize</code>: Switches white space normalization of the test output on or off. 
-  Defaults to <code>False</code> (off). Note: This requires that <a href="http://countergram.com/open-source/pytidylib/">PyTidyLib</a> be installed on 
-  the system. Otherwise the test will be skipped, regardless of any other 
-  settings.  </li>
-<li><code>skip</code>: Switches skipping of the test on and off. Defaults to <code>False</code> (off).  </li>
-<li><code>input_ext</code>: Extension of input file. Defaults to <code>.txt</code>. Useful for tests 
+<li><code>normalize</code>: Switches white space normalization of the test output on or off.
+  Defaults to <code>False</code> (off). Note: This requires that <a href="http://countergram.com/open-source/pytidylib/">PyTidyLib</a> be installed
+  on the system. Otherwise the test will be skipped, regardless of any other
+  settings.</li>
+<li><code>skip</code>: Switches skipping of the test on and off. Defaults to <code>False</code> (off).</li>
+<li><code>input_ext</code>: Extension of input file. Defaults to <code>.txt</code>. Useful for tests
   from other implementations.</li>
 <li><code>output_ext</code>: Extension of output file. Defaults to <code>.html</code>. Useful for tests
   from other implementations.</li>
-<li>Any keyword argument accepted by the Markdown class. If not set, Markdown&rsquo;s 
-  defaults are used. </li>
+<li>Any keyword argument accepted by the Markdown class. If not set, Markdown&rsquo;s
+  defaults are used.</li>
 </ul>
 <h2 id="unit-tests">Unit Tests<a class="headerlink" href="#unit-tests" title="Permanent link">&para;</a></h2>
 <p>Unit Tests are used as regression tests for Python-Markdown&rsquo;s API.
 All Unit Tests shipped with Python-Markdown are standard Python Unit Tests and
-are all contained in <code>tests/test_apis.py</code> and <code>tests/test_extensions.py</code>. 
-Standard discovery methods are used to find and run the tests. Therefore, when 
+are all contained in <code>tests/test_apis.py</code> and <code>tests/test_extensions.py</code>.
+Standard discovery methods are used to find and run the tests. Therefore, when
 writing new tests, those standards and naming conventions should be followed.</p>
 
                     </div>
@@ -289,7 +289,7 @@ writing new tests, those standards and naming conventions should be followed.</p
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-07 01:17:45
+        Docs Build Date UTC : 2017-12-07 04:03:47
         -->
     </body>
 </html>
