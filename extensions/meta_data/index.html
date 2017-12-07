@@ -95,26 +95,26 @@ a <code>Meta</code> attribute of a Markdown instance for use by other extensions
 directly by your python code.</p>
 <p>This extension is included in the standard Markdown library.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
-<p>Meta-data consists of a series of keywords and values defined at the beginning 
+<p>Meta-data consists of a series of keywords and values defined at the beginning
 of a markdown document like this:</p>
-<div class="codehilite"><pre><span></span><span class="n">Title</span><span class="o">:</span>   <span class="n">My</span> <span class="n">Document</span>
-<span class="n">Summary</span><span class="o">:</span> <span class="n">A</span> <span class="n">brief</span> <span class="n">description</span> <span class="n">of</span> <span class="n">my</span> <span class="n">document</span><span class="o">.</span>
-<span class="n">Authors</span><span class="o">:</span> <span class="n">Waylan</span> <span class="n">Limberg</span>
-         <span class="n">John</span> <span class="n">Doe</span>
-<span class="n">Date</span><span class="o">:</span>    <span class="n">October</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">2007</span>
-<span class="n">blank</span><span class="o">-</span><span class="n">value</span><span class="o">:</span> 
-<span class="n">base_url</span><span class="o">:</span> <span class="n">http</span><span class="o">://</span><span class="n">example</span><span class="o">.</span><span class="na">com</span>
+<div class="codehilite"><pre><span></span>Title:   My Document
+Summary: A brief description of my document.
+Authors: Waylan Limberg
+         John Doe
+Date:    October 2, 2007
+blank-value:
+base_url: http://example.com
 
-<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="n">first</span> <span class="n">paragraph</span> <span class="n">of</span> <span class="n">the</span> <span class="n">document</span><span class="o">.</span>
+This is the first paragraph of the document.
 </pre></div>
 
 
-<p>The keywords are case-insensitive and may consist of letters, numbers, 
-underscores and dashes and must end with a colon. The values consist of 
+<p>The keywords are case-insensitive and may consist of letters, numbers,
+underscores and dashes and must end with a colon. The values consist of
 anything following the colon on the line and may even be blank.</p>
 <p>If a line is indented by 4 or more spaces, that line is assumed to be an
 additional line of the value for the previous keyword. A keyword may have as
-many lines as desired. </p>
+many lines as desired.</p>
 <p>The first blank line ends all meta-data for the document. Therefore, the first
 line of a document must not be blank.</p>
 <p>Alternatively, You may use YAML style deliminators to mark the start and/or end
@@ -128,37 +128,37 @@ by Markdown.</p>
 <p>See <a href="../">Extensions</a> for general extension usage, specify
 <code>markdown.extensions.meta</code> as the name of the extension.</p>
 <h2 id="accessing-the-meta-data">Accessing the Meta-Data<a class="headerlink" href="#accessing-the-meta-data" title="Permanent link">&para;</a></h2>
-<p>The meta-data is made available as a python Dict in the <code>Meta</code> attribute of an 
+<p>The meta-data is made available as a python Dict in the <code>Meta</code> attribute of an
 instance of the Markdown class. For example, using the above document:</p>
-<div class="codehilite"><pre><span></span>&gt;&gt;&gt; md = markdown.Markdown(extensions = [&#39;markdown.extensions.meta&#39;])
-&gt;&gt;&gt; html = md.convert(text)
-&gt;&gt;&gt; # Meta-data has been stripped from output
-&gt;&gt;&gt; print html
-<span class="nt">&lt;p&gt;</span>This is the first paragraph of the document.<span class="nt">&lt;/p&gt;</span>
+<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;markdown.extensions.meta&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Meta-data has been stripped from output</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span>
+<span class="go">&lt;p&gt;This is the first paragraph of the document.&lt;/p&gt;</span>
 
-&gt;&gt;&gt; # View meta-data
-&gt;&gt;&gt; print md.Meta
-{
-&#39;title&#39; : [&#39;My Document&#39;],
-&#39;summary&#39; : [&#39;A brief description of my document.&#39;],
-&#39;authors&#39; : [&#39;Waylan Limberg&#39;, &#39;John Doe&#39;],
-&#39;date&#39; : [&#39;October 2, 2007&#39;],
-&#39;blank-value&#39; : [&#39;&#39;],
-&#39;base_url&#39; : [&#39;http://example.com&#39;]
-}
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># View meta-data</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">md</span><span class="o">.</span><span class="n">Meta</span>
+<span class="go">{</span>
+<span class="go">&#39;title&#39; : [&#39;My Document&#39;],</span>
+<span class="go">&#39;summary&#39; : [&#39;A brief description of my document.&#39;],</span>
+<span class="go">&#39;authors&#39; : [&#39;Waylan Limberg&#39;, &#39;John Doe&#39;],</span>
+<span class="go">&#39;date&#39; : [&#39;October 2, 2007&#39;],</span>
+<span class="go">&#39;blank-value&#39; : [&#39;&#39;],</span>
+<span class="go">&#39;base_url&#39; : [&#39;http://example.com&#39;]</span>
+<span class="go">}</span>
 </pre></div>
 
 
-<p>Note that the keys are all lowercase and the values consist of a list of 
-strings where each item is one line for that key. This way, one could preserve 
-line breaks if desired. Or the items could be joined where appropriate. No 
-assumptions are made regarding the data. It is simply passed as found to the 
+<p>Note that the keys are all lowercase and the values consist of a list of
+strings where each item is one line for that key. This way, one could preserve
+line breaks if desired. Or the items could be joined where appropriate. No
+assumptions are made regarding the data. It is simply passed as found to the
 <code>Meta</code> attribute.</p>
 <p>Perhaps the meta-data could be passed into a template system, or used by
 various Markdown extensions. The possibilities are left to the imagination of
 the developer.</p>
 <h2 id="compatible-extensions">Compatible Extensions<a class="headerlink" href="#compatible-extensions" title="Permanent link">&para;</a></h2>
-<p>The following extensions are currently known to work with the Meta-Data 
+<p>The following extensions are currently known to work with the Meta-Data
 extension. The keywords they are known to support are also listed.</p>
 <ul>
 <li><a href="../header_id/">HeaderId</a><ul>
@@ -312,7 +312,7 @@ extension. The keywords they are known to support are also listed.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 23:52:11
+        Docs Build Date UTC : 2017-12-07 01:17:44
         -->
     </body>
 </html>

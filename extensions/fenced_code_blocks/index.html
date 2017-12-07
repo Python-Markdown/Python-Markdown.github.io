@@ -92,18 +92,18 @@
 which overcomes a few limitations of the indented code blocks.</p>
 <p>This extension is included in the standard Markdown library.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
-<p>Fenced Code Blocks are defined using the syntax established in 
+<p>Fenced Code Blocks are defined using the syntax established in
 <a href="http://www.michelf.com/projects/php-markdown/extra/#fenced-code-blocks">PHP Markdown Extra</a>.</p>
 <p>Thus, the following text (taken from the above referenced PHP documentation):</p>
 <div class="codehilite"><pre><span></span>This is a paragraph introducing:
 
 ~~~~~~~~~~~~~~~~~~~~
 a one-line code block
-~~~~~~~~~~~~~~~~~~~~
+    ~~~~~~~~~~~~~~~~~~~~
 </pre></div>
 
 
-<p>Fenced code blocks can have a blank line as the first  and/or last line of a 
+<p>Fenced code blocks can have a blank line as the first  and/or last line of a
 code block and they can also come immediately after a list item without becoming
 part of the list.</p>
 <div class="admonition warning">
@@ -112,40 +112,40 @@ part of the list.</p>
 Therefore, they cannot be nested inside lists or blockquotes.</p>
 </div>
 <h3 id="language">Language<a class="headerlink" href="#language" title="Permanent link">&para;</a></h3>
-<p>In addition to PHP Extra&rsquo;s syntax, you can define the language of the code 
-block for use by syntax highlighters etc. The language will be assigned as a 
-class attribute of the <code>&lt;code&gt;</code> element in the output. Therefore, you should 
-define the language as you would a CSS class - <code>.language</code>. For consistency 
-with other markdown syntax, the language can <em>optionally</em> be wrapped in curly 
+<p>In addition to PHP Extra&rsquo;s syntax, you can define the language of the code
+block for use by syntax highlighters etc. The language will be assigned as a
+class attribute of the <code>&lt;code&gt;</code> element in the output. Therefore, you should
+define the language as you would a CSS class - <code>.language</code>. For consistency
+with other markdown syntax, the language can <em>optionally</em> be wrapped in curly
 brackets:</p>
 <div class="codehilite"><pre><span></span>~~~~{.python}
-# python code
+<span class="gh">#</span> python code
 ~~~~
 
 ~~~~.html
-<span class="nt">&lt;p&gt;</span>HTML Document<span class="nt">&lt;/p&gt;</span>
+&lt;p&gt;HTML Document&lt;/p&gt;
 ~~~~
 </pre></div>
 
 
 <p>The above will output:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;pre&gt;&lt;code</span> <span class="na">class=</span><span class="s">&quot;python&quot;</span><span class="nt">&gt;</span># python code
-<span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;python&quot;</span><span class="p">&gt;</span># python code
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
 
-<span class="nt">&lt;pre&gt;&lt;code</span> <span class="na">class=</span><span class="s">&quot;html&quot;</span><span class="nt">&gt;</span><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>HTML Document<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
-<span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+<span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;html&quot;</span><span class="p">&gt;</span><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>HTML Document<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <p><a href="http://github.github.com/github-flavored-markdown/">GitHub</a>&lsquo;s backtick (```) syntax is also supported:</p>
-<div class="codehilite"><pre><span></span>```python
-# more python code
-```
+<div class="codehilite"><pre><span></span><span class="s">```python</span>
+<span class="c1"># more python code</span>
+<span class="s">```</span>
 </pre></div>
 
 
 <h3 id="emphasized-lines">Emphasized Lines<a class="headerlink" href="#emphasized-lines" title="Permanent link">&para;</a></h3>
-<p>If you would like to have your fenced code blocks highlighted with the 
+<p>If you would like to have your fenced code blocks highlighted with the
 <a href="../code_hilite.html">CodeHilite</a> extension, simply enable that extension (remember that
 <a href="http://pygments.org/">Pygments</a> is its dependency) and the language of your fenced code blocks
 will be passed in and highlighted appropriately.</p>
@@ -153,18 +153,18 @@ will be passed in and highlighted appropriately.</p>
 can also have emphasized certain lines of code.</p>
 <p>The lines can be specified with PHP Extra&rsquo;s syntax:</p>
 <div class="codehilite"><pre><span></span>~~~~{.python hl_lines=&quot;1 3&quot;}
-# This line is emphasized
-# This line isn&#39;t
-# This line is emphasized
+<span class="gh">#</span> This line is emphasized
+<span class="gh">#</span> This line isn&#39;t
+<span class="gh">#</span> This line is emphasized
 ~~~~
 </pre></div>
 
 
 <p>&hellip; or with GitHub&rsquo;s:</p>
 <div class="codehilite"><pre><span></span>```python hl_lines=&quot;1 3&quot;
-# This line is emphasized
-# This line isn&#39;t
-# This line is emphasized
+<span class="gh">#</span> This line is emphasized
+<span class="gh">#</span> This line isn&#39;t
+<span class="gh">#</span> This line is emphasized
 ```
 </pre></div>
 
@@ -314,7 +314,7 @@ can also have emphasized certain lines of code.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 23:52:11
+        Docs Build Date UTC : 2017-12-07 01:17:44
         -->
     </body>
 </html>

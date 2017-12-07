@@ -92,9 +92,9 @@
 documents.</p>
 <p>This extension is included in the standard Markdown library.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
-<p>Python-Markdown&rsquo;s Footnote syntax follows the generally accepted syntax of the 
+<p>Python-Markdown&rsquo;s Footnote syntax follows the generally accepted syntax of the
 Markdown community at large and almost exactly matches <a href="http://michelf.com/projects/php-markdown/extra/#footnotes">PHP Markdown Extra</a>&lsquo;s
-implementation of footnotes. The only differences involve a few subtleties in 
+implementation of footnotes. The only differences involve a few subtleties in
 the output.</p>
 <p>Example:</p>
 <div class="codehilite"><pre><span></span>Footnotes[^1] have a label[^@#$%] and the footnote&#39;s content.
@@ -104,26 +104,26 @@ the output.</p>
 </pre></div>
 
 
-<p>A footnote label must start with a caret <code>^</code> and may contain any inline text 
+<p>A footnote label must start with a caret <code>^</code> and may contain any inline text
 (including spaces) between a set of square brackets <code>[]</code>. Only the first
 caret has any special meaning.</p>
-<p>A footnote content must start with the label followed by a colon and at least 
+<p>A footnote content must start with the label followed by a colon and at least
 one space. The label used to define the content must exactly match the label used
-in the body (including capitalization and white space). The content would then 
-follow the label either on the same line or on the next line. The content may 
-contain multiple lines, paragraphs, code blocks, blockquotes and most any other 
-markdown syntax. The additional lines must be indented one level (four spaces or 
-one tab). </p>
-<p>When working with multiple blocks, it may be helpful to start the content on a 
-separate line from the label which defines the content. This way the entire block 
+in the body (including capitalization and white space). The content would then
+follow the label either on the same line or on the next line. The content may
+contain multiple lines, paragraphs, code blocks, blockquotes and most any other
+markdown syntax. The additional lines must be indented one level (four spaces or
+one tab).</p>
+<p>When working with multiple blocks, it may be helpful to start the content on a
+separate line from the label which defines the content. This way the entire block
 is indented consistently and any errors are more easily discernible by the author.</p>
-<div class="codehilite"><pre><span></span>[^1]: 
+<div class="codehilite"><pre><span></span>[^1]:
     The first paragraph of the definition.
 
     Paragraph two of the definition.
 
-    &gt; A blockquote with
-    &gt; multiple lines.
+<span class="k">    &gt; </span><span class="ge">A blockquote with</span>
+<span class="k">    &gt; </span><span class="ge">multiple lines.</span>
 
         a code block
 
@@ -287,7 +287,7 @@ definitions are placed at the end of the resulting HTML document.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 23:52:11
+        Docs Build Date UTC : 2017-12-07 01:17:44
         -->
     </body>
 </html>

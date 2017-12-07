@@ -71,13 +71,13 @@
 to change and/or extend the behavior of the parser without having to edit the
 actual source files.</p>
 <p>To use an extension, pass it to markdown with the <code>extensions</code> keyword.</p>
-<div class="codehilite"><pre><span></span>markdown.markdown(some_text, extensions=[MyExtension(), &#39;path.to.my.ext&#39;, &#39;markdown.extensions.footnotes&#39;])
+<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(),</span> <span class="s1">&#39;path.to.my.ext&#39;</span><span class="p">,</span> <span class="s1">&#39;markdown.extensions.footnotes&#39;</span><span class="p">])</span>
 </pre></div>
 
 
 <p>See the <a href="../reference/#extensions">Library Reference</a> for more details.</p>
 <p>From the command line, specify an extension with the <code>-x</code> option.</p>
-<div class="codehilite"><pre><span></span>$ python -m markdown -x markdown.extensions.footnotes -x markdown.extensions.tables input.txt &gt; output.html
+<div class="codehilite"><pre><span></span>python -m markdown -x markdown.extensions.footnotes -x markdown.extensions.tables input.txt &gt; output.html
 </pre></div>
 
 
@@ -284,7 +284,7 @@ each extension for support.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 23:52:10
+        Docs Build Date UTC : 2017-12-07 01:17:44
         -->
     </body>
 </html>

@@ -9,7 +9,7 @@
         <link rel="canonical" href="https://Python-Markdown.github.io/extensions/sane_lists/">
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="SmartyPants" href="../smarty/" />
+        <link rel="next" title="Smart Strong" href="../smart_strong/" />
         <link rel="prev" title="New Line to Break" href="../nl2br/" />
         <title>Sane Lists &#8212; Python-Markdown 2.6.9 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
@@ -30,7 +30,7 @@
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../smarty/" title="SmartyPants" accesskey="N">next</a> |
+                <a href="../smart_strong/" title="Smart Strong" accesskey="N">next</a> |
             </li>
             <li class="right">
                 <a href="../nl2br/" title="New Line to Break" accesskey="P">previous</a> |
@@ -95,47 +95,47 @@ to be less surprising.</p>
 <p>Sane Lists do not allow the mixing of list types. In other words, an ordered
 list will not continue when an unordered list item is encountered and
 vice versa. For example:</p>
-<div class="codehilite"><pre><span></span>1. Ordered item 1
-2. Ordered item 2
+<div class="codehilite"><pre><span></span><span class="k">1.</span> Ordered item 1
+<span class="k">2.</span> Ordered item 2
 
-* Unordered item 1
-* Unordered item 2
+<span class="k">*</span> Unordered item 1
+<span class="k">*</span> Unordered item 2
 </pre></div>
 
 
 <p>will result in the following output:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;ol&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Ordered item 1<span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Ordered item 2<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ol&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered item 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered item 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 
-<span class="nt">&lt;ul&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Unordered item 1<span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Unordered item 2<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Unordered item 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Unordered item 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <p>Whereas the default Markdown behavior would be to generate an unordered list.</p>
 <p>Note that, unlike the default Markdown behavior, if a blank line is not
-included between list items, the different list type is ignored completely. 
+included between list items, the different list type is ignored completely.
 This corresponds to the behavior of paragraphs. For example:</p>
 <div class="codehilite"><pre><span></span>A Paragraph.
-* Not a list item.
+<span class="ge">* Not a list item.</span>
 
-1. Ordered list item.
-* Not a separate list item.
+<span class="ge">1. Ordered list item.</span>
+<span class="ge">*</span> Not a separate list item.
 </pre></div>
 
 
 <p>With this extension the above will result in the following output:</p>
-<div class="codehilite"><pre><span></span><span class="nt">&lt;p&gt;</span>A Paragraph.
-* Not a list item.<span class="nt">&lt;/p&gt;</span>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Paragraph.
+* Not a list item.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 
-<span class="nt">&lt;ol&gt;</span>
-  <span class="nt">&lt;li&gt;</span>Ordered list item.
-  * Not a separate list item.<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ol&gt;</span>
+<span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered list item.
+  * Not a separate list item.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
 </pre></div>
 
 
@@ -180,7 +180,7 @@ This corresponds to the behavior of paragraphs. For example:</p>
             
             <h4>Next topic</h4>
             <p class="topless">
-                <a href="../smarty/" title="next page">SmartyPants</a>
+                <a href="../smart_strong/" title="next page">Smart Strong</a>
             </p>
 
             <div role="note" aria-label="source link">
@@ -214,7 +214,7 @@ This corresponds to the behavior of paragraphs. For example:</p>
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../smarty/" title="SmartyPants" accesskey="N">next</a> |
+                <a href="../smart_strong/" title="Smart Strong" accesskey="N">next</a> |
             </li>
             <li class="right">
                 <a href="../nl2br/" title="New Line to Break" accesskey="P">previous</a> |
@@ -275,7 +275,7 @@ This corresponds to the behavior of paragraphs. For example:</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 23:52:11
+        Docs Build Date UTC : 2017-12-07 01:17:44
         -->
     </body>
 </html>

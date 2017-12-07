@@ -9,8 +9,8 @@
         <link rel="canonical" href="https://Python-Markdown.github.io/extensions/smart_strong/">
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Table of Contents" href="../toc/" />
-        <link rel="prev" title="SmartyPants" href="../smarty/" />
+        <link rel="next" title="SmartyPants" href="../smarty/" />
+        <link rel="prev" title="Sane Lists" href="../sane_lists/" />
         <title>Smart Strong &#8212; Python-Markdown 2.6.9 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
@@ -30,10 +30,10 @@
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../toc/" title="Table of Contents" accesskey="N">next</a> |
+                <a href="../smarty/" title="SmartyPants" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../smarty/" title="SmartyPants" accesskey="P">previous</a> |
+                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -62,10 +62,10 @@
             
             
             
-            
         <li class="nav-item">
             <a href="./">Smart Strong</a>
          &#187; </li>
+            
             
             
             
@@ -89,20 +89,20 @@
                     <div class="body" role="main"><h1 id="smart_strong">Smart_Strong<a class="headerlink" href="#smart_strong" title="Permanent link">&para;</a></h1>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>The Smart_Strong extension adds smarter handling of double underscores within
-words. This does for double underscores what <a href="../../reference.html#smart_emphasis">smart_emphasis</a> does for single
+words. This does for double underscores what <a href="../../reference/#smart_emphasis">smart_emphasis</a> does for single
 underscores.</p>
 <p>The Smart_Strong extension is included in the standard Markdown library.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">markdown</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;Text with double__underscore__words.&#39;</span><span class="p">,</span> \
-                      <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.smart_strong&#39;</span><span class="p">])</span>
-<span class="sa">u</span><span class="s1">&#39;&lt;p&gt;Text with double__underscore__words.&lt;/p&gt;&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;__Strong__ still works.&#39;</span><span class="p">,</span> \
-                      <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.smart_strong&#39;</span><span class="p">])</span>
-<span class="sa">u</span><span class="s1">&#39;&lt;p&gt;&lt;strong&gt;Strong&lt;/strong&gt; still works.&lt;/p&gt;&#39;</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;__this__works__too__.&#39;</span><span class="p">,</span> \
-                      <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.smart_strong&#39;</span><span class="p">])</span>
-<span class="sa">u</span><span class="s1">&#39;&lt;p&gt;&lt;strong&gt;this__works__too&lt;/strong&gt;.&lt;/p&gt;&#39;</span>
+<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">markdown</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;Text with double__underscore__words.&#39;</span><span class="p">,</span> \
+<span class="go">                      extensions=[&#39;markdown.extensions.smart_strong&#39;])</span>
+<span class="go">u&#39;&lt;p&gt;Text with double__underscore__words.&lt;/p&gt;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;__Strong__ still works.&#39;</span><span class="p">,</span> \
+<span class="go">                      extensions=[&#39;markdown.extensions.smart_strong&#39;])</span>
+<span class="go">u&#39;&lt;p&gt;&lt;strong&gt;Strong&lt;/strong&gt; still works.&lt;/p&gt;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="s1">&#39;__this__works__too__.&#39;</span><span class="p">,</span> \
+<span class="go">                      extensions=[&#39;markdown.extensions.smart_strong&#39;])</span>
+<span class="go">u&#39;&lt;p&gt;&lt;strong&gt;this__works__too&lt;/strong&gt;.&lt;/p&gt;&#39;</span>
 </pre></div>
 
 
@@ -140,13 +140,13 @@ underscores.</p>
             
             <h4>Previous topic</h4>
             <p class="topless">
-                <a href="../smarty/" title="previous page">SmartyPants</a>
+                <a href="../sane_lists/" title="previous page">Sane Lists</a>
             </p>
 
             
             <h4>Next topic</h4>
             <p class="topless">
-                <a href="../toc/" title="next page">Table of Contents</a>
+                <a href="../smarty/" title="next page">SmartyPants</a>
             </p>
 
             <div role="note" aria-label="source link">
@@ -180,10 +180,10 @@ underscores.</p>
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../toc/" title="Table of Contents" accesskey="N">next</a> |
+                <a href="../smarty/" title="SmartyPants" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../smarty/" title="SmartyPants" accesskey="P">previous</a> |
+                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -212,10 +212,10 @@ underscores.</p>
             
             
             
-            
         <li class="nav-item">
             <a href="./">Smart Strong</a>
          &#187; </li>
+            
             
             
             
@@ -241,7 +241,7 @@ underscores.</p>
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 23:52:11
+        Docs Build Date UTC : 2017-12-07 01:17:44
         -->
     </body>
 </html>

@@ -9,8 +9,8 @@
         <link rel="canonical" href="https://Python-Markdown.github.io/extensions/smarty/">
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Smart Strong" href="../smart_strong/" />
-        <link rel="prev" title="Sane Lists" href="../sane_lists/" />
+        <link rel="next" title="Table of Contents" href="../toc/" />
+        <link rel="prev" title="Smart Strong" href="../smart_strong/" />
         <title>SmartyPants &#8212; Python-Markdown 2.6.9 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
@@ -30,10 +30,10 @@
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../smart_strong/" title="Smart Strong" accesskey="N">next</a> |
+                <a href="../toc/" title="Table of Contents" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
+                <a href="../smart_strong/" title="Smart Strong" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -62,10 +62,10 @@
             
             
             
+            
         <li class="nav-item">
             <a href="./">SmartyPants</a>
          &#187; </li>
-            
             
             
             
@@ -139,35 +139,35 @@ their HTML entity equivalents.</p>
 </tbody>
 </table>
 <p>Using the configuration option &lsquo;substitutions&rsquo; you can overwrite the
-default substitutions. Just pass a dict mapping (a subset of) the 
+default substitutions. Just pass a dict mapping (a subset of) the
 keys to the substitution strings.</p>
-<p>For example, one might use the following configuration to get correct quotes for 
+<p>For example, one might use the following configuration to get correct quotes for
 the German language:</p>
-<div class="codehilite"><pre><span></span>extension_configs = {
-    &#39;markdown.extensions.smarty&#39;: {
-        &#39;substitutions&#39;: {
-            &#39;left-single-quote&#39;: &#39;&amp;sbquo;&#39;, # sb is not a typo!
-            &#39;right-single-quote&#39;: &#39;&amp;lsquo;&#39;,
-            &#39;left-double-quote&#39;: &#39;&amp;bdquo;&#39;,
-            &#39;right-double-quote&#39;: &#39;&amp;ldquo;&#39;
-        }
-    }
-}
+<div class="codehilite"><pre><span></span><span class="n">extension_configs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;markdown.extensions.smarty&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;substitutions&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;left-single-quote&#39;</span><span class="p">:</span> <span class="s1">&#39;&amp;sbquo;&#39;</span><span class="p">,</span> <span class="c1"># sb is not a typo!</span>
+            <span class="s1">&#39;right-single-quote&#39;</span><span class="p">:</span> <span class="s1">&#39;&amp;lsquo;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;left-double-quote&#39;</span><span class="p">:</span> <span class="s1">&#39;&amp;bdquo;&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;right-double-quote&#39;</span><span class="p">:</span> <span class="s1">&#39;&amp;ldquo;&#39;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This extension re-implements the Python <a href="http://pythonhosted.org/smartypants/">SmartyPants</a> 
+<p>This extension re-implements the Python <a href="http://pythonhosted.org/smartypants/">SmartyPants</a>
 library by integrating it into the markdown parser.
 While this does not provide any additional features,
-it does offer a few advantages. Notably, it will not 
-try to work on highlighted code blocks (using the 
-<a href="../code_hilite.html">CodeHilite</a> Extension) like the third party library 
+it does offer a few advantages. Notably, it will not
+try to work on highlighted code blocks (using the
+<a href="../code_hilite.html">CodeHilite</a> Extension) like the third party library
 has been known to do.</p>
 </div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>See <a href="../">Extensions</a> for general extension usage, specify 
+<p>See <a href="../">Extensions</a> for general extension usage, specify
 <code>markdown.extensions.smarty</code> as the name of the extension.</p>
 <p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
 configuring extensions.</p>
@@ -241,13 +241,13 @@ by John Gruber. Please read it&rsquo;s <a href="http://daringfireball.net/projec
             
             <h4>Previous topic</h4>
             <p class="topless">
-                <a href="../sane_lists/" title="previous page">Sane Lists</a>
+                <a href="../smart_strong/" title="previous page">Smart Strong</a>
             </p>
 
             
             <h4>Next topic</h4>
             <p class="topless">
-                <a href="../smart_strong/" title="next page">Smart Strong</a>
+                <a href="../toc/" title="next page">Table of Contents</a>
             </p>
 
             <div role="note" aria-label="source link">
@@ -281,10 +281,10 @@ by John Gruber. Please read it&rsquo;s <a href="http://daringfireball.net/projec
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../smart_strong/" title="Smart Strong" accesskey="N">next</a> |
+                <a href="../toc/" title="Table of Contents" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
+                <a href="../smart_strong/" title="Smart Strong" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -313,10 +313,10 @@ by John Gruber. Please read it&rsquo;s <a href="http://daringfireball.net/projec
             
             
             
+            
         <li class="nav-item">
             <a href="./">SmartyPants</a>
          &#187; </li>
-            
             
             
             
@@ -342,7 +342,7 @@ by John Gruber. Please read it&rsquo;s <a href="http://daringfireball.net/projec
 
         <!--
         MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2017-12-06 23:52:11
+        Docs Build Date UTC : 2017-12-07 01:17:44
         -->
     </body>
 </html>
