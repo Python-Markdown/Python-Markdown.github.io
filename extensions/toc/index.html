@@ -11,12 +11,11 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Tables" href="../tables/" />
         <link rel="prev" title="SmartyPants" href="../smarty/" />
-        <title>Table of Contents &#8212; Python-Markdown 2.6.11 documentation</title>
+        <title>Table of Contents &#8212; Python-Markdown 3.0.dev documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
-        <script type="text/javascript" src="../../static/underscore.js"></script>
-        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
 
     <body>
@@ -24,7 +23,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -38,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -49,26 +48,27 @@
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         <li class="nav-item">
             <a href="./">Table of Contents</a>
          &#187; </li>
-            
-            
+                
+                
+                    
                     
                     
                     
@@ -129,7 +129,7 @@ marker. The marker defaults to <code>[TOC]</code> so the following document:</p>
   <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header-1&quot;</span><span class="p">&gt;</span>Header 1<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header-2&quot;</span><span class="p">&gt;</span>Header 2<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header-2&quot;</span><span class="p">&gt;</span>Header 2<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
 </pre></div>
 
 
@@ -137,15 +137,69 @@ marker. The marker defaults to <code>[TOC]</code> so the following document:</p>
 Table of Contents is available as an attribute (<code>toc</code>) on the Markdown class.
 This allows one to insert the Table of Contents elsewhere in their page
 template. For example:</p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.toc&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;toc&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">page</span> <span class="o">=</span> <span class="n">render_some_template</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="n">html</span><span class="p">,</span> <span class="s1">&#39;toc&#39;</span><span class="p">:</span> <span class="n">md</span><span class="o">.</span><span class="n">toc</span><span class="p">})</span>
 </pre></div>
 
 
+<p>The <code>toc_tokens</code> attribute is also available on the Markdown class and contains
+a nested list of dict objects. For example, the above document would result in
+the following object at <code>md.toc_tokens</code>:</p>
+<div class="codehilite"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;header-1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Header 1&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;children&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span><span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;header-2&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Header 2&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">:[]}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<p>Note that the <code>level</code> refers to the <code>hn</code> level. In other words, <code>&lt;h1&gt;</code> is level
+<code>1</code> and <code>&lt;h2&gt;</code> is level <code>2</code>, etc. Be aware that improperly nested levels in the
+input may result in odd nesting of the output.</p>
+<h3 id="custom-labels">Custom Labels<a class="headerlink" href="#custom-labels" title="Permanent link">&para;</a></h3>
+<p>In most cases, the text label in the Table of Contents should match the text of
+the header. However, occasionally that is not desirable. In that case, if this
+extension is used in conjunction with the <a href="../attr_list/">Attribute Lists Extension</a> and a
+<code>data-toc-label</code> attribute is defined on the header, then the contents of that
+attribute will be used as the text label for the item in the Table of Contents.
+For example, the following Markdown:</p>
+<div class="codehilite"><pre><span></span>[TOC]
+
+<span class="gh">#</span> Functions
+
+<span class="gu">##</span> `markdown.markdown(text [, **kwargs])` { #markdown data-toc-label=&#39;markdown.markdown&#39; }
+</pre></div>
+
+
+<p>would generate the following output:</p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;toc&quot;</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#functions&quot;</span><span class="p">&gt;</span>Functions<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#markdown&quot;</span><span class="p">&gt;</span>markdown.markdown<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;functions&quot;</span><span class="p">&gt;</span>Functions<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;markdown&quot;</span><span class="p">&gt;&lt;</span><span class="nt">code</span><span class="p">&gt;</span>markdown.markdown(text [, **kwargs])<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Notice that the text in the Table of Contents is much cleaner and easier to read
+in the context of a Table of Contents. The <code>data-toc-label</code> is not included in
+the HTML header element. Also note that the ID was manually defined in the
+attribute list to provide a cleaner URL when linking to the header. If the ID is
+not manually defined, it is always derived from the text of the header, never
+from the <code>data-toc-label</code> attribute.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>See <a href="../">Extensions</a> for general extension usage, specify <code>markdown.extensions.toc</code>
-as the name of the extension.</p>
+<p>See <a href="../">Extensions</a> for general extension usage. Use <code>toc</code> as the name
+of the extension.</p>
 <p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
 configuring extensions.</p>
 <p>The following options are provided to configure the output:</p>
@@ -179,14 +233,14 @@ text.</p>
 adjusted to fit within the hierarchy of your HTML templates. For example,
 suppose the Markdown text for a page should not contain any headers higher
 than level 3 (<code>&lt;h3&gt;</code>). The following will accomplish that:</p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="gp">... </span><span class="s1">#Some Header</span>
-<span class="gp">... </span><span class="s1">## Next Level&#39;&#39;&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.extensions.toc</span> <span class="kn">import</span> <span class="n">TocExtension</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">TocExtension</span><span class="p">(</span><span class="n">baselevel</span><span class="o">=</span><span class="mi">3</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span>
-<span class="go">&lt;h3 id=&quot;some_header&quot;&gt;Some Header&lt;/h3&gt;</span>
-<span class="go">&lt;h4 id=&quot;next_level&quot;&gt;Next Level&lt;/h4&gt;&#39;</span>
+<div class="codehilite"><pre><span></span><span class="go">&amp;gt;&amp;gt;&amp;gt;  text = &#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="c1">#Some Header</span>
+<span class="gp">... </span><span class="c1">## Next Level&#39;&#39;&#39;</span>
+<span class="go">&amp;gt;&amp;gt;&amp;gt; from markdown.extensions.toc import TocExtension</span>
+<span class="go">&amp;gt;&amp;gt;&amp;gt; html = markdown.markdown(text, extensions=[TocExtension(baselevel=3)])</span>
+<span class="go">&amp;gt;&amp;gt;&amp;gt; print html</span>
+<span class="go">&amp;lt;h3 id=&quot;some_header&quot;&amp;gt;Some Header&amp;lt;/h3&amp;gt;</span>
+<span class="go">&amp;lt;h4 id=&quot;next_level&quot;&amp;gt;Next Level&amp;lt;/h4&amp;gt;&#39;</span>
 </pre></div>
 
 
@@ -206,6 +260,14 @@ pass in a callable which takes the following two arguments:</p>
 <li>
 <p><strong><code>separator</code></strong>:
     Word separator. Character which replaces white space in id. Defaults to &ldquo;<code>-</code>&rdquo;.</p>
+</li>
+<li>
+<p><strong><code>toc_depth</code></strong>
+    Define up to which section level &ldquo;n&rdquo; (<code>&lt;h1&gt;</code> to <code>&lt;hn&gt;</code>, where <code>1 &lt;= n &lt;= 6</code>)
+    to include in the Table of Contents. Defaults to <code>6</code>.</p>
+<p>When used with conjunction with <code>baselevel</code> this parameter will limit the
+resulting (adjusted) heading. That is, if both <code>toc_depth</code> and <code>baselevel</code>
+are 3, then only the highest level will be present in the table.</p>
 </li>
 </ul>
 
@@ -227,6 +289,12 @@ pass in a callable which takes the following two arguments:</p>
             
     <li>
         <a class="reference internal" href="#syntax">Syntax</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#custom-labels">Custom Labels</a>
+    </li>
+        </ul>
     </li>
             
     <li>
@@ -272,7 +340,7 @@ pass in a callable which takes the following two arguments:</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -286,7 +354,7 @@ pass in a callable which takes the following two arguments:</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -297,26 +365,27 @@ pass in a callable which takes the following two arguments:</p>
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         <li class="nav-item">
             <a href="./">Table of Contents</a>
          &#187; </li>
-            
-            
+                
+                
+                    
                     
                     
                     
@@ -331,15 +400,14 @@ pass in a callable which takes the following two arguments:</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.0.4.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/require.js"></script>
-        <script src="../../search/search.js"></script>
+        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2018-01-05 00:46:07
+        MkDocs version      : 1.0.4
+        Docs Build Date UTC : 2018-09-22 02:07:40
         -->
     </body>
 </html>

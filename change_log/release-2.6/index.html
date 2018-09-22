@@ -10,13 +10,12 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.2.5" href="../release-2.5/" />
-        <link rel="prev" title="Change Log" href="../" />
-        <title>Release Notes for v.2.6 &#8212; Python-Markdown 2.6.11 documentation</title>
+        <link rel="prev" title="Release Notes for v.3.0" href="../release-3.0/" />
+        <title>Release Notes for v.2.6 &#8212; Python-Markdown 3.0.dev documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
-        <script type="text/javascript" src="../../static/underscore.js"></script>
-        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
 
     <body>
@@ -24,7 +23,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -33,13 +32,14 @@
                 <a href="../release-2.5/" title="Release Notes for v.2.5" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../" title="Change Log" accesskey="P">previous</a> |
+                <a href="../release-3.0/" title="Release Notes for v.3.0" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -102,8 +102,8 @@ removes HTML parsing:</p>
 
 <span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">md_globals</span><span class="p">):</span>
-    <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">preprocessors</span><span class="p">[</span><span class="s1">&#39;html_block&#39;</span><span class="p">]</span>
-    <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">preprocessors</span><span class="p">[</span><span class="s1">&#39;html_block&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
 
 <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
 </pre></div>
@@ -182,7 +182,7 @@ options as a string to the extension name is deprecated and will raise a
 instead. See the <a href="../../reference/#extension-configs">documentation</a> for a full
 explanation of the current behavior.</p>
 <h3 id="headerid-extension-pending-deprecation">HeaderId Extension Pending Deprecation<a class="headerlink" href="#headerid-extension-pending-deprecation" title="Permanent link">&para;</a></h3>
-<p>The <a href="../../extensions/header_id/">HeaderId</a> Extension is pending deprecation and will raise a
+<p>The HeaderId Extension is pending deprecation and will raise a
 <strong><code>PendingDeprecationWarning</code></strong> in version 2.6. The extension will be deprecated
 in the next release and raise an error in the release after that. Use the <a href="../../extensions/toc/">Table
 of Contents</a> Extension instead, which offers most of the features of the
@@ -383,7 +383,7 @@ for a complete history of the changes.</p>
             
             <h4>Previous topic</h4>
             <p class="topless">
-                <a href="../" title="previous page">Change Log</a>
+                <a href="../release-3.0/" title="previous page">Release Notes for v.3.0</a>
             </p>
 
             
@@ -417,7 +417,7 @@ for a complete history of the changes.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -426,13 +426,14 @@ for a complete history of the changes.</p>
                 <a href="../release-2.5/" title="Release Notes for v.2.5" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../" title="Change Log" accesskey="P">previous</a> |
+                <a href="../release-3.0/" title="Release Notes for v.3.0" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -456,15 +457,14 @@ for a complete history of the changes.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.0.4.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/require.js"></script>
-        <script src="../../search/search.js"></script>
+        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2018-01-05 00:46:07
+        MkDocs version      : 1.0.4
+        Docs Build Date UTC : 2018-09-22 02:07:40
         -->
     </body>
 </html>

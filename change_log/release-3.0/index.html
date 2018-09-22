@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/change_log/release-3.0/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Release Notes for v.2.6" href="../release-2.6/" />
+        <link rel="prev" title="Change Log" href="../" />
+        <title>Release Notes for v.3.0 &#8212; Python-Markdown 3.0.dev documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../release-2.6/" title="Release Notes for v.2.6" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../" title="Change Log" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Release Notes for v.3.0</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="python-markdown-30-release-notes">Python-Markdown 3.0 Release Notes<a class="headerlink" href="#python-markdown-30-release-notes" title="Permanent link">&para;</a></h1>
+<p>We are pleased to release Python-Markdown 3.0 which adds a few new features and
+fixes various bugs and deprecates various old features. See the list of changes
+below for details.</p>
+<p>Python-Markdown version 3.0 supports Python versions 2.7, 3.4, 3.5, 3.6, 3.7,
+PyPy and PyPy3.</p>
+<h2 id="backwards-incompatible-changes">Backwards-incompatible changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
+<h3 id="enable_attributes-keyword-deprecated"><code>enable_attributes</code> keyword deprecated<a class="headerlink" href="#enable_attributes-keyword-deprecated" title="Permanent link">&para;</a></h3>
+<p>The <code>enable_attributes</code> keyword is deprecated in version 3.0 and will be
+ignored. Previously the keyword was <code>True</code> by default and enabled an
+undocumented way to define attributes on document elements. The feature has been
+removed from version 3.0. As most users did not use the undocumented feature, it
+should not affect most users. For the few who did use the feature, it can be
+enabled by using the <a href="../../extensions/legacy_attr/">Legacy Attributes</a>
+extension.</p>
+<h3 id="smart_emphasis-keyword-and-smart_strong-extension-deprecated"><code>smart_emphasis</code> keyword and <code>smart_strong</code> extension deprecated<a class="headerlink" href="#smart_emphasis-keyword-and-smart_strong-extension-deprecated" title="Permanent link">&para;</a></h3>
+<p>The <code>smart_emphasis</code> keyword is deprecated in version 3.0 and will be ignored.
+Previously the keyword was <code>True</code> by default and caused the parser to ignore
+middle-word emphasis. Additionally, the optional <code>smart_strong</code> extension
+provided the same behavior for strong emphasis. Both of those features are now
+part of the default behavior, and the <a href="../../extensions/legacy_em/">Legacy
+Emphasis</a> extension is available to disable that
+behavior.</p>
+<h3 id="output_formats-simplified-to-html-and-xhtml"><code>output_formats</code> simplified to <code>html</code> and <code>xhtml</code>.<a class="headerlink" href="#output_formats-simplified-to-html-and-xhtml" title="Permanent link">&para;</a></h3>
+<p>The <code>output_formats</code> keyword now only accepts two options: <code>html</code> and <code>xhtml</code>
+Note that if <code>(x)html1</code>, <code>(x)html4</code> or <code>(x)html5</code> are passed in, the number is
+stripped and ignored.</p>
+<h3 id="safe_mode-and-html_replacement_text-keywords-deprecated"><code>safe_mode</code> and <code>html_replacement_text</code> keywords deprecated<a class="headerlink" href="#safe_mode-and-html_replacement_text-keywords-deprecated" title="Permanent link">&para;</a></h3>
+<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords are
+deprecated in version 3.0 and will be ignored. The so-called &ldquo;safe mode&rdquo; was
+never actually &ldquo;safe&rdquo; which has resulted in many people having a false sense of
+security when using it. As an alternative, the developers of Python-Markdown
+recommend that any untrusted content be passed through an HTML sanitizer (like
+<a href="https://bleach.readthedocs.io/">Bleach</a>) after being converted to HTML by markdown. In fact, <a href="https://github.com/yourcelf/bleach-whitelist">Bleach Whitelist</a>
+provides a curated list of tags, attributes, and styles suitable for filtering
+user-provided HTML using bleach.</p>
+<p>If your code previously looked like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Then it is recommended that you change your code to read something like this:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">bleach</span>
+<span class="kn">from</span> <span class="nn">bleach_whitelist</span> <span class="kn">import</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span><span class="p">)</span>
+</pre></div>
+
+
+<p>If you are not interested in sanitizing untrusted text, but simply desire to
+escape raw HTML, then that can be accomplished through an extension which
+removes HTML parsing:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+
+<span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">deregister</span><span class="p">(</span><span class="s1">&#39;html_block&#39;</span><span class="p">)</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">deregister</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+
+<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
+</pre></div>
+
+
+<p>As the HTML would not be parsed with the above Extension, then the serializer
+will escape the raw HTML, which is exactly what happened in previous versions
+with <code>safe_mode="escape"</code>.</p>
+<h3 id="positional-arguments-deprecated">Positional arguments deprecated<a class="headerlink" href="#positional-arguments-deprecated" title="Permanent link">&para;</a></h3>
+<p>Positional arguments on the <code>markdown.Markdown()</code> class are deprecated as are
+all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
+Using positional arguments will raise an error. Only keyword arguments should be
+used. For example, if your code previously looked like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
+</pre></div>
+
+
+<p>Then it is recommended that you change it to read something like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the
+<code>safe_mode</code> argument was one of the positional arguments. When that argument
+is removed, the two arguments following it will no longer be at the correct
+position. It is recommended that you always use keywords when they are
+supported for this reason.</p>
+</div>
+<h3 id="extension-name-behavior-has-changed">Extension name behavior has changed<a class="headerlink" href="#extension-name-behavior-has-changed" title="Permanent link">&para;</a></h3>
+<p>In previous versions of Python-Markdown, the built-in extensions received
+special status and did not require the full path to be provided. Additionally,
+third party extensions whose name started with <code>"mdx_"</code> received the same
+special treatment. This is no longer the case.</p>
+<p>Support has been added for extensions to define an <a href="../../extensions/api/#entry_point">entry
+point</a>. An entry point is a string name which
+can be used to point to an <code>Extension</code> class. The built-in extensions now have
+entry points which match the old short names. And any third-party extensions
+which define entry points can now get the same behavior. See the documentation
+for each specific extension to find the assigned name.</p>
+<p>If an extension does not define an entry point, then the full path to the
+extension must be used. See the <a href="../../reference/#extensions">documentation</a> for
+a full explanation of the current behavior.</p>
+<h3 id="extension-configuration-as-part-of-extension-name-deprecated">Extension configuration as part of extension name deprecated<a class="headerlink" href="#extension-configuration-as-part-of-extension-name-deprecated" title="Permanent link">&para;</a></h3>
+<p>The previously documented method of appending the extension configuration
+options as a string to the extension name is deprecated and will raise an error.
+The <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should be
+used instead. See the <a href="../../reference/#extension_configs">documentation</a> for a
+full explanation of the current behavior.</p>
+<h3 id="headerid-extension-deprecated">HeaderId extension deprecated<a class="headerlink" href="#headerid-extension-deprecated" title="Permanent link">&para;</a></h3>
+<p>The HeaderId Extension is deprecated and will raise an error if specified. Use
+the <a href="../../extensions/toc/">Table of Contents</a> Extension instead, which offers
+most of the features of the HeaderId Extension and more (support for meta data
+is missing).</p>
+<p>Extension authors who have been using the <code>slugify</code> and <code>unique</code> functions
+defined in the HeaderId Extension should note that those functions are now
+defined in the Table of Contents extension and should adjust their import
+statements accordingly (<code>from markdown.extensions.toc import slugify, unique</code>).</p>
+<h3 id="homegrown-ordereddict-has-been-replaced-with-a-purpose-built-registry">Homegrown <code>OrderedDict</code> has been replaced with a purpose-built <code>Registry</code><a class="headerlink" href="#homegrown-ordereddict-has-been-replaced-with-a-purpose-built-registry" title="Permanent link">&para;</a></h3>
+<p>All processors and patterns now get &ldquo;registered&rdquo; to a
+<a href="../../extensions/api/#registry">Registry</a>. A backwards compatible shim is
+included so that existing simple extensions should continue to work.
+A <code>DeprecationWarning</code> will be raised for any code which calls the old API.</p>
+<h3 id="markdown-class-instance-references">Markdown class instance references.<a class="headerlink" href="#markdown-class-instance-references" title="Permanent link">&para;</a></h3>
+<p>Previously, instances of the <code>Markdown</code> class were represented as any one of
+<code>md</code>, <code>md_instance</code>, or <code>markdown</code>. This inconsistency made it difficult when
+developing extensions, or just maintaining the existing code. Now, all instances
+are consistently represented as <code>md</code>.</p>
+<p>The old attributes on class instances still exist, but raise a
+<code>DeprecationWarning</code> when accessed. Also on classes where the instance was
+optional, the attribute always exists now and is simply <code>None</code> if no instance
+was provided (previously the attribute would not exist).</p>
+<h3 id="markdownutilisblocklevel-deprecated"><code>markdown.util.isBlockLevel</code> deprecated<a class="headerlink" href="#markdownutilisblocklevel-deprecated" title="Permanent link">&para;</a></h3>
+<p>The <code>markdown.util.isBlockLevel</code> function is deprecated and will raise a
+<code>DeprecationWarning</code>. Instead, extensions should use the <code>isBlockLevel</code> method
+of the <code>Markdown</code> class instance. Additionally, a list of block level elements
+is defined in the <code>block_level_elements</code> attribute of the <code>Markdown</code> class which
+extensions can access to alter the list of elements which are treated as block
+level elements.</p>
+<h3 id="md_globals-keyword-deprecated-from-extension-api"><code>md_globals</code> keyword deprecated from extension API<a class="headerlink" href="#md_globals-keyword-deprecated-from-extension-api" title="Permanent link">&para;</a></h3>
+<p>Previously, the <code>extendMarkdown</code> method of a <code>markdown.extensions.Extension</code>
+subclasses accepted an <code>md_globals</code> keyword, which contained the value returned
+by Python&rsquo;s <code>globals()</code> built-in function. As all of the configuration is now
+held within the <code>Markdown</code> class instance, access to the globals is no longer
+necessary and any extensions which expect the keyword will raise a
+<code>DeprecationWarning</code>. A future release will raise an error.</p>
+<h3 id="added-new-more-flexible-inlineprocessor-class">Added new, more flexible <code>InlineProcessor</code> class<a class="headerlink" href="#added-new-more-flexible-inlineprocessor-class" title="Permanent link">&para;</a></h3>
+<p>A new <code>InlineProcessor</code> class handles inline processing much better and allows
+for more flexibility. The new <code>InlineProcessor</code> classes no longer utilize
+unnecessary pretext and post-text captures. New class can accept the buffer that
+is being worked on and manually process the text without regular expressions and
+return new replacement bounds. This helps us to handle links in a better way and
+handle nested brackets and logic that is too much for regular expression.</p>
+<h2 id="new-features">New features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
+<p>The following new features have been included in the release:</p>
+<ul>
+<li>
+<p>A new <a href="../../test_tools/">testing framework</a> is included as a part of the
+  Markdown library, which can also be used by third party extensions.</p>
+</li>
+<li>
+<p>A new <code>toc_depth</code> parameter has been added to the
+  <a href="../../extensions/toc/">Table of Contents Extension</a>.</p>
+</li>
+<li>
+<p>A new <code>toc_tokens</code> attribute has been added to the Markdown class by the
+  <a href="../../extensions/toc/">Table of Contents Extension</a>, which contains the raw
+  tokens used to build the Table of Contents. Users can use this to build their
+  own custom Table of Contents rather than needing to parse the HTML available
+  on the <code>toc</code> attribute of the Markdown class.</p>
+</li>
+<li>
+<p>When the <a href="../../extensions/toc/">Table of Contents Extension</a> is used in
+  conjunction with the <a href="../../extensions/attr_list/">Attribute Lists Extension</a>
+  and a <code>data-toc-label</code> attribute is defined on a header, the content of the
+  <code>data-toc-label</code> attribute is now used as the content of the Table of Contents
+  item for that header.</p>
+</li>
+<li>
+<p>Additional CSS class names can be appended to
+  <a href="../../extensions/admonition/">Admonitions</a>.</p>
+</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#python-markdown-30-release-notes">Python-Markdown 3.0 Release Notes</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#backwards-incompatible-changes">Backwards-incompatible changes</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#enable_attributes-keyword-deprecated">enable_attributes keyword deprecated</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#smart_emphasis-keyword-and-smart_strong-extension-deprecated">smart_emphasis keyword and smart_strong extension deprecated</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#output_formats-simplified-to-html-and-xhtml">output_formats simplified to html and xhtml.</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#safe_mode-and-html_replacement_text-keywords-deprecated">safe_mode and html_replacement_text keywords deprecated</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#positional-arguments-deprecated">Positional arguments deprecated</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#extension-name-behavior-has-changed">Extension name behavior has changed</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#extension-configuration-as-part-of-extension-name-deprecated">Extension configuration as part of extension name deprecated</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#headerid-extension-deprecated">HeaderId extension deprecated</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#homegrown-ordereddict-has-been-replaced-with-a-purpose-built-registry">Homegrown OrderedDict has been replaced with a purpose-built Registry</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown-class-instance-references">Markdown class instance references.</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdownutilisblocklevel-deprecated">markdown.util.isBlockLevel deprecated</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#md_globals-keyword-deprecated-from-extension-api">md_globals keyword deprecated from extension API</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#added-new-more-flexible-inlineprocessor-class">Added new, more flexible InlineProcessor class</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#new-features">New features</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../" title="previous page">Change Log</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../release-2.6/" title="next page">Release Notes for v.2.6</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/change_log/release-3.0.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../release-2.6/" title="Release Notes for v.2.6" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../" title="Change Log" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Release Notes for v.3.0</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.0.4.
+        </div>
+        <script>var base_url = '../..';</script>
+        <script src="../../search/main.js"></script>
+
+        <!--
+        MkDocs version      : 1.0.4
+        Docs Build Date UTC : 2018-09-22 02:07:40
+        -->
+    </body>
+</html>

@@ -9,14 +9,13 @@
         <link rel="canonical" href="https://Python-Markdown.github.io/extensions/api/">
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Test Suite" href="../../test_suite/" />
+        <link rel="next" title="Test Tools" href="../../test_tools/" />
         <link rel="prev" title="WikiLinks" href="../wikilinks/" />
-        <title>Extension API &#8212; Python-Markdown 2.6.11 documentation</title>
+        <title>Extension API &#8212; Python-Markdown 3.0.dev documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
-        <script type="text/javascript" src="../../static/underscore.js"></script>
-        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
 
     <body>
@@ -24,13 +23,13 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../../test_suite/" title="Test Suite" accesskey="N">next</a> |
+                <a href="../../test_tools/" title="Test Tools" accesskey="N">next</a> |
             </li>
             <li class="right">
                 <a href="../wikilinks/" title="WikiLinks" accesskey="P">previous</a> |
@@ -38,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -50,6 +49,7 @@
         <li class="nav-item">
             <a href="./">Extension API</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -106,6 +106,7 @@ return either that list, or an altered list of Unicode strings.</p>
 
 
 <h2 id="inlinepatterns">Inline Patterns<a class="headerlink" href="#inlinepatterns" title="Permanent link">&para;</a></h2>
+<h3 id="legacy">Legacy<a class="headerlink" href="#legacy" title="Permanent link">&para;</a></h3>
 <p>Inline Patterns implement the inline HTML element syntax for Markdown such as
 <code>*emphasis*</code> or <code>[links](http://example.com)</code>. Pattern objects should be
 instances of classes that inherit from <code>markdown.inlinepatterns.Pattern</code> or
@@ -140,7 +141,7 @@ pattern.</p>
 <span class="k">class</span> <span class="nc">EmphasisPattern</span><span class="p">(</span><span class="n">Pattern</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">handleMatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
         <span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s1">&#39;em&#39;</span><span class="p">)</span>
-        <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+        <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">el</span>
 </pre></div>
 
@@ -164,7 +165,110 @@ provide some common functionality. For example, both emphasis and strong are
 implemented with separate instances of the <code>SimpleTagPattern</code> listed below.
 Feel free to use or extend any of the Pattern classes found at
 <code>markdown.inlinepatterns</code>.</p>
+<h3 id="future">Future<a class="headerlink" href="#future" title="Permanent link">&para;</a></h3>
+<p>While users can still create plugins with the existing
+<code>markdown.inlinepatterns.Pattern</code>, a new, more flexible inline processor has
+been added which users are encouraged to migrate to. The new inline processor
+is found at <code>markdown.inlinepatterns.InlineProcessor</code>.</p>
+<p>The new processor is very similar to legacy with two major distinctions.</p>
+<ol>
+<li>
+<p>Patterns no longer need to match the entire block, so patterns no longer
+    start with <code>r'^(.*?)'</code> and end with <code>r'(.*?)!'</code>. This was a huge
+    performance sink and this requirement has been removed. The returned match
+    object will only contain what is explicitly matched in the pattern, and
+    extension pattern groups now start with <code>m.group(1)</code>.</p>
+</li>
+<li>
+<p>The <code>handleMatch</code> method now takes an additional input called <code>data</code>,
+    which is the entire block under analysis, not just what is matched with
+    the specified pattern. The method also returns the element <em>and</em> the index
+    boundaries relative to <code>data</code> that the return element is replacing
+    (usually <code>m.start(0)</code> and <code>m.end(0)</code>).  If the boundaries are returned as
+    <code>None</code>, it is assumed that the match did not take place, and nothing will
+    be altered in <code>data</code>.</p>
+</li>
+</ol>
+<p>If all you need is the same functionality as the legacy processor, you can do
+as shown below. Most of the time, simple regular expression processing is all
+you&rsquo;ll need.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">InlineProcessor</span>
+<span class="kn">from</span> <span class="nn">markdown.util</span> <span class="kn">import</span> <span class="n">etree</span>
+
+<span class="c1"># an oversimplified regex</span>
+<span class="n">MYPATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\*([^*]+)\*&#39;</span>
+
+<span class="k">class</span> <span class="nc">EmphasisPattern</span><span class="p">(</span><span class="n">InlineProcessor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handleMatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s1">&#39;em&#39;</span><span class="p">)</span>
+        <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">el</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># pass in pattern and create instance</span>
+<span class="n">emphasis</span> <span class="o">=</span> <span class="n">EmphasisPattern</span><span class="p">(</span><span class="n">MYPATTERN</span><span class="p">)</span>
+</pre></div>
+
+
+<p>But, the new processor allows you handle much more complex patterns that are
+too much for Python&rsquo;s Re to handle.  For instance, to handle nested brackets in
+link patterns, the built-in link inline processor uses the following pattern to
+find where a link <em>might</em> start:</p>
+<div class="codehilite"><pre><span></span><span class="n">LINK_RE</span> <span class="o">=</span> <span class="n">NOIMG</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\[&#39;</span>
+<span class="n">link</span> <span class="o">=</span> <span class="n">LinkInlineProcessor</span><span class="p">(</span><span class="n">LINK_RE</span><span class="p">,</span> <span class="n">md_instance</span><span class="p">)</span>
+</pre></div>
+
+
+<p>It then uses programmed logic to actually walk the string (<code>data</code>), starting at
+where the match started (<code>m.start(0)</code>). If for whatever reason, the text
+does not appear to be a link, it returns <code>None</code> for the start and end boundary
+in order to communicate to the parser that no match was found.</p>
+<div class="codehilite"><pre><span></span>    <span class="c1"># Just a snippet of the link&#39;s handleMatch</span>
+    <span class="c1"># method to illustrate new logic</span>
+    <span class="k">def</span> <span class="nf">handleMatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">text</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">handled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">handled</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
+
+        <span class="n">href</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">handled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getLink</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">handled</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
+
+        <span class="n">el</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
+
+        <span class="n">el</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span> <span class="n">href</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">el</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">el</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">index</span>
+</pre></div>
+
+
 <h3 id="generic-pattern-classes">Generic Pattern Classes<a class="headerlink" href="#generic-pattern-classes" title="Permanent link">&para;</a></h3>
+<p>Some example processors that are available.</p>
+<ul>
+<li>
+<p><strong><code>SimpleTextInlineProcessor(pattern)</code></strong>:</p>
+<p>Returns simple text of <code>group(2)</code> of a <code>pattern</code> and the start and end
+position of the match.</p>
+</li>
+<li>
+<p><strong><code>SimpleTagInlineProcessor(pattern, tag)</code></strong>:</p>
+<p>Returns an element of type &ldquo;<code>tag</code>&rdquo; with a text attribute of <code>group(3)</code>
+of a <code>pattern</code>. <code>tag</code> should be a string of a HTML element (i.e.: &lsquo;em&rsquo;).
+It also returns the start and end position of the match.</p>
+</li>
+<li>
+<p><strong><code>SubstituteTagInlineProcessor(pattern, tag)</code></strong>:</p>
+<p>Returns an element of type &ldquo;<code>tag</code>&rdquo; with no children or text (i.e.: <code>br</code>)
+and the start and end position of the match.</p>
+</li>
+</ul>
+<p>A very small number of the basic legacy processors are still available to
+prevent breakage of 3rd party extensions during the transition period to the
+new processors. Three of the available processors are listed below.</p>
 <ul>
 <li>
 <p><strong><code>SimpleTextPattern(pattern)</code></strong>:</p>
@@ -355,7 +459,7 @@ method will generally only be used internally to recursively parse nested
 blocks of text.</p>
 </li>
 </ul>
-<p>While is is not recommended, an extension could subclass or completely replace
+<p>While it is not recommended, an extension could subclass or completely replace
 the <code>BlockParser</code>. The new class would have to provide the same public API.
 However, be aware that other extensions may expect the core parser provided
 and will not work with such a drastically different parser.</p>
@@ -422,23 +526,22 @@ over-rides the <code>extendMarkdown</code> method. Within this class you will ma
 configuration options for your extension and attach the various processors and
 patterns to the Markdown instance.</p>
 <p>It is important to note that the order of the various processors and patterns
-matters. For example, if we replace <code>http://...</code> links with <code>&lt;a&gt;</code> elements,
-and <em>then</em> try to deal with  inline HTML, we will end up with a mess.
-Therefore, the various types of processors and patterns are stored within an
-instance of the Markdown class in <a href="#ordereddict">OrderedDict</a>s. Your <code>Extension</code> class
-will need to manipulate those OrderedDicts appropriately. You may insert
-instances of your processors and patterns into the appropriate location in an
-OrderedDict, remove a built-in instance, or replace a built-in instance with
-your own.</p>
+matters. For example, if we replace <code>http://...</code> links with <code>&lt;a&gt;</code> elements, and
+<em>then</em> try to deal with  inline HTML, we will end up with a mess. Therefore, the
+various types of processors and patterns are stored within an instance of the
+Markdown class in a <a href="#registry">Registry</a>. Your <code>Extension</code> class will need to manipulate
+those registries appropriately. You may <code>register</code> instances of your processors
+and patterns with an appropriate priority, <code>deregister</code> built-in instances, or
+replace a built-in instance with your own.</p>
 <h3 id="extendmarkdown"><code>extendMarkdown</code><a class="headerlink" href="#extendmarkdown" title="Permanent link">&para;</a></h3>
 <p>The <code>extendMarkdown</code> method of a <code>markdown.extensions.Extension</code> class
-accepts two arguments:</p>
+accepts one argument:</p>
 <ul>
 <li>
 <p><strong><code>md</code></strong>:</p>
 <p>A pointer to the instance of the Markdown class. You should use this to
-access the <a href="#ordereddict">OrderedDict</a>s of processors and patterns. They are found
-under the following attributes:</p>
+access the <a href="#registry">Registries</a> of processors and patterns. They are
+found under the following attributes:</p>
 <ul>
 <li><code>md.preprocessors</code></li>
 <li><code>md.inlinePatterns</code></li>
@@ -454,15 +557,10 @@ under the following attributes:</p>
 <li><code>md.output_format</code></li>
 <li><code>md.serializer</code></li>
 <li><code>md.registerExtension()</code></li>
-<li><code>md.html_replacement_text</code></li>
 <li><code>md.tab_length</code></li>
-<li><code>md.enable_attributes</code></li>
-<li><code>md.smart_emphasis</code></li>
+<li><code>md.block_level_elements</code></li>
+<li><code>md.isBlockLevel()</code></li>
 </ul>
-</li>
-<li>
-<p><strong><code>md_globals</code></strong>:</p>
-<p>Contains all the various global variables within the markdown module.</p>
 </li>
 </ul>
 <div class="admonition warning">
@@ -478,107 +576,75 @@ patterns into the markdown pipeline. Consider yourself warned!</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
 
 <span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">md_globals</span><span class="p">):</span>
-        <span class="c1"># Insert instance of &#39;mypattern&#39; before &#39;references&#39; pattern</span>
-        <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;mypattern&#39;</span><span class="p">,</span> <span class="n">MyPattern</span><span class="p">(</span><span class="n">md</span><span class="p">),</span> <span class="s1">&#39;&lt;references&#39;</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+        <span class="c1"># Register instance of &#39;mypattern&#39; with a priority of 175</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MyPattern</span><span class="p">(</span><span class="n">md</span><span class="p">),</span> <span class="s1">&#39;mypattern&#39;</span><span class="p">,</span> <span class="mi">175</span><span class="p">)</span>
 </pre></div>
 
 
-<h3 id="ordereddict">OrderedDict<a class="headerlink" href="#ordereddict" title="Permanent link">&para;</a></h3>
-<p>An OrderedDict is a dictionary like object that retains the order of it&rsquo;s
-items. The items are ordered in the order in which they were appended to
-the OrderedDict. However, an item can also be inserted into the OrderedDict
-in a specific location in relation to the existing items.</p>
-<p>Think of OrderedDict as a combination of a list and a dictionary as it has
-methods common to both. For example, you can get and set items using the
-<code>od[key] = value</code> syntax and the methods <code>keys()</code>, <code>values()</code>, and
-<code>items()</code> work as expected with the keys, values and items returned in the
-proper order. At the same time, you can use <code>insert()</code>, <code>append()</code>, and
-<code>index()</code> as you would with a list.</p>
-<p>Generally speaking, within Markdown extensions you will be using the special
-helper method <code>add()</code> to add additional items to an existing OrderedDict.</p>
-<p>The <code>add()</code> method accepts three arguments:</p>
+<h3 id="registry">Registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h3>
+<p>The <code>markdown.util.Registry</code> class is a priority sorted registry which Markdown
+uses internally to determine the processing order of its various processors and
+patterns.</p>
+<p>A <code>Registry</code> instance provides two public methods to alter the data of the
+registry: <code>register</code> and <code>deregister</code>. Use <code>register</code> to add items and
+<code>deregister</code> to remove items. See each method for specifics.</p>
+<p>When registering an item, a &ldquo;name&rdquo; and a &ldquo;priority&rdquo; must be provided. All
+items are automatically sorted by &ldquo;priority&rdquo; from highest to lowest. The
+&ldquo;name&rdquo; is used to remove (<code>deregister</code>) and get items.</p>
+<p>A <code>Registry</code> instance is like a list (which maintains order) when reading
+data. You may iterate over the items, get an item and get a count (length)
+of all items. You may also check that the registry contains an item.</p>
+<p>When getting an item you may use either the index of the item or the
+string-based &ldquo;name&rdquo;. For example:</p>
+<div class="codehilite"><pre><span></span>registry = Registry()
+registry.register(SomeItem(), &#39;itemname&#39;, 20)
+# Get the item by index
+item = registry[0]
+# Get the item by name
+item = registry[&#39;itemname&#39;]
+</pre></div>
+
+
+<p>When checking that the registry contains an item, you may use either the
+string-based &ldquo;name&rdquo;, or a reference to the actual item. For example:</p>
+<div class="codehilite"><pre><span></span>someitem = SomeItem()
+registry.register(someitem, &#39;itemname&#39;, 20)
+# Contains the name
+assert &#39;itemname&#39; in registry
+# Contains the item instance
+assert someitem in registry
+</pre></div>
+
+
+<p><code>markdown.util.Registry</code> has the following methods:</p>
+<h4 id="registry.register"><code>Registry.register(self, item, name, priority)</code><a class="headerlink" href="#registry.register" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>Add an item to the registry with the given name and priority.</p>
+<p>Parameters:</p>
 <ul>
-<li>
-<p><strong><code>key</code></strong>: A string. The key is used for later reference to the item.</p>
-</li>
-<li>
-<p><strong><code>value</code></strong>: The object instance stored in this item.</p>
-</li>
-<li>
-<p><strong><code>location</code></strong>: The items location in relation to other items.</p>
-<p>Note that the location can consist of a few different values:</p>
-<ul>
-<li>
-<p>The special strings <code>"_begin"</code> and <code>"_end"</code> insert that item at the
-  beginning or end of the OrderedDict respectively.</p>
-</li>
-<li>
-<p>A less-than sign (<code>&lt;</code>) followed by an existing key (i.e.:
-  <code>"&lt;somekey"</code>) inserts that item before the existing key.</p>
-</li>
-<li>
-<p>A greater-than sign (<code>&gt;</code>) followed by an existing key (i.e.:
-  <code>"&gt;somekey"</code>) inserts that item after the existing key.</p>
-</li>
+<li><code>item</code>: The item being registered.</li>
+<li><code>name</code>: A string used to reference the item.</li>
+<li><code>priority</code>: An integer or float used to sort against all items.</li>
 </ul>
-</li>
-</ul>
-<p>Consider the following example:</p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.odict</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">]</span> <span class="o">=</span>  <span class="mi">1</span>           <span class="c1"># The same as: od.add(&#39;one&#39;, 1, &#39;_begin&#39;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="p">[</span><span class="s1">&#39;three&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span>          <span class="c1"># The same as: od.add(&#39;three&#39;, 3, &#39;&gt;one&#39;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="p">[</span><span class="s1">&#39;four&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span>           <span class="c1"># The same as: od.add(&#39;four&#39;, 4, &#39;_end&#39;)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-<span class="go">[(&quot;one&quot;, 1), (&quot;three&quot;, 3), (&quot;four&quot;, 4)]</span>
-</pre></div>
-
-
-<p>Note that when building an OrderedDict in order, the extra features of the
-<code>add</code> method offer no real value and are not necessary. However, when
-manipulating an existing OrderedDict, <code>add</code> can be very helpful. So let&rsquo;s
-insert another item into the OrderedDict.</p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;&gt;one&#39;</span><span class="p">)</span>         <span class="c1"># Insert after &#39;one&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-<span class="go">[1, 2, 3, 4]</span>
-</pre></div>
-
-
-<p>Now let&rsquo;s insert another item.</p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="s1">&#39;two-point-five&#39;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="s1">&#39;&lt;three&#39;</span><span class="p">)</span> <span class="c1"># Insert before &#39;three&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">od</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-<span class="go">[&quot;one&quot;, &quot;two&quot;, &quot;two-point-five&quot;, &quot;three&quot;, &quot;four&quot;]</span>
-</pre></div>
-
-
-<p>Note that we also could have set the location of &ldquo;two-point-five&rdquo; to be &lsquo;after two&rsquo;
-(i.e.: <code>'&gt;two'</code>). However, it&rsquo;s unlikely that you will have control over the
-order in which extensions will be loaded, and this could affect the final
-sorted order of an OrderedDict. For example, suppose an extension adding
-&ldquo;two-point-five&rdquo; in the above examples was loaded before a separate extension
-which adds &lsquo;two&rsquo;. You may need to take this into consideration when adding your
-extension components to the various markdown OrderedDicts.</p>
-<p>Once an OrderedDict is created, the items are available via key:</p>
-<div class="codehilite"><pre><span></span><span class="n">MyNode</span> <span class="o">=</span> <span class="n">od</span><span class="p">[</span><span class="s1">&#39;somekey&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<p>Therefore, to delete an existing item:</p>
-<div class="codehilite"><pre><span></span><span class="k">del</span> <span class="n">od</span><span class="p">[</span><span class="s1">&#39;somekey&#39;</span><span class="p">]</span>
-</pre></div>
-
-
-<p>To change the value of an existing item (leaving location unchanged):</p>
-<div class="codehilite"><pre><span></span><span class="n">od</span><span class="p">[</span><span class="s1">&#39;somekey&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">MyNewObject</span><span class="p">()</span>
-</pre></div>
-
-
-<p>To change the location of an existing item:</p>
-<div class="codehilite"><pre><span></span><span class="n">t</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="s1">&#39;somekey&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;otherkey&#39;</span><span class="p">)</span>
-</pre></div>
-
-
+<p>If an item is registered with a &ldquo;name&rdquo; which already exists, the existing
+item is replaced with the new item. Tread carefully as the old item is lost
+with no way to recover it. The new item will be sorted according to its
+priority and will <strong>not</strong> retain the position of the old item.</p>
+</dd>
+</dl>
+<h4 id="registry.deregister"><code>Registry.deregister(self, name, strict=True)</code><a class="headerlink" href="#registry.deregister" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>
+<p>Remove an item from the registry.</p>
+<p>Set <code>strict=False</code> to fail silently.</p>
+</dd>
+</dl>
+<h4 id="registry.get_index_for_name"><code>Registry.get_index_for_name(self, name)</code><a class="headerlink" href="#registry.get_index_for_name" title="Permanent link">&para;</a></h4>
+<dl>
+<dd>Return the index of the given <code>name</code>.</dd>
+</dl>
 <h3 id="registerextension">registerExtension<a class="headerlink" href="#registerextension" title="Permanent link">&para;</a></h3>
 <p>Some extensions may need to have their state reset between multiple runs of the
 Markdown class. For example, consider the following use of the <a href="https://github.com/Python-Markdown/mdx_footnotes">Footnotes</a>
@@ -598,7 +664,7 @@ However, as many extensions do not have a need for <code>reset</code>, <code>res
 called on extensions that are registered.</p>
 <p>To register an extension, call <code>md.registerExtension</code> from within your
 <code>extendMarkdown</code> method:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">md_globals</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
     <span class="n">md</span><span class="o">.</span><span class="n">registerExtension</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="c1"># insert processors and patterns here</span>
 </pre></div>
@@ -659,39 +725,67 @@ when the previous value of <code>key</code> is a string.</p>
 <p>Sets multiple configuration settings given a dict of key/value pairs.</p>
 </li>
 </ul>
-<h3 id="makeextension"><code>makeExtension</code><a class="headerlink" href="#makeextension" title="Permanent link">&para;</a></h3>
+<h3 id="naming_an_extension">Naming an Extension<a class="headerlink" href="#naming_an_extension" title="Permanent link">&para;</a></h3>
 <p>As noted in the <a href="../../reference/">library reference</a> an instance of an extension can be passed
 directly to Markdown. In fact, this is the preferred way to use third-party
 extensions.</p>
 <p>For example:</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">markdown</span>
-<span class="kn">import</span> <span class="nn">myextension</span>
-<span class="n">myext</span> <span class="o">=</span> <span class="n">myextension</span><span class="o">.</span><span class="n">MyExtension</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)</span>
-<span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">myext</span><span class="p">])</span>
+<span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtension</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)])</span>
 </pre></div>
 
 
-<p>Markdown also accepts &ldquo;named&rdquo; third party extensions for those occasions when it
-is impractical to import an extension directly (from the command line or from
-within templates).</p>
-<p>The &ldquo;name&rdquo; of your extension must be a string consisting of the importable path to
-your module using Python&rsquo;s dot notation. Therefore, if you are providing a library
-to your users and would like to include a custom markdown extension within your
-library, that extension would be named <code>"mylib.mdext.myext"</code> where <code>mylib/mdext/myext.py</code>
-contains the extension and the <code>mylib</code> directory is on the PYTHONPATH.</p>
-<p>The string can also include the name of the class separated by a colon.
-Therefore, if you were to import the class like this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
+<p>However, Markdown also accepts &ldquo;named&rdquo; third party extensions for those
+occasions when it is impractical to import an extension directly (from the
+command line or from within templates). A &ldquo;name&rdquo; can either be a registered
+<a href="#entry_point">entry point</a> or a string using Python&rsquo;s <a href="#dot_notation">dot
+notation</a>.</p>
+<h4 id="entry_point">Entry Point<a class="headerlink" href="#entry_point" title="Permanent link">&para;</a></h4>
+<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins">Entry points</a> are defined in a Python package&rsquo;s <code>setup.py</code> script. The script
+must use <a href="https://packaging.python.org/key_projects/#setuptools">setuptools</a> to support entry points. Python-Markdown extensions must
+be assigned to the <code>markdown.extensions</code> group. An entry point definition might
+look like this:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="c1"># ...</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;markdown.extensions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myextension = path.to.module:MyExtension&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
 </pre></div>
 
 
-<p>Then the named extension would comprise this string:</p>
-<div class="codehilite"><pre><span></span><span class="s2">&quot;path.to.module:SomeExtensionClass&quot;</span>
+<p>After a user installs your extension using the above script, they could then
+call the extension using the <code>myextension</code> string name like this:</p>
+<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;myextension&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p>Note that if two or more entry points within the same group are assigned the
+same name, Python-Markdown will only ever use the first one found and ignore all
+others. Therefore, be sure to give your extension a unique name.</p>
+<p>For more information on writing <code>setup.py</code> scripts, see the Python documentation
+on <a href="https://packaging.python.org/tutorials/distributing-packages/">Packaging and Distributing Projects</a>.</p>
+<h4 id="dot_notation">Dot Notation<a class="headerlink" href="#dot_notation" title="Permanent link">&para;</a></h4>
+<p>If an extension does not have a registered entry point, Python&rsquo;s dot notation
+may be used instead. The extension must be installed as a Python module on your
+PYTHONPATH. Generally, a class should be specified in the name. The class must
+be at the end of the name and be separated by a colon from the module.</p>
+<p>Therefore, if you were to import the class like this:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtension</span>
+</pre></div>
+
+
+<p>Then the extension can be loaded as follows:</p>
+<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;path.to.module:MyExtension&#39;</span><span class="p">])</span>
 </pre></div>
 
 
 <p>You do not need to do anything special to support this feature. As long as your
-extension class is able to be imported, a user can include it with the above syntax.</p>
+extension class is able to be imported, a user can include it with the above
+syntax.</p>
 <p>The above two methods are especially useful if you need to implement a large
 number of extensions with more than one residing in a module. However, if you do
 not want to require that your users include the class name in their string, you
@@ -707,9 +801,9 @@ an extension instance.</p>
 </pre></div>
 
 
-<p>When Markdown is passed the &ldquo;name&rdquo; of your extension as a dot notation string,
-it will import the module and call the <code>makeExtension</code> function to initiate your
-extension.</p>
+<p>When Markdown is passed the &ldquo;name&rdquo; of your extension as a dot notation string
+that does not include a class (for example <code>path.to.module</code>), it will import the
+module and call the <code>makeExtension</code> function to initiate your extension.</p>
 
                     </div>
                 </div>
@@ -730,6 +824,14 @@ extension.</p>
     <li>
         <a class="reference internal" href="#inlinepatterns">Inline Patterns</a>
         <ul>
+            
+    <li>
+        <a class="reference internal" href="#legacy">Legacy</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#future">Future</a>
+    </li>
             
     <li>
         <a class="reference internal" href="#generic-pattern-classes">Generic Pattern Classes</a>
@@ -762,7 +864,21 @@ extension.</p>
     </li>
             
     <li>
-        <a class="reference internal" href="#ordereddict">OrderedDict</a>
+        <a class="reference internal" href="#registry">Registry</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#registry.register">Registry.register(self, item, name, priority)</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#registry.deregister">Registry.deregister(self, name, strict=True)</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#registry.get_index_for_name">Registry.get_index_for_name(self, name)</a>
+    </li>
+        </ul>
     </li>
             
     <li>
@@ -774,7 +890,17 @@ extension.</p>
     </li>
             
     <li>
-        <a class="reference internal" href="#makeextension">makeExtension</a>
+        <a class="reference internal" href="#naming_an_extension">Naming an Extension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#entry_point">Entry Point</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#dot_notation">Dot Notation</a>
+    </li>
+        </ul>
     </li>
         </ul>
     </li>
@@ -790,7 +916,7 @@ extension.</p>
             
             <h4>Next topic</h4>
             <p class="topless">
-                <a href="../../test_suite/" title="next page">Test Suite</a>
+                <a href="../../test_tools/" title="next page">Test Tools</a>
             </p>
 
             <div role="note" aria-label="source link">
@@ -818,13 +944,13 @@ extension.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../../test_suite/" title="Test Suite" accesskey="N">next</a> |
+                <a href="../../test_tools/" title="Test Tools" accesskey="N">next</a> |
             </li>
             <li class="right">
                 <a href="../wikilinks/" title="WikiLinks" accesskey="P">previous</a> |
@@ -832,7 +958,7 @@ extension.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -854,18 +980,18 @@ extension.</p>
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.0.4.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/require.js"></script>
-        <script src="../../search/search.js"></script>
+        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2018-01-05 00:46:07
+        MkDocs version      : 1.0.4
+        Docs Build Date UTC : 2018-09-22 02:07:40
         -->
     </body>
 </html>

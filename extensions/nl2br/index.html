@@ -11,12 +11,11 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Sane Lists" href="../sane_lists/" />
         <link rel="prev" title="Meta-Data" href="../meta_data/" />
-        <title>New Line to Break &#8212; Python-Markdown 2.6.11 documentation</title>
+        <title>New Line to Break &#8212; Python-Markdown 3.0.dev documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
-        <script type="text/javascript" src="../../static/underscore.js"></script>
-        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
 
     <body>
@@ -24,7 +23,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -38,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -49,26 +48,27 @@
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         <li class="nav-item">
             <a href="./">New Line to Break</a>
          &#187; </li>
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                    
                     
                     
                     
@@ -88,7 +88,7 @@
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="new-line-to-break-extension">New-Line-to-Break Extension<a class="headerlink" href="#new-line-to-break-extension" title="Permanent link">&para;</a></h1>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>The New-Line-to-Break (<code>nl2b</code>) Extension will cause newlines to be treated as
+<p>The New-Line-to-Break (<code>nl2br</code>) Extension will cause newlines to be treated as
 hard breaks; like StackOverflow and <a href="http://github.github.com/github-flavored-markdown/">GitHub</a> flavored Markdown do.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">markdown</span>
@@ -96,7 +96,7 @@ hard breaks; like StackOverflow and <a href="http://github.github.com/github-fla
 <span class="gp">... </span><span class="s2">Line 1</span>
 <span class="gp">... </span><span class="s2">Line 2</span>
 <span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.nl2br&#39;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nl2br&#39;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span>
 <span class="go">&lt;p&gt;Line 1&lt;br /&gt;</span>
 <span class="go">Line 2&lt;/p&gt;</span>
@@ -104,8 +104,8 @@ hard breaks; like StackOverflow and <a href="http://github.github.com/github-fla
 
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>See <a href="../">Extensions</a> for general extension usage, specify
-<code>markdown.extensions.nl2br</code> as the name of the extension.</p>
+<p>See <a href="../">Extensions</a> for general extension usage. Use <code>nl2br</code> as the name
+of the extension.</p>
 <p>This extension does not accept any special configuration options.</p>
 
                     </div>
@@ -171,7 +171,7 @@ hard breaks; like StackOverflow and <a href="http://github.github.com/github-fla
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -185,7 +185,7 @@ hard breaks; like StackOverflow and <a href="http://github.github.com/github-fla
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -196,26 +196,27 @@ hard breaks; like StackOverflow and <a href="http://github.github.com/github-fla
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         <li class="nav-item">
             <a href="./">New Line to Break</a>
          &#187; </li>
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                    
                     
                     
                     
@@ -230,15 +231,14 @@ hard breaks; like StackOverflow and <a href="http://github.github.com/github-fla
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.0.4.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/require.js"></script>
-        <script src="../../search/search.js"></script>
+        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2018-01-05 00:46:07
+        MkDocs version      : 1.0.4
+        Docs Build Date UTC : 2018-09-22 02:07:40
         -->
     </body>
 </html>

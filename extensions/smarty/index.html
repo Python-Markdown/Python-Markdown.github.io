@@ -10,13 +10,12 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Table of Contents" href="../toc/" />
-        <link rel="prev" title="Smart Strong" href="../smart_strong/" />
-        <title>SmartyPants &#8212; Python-Markdown 2.6.11 documentation</title>
+        <link rel="prev" title="Sane Lists" href="../sane_lists/" />
+        <title>SmartyPants &#8212; Python-Markdown 3.0.dev documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
-        <script type="text/javascript" src="../../static/underscore.js"></script>
-        <!-- <script type="text/javascript" src="../../static/doctools.js"></script> --> 
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
 
     <body>
@@ -24,7 +23,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -33,12 +32,12 @@
                 <a href="../toc/" title="Table of Contents" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../smart_strong/" title="Smart Strong" accesskey="P">previous</a> |
+                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -49,26 +48,27 @@
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         <li class="nav-item">
             <a href="./">SmartyPants</a>
          &#187; </li>
-            
-            
-            
+                
+                
+                
+                    
                     
                     
                     
@@ -144,7 +144,7 @@ keys to the substitution strings.</p>
 <p>For example, one might use the following configuration to get correct quotes for
 the German language:</p>
 <div class="codehilite"><pre><span></span><span class="n">extension_configs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;markdown.extensions.smarty&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;smarty&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;substitutions&#39;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s1">&#39;left-single-quote&#39;</span><span class="p">:</span> <span class="s1">&#39;&amp;sbquo;&#39;</span><span class="p">,</span> <span class="c1"># sb is not a typo!</span>
             <span class="s1">&#39;right-single-quote&#39;</span><span class="p">:</span> <span class="s1">&#39;&amp;lsquo;&#39;</span><span class="p">,</span>
@@ -163,12 +163,12 @@ library by integrating it into the markdown parser.
 While this does not provide any additional features,
 it does offer a few advantages. Notably, it will not
 try to work on highlighted code blocks (using the
-<a href="../code_hilite.html">CodeHilite</a> Extension) like the third party library
+<a href="../code_hilite/">CodeHilite</a> Extension) like the third party library
 has been known to do.</p>
 </div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>See <a href="../">Extensions</a> for general extension usage, specify
-<code>markdown.extensions.smarty</code> as the name of the extension.</p>
+<p>See <a href="../">Extensions</a> for general extension usage. Use <code>smarty</code> as the
+name of the extension.</p>
 <p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
 configuring extensions.</p>
 <p>The following options are provided to configure the output:</p>
@@ -241,7 +241,7 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
             
             <h4>Previous topic</h4>
             <p class="topless">
-                <a href="../smart_strong/" title="previous page">Smart Strong</a>
+                <a href="../sane_lists/" title="previous page">Sane Lists</a>
             </p>
 
             
@@ -275,7 +275,7 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src=../../static/github.png width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -284,12 +284,12 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
                 <a href="../toc/" title="Table of Contents" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../smart_strong/" title="Smart Strong" accesskey="P">previous</a> |
+                <a href="../sane_lists/" title="Sane Lists" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 2.6.11 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.0.dev documentation</a> &#187;
             </li>
                     
                     
@@ -300,26 +300,27 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
         <li class="nav-item">
             <a href="./">SmartyPants</a>
          &#187; </li>
-            
-            
-            
+                
+                
+                
+                    
                     
                     
                     
@@ -334,15 +335,14 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="http://www.mkdocs.org/">MkDocs</a> 0.17.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.0.4.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/require.js"></script>
-        <script src="../../search/search.js"></script>
+        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 0.17.2
-        Docs Build Date UTC : 2018-01-05 00:46:07
+        MkDocs version      : 1.0.4
+        Docs Build Date UTC : 2018-09-22 02:07:40
         -->
     </body>
 </html>
