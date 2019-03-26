@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Test Tools" href="../../test_tools/" />
         <link rel="prev" title="WikiLinks" href="../wikilinks/" />
-        <title>Extension API &#8212; Python-Markdown 3.0.1 documentation</title>
+        <title>Extension API &#8212; Python-Markdown 3.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.0.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -49,6 +49,8 @@
         <li class="nav-item">
             <a href="./">Extension API</a>
          &#187; </li>
+                    
+                    
                     
                     
                     
@@ -590,8 +592,9 @@ patterns.</p>
 registry: <code>register</code> and <code>deregister</code>. Use <code>register</code> to add items and
 <code>deregister</code> to remove items. See each method for specifics.</p>
 <p>When registering an item, a &ldquo;name&rdquo; and a &ldquo;priority&rdquo; must be provided. All
-items are automatically sorted by &ldquo;priority&rdquo; from highest to lowest. The
-&ldquo;name&rdquo; is used to remove (<code>deregister</code>) and get items.</p>
+items are automatically sorted by the value of the &ldquo;priority&rdquo; parameter such
+that the item with the highest value will be processed first. The &ldquo;name&rdquo; is
+used to remove (<code>deregister</code>) and get items.</p>
 <p>A <code>Registry</code> instance is like a list (which maintains order) when reading
 data. You may iterate over the items, get an item and get a count (length)
 of all items. You may also check that the registry contains an item.</p>
@@ -958,7 +961,7 @@ module and call the <code>makeExtension</code> function to initiate your extensi
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.0.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -981,6 +984,8 @@ module and call the <code>makeExtension</code> function to initiate your extensi
                     
                     
                     
+                    
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -991,7 +996,7 @@ module and call the <code>makeExtension</code> function to initiate your extensi
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2018-09-26 16:36:30
+        Docs Build Date UTC : 2019-03-26 00:21:35
         -->
     </body>
 </html>

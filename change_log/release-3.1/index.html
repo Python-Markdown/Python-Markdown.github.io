@@ -6,12 +6,12 @@
 
         
         <meta name="author" content="The Python-Markdown Project">
-        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/legacy_em/">
+        <link rel="canonical" href="https://Python-Markdown.github.io/change_log/release-3.1/">
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Meta-Data" href="../meta_data/" />
-        <link rel="prev" title="Legacy Attributes" href="../legacy_attr/" />
-        <title>Legacy Emphasis &#8212; Python-Markdown 3.1 documentation</title>
+        <link rel="next" title="Release Notes for v.3.0" href="../release-3.0/" />
+        <link rel="prev" title="Change Log" href="../" />
+        <title>Release Notes for v.3.1 &#8212; Python-Markdown 3.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -29,10 +29,10 @@
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../meta_data/" title="Meta-Data" accesskey="N">next</a> |
+                <a href="../release-3.0/" title="Release Notes for v.3.0" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../legacy_attr/" title="Legacy Attributes" accesskey="P">previous</a> |
+                <a href="../" title="Change Log" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -45,34 +45,14 @@
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
         <li class="nav-item">
-            Officially Supported Extensions
+            <a href="./">Release Notes for v.3.1</a>
          &#187; </li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-        <li class="nav-item">
-            <a href="./">Legacy Emphasis</a>
-         &#187; </li>
-                
-                
-                
-                
-                
-                
-                
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -88,22 +68,50 @@
         <div class="document">
             <div class="documentwrapper">
                 <div class="bodywrapper">
-                    <div class="body" role="main"><h1 id="legacy-em">Legacy EM<a class="headerlink" href="#legacy-em" title="Permanent link">&para;</a></h1>
-<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>The Legacy EM extension restores Markdown&rsquo;s original behavior for emphasis and
-strong syntax when using underscores.</p>
-<p>By default Python-Markdown treats <code>_connected_words_</code> intelligently by
-recognizing that mid-word underscores should not be used for emphasis. In other
-words, by default, that input would result in this output:
-<code>&lt;em&gt;connected_words&lt;/em&gt;</code>.</p>
-<p>However, that behavior is not consistent with the original rules or the behavior
-of the reference implementation. Therefore, this extension can be used to better
-match the reference implementation. With the extension enabled, the above input
-would result in this output: <code>&lt;em&gt;connected&lt;/em&gt;words_</code>.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>See <a href="../">Extensions</a> for general extension usage. Use <code>legacy_em</code> as the
-name of the extension.</p>
-<p>This extension does not accept any special configuration options.</p>
+                    <div class="body" role="main"><h1 id="python-markdown-31-release-notes">Python-Markdown 3.1 Release Notes<a class="headerlink" href="#python-markdown-31-release-notes" title="Permanent link">&para;</a></h1>
+<p>Python-Markdown version 3.1 supports Python versions 2.7, 3.5, 3.6, 3.7,
+PyPy and PyPy3.</p>
+<h2 id="backwards-incompatible-changes">Backwards-incompatible changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
+<h3 id="markdownversion-and-markdownversion_info-deprecated"><code>markdown.version</code> and <code>markdown.version_info</code> deprecated<a class="headerlink" href="#markdownversion-and-markdownversion_info-deprecated" title="Permanent link">&para;</a></h3>
+<p>Historically, version numbers were acquired via the attributes
+<code>markdown.version</code> and <code>markdown.version_info</code>. As of 3.0, a more standardized
+approach is being followed and versions are acquired via the
+<code>markdown.__version__</code> and <code>markdown.__version_info__</code> attributes.  As of 3.1
+the legacy attributes will raise a <code>DeprecationWarning</code> if they are accessed. In
+a future release the legacy attributes will be removed.</p>
+<h2 id="new-features">New features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
+<p>The following new features have been included in the release:</p>
+<ul>
+<li>
+<p>A <a href="../../contributing/">Contributing Guide</a> has been added (#732).</p>
+</li>
+<li>
+<p>A new configuration option to set the footnote separator has been added. Also,
+  the <code>rel</code> and <code>rev</code> attributes have been removed from footnotes as they are
+  not valid in HTML5. The <code>refs</code> and <code>backrefs</code> classes already exist and
+  serve the same purpose (#723).</p>
+</li>
+<li>
+<p>A new option for <code>toc_depth</code> to set not only the bottom section level,
+  but also the top section level. A string consisting of two digits
+  separated by a hyphen in between (<code>"2-5"</code>), defines the top (<code>t</code>) and the
+  bottom (<code>b</code>) (<code>&lt;ht&gt;..&lt;hb&gt;</code>). A single integer still defines the bottom
+  section level (<code>&lt;h1&gt;..&lt;hb&gt;</code>) only. (#787).</p>
+</li>
+</ul>
+<h2 id="bug-fixes">Bug fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h2>
+<p>The following bug fixes are included in the 3.1 release:</p>
+<ul>
+<li>Update CLI to support PyYAML 5.1.</li>
+<li>Overlapping raw HTML matches no longer leave placeholders behind (#458).</li>
+<li>Emphasis patterns now recognize newline characters as whitespace (#783).</li>
+<li>Version format had been updated to be PEP 440 compliant (#736).</li>
+<li>Block level elements are defined per instance, not as class attributes
+  (#731).</li>
+<li>Double escaping of block code has been eliminated (#725).</li>
+<li>Problems with newlines in references has been fixed (#742).</li>
+<li>Escaped <code>#</code> are now handled in header syntax (#762).</li>
+</ul>
 
                     </div>
                 </div>
@@ -114,15 +122,25 @@ name of the extension.</p>
             <ul>
                 
     <li>
-        <a class="reference internal" href="#legacy-em">Legacy EM</a>
+        <a class="reference internal" href="#python-markdown-31-release-notes">Python-Markdown 3.1 Release Notes</a>
         <ul>
             
     <li>
-        <a class="reference internal" href="#summary">Summary</a>
+        <a class="reference internal" href="#backwards-incompatible-changes">Backwards-incompatible changes</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdownversion-and-markdownversion_info-deprecated">markdown.version and markdown.version_info deprecated</a>
+    </li>
+        </ul>
     </li>
             
     <li>
-        <a class="reference internal" href="#usage">Usage</a>
+        <a class="reference internal" href="#new-features">New features</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#bug-fixes">Bug fixes</a>
     </li>
         </ul>
     </li>
@@ -130,20 +148,20 @@ name of the extension.</p>
             
             <h4>Previous topic</h4>
             <p class="topless">
-                <a href="../legacy_attr/" title="previous page">Legacy Attributes</a>
+                <a href="../" title="previous page">Change Log</a>
             </p>
 
             
             <h4>Next topic</h4>
             <p class="topless">
-                <a href="../meta_data/" title="next page">Meta-Data</a>
+                <a href="../release-3.0/" title="next page">Release Notes for v.3.0</a>
             </p>
 
             <div role="note" aria-label="source link">
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/legacy_em.md">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/change_log/release-3.1.md">Edit on GitHub</a></li>
                 </ul>
             </div>
             <div id="searchbox" style="display: none" role="search">
@@ -170,10 +188,10 @@ name of the extension.</p>
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../meta_data/" title="Meta-Data" accesskey="N">next</a> |
+                <a href="../release-3.0/" title="Release Notes for v.3.0" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../legacy_attr/" title="Legacy Attributes" accesskey="P">previous</a> |
+                <a href="../" title="Change Log" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
@@ -186,34 +204,14 @@ name of the extension.</p>
                     
                     
                     
+                    
+                    
+                    
+                    
+                    
         <li class="nav-item">
-            Officially Supported Extensions
+            <a href="./">Release Notes for v.3.1</a>
          &#187; </li>
-                
-                
-                
-                
-                
-                
-                
-                
-                
-                
-        <li class="nav-item">
-            <a href="./">Legacy Emphasis</a>
-         &#187; </li>
-                
-                
-                
-                
-                
-                
-                
-                    
-                    
-                    
-                    
-                    
                     
                     
                     

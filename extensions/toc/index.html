@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Tables" href="../tables/" />
         <link rel="prev" title="SmartyPants" href="../smarty/" />
-        <title>Table of Contents &#8212; Python-Markdown 3.0.1 documentation</title>
+        <title>Table of Contents &#8212; Python-Markdown 3.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.0.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -68,6 +68,8 @@
          &#187; </li>
                 
                 
+                    
+                    
                     
                     
                     
@@ -233,14 +235,14 @@ text.</p>
 adjusted to fit within the hierarchy of your HTML templates. For example,
 suppose the Markdown text for a page should not contain any headers higher
 than level 3 (<code>&lt;h3&gt;</code>). The following will accomplish that:</p>
-<div class="codehilite"><pre><span></span><span class="go">&amp;gt;&amp;gt;&amp;gt;  text = &#39;&#39;&#39;</span>
-<span class="gp">... </span><span class="c1">#Some Header</span>
-<span class="gp">... </span><span class="c1">## Next Level&#39;&#39;&#39;</span>
-<span class="go">&amp;gt;&amp;gt;&amp;gt; from markdown.extensions.toc import TocExtension</span>
-<span class="go">&amp;gt;&amp;gt;&amp;gt; html = markdown.markdown(text, extensions=[TocExtension(baselevel=3)])</span>
-<span class="go">&amp;gt;&amp;gt;&amp;gt; print html</span>
-<span class="go">&amp;lt;h3 id=&quot;some_header&quot;&amp;gt;Some Header&amp;lt;/h3&amp;gt;</span>
-<span class="go">&amp;lt;h4 id=&quot;next_level&quot;&amp;gt;Next Level&amp;lt;/h4&amp;gt;&#39;</span>
+<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span> <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="gp">... </span><span class="s1">#Some Header</span>
+<span class="gp">... </span><span class="s1">## Next Level&#39;&#39;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.extensions.toc</span> <span class="kn">import</span> <span class="n">TocExtension</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">TocExtension</span><span class="p">(</span><span class="n">baselevel</span><span class="o">=</span><span class="mi">3</span><span class="p">)])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">html</span>
+<span class="go">&lt;h3 id=&quot;some_header&quot;&gt;Some Header&lt;/h3&gt;</span>
+<span class="go">&lt;h4 id=&quot;next_level&quot;&gt;Next Level&lt;/h4&gt;&#39;</span>
 </pre></div>
 
 
@@ -263,11 +265,17 @@ pass in a callable which takes the following two arguments:</p>
 </li>
 <li>
 <p><strong><code>toc_depth</code></strong>
-    Define up to which section level &ldquo;n&rdquo; (<code>&lt;h1&gt;</code> to <code>&lt;hn&gt;</code>, where <code>1 &lt;= n &lt;= 6</code>)
-    to include in the Table of Contents. Defaults to <code>6</code>.</p>
-<p>When used with conjunction with <code>baselevel</code> this parameter will limit the
-resulting (adjusted) heading. That is, if both <code>toc_depth</code> and <code>baselevel</code>
-are 3, then only the highest level will be present in the table.</p>
+    Define the range of section levels to include in the Table of Contents.
+    A single integer (<code>b</code>) defines the bottom section level (<code>&lt;h1&gt;..&lt;hb&gt;</code>) only.
+    A string consisting of two digits separated by a hyphen in between (<code>"2-5"</code>),
+    define the top (<code>t</code>) and the bottom (<code>b</code>) (<code>&lt;ht&gt;..&lt;hb&gt;</code>). Defaults to <code>6</code> (bottom).</p>
+<p>When used with conjunction with <code>baselevel</code>, this parameter will not
+take the fitted hierarchy from <code>baselevel</code> into account. That is, if
+both <code>toc_depth</code> and <code>baselevel</code> are <code>3</code>, then only the highest level
+will be present in the table. If you set <code>baselevel</code> to <code>3</code> and
+<code>toc_depth</code> to <code>"2-6"</code>, the <em>first</em> headline will be <code>&lt;h3&gt;</code> and so still
+included in the Table of Contents. To exclude this first level, you
+have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
 </li>
 </ul>
 
@@ -354,7 +362,7 @@ are 3, then only the highest level will be present in the table.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.0.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -397,6 +405,8 @@ are 3, then only the highest level will be present in the table.</p>
                     
                     
                     
+                    
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -407,7 +417,7 @@ are 3, then only the highest level will be present in the table.</p>
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2018-09-26 16:36:30
+        Docs Build Date UTC : 2019-03-26 00:21:35
         -->
     </body>
 </html>
