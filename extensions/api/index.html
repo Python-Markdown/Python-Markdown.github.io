@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Test Tools" href="../../test_tools/" />
         <link rel="prev" title="WikiLinks" href="../wikilinks/" />
-        <title>Extension API &#8212; Python-Markdown 3.1 documentation</title>
+        <title>Extension API &#8212; Python-Markdown 3.1.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
             </li>
                     
                     
@@ -600,23 +600,23 @@ data. You may iterate over the items, get an item and get a count (length)
 of all items. You may also check that the registry contains an item.</p>
 <p>When getting an item you may use either the index of the item or the
 string-based &ldquo;name&rdquo;. For example:</p>
-<div class="codehilite"><pre><span></span>registry = Registry()
-registry.register(SomeItem(), &#39;itemname&#39;, 20)
-# Get the item by index
-item = registry[0]
-# Get the item by name
-item = registry[&#39;itemname&#39;]
+<div class="codehilite"><pre><span></span><span class="n">registry</span> <span class="o">=</span> <span class="n">Registry</span><span class="p">()</span>
+<span class="n">registry</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">SomeItem</span><span class="p">(),</span> <span class="s1">&#39;itemname&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="o">#</span> <span class="k">Get</span> <span class="n">the</span> <span class="n">item</span> <span class="k">by</span> <span class="k">index</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="o">#</span> <span class="k">Get</span> <span class="n">the</span> <span class="n">item</span> <span class="k">by</span> <span class="n">name</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="s1">&#39;itemname&#39;</span><span class="p">]</span>
 </pre></div>
 
 
 <p>When checking that the registry contains an item, you may use either the
 string-based &ldquo;name&rdquo;, or a reference to the actual item. For example:</p>
-<div class="codehilite"><pre><span></span>someitem = SomeItem()
-registry.register(someitem, &#39;itemname&#39;, 20)
-# Contains the name
-assert &#39;itemname&#39; in registry
-# Contains the item instance
-assert someitem in registry
+<div class="codehilite"><pre><span></span><span class="n">someitem</span> <span class="o">=</span> <span class="n">SomeItem</span><span class="p">()</span>
+<span class="n">registry</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">someitem</span><span class="p">,</span> <span class="s1">&#39;itemname&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="o">#</span> <span class="k">Contains</span> <span class="n">the</span> <span class="n">name</span>
+<span class="n">assert</span> <span class="s1">&#39;itemname&#39;</span> <span class="k">in</span> <span class="n">registry</span>
+<span class="o">#</span> <span class="k">Contains</span> <span class="n">the</span> <span class="n">item</span> <span class="n">instance</span>
+<span class="n">assert</span> <span class="n">someitem</span> <span class="k">in</span> <span class="n">registry</span>
 </pre></div>
 
 
@@ -961,7 +961,7 @@ module and call the <code>makeExtension</code> function to initiate your extensi
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
             </li>
                     
                     
@@ -996,7 +996,7 @@ module and call the <code>makeExtension</code> function to initiate your extensi
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-03-26 00:21:35
+        Docs Build Date UTC : 2019-05-21 01:12:18
         -->
     </body>
 </html>
