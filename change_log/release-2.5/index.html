@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.2.4" href="../release-2.4/" />
         <link rel="prev" title="Release Notes for v.2.6" href="../release-2.6/" />
-        <title>Release Notes for v.2.5 &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>Release Notes for v.2.5 &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,8 +37,9 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -93,20 +94,20 @@ and fixes various bugs. See the list of changes below for details.</p>
   passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>) after being converted to HTML
   by markdown.</p>
 <p>If your code previously looked like this:</p>
-<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">same_mode</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">same_mode</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Then it is recommended that you change your code to read something like this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">bleach</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">bleach</span>
 <span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>If you are not interested in sanitizing untrusted text, but simply desire to
 escape raw HTML, then that can be accomplished through an extension which
 removes HTML parsing:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
 
 <span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">md_globals</span><span class="p">):</span>
@@ -114,7 +115,7 @@ removes HTML parsing:</p>
         <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
 
 <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>As the HTML would not be parsed with the above Extension, then the
@@ -126,13 +127,13 @@ serializer will escape the raw HTML, which is exactly what happens now when
   all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
   Only keyword arguments should be used. For example, if your code previously
   looked like this:</p>
-<div class="codehilite"><pre><span></span> <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code> <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
+</code></pre></div>
 
 
 <p>Then it is recommended that you change it to read something like this:</p>
-<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
+</code></pre></div>
 
 
 <div class="admonition note">
@@ -152,18 +153,18 @@ for this reason.</p>
   raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. Ensure that you always use the
   full path to your extensions. For example, if you previously did the
   following:</p>
-<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
+</code></pre></div>
 
 
 <p>You should change your code to the following:</p>
-<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.extra&#39;</span><span class="p">])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="p">.</span><span class="n">markdown</span><span class="p">(</span><span class="nb">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.extra&#39;</span><span class="p">])</span>
+</code></pre></div>
 
 
 <p>The same applies to the command line:</p>
-<div class="codehilite"><pre><span></span>$ python -m markdown -x markdown.extensions.extra input.txt
-</pre></div>
+<div class="codehilite"><pre><span></span><code>$ python -m markdown -x markdown.extensions.extra input.txt
+</code></pre></div>
 
 
 <p>See the <a href="../../reference/#extensions">documentation</a> for a full explanation
@@ -196,13 +197,13 @@ of the current behavior.</p>
 end of the name (which uses dot notation from PYTHONPATH) and be separated
 by a colon from the module.</p>
 <p>Therefore, if you were to import the class like this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
+</code></pre></div>
 
 
 <p>Then the named extension would comprise this string:</p>
-<div class="codehilite"><pre><span></span><span class="ss">&quot;path.to.module:SomeExtensionClass&quot;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="ss">&quot;path.to.module:SomeExtensionClass&quot;</span>
+</code></pre></div>
 
 
 <p>This allows multiple extensions to be implemented within the same module and
@@ -230,10 +231,10 @@ practices. See the <a href="../../extensions/api/#configsettings">API</a> docume
 <li>
 <p>The <a href="../../cli/#using-extensions">Command Line Interface</a> now accepts a <code>--extensions_config</code> (or
   <code>-c</code>) option which accepts a file name and passes the parsed content of a
-  <a href="http://yaml.org/">YAML</a> or <a href="http://json.org/">JSON</a> file to the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword of the
+  <a href="https://yaml.org/">YAML</a> or <a href="https://json.org/">JSON</a> file to the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword of the
   <code>markdown.Markdown</code> class. The contents of the YAML or JSON must map to a
   Python Dictionary which matches the format required by the
-  <code>extension_configs</code> keyword. Note that <a href="http://pyyaml.org/">PyYAML</a> is required to parse YAML
+  <code>extension_configs</code> keyword. Note that <a href="https://pyyaml.org/">PyYAML</a> is required to parse YAML
   files.</p>
 </li>
 <li>
@@ -324,8 +325,9 @@ practices. See the <a href="../../extensions/api/#configsettings">API</a> docume
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -359,7 +361,7 @@ practices. See the <a href="../../extensions/api/#configsettings">API</a> docume
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

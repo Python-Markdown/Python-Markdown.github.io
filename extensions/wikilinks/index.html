@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Extension API" href="../api/" />
         <link rel="prev" title="Tables" href="../tables/" />
-        <title>WikiLinks &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>WikiLinks &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -48,6 +48,7 @@
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
+                
                 
                 
                 
@@ -82,6 +83,7 @@
                     
                     
                     
+                    
         </ul>
     </div>
 
@@ -90,19 +92,19 @@
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="wikilinks">WikiLinks<a class="headerlink" href="#wikilinks" title="Permanent link">&para;</a></h1>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>The WikiLinks extension adds support for <a href="http://en.wikipedia.org/wiki/Wikilink">WikiLinks</a>. Specifically, any
+<p>The WikiLinks extension adds support for <a href="https://en.wikipedia.org/wiki/Wikilink">WikiLinks</a>. Specifically, any
 <code>[[bracketed]]</code> word is converted to a link.</p>
 <p>This extension is included in the standard Markdown library.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
 <p>A <code>[[bracketed]]</code> word is any combination of  upper or lower case letters,
 number, dashes, underscores and spaces surrounded by double brackets. Therefore</p>
-<div class="codehilite"><pre><span></span>[[Bracketed]]
-</pre></div>
+<div class="codehilite"><pre><span></span><code>[[Bracketed]]
+</code></pre></div>
 
 
 <p>would produce the following HTML:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/Bracketed/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>Bracketed<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/Bracketed/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>Bracketed<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <p>Note that WikiLinks are automatically assigned <code>class="wikilink"</code> making it
@@ -111,13 +113,13 @@ desires. See below for ways to alter the class.</p>
 <p>Also note that when a space is used, the space is converted to an underscore in
 the link but left as-is in the label. Perhaps an example would illustrate this
 best:</p>
-<div class="codehilite"><pre><span></span>[[Wiki Link]]
-</pre></div>
+<div class="codehilite"><pre><span></span><code>[[Wiki Link]]
+</code></pre></div>
 
 
 <p>becomes</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/Wiki_Link/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>Wiki Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/Wiki_Link/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>Wiki Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
@@ -146,44 +148,49 @@ the HTML class <code>wikilink</code>.</p>
 <p><strong><code>build_url</code></strong>: Callable which formats the URL from its parts.</p>
 </li>
 </ul>
+<p>A trivial example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;wikilinks&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
 <p>For an example, let us suppose links should always point to the sub-directory
 <code>/wiki/</code> and end with <code>.html</code></p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.extensions.wikilinks</span> <span class="kn">import</span> <span class="n">WikiLinkExtension</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.extensions.wikilinks</span> <span class="kn">import</span> <span class="n">WikiLinkExtension</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">WikiLinkExtension</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="s1">&#39;/wiki/&#39;</span><span class="p">,</span> <span class="n">end_url</span><span class="o">=</span><span class="s1">&#39;.html&#39;</span><span class="p">)]</span>
 <span class="gp">... </span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The above would result in the following link for <code>[[WikiLink]]</code>.</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/wiki/WikiLink.html&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/wiki/WikiLink.html&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <p>If you want to do more that just alter the base and/or end of the URL, you
 could also pass in a callable which must accept three arguments (<code>label</code>,
 <code>base</code>, and <code>end</code>). The callable must return the URL in it&rsquo;s entirety.</p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_url_builder</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_url_builder</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
 <span class="gp">... </span>   <span class="c1"># do stuff</span>
 <span class="gp">... </span>   <span class="k">return</span> <span class="n">url</span>
 <span class="gp">...</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">WikiLinkExtension</span><span class="p">(</span><span class="n">build_url</span><span class="o">=</span><span class="n">my_url_builder</span><span class="p">)],</span>
 <span class="gp">... </span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>The option is also provided to change or remove the class attribute.</p>
-<div class="codehilite"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">WikiLinkExtension</span><span class="p">(</span><span class="n">html_class</span><span class="o">=</span><span class="s1">&#39;myclass&#39;</span><span class="p">)]</span>
 <span class="gp">... </span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Would cause all WikiLinks to be assigned to the class <code>myclass</code>.</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/WikiLink/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;myclass&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/WikiLink/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;myclass&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <h2 id="using-with-meta-data-extension">Using with Meta-Data extension<a class="headerlink" href="#using-with-meta-data-extension" title="Permanent link">&para;</a></h2>
@@ -198,17 +205,17 @@ meta-data keywords are:</p>
 <p>When used, the meta-data will override the settings provided through the
 <code>extension_configs</code> interface.</p>
 <p>This document:</p>
-<div class="codehilite"><pre><span></span>wiki_base_url: http://example.com/
+<div class="codehilite"><pre><span></span><code>wiki_base_url: http://example.com/
 wiki_end_url:  .html
 wiki_html_class:
 
 A [[WikiLink]] in the first paragraph.
-</pre></div>
+</code></pre></div>
 
 
 <p>would result in the following output (notice the blank <code>wiki_html_class</code>):</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://example.com/WikiLink.html&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> in the first paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://example.com/WikiLink.html&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> in the first paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
 
                     </div>
                 </div>
@@ -297,7 +304,7 @@ A [[WikiLink]] in the first paragraph.
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -308,6 +315,7 @@ A [[WikiLink]] in the first paragraph.
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
+                
                 
                 
                 
@@ -342,6 +350,7 @@ A [[WikiLink]] in the first paragraph.
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -352,7 +361,7 @@ A [[WikiLink]] in the first paragraph.
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:19
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

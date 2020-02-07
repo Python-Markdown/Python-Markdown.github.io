@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.2.6" href="../release-2.6/" />
         <link rel="prev" title="Release Notes for v.3.1" href="../release-3.1/" />
-        <title>Release Notes for v.3.0 &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>Release Notes for v.3.0 &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,8 +37,9 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -81,7 +82,7 @@ ignored. Previously the keyword was <code>True</code> by default and enabled an
 undocumented way to define attributes on document elements. The feature has been
 removed from version 3.0. As most users did not use the undocumented feature, it
 should not affect most users. For the few who did use the feature, it can be
-enabled by using the <a href="../../extensions/legacy_attr/">Legacy Attributes</a>
+enabled by using the <a href="../../extensions/legacy_attrs/">Legacy Attributes</a>
 extension.</p>
 <h3 id="smart_emphasis-keyword-and-smart_strong-extension-deprecated"><code>smart_emphasis</code> keyword and <code>smart_strong</code> extension deprecated<a class="headerlink" href="#smart_emphasis-keyword-and-smart_strong-extension-deprecated" title="Permanent link">&para;</a></h3>
 <p>The <code>smart_emphasis</code> keyword is deprecated in version 3.0 and will be ignored.
@@ -105,21 +106,21 @@ recommend that any untrusted content be passed through an HTML sanitizer (like
 provides a curated list of tags, attributes, and styles suitable for filtering
 user-provided HTML using bleach.</p>
 <p>If your code previously looked like this:</p>
-<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div>
 
 
 <p>Then it is recommended that you change your code to read something like this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">bleach</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">bleach</span>
 <span class="kn">from</span> <span class="nn">bleach_whitelist</span> <span class="kn">import</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span>
 <span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>If you are not interested in sanitizing untrusted text, but simply desire to
 escape raw HTML, then that can be accomplished through an extension which
 removes HTML parsing:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
 
 <span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
@@ -127,7 +128,7 @@ removes HTML parsing:</p>
         <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">deregister</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
 
 <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>As the HTML would not be parsed with the above Extension, then the serializer
@@ -138,13 +139,13 @@ with <code>safe_mode="escape"</code>.</p>
 all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
 Using positional arguments will raise an error. Only keyword arguments should be
 used. For example, if your code previously looked like this:</p>
-<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
+</code></pre></div>
 
 
 <p>Then it is recommended that you change it to read something like this:</p>
-<div class="codehilite"><pre><span></span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
+</code></pre></div>
 
 
 <div class="admonition note">
@@ -389,8 +390,9 @@ handle nested brackets and logic that is too much for regular expression.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -424,7 +426,7 @@ handle nested brackets and logic that is too much for regular expression.</p>
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

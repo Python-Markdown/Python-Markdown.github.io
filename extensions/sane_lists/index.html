@@ -10,8 +10,8 @@
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="SmartyPants" href="../smarty/" />
-        <link rel="prev" title="New Line to Break" href="../nl2br/" />
-        <title>Sane Lists &#8212; Python-Markdown 3.1.1 documentation</title>
+        <link rel="prev" title="Markdown in HTML" href="../md_in_html/" />
+        <title>Sane Lists &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -32,12 +32,12 @@
                 <a href="../smarty/" title="SmartyPants" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../nl2br/" title="New Line to Break" accesskey="P">previous</a> |
+                <a href="../md_in_html/" title="Markdown in HTML" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -48,6 +48,7 @@
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
+                
                 
                 
                 
@@ -82,6 +83,7 @@
                     
                     
                     
+                    
         </ul>
     </div>
 
@@ -97,16 +99,16 @@ to be less surprising.</p>
 <p>Sane Lists do not allow the mixing of list types. In other words, an ordered
 list will not continue when an unordered list item is encountered and
 vice versa. For example:</p>
-<div class="codehilite"><pre><span></span><span class="k">1.</span> Ordered item 1
+<div class="codehilite"><pre><span></span><code><span class="k">1.</span> Ordered item 1
 <span class="k">2.</span> Ordered item 2
 
 <span class="k">*</span> Unordered item 1
 <span class="k">*</span> Unordered item 2
-</pre></div>
+</code></pre></div>
 
 
 <p>will result in the following output:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered item 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered item 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
@@ -115,49 +117,49 @@ vice versa. For example:</p>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Unordered item 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Unordered item 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Whereas the default Markdown behavior would be to generate an unordered list.</p>
 <p>Note that, unlike the default Markdown behavior, if a blank line is not
 included between list items, the different list type is ignored completely.
 This corresponds to the behavior of paragraphs. For example:</p>
-<div class="codehilite"><pre><span></span>A Paragraph.
+<div class="codehilite"><pre><span></span><code>A Paragraph.
 <span class="ge">* Not a list item.</span>
 
 <span class="ge">1. Ordered list item.</span>
 <span class="ge">*</span> Not a separate list item.
-</pre></div>
+</code></pre></div>
 
 
 <p>With this extension the above will result in the following output:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Paragraph.
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Paragraph.
 * Not a list item.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered list item.
   * Not a separate list item.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Sane lists also recognize the number used in ordered lists. Given the following
 list:</p>
-<div class="codehilite"><pre><span></span><span class="k">4.</span> Apples
+<div class="codehilite"><pre><span></span><code><span class="k">4.</span> Apples
 <span class="k">5.</span> Oranges
 <span class="k">6.</span> Pears
-</pre></div>
+</code></pre></div>
 
 
 <p>By default markdown will ignore the fact that the first line started
 with item number &ldquo;4&rdquo; and the HTML list will start with a number &ldquo;1&rdquo;.
 This extension will result in the following HTML output:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">start</span><span class="o">=</span><span class="s">&quot;4&quot;</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">start</span><span class="o">=</span><span class="s">&quot;4&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Apples<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Oranges<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Pears<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>In all other ways, Sane Lists should behave as normal Markdown lists.</p>
@@ -165,6 +167,9 @@ This extension will result in the following HTML output:</p>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>sane_lists</code> as the
 name of the extension.</p>
 <p>This extension does not accept any special configuration options.</p>
+<p>A trivial example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sane_lists&#39;</span><span class="p">])</span>
+</code></pre></div>
 
                     </div>
                 </div>
@@ -195,7 +200,7 @@ name of the extension.</p>
             
             <h4>Previous topic</h4>
             <p class="topless">
-                <a href="../nl2br/" title="previous page">New Line to Break</a>
+                <a href="../md_in_html/" title="previous page">Markdown in HTML</a>
             </p>
 
             
@@ -238,12 +243,12 @@ name of the extension.</p>
                 <a href="../smarty/" title="SmartyPants" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../nl2br/" title="New Line to Break" accesskey="P">previous</a> |
+                <a href="../md_in_html/" title="Markdown in HTML" accesskey="P">previous</a> |
             </li>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -254,6 +259,7 @@ name of the extension.</p>
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
+                
                 
                 
                 
@@ -288,6 +294,7 @@ name of the extension.</p>
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -298,7 +305,7 @@ name of the extension.</p>
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

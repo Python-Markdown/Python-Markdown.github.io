@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Extensions" href="../extensions/" />
         <link rel="prev" title="Library Reference" href="../reference/" />
-        <title>Command Line &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>Command Line &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -46,6 +46,7 @@
         <li class="nav-item">
             <a href="./">Command Line</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -79,25 +80,25 @@ system to run the command line script. See the
 <p>Python-Markdown&rsquo;s command line script takes advantage of Python&rsquo;s <code>-m</code> flag.
 Therefore, assuming the python executable is on your system path, use the
 following format:</p>
-<div class="codehilite"><pre><span></span>python -m markdown <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>args<span class="o">]</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown <span class="o">[</span>options<span class="o">]</span> <span class="o">[</span>args<span class="o">]</span>
+</code></pre></div>
 
 
 <p>That will run the module as a script with the options and arguments provided.</p>
 <p>At its most basic usage, one would simply pass in a file name as the only argument:</p>
-<div class="codehilite"><pre><span></span>python -m markdown input_file.txt
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown input_file.txt
+</code></pre></div>
 
 
 <p>Piping input and output (on <code>STDIN</code> and <code>STDOUT</code>) is fully supported as well.
 For example:</p>
-<div class="codehilite"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Some **Markdown** text.&quot;</span> <span class="p">|</span> python -m markdown &gt; output.html
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="nb">echo</span> <span class="s2">&quot;Some **Markdown** text.&quot;</span> <span class="p">|</span> python -m markdown &gt; output.html
+</code></pre></div>
 
 
 <p>Use the <code>--help</code> option for a list all available options and arguments:</p>
-<div class="codehilite"><pre><span></span>python -m markdown --help
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown --help
+</code></pre></div>
 
 
 <p>If you don&rsquo;t want to call the python executable directly (using the <code>-m</code> flag),
@@ -154,18 +155,18 @@ preferred name.</p>
 </div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>To use <code>markdown_py</code> from the command line, run it as</p>
-<div class="codehilite"><pre><span></span>markdown_py input_file.txt
-</pre></div>
+<div class="codehilite"><pre><span></span><code>markdown_py input_file.txt
+</code></pre></div>
 
 
 <p>or</p>
-<div class="codehilite"><pre><span></span>markdown_py input_file.txt &gt; output_file.html
-</pre></div>
+<div class="codehilite"><pre><span></span><code>markdown_py input_file.txt &gt; output_file.html
+</code></pre></div>
 
 
 <p>For a complete list of options, run</p>
-<div class="codehilite"><pre><span></span>markdown_py --help
-</pre></div>
+<div class="codehilite"><pre><span></span><code>markdown_py --help
+</code></pre></div>
 
 
 <h2 id="using-extensions">Using Extensions<a class="headerlink" href="#using-extensions" title="Permanent link">&para;</a></h2>
@@ -176,43 +177,56 @@ then be invoked by the name assigned to an entry point or using Python&rsquo;s d
 notation to point to an extension</p>
 <p>For example, to load an extension with the assigned entry point name <code>myext</code>,
 run the following command:</p>
-<div class="codehilite"><pre><span></span>python -m markdown -x myext input.txt
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown -x myext input.txt
+</code></pre></div>
 
 
 <p>And to load an extension with Python&rsquo;s dot notation:</p>
-<div class="codehilite"><pre><span></span>python -m markdown -x path.to.module:MyExtClass input.txt
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown -x path.to.module:MyExtClass input.txt
+</code></pre></div>
 
 
 <p>To load multiple extensions, specify an <code>-x</code> option for each extension:</p>
-<div class="codehilite"><pre><span></span>python -m markdown -x myext -x path.to.module:MyExtClass input.txt
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown -x myext -x path.to.module:MyExtClass input.txt
+</code></pre></div>
 
 
 <p>If the extension supports configuration options (see the documentation for the
 extension you are using to determine what settings it supports, if any), you
 can pass them in as well:</p>
-<div class="codehilite"><pre><span></span>python -m markdown -x myext -c config.yml input.txt
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown -x myext -c config.yml input.txt
+</code></pre></div>
 
 
 <p>The <code>-c</code> (or <code>--extension_configs</code>) option accepts a file name. The file must be
-in either the <a href="http://yaml.org/">YAML</a> or <a href="http://json.org/">JSON</a> format and contain YAML or JSON data that would
+in either the <a href="https://yaml.org/">YAML</a> or <a href="https://json.org/">JSON</a> format and contain YAML or JSON data that would
 map to a Python Dictionary in the format required by the
 <a href="../reference/#extension_configs"><code>extension_configs</code></a> keyword of the <code>markdown.Markdown</code> class. Therefore,
 the file <code>config.yaml</code> referenced in the above example might look like this:</p>
-<div class="codehilite"><pre><span></span><span class="nt">myext</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><code><span class="nt">myext</span><span class="p">:</span>
     <span class="nt">option1</span><span class="p">:</span> <span class="s">&#39;value1&#39;</span>
     <span class="nt">option2</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">True</span>
-</pre></div>
+</code></pre></div>
+
+
+<p>Similarly, a JSON configuration file might look like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;myext&quot;</span><span class="p">:</span>
+  <span class="p">{</span>
+    <span class="nt">&quot;option1&quot;</span><span class="p">:</span> <span class="s2">&quot;value1&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;option2&quot;</span><span class="p">:</span> <span class="s2">&quot;value2&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 <p>Note that while the <code>--extension_configs</code> option does specify the
 <code>myext</code> extension, you still need to load the extension with the <code>-x</code> option,
-or the configuration for that extension will be ignored.</p>
+or the configuration for that extension will be ignored. Further, if an
+extension requires a value that cannot be parsed in JSON (for example a
+reference to a function), one has to use a YAML configuration file.</p>
 <p>The <code>--extension_configs</code> option will only support YAML configuration files if
-<a href="http://pyyaml.org/">PyYAML</a> is installed on your system. JSON should work with no additional
+<a href="https://pyyaml.org/">PyYAML</a> is installed on your system. JSON should work with no additional
 dependencies. The format of your configuration file is automatically detected.</p>
 
                     </div>
@@ -292,7 +306,7 @@ dependencies. The format of your configuration file is automatically detected.</
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -301,6 +315,7 @@ dependencies. The format of your configuration file is automatically detected.</
         <li class="nav-item">
             <a href="./">Command Line</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -327,7 +342,7 @@ dependencies. The format of your configuration file is automatically detected.</
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

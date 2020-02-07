@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Change Log" href="../change_log/" />
         <link rel="prev" title="Test Tools" href="../test_tools/" />
-        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -51,6 +51,7 @@
         <li class="nav-item">
             <a href="./">Contributing to Python-Markdown</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -100,12 +101,12 @@ think needs to change rather than the code you think needs to change.</p>
 an issue.</p>
 <p>Search the issue list first for related items. Be sure to check closed issues
 and pull requests. GitHub&rsquo;s search only checks open issues by default.</p>
-<p>You may want to check the <a href="http://daringfireball.net/projects/markdown/syntax">syntax rules</a> and/or <a href="http://johnmacfarlane.net/babelmark2/">Babelmark</a> to confirm that your
+<p>You may want to check the <a href="https://daringfireball.net/projects/markdown/syntax">syntax rules</a> and/or <a href="https://johnmacfarlane.net/babelmark2/">Babelmark</a> to confirm that your
 expectations align with the rules and/or other implementations of Markdown.</p>
 <p>If reporting a syntax bug, you must provide the minimal input which exhibits the
 behavior, the actual output and the output you expected. All three items must be
 provided as textual code blocks (screen-shots are not helpful). It may also be
-helpful to point to the <a href="http://daringfireball.net/projects/markdown/syntax">syntax rules</a> which specifically address the area of
+helpful to point to the <a href="https://daringfireball.net/projects/markdown/syntax">syntax rules</a> which specifically address the area of
 concern.</p>
 <p>Feature requests will often be closed with a recommendation that they be
 implemented as third party extensions outside of the core Python-Markdown
@@ -169,7 +170,7 @@ arguments on the first line and further indentation should be used to clearly
 distinguish itself as a continuation line. The closing parenthesis, bracket or
 brace should be on a line by itself and should line up under the first character
 of the line that starts the multi-line construct.</p>
-<div class="codehilite"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
+<div class="codehilite"><pre><span></span><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
     <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
 <span class="p">]</span>
@@ -177,16 +178,16 @@ of the line that starts the multi-line construct.</p>
     <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
     <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>When the conditional part of an <code>if</code>-statement is long enough to require that it
 be written across multiple lines, extra indentation should be included on the
 conditional continuation line.</p>
-<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">this_is_one_thing</span>
+<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">this_is_one_thing</span>
         <span class="ow">and</span> <span class="n">that_is_another_thing</span><span class="p">):</span>
     <span class="n">do_something</span><span class="p">()</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="documentation-style-guide">Documentation Style Guide<a class="headerlink" href="#documentation-style-guide" title="Permanent link">&para;</a></h3>
@@ -205,25 +206,25 @@ the basic Markdown syntax, the following extensions are supported: <a href="../e
 documentation.</p>
 <h4 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h4>
 <p>Headers should use the hash style. For example:</p>
-<div class="codehilite"><pre><span></span><span class="gu">##</span> Some important topic
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="gu">##</span> Some important topic
+</code></pre></div>
 
 
 <p>The underline style should not be used. Don&rsquo;t do this:</p>
-<div class="codehilite"><pre><span></span>Some important topic
+<div class="codehilite"><pre><span></span><code>Some important topic
 ====================
-</pre></div>
+</code></pre></div>
 
 
 <h4 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h4>
 <p>Links should always use the reference style, with the referenced hyperlinks kept
 at the end of the document.</p>
-<div class="codehilite"><pre><span></span>Here is a link to [<span class="nt">some other thing</span>][<span class="nl">other-thing</span>].
+<div class="codehilite"><pre><span></span><code>Here is a link to [<span class="nt">some other thing</span>][<span class="nl">other-thing</span>].
 
 More text...
 
 [<span class="nl">other-thing</span>]: <span class="na">http://example.com/other/thing</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>This style helps keep the documentation source consistent and readable.</p>
@@ -231,8 +232,8 @@ More text...
 you should use a relative link, and link to the <code>.md</code> suffix. If applicable, it
 is preferred that the link includes a hash fragment pointing to the specific
 section of the page. For example:</p>
-<div class="codehilite"><pre><span></span>[<span class="nl">authentication</span>]: <span class="na">reference.md#Markdown</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code>[<span class="nl">authentication</span>]: <span class="na">reference.md#Markdown</span>
+</code></pre></div>
 
 
 <p>Linking in this style ensures that the links work when browsing the
@@ -242,10 +243,10 @@ converted into regular links which point to the built HTML pages.</p>
 <h4 id="notes-and-warnings">Notes and Warnings<a class="headerlink" href="#notes-and-warnings" title="Permanent link">&para;</a></h4>
 <p>If you want to draw attention to a note or warning, use the syntax defined in
 Python-Markdown&rsquo;s <a href="../extensions/admonition/#syntax">Admonition Extension</a>:</p>
-<div class="codehilite"><pre><span></span>!!! note
+<div class="codehilite"><pre><span></span><code>!!! note
 
     This is the content of the note.
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="commit-message-style-guide">Commit Message Style Guide<a class="headerlink" href="#commit-message-style-guide" title="Permanent link">&para;</a></h3>
@@ -267,8 +268,8 @@ to <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork">co
 environment</a>, which isolates any experimental code from the general system. To
 create a virtual environment, use the following command from the root of the
 local working copy of your GitHub fork:</p>
-<div class="codehilite"><pre><span></span>virtualenv venv
-</pre></div>
+<div class="codehilite"><pre><span></span><code>virtualenv venv
+</code></pre></div>
 
 
 <p>That creates a virtual environment which is contained in the <code>venv</code> directory
@@ -277,38 +278,38 @@ git will ignore any files within a directory named <code>venv</code> or <code>EN
 very reason.</p>
 <p>On Posix systems (Linux, BSD, MacOS, etc.), use the following command to
 activate the environment:</p>
-<div class="codehilite"><pre><span></span><span class="nb">source</span> venv/bin/activate
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="nb">source</span> venv/bin/activate
+</code></pre></div>
 
 
 <p>On Windows, use this command instead:</p>
-<div class="codehilite"><pre><span></span>venv/Scripts/activate
-</pre></div>
+<div class="codehilite"><pre><span></span><code>venv/Scripts/activate
+</code></pre></div>
 
 
 <p>See the <a href="https://virtualenv.pypa.io/en/stable/userguide/#usage">User Guide</a> for more information on using virtual environments.</p>
 <p>To be able to run the Markdown library directly while working on it, install the
 working copy into the environment in <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode">Development Mode</a> after activating the
 virtual environment for the first time:</p>
-<div class="codehilite"><pre><span></span>pip install --editable .
-</pre></div>
+<div class="codehilite"><pre><span></span><code>pip install --editable .
+</code></pre></div>
 
 
 <p>Now any saved changes will immediately be available within the virtual
 environment.</p>
 <p>You can run the command line script with the following command:</p>
-<div class="codehilite"><pre><span></span>python -m markdown
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m markdown
+</code></pre></div>
 
 
 <p>And you can directly run the tests with:</p>
-<div class="codehilite"><pre><span></span>python -m unittest discover tests
-</pre></div>
+<div class="codehilite"><pre><span></span><code>python -m unittest discover tests
+</code></pre></div>
 
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Some tests require the <a href="http://countergram.github.io/pytidylib/">PyTidyLib</a> library, which depends on the <a href="http://www.html-tidy.org/">HTML Tidy</a>
+<p>Some tests require the <a href="https://countergram.github.io/pytidylib/">PyTidyLib</a> library, which depends on the <a href="https://www.html-tidy.org/">HTML Tidy</a>
 library. If you do not have PyTidyLib installed, the tests which depend upon
 it will be skipped. Given the difficulty in installing the HTML Tidy library
 on many systems, you may choose to leave both libraries uninstalled and
@@ -323,8 +324,8 @@ a spellchecker for the documentation. While it is generally fine to leave those
 tests for the Travis server to run when a pull request is submitted, for more
 advanced changes, you may want to run those tests locally. To do so, simply
 install tox:</p>
-<div class="codehilite"><pre><span></span>pip install tox
-</pre></div>
+<div class="codehilite"><pre><span></span><code>pip install tox
+</code></pre></div>
 
 
 <p>Then, to run all configured test environments, simply call the command <code>tox</code>
@@ -334,12 +335,18 @@ with no arguments. See help (<code>tox -h</code>) for more options.</p>
 <p>The tox environments expect that some dependencies are already installed on
 your system. For example, by default, any Python version specific
 environment will fail if that version of Python is not installed.
-Additionally, the tox environments assume that the <a href="http://www.html-tidy.org/">HTML Tidy</a> library is
-installed and may fail when attempting to install <a href="http://countergram.github.io/pytidylib/">PyTidyLib</a> if it is not.
+Additionally, the tox environments assume that the <a href="https://www.html-tidy.org/">HTML Tidy</a> library is
+installed and may fail when attempting to install <a href="https://countergram.github.io/pytidylib/">PyTidyLib</a> if it is not.
 Finally, the <code>spellchecker</code> environment requires <a href="http://aspell.net/">aspell</a> and the
 <code>aspell-en</code> dictionary to be installed. Unfortunately, installing those
 dependencies may differ significantly from system to system and is outside
 the scope of this guide.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See Also</p>
+<p>Python-Markdown provides <a href="../test_tools/">test tools</a> which simply testing Markdown syntax.
+Understanding those tools will often help in understanding why a test may be
+failing.</p>
 </div>
 <h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h2>
 <p>Python-Markdown follows <a href="https://semver.org/">Semantic Versioning</a> and uses the
@@ -396,8 +403,8 @@ following steps:</p>
 </li>
 <li>
 <p>Create a pull request with a commit message in the following format:</p>
-<div class="codehilite"><pre><span></span><span class="n">Bump</span> <span class="k">version</span> <span class="k">to</span> <span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">Bump</span> <span class="k">version</span> <span class="k">to</span> <span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span>
+</code></pre></div>
 
 
 </li>
@@ -416,9 +423,9 @@ following steps:</p>
    assumes that local clones of the <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> and
    <a href="https://github.com/Python-Markdown/Python-Markdown.github.io">Python-Markdown/Python-Markdown.github.io</a> repositories are in sibling
    directories named <code>markdown</code> and <code>Python-Markdown.github.io</code> respectively.</p>
-<div class="codehilite"><pre><span></span><span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="n">Markdown</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span>
+<div class="codehilite"><pre><span></span><code><span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="n">Markdown</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span>
 <span class="n">mkdocs</span> <span class="n">gh</span><span class="o">-</span><span class="n">deploy</span> <span class="c1">--config-file ../markdown/mkdocs.yml --remote-branch master</span>
-</pre></div>
+</code></pre></div>
 
 
 </li>
@@ -760,7 +767,7 @@ label from the same group.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -785,6 +792,7 @@ label from the same group.</p>
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -795,7 +803,7 @@ label from the same group.</p>
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

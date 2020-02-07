@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Table of Contents" href="../toc/" />
         <link rel="prev" title="Sane Lists" href="../sane_lists/" />
-        <title>SmartyPants &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>SmartyPants &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -62,12 +62,14 @@
                 
                 
                 
+                
         <li class="nav-item">
             <a href="./">SmartyPants</a>
          &#187; </li>
                 
                 
                 
+                    
                     
                     
                     
@@ -145,7 +147,7 @@ default substitutions. Just pass a dict mapping (a subset of) the
 keys to the substitution strings.</p>
 <p>For example, one might use the following configuration to get correct quotes for
 the German language:</p>
-<div class="codehilite"><pre><span></span><span class="n">extension_configs</span> <span class="o">=</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><code><span class="n">extension_configs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;smarty&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;substitutions&#39;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s1">&#39;left-single-quote&#39;</span><span class="p">:</span> <span class="s1">&#39;&amp;sbquo;&#39;</span><span class="p">,</span> <span class="c1"># sb is not a typo!</span>
@@ -155,12 +157,12 @@ the German language:</p>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</pre></div>
+</code></pre></div>
 
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This extension re-implements the Python <a href="http://pythonhosted.org/smartypants/">SmartyPants</a>
+<p>This extension re-implements the Python <a href="https://pythonhosted.org/smartypants/">SmartyPants</a>
 library by integrating it into the markdown parser.
 While this does not provide any additional features,
 it does offer a few advantages. Notably, it will not
@@ -210,9 +212,14 @@ configuring extensions.</p>
 </tr>
 </tbody>
 </table>
+<p>A trivial example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;smarty&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+
 <h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
 <p>SmartyPants extension is based on the original SmartyPants implementation
-by John Gruber. Please read its <a href="http://daringfireball.net/projects/smartypants/">documentation</a> for details.</p>
+by John Gruber. Please read its <a href="https://daringfireball.net/projects/smartypants/">documentation</a> for details.</p>
 
                     </div>
                 </div>
@@ -291,7 +298,7 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -302,6 +309,7 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
         <li class="nav-item">
             Officially Supported Extensions
          &#187; </li>
+                
                 
                 
                 
@@ -336,6 +344,7 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -346,7 +355,7 @@ by John Gruber. Please read its <a href="http://daringfireball.net/projects/smar
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

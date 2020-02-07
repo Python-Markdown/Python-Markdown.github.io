@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Test Tools" href="../../test_tools/" />
         <link rel="prev" title="WikiLinks" href="../wikilinks/" />
-        <title>Extension API &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>Extension API &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -49,6 +49,7 @@
         <li class="nav-item">
             <a href="./">Extension API</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -76,7 +77,7 @@ inline patterns which allow you to add, remove or override the syntax of
 any inline elements, and Postprocessors which allow munging of the
 output of the parser before it is returned. If you really want to dive in,
 there are also Blockprocessors which are part of the core BlockParser.</p>
-<p>As the parser builds an <a href="http://effbot.org/zone/element-index.htm">ElementTree</a> object which is later rendered
+<p>As the parser builds an <a href="https://effbot.org/zone/element-index.htm">ElementTree</a> object which is later rendered
 as Unicode text, there are also some helpers provided to ease manipulation of
 the tree. Each part of the API is discussed in its respective section below.
 Additionally, reading the source of some <a href="../">Available Extensions</a> may be
@@ -92,7 +93,7 @@ each Preprocessor will be passed the entire source text as a list of Unicode
 strings. Each string will contain one line of text. The <code>run</code> method should
 return either that list, or an altered list of Unicode strings.</p>
 <p>A pseudo example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.preprocessors</span> <span class="kn">import</span> <span class="n">Preprocessor</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.preprocessors</span> <span class="kn">import</span> <span class="n">Preprocessor</span>
 
 <span class="k">class</span> <span class="nc">MyPreprocessor</span><span class="p">(</span><span class="n">Preprocessor</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
@@ -104,7 +105,7 @@ return either that list, or an altered list of Unicode strings.</p>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">new_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">new_lines</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="inlinepatterns">Inline Patterns<a class="headerlink" href="#inlinepatterns" title="Permanent link">&para;</a></h2>
@@ -137,25 +138,25 @@ and <code>getCompiledRegExp</code> will wrap your expression for you and set the
 match will be <code>m.group(2)</code> as <code>m.group(1)</code> will match everything before the
 pattern.</p>
 <p>For an example, consider this simplified emphasis pattern:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">Pattern</span>
-<span class="kn">from</span> <span class="nn">markdown.util</span> <span class="kn">import</span> <span class="n">etree</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">Pattern</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">as</span> <span class="nn">etree</span>
 
 <span class="k">class</span> <span class="nc">EmphasisPattern</span><span class="p">(</span><span class="n">Pattern</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">handleMatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
         <span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s1">&#39;em&#39;</span><span class="p">)</span>
         <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">el</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>As discussed in <a href="#integrating_into_markdown">Integrating Your Code Into Markdown</a>, an instance of this
 class will need to be provided to Markdown. That instance would be created
 like so:</p>
-<div class="codehilite"><pre><span></span><span class="c1"># an oversimplified regex</span>
+<div class="codehilite"><pre><span></span><code><span class="c1"># an oversimplified regex</span>
 <span class="n">MYPATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\*([^*]+)\*&#39;</span>
 <span class="c1"># pass in pattern and create instance</span>
 <span class="n">emphasis</span> <span class="o">=</span> <span class="n">EmphasisPattern</span><span class="p">(</span><span class="n">MYPATTERN</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Actually it would not be necessary to create that pattern (and not just because
@@ -194,8 +195,8 @@ is found at <code>markdown.inlinepatterns.InlineProcessor</code>.</p>
 <p>If all you need is the same functionality as the legacy processor, you can do
 as shown below. Most of the time, simple regular expression processing is all
 you&rsquo;ll need.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">InlineProcessor</span>
-<span class="kn">from</span> <span class="nn">markdown.util</span> <span class="kn">import</span> <span class="n">etree</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">InlineProcessor</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">as</span> <span class="nn">etree</span>
 
 <span class="c1"># an oversimplified regex</span>
 <span class="n">MYPATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\*([^*]+)\*&#39;</span>
@@ -208,23 +209,23 @@ you&rsquo;ll need.</p>
 
 <span class="c1"># pass in pattern and create instance</span>
 <span class="n">emphasis</span> <span class="o">=</span> <span class="n">EmphasisPattern</span><span class="p">(</span><span class="n">MYPATTERN</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>But, the new processor allows you handle much more complex patterns that are
 too much for Python&rsquo;s Re to handle.  For instance, to handle nested brackets in
 link patterns, the built-in link inline processor uses the following pattern to
 find where a link <em>might</em> start:</p>
-<div class="codehilite"><pre><span></span><span class="n">LINK_RE</span> <span class="o">=</span> <span class="n">NOIMG</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\[&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="n">LINK_RE</span> <span class="o">=</span> <span class="n">NOIMG</span> <span class="o">+</span> <span class="sa">r</span><span class="s1">&#39;\[&#39;</span>
 <span class="n">link</span> <span class="o">=</span> <span class="n">LinkInlineProcessor</span><span class="p">(</span><span class="n">LINK_RE</span><span class="p">,</span> <span class="n">md_instance</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>It then uses programmed logic to actually walk the string (<code>data</code>), starting at
 where the match started (<code>m.start(0)</code>). If for whatever reason, the text
 does not appear to be a link, it returns <code>None</code> for the start and end boundary
 in order to communicate to the parser that no match was found.</p>
-<div class="codehilite"><pre><span></span>    <span class="c1"># Just a snippet of the link&#39;s handleMatch</span>
+<div class="codehilite"><pre><span></span><code>    <span class="c1"># Just a snippet of the link&#39;s handleMatch</span>
     <span class="c1"># method to illustrate new logic</span>
     <span class="k">def</span> <span class="nf">handleMatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
         <span class="n">text</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">handled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">getText</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
@@ -236,7 +237,7 @@ in order to communicate to the parser that no match was found.</p>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">handled</span><span class="p">:</span>
             <span class="k">return</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">None</span>
 
-        <span class="n">el</span> <span class="o">=</span> <span class="n">util</span><span class="o">.</span><span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
         <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">text</span>
 
         <span class="n">el</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;href&quot;</span><span class="p">,</span> <span class="n">href</span><span class="p">)</span>
@@ -245,7 +246,7 @@ in order to communicate to the parser that no match was found.</p>
             <span class="n">el</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="n">title</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="n">el</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">index</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="generic-pattern-classes">Generic Pattern Classes<a class="headerlink" href="#generic-pattern-classes" title="Permanent link">&para;</a></h3>
@@ -300,12 +301,12 @@ over-ride the <code>run</code> method which takes one argument <code>root</code>
 object) and either modifies that root element and returns <code>None</code> or returns a
 new ElementTree object.</p>
 <p>A pseudo example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.treeprocessors</span> <span class="kn">import</span> <span class="n">Treeprocessor</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.treeprocessors</span> <span class="kn">import</span> <span class="n">Treeprocessor</span>
 
 <span class="k">class</span> <span class="nc">MyTreeprocessor</span><span class="p">(</span><span class="n">Treeprocessor</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
         <span class="n">root</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;modified content&#39;</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Note that Python class methods return <code>None</code> by default when no <code>return</code>
@@ -329,12 +330,12 @@ a Unicode string.</p>
 <p>Postprocessors are run after the ElementTree has been serialized back into
 Unicode text.  For example, this may be an appropriate place to add a table of
 contents to a document:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.postprocessors</span> <span class="kn">import</span> <span class="n">Postprocessor</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.postprocessors</span> <span class="kn">import</span> <span class="n">Postprocessor</span>
 
 <span class="k">class</span> <span class="nc">TocPostprocessor</span><span class="p">(</span><span class="n">Postprocessor</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
         <span class="k">return</span> <span class="n">MYMARKERRE</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">MyToc</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h2 id="blockparser">BlockParser<a class="headerlink" href="#blockparser" title="Permanent link">&para;</a></h2>
@@ -467,35 +468,27 @@ However, be aware that other extensions may expect the core parser provided
 and will not work with such a drastically different parser.</p>
 <h2 id="working_with_et">Working with the ElementTree<a class="headerlink" href="#working_with_et" title="Permanent link">&para;</a></h2>
 <p>As mentioned, the Markdown parser converts a source document to an
-<a href="http://effbot.org/zone/element-index.htm">ElementTree</a> object before serializing that back to Unicode text.
+<a href="https://effbot.org/zone/element-index.htm">ElementTree</a> object before serializing that back to Unicode text.
 Markdown has provided some helpers to ease that manipulation within the context
 of the Markdown module.</p>
-<p>First, to get access to the ElementTree module import ElementTree from
-<code>markdown</code> rather than importing it directly. This will ensure you are using
-the same version of ElementTree as markdown. The module is found at
-<code>markdown.util.etree</code> within Markdown.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.util</span> <span class="kn">import</span> <span class="n">etree</span>
-</pre></div>
+<p>First, import the ElementTree module:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="kn">as</span> <span class="nn">etree</span>
+</code></pre></div>
 
 
-<p><code>markdown.util.etree</code> tries to import ElementTree from any known location,
-first as a standard library module (from <code>xml.etree</code> in Python 2.5), then as
-a third party package (ElementTree). In each instance, <code>cElementTree</code> is
-tried first, then ElementTree if the faster C implementation is not
-available on your system.</p>
 <p>Sometimes you may want text inserted into an element to be parsed by
 <a href="#inlinepatterns">Inline Patterns</a>. In such a situation, simply insert the text as you normally
 would and the text will be automatically run through the Inline Patterns.
 However, if you do <em>not</em> want some text to be parsed by Inline Patterns,
 then insert the text as an <code>AtomicString</code>.</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.util</span> <span class="kn">import</span> <span class="n">AtomicString</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.util</span> <span class="kn">import</span> <span class="n">AtomicString</span>
 <span class="n">some_element</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">AtomicString</span><span class="p">(</span><span class="n">some_text</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Here&rsquo;s a basic example which creates an HTML table (note that the contents of
 the second cell (<code>td2</code>) will be run through Inline Patterns latter):</p>
-<div class="codehilite"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">table</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
 <span class="n">table</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;cellpadding&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">)</span>                      <span class="c1"># Set cellpadding to 2</span>
 <span class="n">tr</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="s2">&quot;tr&quot;</span><span class="p">)</span>                 <span class="c1"># Add child tr to table</span>
 <span class="n">td1</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="s2">&quot;td&quot;</span><span class="p">)</span>                   <span class="c1"># Add child td1 to tr</span>
@@ -503,22 +496,22 @@ the second cell (<code>td2</code>) will be run through Inline Patterns latter):<
 <span class="n">td2</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="s2">&quot;td&quot;</span><span class="p">)</span>                   <span class="c1"># Add second td to tr</span>
 <span class="n">td2</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;*text* with **inline** formatting.&quot;</span>    <span class="c1"># Add markup text</span>
 <span class="n">table</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="s2">&quot;Text after table&quot;</span>                    <span class="c1"># Add text after table</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>You can also manipulate an existing tree. Consider the following example which
 adds a <code>class</code> attribute to <code>&lt;a&gt;</code> elements:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">set_link_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">set_link_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span>
               <span class="n">child</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;myclass&quot;</span><span class="p">)</span> <span class="c1">#set the class attribute</span>
           <span class="n">set_link_class</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="c1"># run recursively on children</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>For more information about working with ElementTree see the ElementTree
-<a href="http://effbot.org/zone/element-index.htm">Documentation</a>
-(<a href="http://docs.python.org/lib/module-xml.etree.ElementTree.html">Python Docs</a>).</p>
+<a href="https://effbot.org/zone/element-index.htm">Documentation</a>
+(<a href="https://docs.python.org/3/library/xml.etree.elementtree.html">Python Docs</a>).</p>
 <h2 id="integrating_into_markdown">Integrating Your Code Into Markdown<a class="headerlink" href="#integrating_into_markdown" title="Permanent link">&para;</a></h2>
 <p>Once you have the various pieces of your extension built, you need to tell
 Markdown about them and ensure that they are run in the proper sequence.
@@ -568,20 +561,20 @@ found under the following attributes:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>With access to the above items, theoretically you have the option to
-change anything through various <a href="http://en.wikipedia.org/wiki/Monkey_patch">monkey_patching</a> techniques. However,
+change anything through various <a href="https://en.wikipedia.org/wiki/Monkey_patch">monkey_patching</a> techniques. However,
 you should be aware that the various undocumented parts of markdown may
 change without notice and your monkey_patches may break with a new release.
 Therefore, what you really should be doing is inserting processors and
 patterns into the markdown pipeline. Consider yourself warned!</p>
 </div>
 <p>A simple example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
 
 <span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
         <span class="c1"># Register instance of &#39;mypattern&#39; with a priority of 175</span>
         <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MyPattern</span><span class="p">(</span><span class="n">md</span><span class="p">),</span> <span class="s1">&#39;mypattern&#39;</span><span class="p">,</span> <span class="mi">175</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <h3 id="registry">Registry<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h3>
@@ -600,24 +593,24 @@ data. You may iterate over the items, get an item and get a count (length)
 of all items. You may also check that the registry contains an item.</p>
 <p>When getting an item you may use either the index of the item or the
 string-based &ldquo;name&rdquo;. For example:</p>
-<div class="codehilite"><pre><span></span><span class="n">registry</span> <span class="o">=</span> <span class="n">Registry</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">Registry</span><span class="p">()</span>
 <span class="n">registry</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">SomeItem</span><span class="p">(),</span> <span class="s1">&#39;itemname&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="o">#</span> <span class="k">Get</span> <span class="n">the</span> <span class="n">item</span> <span class="k">by</span> <span class="k">index</span>
 <span class="n">item</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="o">#</span> <span class="k">Get</span> <span class="n">the</span> <span class="n">item</span> <span class="k">by</span> <span class="n">name</span>
 <span class="n">item</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="s1">&#39;itemname&#39;</span><span class="p">]</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>When checking that the registry contains an item, you may use either the
 string-based &ldquo;name&rdquo;, or a reference to the actual item. For example:</p>
-<div class="codehilite"><pre><span></span><span class="n">someitem</span> <span class="o">=</span> <span class="n">SomeItem</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><code><span class="n">someitem</span> <span class="o">=</span> <span class="n">SomeItem</span><span class="p">()</span>
 <span class="n">registry</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="n">someitem</span><span class="p">,</span> <span class="s1">&#39;itemname&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="o">#</span> <span class="k">Contains</span> <span class="n">the</span> <span class="n">name</span>
 <span class="n">assert</span> <span class="s1">&#39;itemname&#39;</span> <span class="k">in</span> <span class="n">registry</span>
 <span class="o">#</span> <span class="k">Contains</span> <span class="n">the</span> <span class="n">item</span> <span class="n">instance</span>
 <span class="n">assert</span> <span class="n">someitem</span> <span class="k">in</span> <span class="n">registry</span>
-</pre></div>
+</code></pre></div>
 
 
 <p><code>markdown.util.Registry</code> has the following methods:</p>
@@ -652,11 +645,11 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
 <p>Some extensions may need to have their state reset between multiple runs of the
 Markdown class. For example, consider the following use of the <a href="https://github.com/Python-Markdown/mdx_footnotes">Footnotes</a>
 extension:</p>
-<div class="codehilite"><pre><span></span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;footnotes&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><code><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;footnotes&#39;</span><span class="p">])</span>
 <span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_with_footnote</span><span class="p">)</span>
 <span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 <span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_without_footnote</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Without calling <code>reset</code>, the footnote definitions from the first document will
@@ -667,10 +660,10 @@ However, as many extensions do not have a need for <code>reset</code>, <code>res
 called on extensions that are registered.</p>
 <p>To register an extension, call <code>md.registerExtension</code> from within your
 <code>extendMarkdown</code> method:</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
     <span class="n">md</span><span class="o">.</span><span class="n">registerExtension</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
     <span class="c1"># insert processors and patterns here</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>Then, each time <code>reset</code> is called on the Markdown instance, the <code>reset</code>
@@ -682,18 +675,18 @@ initialized the first time. Keep that in mind when over-riding the extension&rsq
 <p>If an extension uses any parameters that the user may want to change,
 those parameters should be stored in <code>self.config</code> of your
 <code>markdown.extensions.Extension</code> class in the following format:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;option1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">],</span>
                        <span class="s1">&#39;option2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;description2&#39;</span><span class="p">]</span> <span class="p">}</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MyExtension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>When implemented this way the configuration parameters can be over-ridden at
 run time (thus the call to <code>super</code>). For example:</p>
-<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(</span><span class="n">option1</span><span class="o">=</span><span class="s1">&#39;other value&#39;</span><span class="p">])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(</span><span class="n">option1</span><span class="o">=</span><span class="s1">&#39;other value&#39;</span><span class="p">)])</span>
+</code></pre></div>
 
 
 <p>Note that if a keyword is passed in that is not already defined in
@@ -733,10 +726,10 @@ when the previous value of <code>key</code> is a string.</p>
 directly to Markdown. In fact, this is the preferred way to use third-party
 extensions.</p>
 <p>For example:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">markdown</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">markdown</span>
 <span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtension</span>
 <span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)])</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>However, Markdown also accepts &ldquo;named&rdquo; third party extensions for those
@@ -749,7 +742,7 @@ notation</a>.</p>
 must use <a href="https://packaging.python.org/key_projects/#setuptools">setuptools</a> to support entry points. Python-Markdown extensions must
 be assigned to the <code>markdown.extensions</code> group. An entry point definition might
 look like this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
 
 <span class="n">setup</span><span class="p">(</span>
     <span class="c1"># ...</span>
@@ -757,13 +750,13 @@ look like this:</p>
         <span class="s1">&#39;markdown.extensions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myextension = path.to.module:MyExtension&#39;</span><span class="p">]</span>
     <span class="p">}</span>
 <span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>After a user installs your extension using the above script, they could then
 call the extension using the <code>myextension</code> string name like this:</p>
-<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;myextension&#39;</span><span class="p">])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;myextension&#39;</span><span class="p">])</span>
+</code></pre></div>
 
 
 <p>Note that if two or more entry points within the same group are assigned the
@@ -777,13 +770,13 @@ may be used instead. The extension must be installed as a Python module on your
 PYTHONPATH. Generally, a class should be specified in the name. The class must
 be at the end of the name and be separated by a colon from the module.</p>
 <p>Therefore, if you were to import the class like this:</p>
-<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtension</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtension</span>
+</code></pre></div>
 
 
 <p>Then the extension can be loaded as follows:</p>
-<div class="codehilite"><pre><span></span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;path.to.module:MyExtension&#39;</span><span class="p">])</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;path.to.module:MyExtension&#39;</span><span class="p">])</span>
+</code></pre></div>
 
 
 <p>You do not need to do anything special to support this feature. As long as your
@@ -796,12 +789,12 @@ must define only one extension per module and that module must contain a
 module-level function called <code>makeExtension</code> that accepts <code>**kwargs</code> and returns
 an extension instance.</p>
 <p>For example:</p>
-<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">)</span>
     <span class="c1"># Define extension here...</span>
 
 <span class="k">def</span> <span class="nf">makeExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">MyExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</pre></div>
+</code></pre></div>
 
 
 <p>When Markdown is passed the &ldquo;name&rdquo; of your extension as a dot notation string
@@ -961,7 +954,7 @@ module and call the <code>makeExtension</code> function to initiate your extensi
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -986,6 +979,7 @@ module and call the <code>makeExtension</code> function to initiate your extensi
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -996,7 +990,7 @@ module and call the <code>makeExtension</code> function to initiate your extensi
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>

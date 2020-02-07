@@ -6,12 +6,12 @@
 
         
         <meta name="author" content="The Python-Markdown Project">
-        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/legacy_attr/">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/legacy_attrs/">
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Legacy Emphasis" href="../legacy_em/" />
         <link rel="prev" title="Footnotes" href="../footnotes/" />
-        <title>Legacy Attributes &#8212; Python-Markdown 3.1.1 documentation</title>
+        <title>Legacy Attributes &#8212; Python-Markdown 3.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -68,6 +68,8 @@
                 
                 
                 
+                
+                    
                     
                     
                     
@@ -99,42 +101,45 @@ users who have existing documents which use the syntax.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
 <p>Attributes are defined by including the following within the element you wish to
 assign the attributes to:</p>
-<div class="codehilite"><pre><span></span>{@key=value}
-</pre></div>
+<div class="codehilite"><pre><span></span><code>{@key=value}
+</code></pre></div>
 
 
 <p>For example, to define a class to a paragraph:</p>
-<div class="codehilite"><pre><span></span>A paragraph with the attribute defined {@class=foo}anywhere within.
-</pre></div>
+<div class="codehilite"><pre><span></span><code>A paragraph with the attribute defined {@class=foo}anywhere within.
+</code></pre></div>
 
 
 <p>Which results in the following output:</p>
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;foo&quot;</span><span class="p">&gt;</span>A paragraph with the attribute defined anywhere within.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;foo&quot;</span><span class="p">&gt;</span>A paragraph with the attribute defined anywhere within.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <p>The same applies for inline elements:</p>
-<div class="codehilite"><pre><span></span>Some <span class="ge">*emphasized{@id=bar}*</span> text.
-</pre></div>
+<div class="codehilite"><pre><span></span><code>Some <span class="ge">*emphasized{@id=bar}*</span> text.
+</code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some <span class="p">&lt;</span><span class="nt">em</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">&gt;</span>emphasized<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-
-You can also define attributes in images:
-
-```md
-![Alt text{@id=baz}](path/to/image.jpg)
-</pre></div>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some <span class="p">&lt;</span><span class="nt">em</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;bar&quot;</span><span class="p">&gt;</span>emphasized<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Alt text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;baz&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;path/to/image.jpg&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</pre></div>
+<p>You can also define attributes in images:</p>
+<div class="codehilite"><pre><span></span><code>![<span class="nt">Alt text{@id=baz}</span>](<span class="na">path/to/image.jpg</span>)
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Alt text&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;baz&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;path/to/image.jpg&quot;</span> <span class="p">/&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
 
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>See <a href="../">Extensions</a> for general extension usage. Use <code>legacy_attr</code> as the
+<p>See <a href="../">Extensions</a> for general extension usage. Use <code>legacy_attrs</code> as the
 name of the extension.</p>
 <p>This extension does not accept any special configuration options.</p>
+<p>A trivial example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;legacy_attrs&#39;</span><span class="p">])</span>
+</code></pre></div>
 
                     </div>
                 </div>
@@ -178,7 +183,7 @@ name of the extension.</p>
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/legacy_attr.md">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/legacy_attrs.md">Edit on GitHub</a></li>
                 </ul>
             </div>
             <div id="searchbox" style="display: none" role="search">
@@ -213,7 +218,7 @@ name of the extension.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.1.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.2 documentation</a> &#187;
             </li>
                     
                     
@@ -244,6 +249,8 @@ name of the extension.</p>
                 
                 
                 
+                
+                    
                     
                     
                     
@@ -268,7 +275,7 @@ name of the extension.</p>
 
         <!--
         MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2019-05-21 01:12:18
+        Docs Build Date UTC : 2020-02-07 00:16:35
         -->
     </body>
 </html>
