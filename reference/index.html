@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Command Line" href="../cli/" />
         <link rel="prev" title="Installation" href="../install/" />
-        <title>Library Reference &#8212; Python-Markdown 3.2.1 documentation</title>
+        <title>Library Reference &#8212; Python-Markdown 3.2.2 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.2.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.2.2 documentation</a> &#187;
             </li>
                     
                     
@@ -96,22 +96,18 @@ method appropriately (<a href="#convert">see below</a>).</p>
 <p>The source Unicode string. (required)</p>
 <div class="admonition note">
 <p class="admonition-title">Important</p>
-<p>Python-Markdown expects <strong>Unicode</strong> as input (although
-some simple ASCII strings <em>may</em> work) and returns output as Unicode.
-Do not pass encoded strings to it! If your input is encoded, (e.g. as
-UTF-8), it is your responsibility to decode it.  For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">input_file</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;some_file.txt&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
-<span class="n">text</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<p>Python-Markdown expects a <strong>Unicode</strong> string as input (some simple ASCII binary strings <em>may</em> work only by
+coincidence) and returns output as a Unicode string. Do not pass binary strings to it! If your input is
+encoded, (e.g. as UTF-8), it is your responsibility to decode it.  For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 
 
 <p>If you want to write the output to disk, you <em>must</em> encode it yourself:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">output_file</span> <span class="o">=</span> <span class="n">codecs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;some_file.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span>
-                          <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span>
-                          <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span>
-<span class="p">)</span>
-<span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_file.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
+    <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -302,8 +298,7 @@ without creating a new instance of the class for each string.</p>
 
 
 <p>Depending on which options and/or extensions are being used, the parser may
-need its state reset between each call to <code>convert</code>, otherwise performance
-can degrade drastically:</p>
+need its state reset between each call to <code>convert</code>.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
 <span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 <span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
@@ -345,23 +340,23 @@ each document. State may need to be <code>reset</code> between each call to
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown">markdown.markdown(text [, **kwargs])</a>
+        <a class="reference internal" href="#markdown">markdown.markdown</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#markdownFromFile">markdown.markdownFromFile (**kwargs)</a>
+        <a class="reference internal" href="#markdownFromFile">markdown.markdownFromFile</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#Markdown">markdown.Markdown([**kwargs])</a>
+        <a class="reference internal" href="#Markdown">markdown.Markdown</a>
         <ul>
             
     <li>
-        <a class="reference internal" href="#convert">Markdown.convert(source)</a>
+        <a class="reference internal" href="#convert">Markdown.convert</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#convertFile">Markdown.convertFile(**kwargs)</a>
+        <a class="reference internal" href="#convertFile">Markdown.convertFile</a>
     </li>
         </ul>
     </li>
@@ -421,7 +416,7 @@ each document. State may need to be <code>reset</code> between each call to
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.2.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.2.2 documentation</a> &#187;
             </li>
                     
                     
@@ -450,14 +445,14 @@ each document. State may need to be <code>reset</code> between each call to
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.0.4.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.
         </div>
         <script>var base_url = '..';</script>
         <script src="../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.0.4
-        Docs Build Date UTC : 2020-02-12 20:43:28
+        MkDocs version      : 1.1
+        Docs Build Date UTC : 2020-05-08 17:25:48
         -->
     </body>
 </html>
