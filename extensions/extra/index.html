@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Fenced Code Blocks" href="../fenced_code_blocks/" />
         <link rel="prev" title="Definition Lists" href="../definition_lists/" />
-        <title>Extra &#8212; Python-Markdown 3.2.2 documentation</title>
+        <title>Extra &#8212; Python-Markdown 3.3 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -84,6 +84,7 @@
                     
                     
                     
+                    
         </ul>
     </div>
 
@@ -108,18 +109,37 @@
 supported extensions are included in the standard Markdown library.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>From the Python interpreter:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">markdown</span>
+<div class="pycon codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">markdown</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
 </code></pre></div>
 
+<p>To pass configuration options to the extensions included with Extra, they must be passed to Extra, with the
+underlying extension identified as well. In that way Extra will have access to the options and can pass them on to
+the appropriate underlying extension.</p>
+<div class="python codehilite"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;extra&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;footnotes&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;UNIQUE_IDS&#39;</span><span class="p">:</span> <span class="bp">True</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;fenced_code&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;lang_prefix&#39;</span><span class="p">:</span> <span class="s1">&#39;lang-&#39;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;toc&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;permalink&#39;</span><span class="p">:</span> <span class="bp">True</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-<p>There may be <a href="../">additional extensions</a> that are distributed with
-Python-Markdown that are not included here in Extra. The features
-of those extensions are not part of PHP Markdown Extra, and
-therefore, not part of Python-Markdown Extra. If you really would
-like Extra to include additional extensions, we suggest creating
-your own clone of Extra under a different name
-(see the <a href="../api/">Extension API</a>).</p>
+<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">,</span> <span class="s1">&#39;toc&#39;</span><span class="p">],</span> <span class="n">extension_configs</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Note that in the above example, <code>footnotes</code> and <code>fenced_code</code> are both nested under the <code>extra</code> key as those
+extensions are included with Extra. However, the <code>toc</code> extension is not included with <code>extra</code> and therefore its
+configuration options are not nested under the <code>extra</code> key.</p>
+<p>See each individual extension for a list of supported configuration options.</p>
+<p>There are many other <a href="../">extensions</a> which are distributed with Python-Markdown that are not included here in
+Extra. The features of those extensions are not part of PHP Markdown Extra, and therefore, not part of Python-Markdown
+Extra.</p>
 
                     </div>
                 </div>
@@ -194,7 +214,7 @@ your own clone of Extra under a different name
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -241,6 +261,7 @@ your own clone of Extra under a different name
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -251,7 +272,7 @@ your own clone of Extra under a different name
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-05-08 17:25:49
+        Docs Build Date UTC : 2020-10-06 20:56:53
         -->
     </body>
 </html>

@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Change Log" href="../change_log/" />
         <link rel="prev" title="Test Tools" href="../test_tools/" />
-        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.2.2 documentation</title>
+        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.3 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -51,6 +51,7 @@
         <li class="nav-item">
             <a href="./">Contributing to Python-Markdown</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -145,7 +146,7 @@ you may include a note in the pull request acknowledging that it is incomplete
 along with a request for feedback.</p>
 <p>Pull requests will generally not be accepted if any tests are failing.
 Therefore, it is recommended that you run the tests before submitting your pull
-request. After making a pull request, check the Travis build status in the
+request. After making a pull request, check the build status in the
 GitHub interface to ensure that all tests are running as expected. If any checks
 fail, you may push additional commits to your branch. GitHub will add those
 commits to the pull request and rerun the checks.</p>
@@ -170,7 +171,7 @@ arguments on the first line and further indentation should be used to clearly
 distinguish itself as a continuation line. The closing parenthesis, bracket or
 brace should be on a line by itself and should line up under the first character
 of the line that starts the multi-line construct.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
     <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
     <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
 <span class="p">]</span>
@@ -180,15 +181,13 @@ of the line that starts the multi-line construct.</p>
 <span class="p">)</span>
 </code></pre></div>
 
-
 <p>When the conditional part of an <code>if</code>-statement is long enough to require that it
 be written across multiple lines, extra indentation should be included on the
 conditional continuation line.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">this_is_one_thing</span>
+<div class="python codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">this_is_one_thing</span>
         <span class="ow">and</span> <span class="n">that_is_another_thing</span><span class="p">):</span>
     <span class="n">do_something</span><span class="p">()</span>
 </code></pre></div>
-
 
 <h3 id="documentation-style-guide">Documentation Style Guide<a class="headerlink" href="#documentation-style-guide" title="Permanent link">&para;</a></h3>
 <p>Documentation should be in American English. The tone of the documentation
@@ -206,35 +205,31 @@ the basic Markdown syntax, the following extensions are supported: <a href="../e
 documentation.</p>
 <h4 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h4>
 <p>Headers should use the hash style. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="gu">##</span> Some important topic
+<div class="md codehilite"><pre><span></span><code><span class="gu">##</span> Some important topic
 </code></pre></div>
-
 
 <p>The underline style should not be used. Don&rsquo;t do this:</p>
-<div class="codehilite"><pre><span></span><code>Some important topic
+<div class="md codehilite"><pre><span></span><code>Some important topic
 ====================
 </code></pre></div>
-
 
 <h4 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h4>
 <p>Links should always use the reference style, with the referenced hyperlinks kept
 at the end of the document.</p>
-<div class="codehilite"><pre><span></span><code>Here is a link to [<span class="nt">some other thing</span>][<span class="nl">other-thing</span>].
+<div class="md codehilite"><pre><span></span><code>Here is a link to [<span class="nt">some other thing</span>][<span class="nl">other-thing</span>].
 
 More text...
 
 [<span class="nl">other-thing</span>]: <span class="na">http://example.com/other/thing</span>
 </code></pre></div>
 
-
 <p>This style helps keep the documentation source consistent and readable.</p>
 <p>If you are linking to another document within Python-Markdown&rsquo;s documentation,
 you should use a relative link, and link to the <code>.md</code> suffix. If applicable, it
 is preferred that the link includes a hash fragment pointing to the specific
 section of the page. For example:</p>
-<div class="codehilite"><pre><span></span><code>[<span class="nl">authentication</span>]: <span class="na">reference.md#Markdown</span>
+<div class="md codehilite"><pre><span></span><code>[<span class="nl">authentication</span>]: <span class="na">reference.md#Markdown</span>
 </code></pre></div>
-
 
 <p>Linking in this style ensures that the links work when browsing the
 documentation on GitHub. If your Markdown editor makes links clickable, they
@@ -243,11 +238,10 @@ converted into regular links which point to the built HTML pages.</p>
 <h4 id="notes-and-warnings">Notes and Warnings<a class="headerlink" href="#notes-and-warnings" title="Permanent link">&para;</a></h4>
 <p>If you want to draw attention to a note or warning, use the syntax defined in
 Python-Markdown&rsquo;s <a href="../extensions/admonition/#syntax">Admonition Extension</a>:</p>
-<div class="codehilite"><pre><span></span><code>!!! note
+<div class="md codehilite"><pre><span></span><code>!!! note
 
     This is the content of the note.
 </code></pre></div>
-
 
 <h3 id="commit-message-style-guide">Commit Message Style Guide<a class="headerlink" href="#commit-message-style-guide" title="Permanent link">&para;</a></h3>
 <p>Use the present tense (&ldquo;Add feature&rdquo; not &ldquo;Added feature&rdquo;).</p>
@@ -268,9 +262,8 @@ to <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork">co
 environment</a>, which isolates any experimental code from the general system. To
 create a virtual environment, use the following command from the root of the
 local working copy of your GitHub fork:</p>
-<div class="codehilite"><pre><span></span><code>virtualenv venv
+<div class="sh codehilite"><pre><span></span><code>virtualenv venv
 </code></pre></div>
-
 
 <p>That creates a virtual environment which is contained in the <code>venv</code> directory
 within your local working copy. Note that the repository is configured so that
@@ -278,34 +271,29 @@ git will ignore any files within a directory named <code>venv</code> or <code>EN
 very reason.</p>
 <p>On Posix systems (Linux, BSD, MacOS, etc.), use the following command to
 activate the environment:</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">source</span> venv/bin/activate
+<div class="sh codehilite"><pre><span></span><code><span class="nb">source</span> venv/bin/activate
 </code></pre></div>
-
 
 <p>On Windows, use this command instead:</p>
-<div class="codehilite"><pre><span></span><code>venv/Scripts/activate
+<div class="sh codehilite"><pre><span></span><code>venv/Scripts/activate
 </code></pre></div>
-
 
 <p>See the <a href="https://virtualenv.pypa.io/en/stable/user_guide.html">User Guide</a> for more information on using virtual environments.</p>
 <p>To be able to run the Markdown library directly while working on it, install the
 working copy into the environment in <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode">Development Mode</a> after activating the
 virtual environment for the first time:</p>
-<div class="codehilite"><pre><span></span><code>pip install --editable .
+<div class="sh codehilite"><pre><span></span><code>pip install --editable .
 </code></pre></div>
-
 
 <p>Now any saved changes will immediately be available within the virtual
 environment.</p>
 <p>You can run the command line script with the following command:</p>
-<div class="codehilite"><pre><span></span><code>python -m markdown
+<div class="sh codehilite"><pre><span></span><code>python -m markdown
 </code></pre></div>
-
 
 <p>And you can directly run the tests with:</p>
-<div class="codehilite"><pre><span></span><code>python -m unittest discover tests
+<div class="sh codehilite"><pre><span></span><code>python -m unittest discover tests
 </code></pre></div>
-
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -324,9 +312,8 @@ a spellchecker for the documentation. While it is generally fine to leave those
 tests for the Travis server to run when a pull request is submitted, for more
 advanced changes, you may want to run those tests locally. To do so, simply
 install tox:</p>
-<div class="codehilite"><pre><span></span><code>pip install tox
+<div class="sh codehilite"><pre><span></span><code>pip install tox
 </code></pre></div>
-
 
 <p>Then, to run all configured test environments, simply call the command <code>tox</code>
 with no arguments. See help (<code>tox -h</code>) for more options.</p>
@@ -406,28 +393,32 @@ following steps:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">Bump</span> <span class="k">version</span> <span class="k">to</span> <span class="n">X</span><span class="p">.</span><span class="n">X</span><span class="p">.</span><span class="n">X</span>
 </code></pre></div>
 
-
 </li>
 <li>
-<p>After all checks (Travis, etc.) have passed, merge the pull request.</p>
+<p>After all checks have passed, merge the pull request.</p>
 </li>
 <li>
 <p>Create a git tag with the new version as the tag name and push to the
-   <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> repository.</p>
-</li>
+   <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> repository. The new tag should trigger a GitHub
+   workflow which will automatically deploy the release to PyPI and update the
+   documentation.</p>
+<p>In the event that the deployment fails, the following steps can be taken to
+deploy manually:</p>
+<ul>
 <li>
 <p>Deploy the release to <a href="https://pypi.org/project/Markdown/">PyPI</a> with the command <code>make deploy</code>.</p>
 </li>
 <li>
 <p>Deploy an update to the documentation using <a href="https://www.mkdocs.org/">MkDocs</a>. The following example
-   assumes that local clones of the <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> and
-   <a href="https://github.com/Python-Markdown/Python-Markdown.github.io">Python-Markdown/Python-Markdown.github.io</a> repositories are in sibling
-   directories named <code>markdown</code> and <code>Python-Markdown.github.io</code> respectively.</p>
+  assumes that local clones of the <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> and
+  <a href="https://github.com/Python-Markdown/Python-Markdown.github.io">Python-Markdown/Python-Markdown.github.io</a> repositories are in sibling
+  directories named <code>markdown</code> and <code>Python-Markdown.github.io</code> respectively.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">cd</span> <span class="n">Python</span><span class="o">-</span><span class="n">Markdown</span><span class="p">.</span><span class="n">github</span><span class="p">.</span><span class="n">io</span>
 <span class="n">mkdocs</span> <span class="n">gh</span><span class="o">-</span><span class="n">deploy</span> <span class="c1">--config-file ../markdown/mkdocs.yml --remote-branch master</span>
 </code></pre></div>
 
-
+</li>
+</ul>
 </li>
 </ol>
 <h2 id="issue-and-pull-request-labels">Issue and Pull Request Labels<a class="headerlink" href="#issue-and-pull-request-labels" title="Permanent link">&para;</a></h2>
@@ -767,7 +758,7 @@ label from the same group.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -793,6 +784,7 @@ label from the same group.</p>
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -803,7 +795,7 @@ label from the same group.</p>
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-05-08 17:25:48
+        Docs Build Date UTC : 2020-10-06 20:56:52
         -->
     </body>
 </html>

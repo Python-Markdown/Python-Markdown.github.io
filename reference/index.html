@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Command Line" href="../cli/" />
         <link rel="prev" title="Installation" href="../install/" />
-        <title>Library Reference &#8212; Python-Markdown 3.2.2 documentation</title>
+        <title>Library Reference &#8212; Python-Markdown 3.3 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -45,6 +45,7 @@
         <li class="nav-item">
             <a href="./">Library Reference</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -74,10 +75,9 @@
 used by various projects to convert Markdown syntax into HTML.</p>
 <h2 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">&para;</a></h2>
 <p>To use markdown as a module:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">markdown</span>
+<div class="python codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">markdown</span>
 <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">your_text_string</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="the-details">The Details<a class="headerlink" href="#the-details" title="Permanent link">&para;</a></h2>
 <p>Python-Markdown provides two public functions (<a href="#markdown"><code>markdown.markdown</code></a>
@@ -104,12 +104,10 @@ encoded, (e.g. as UTF-8), it is your responsibility to decode it.  For example:<
 <span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>If you want to write the output to disk, you <em>must</em> encode it yourself:</p>
 <div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_file.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
     <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 </code></pre></div>
-
 
 </div>
 </dd>
@@ -125,7 +123,6 @@ list of available extensions.</p>
 of extension names.</p>
 <div class="codehilite"><pre><span></span><code><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtClass</span><span class="p">(),</span> <span class="s1">&#39;myext&#39;</span><span class="p">,</span> <span class="s1">&#39;path.to.my.ext:MyExtClass&#39;</span><span class="p">]</span>
 </code></pre></div>
-
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -144,7 +141,6 @@ defined when initiating the class instance rather than using the
 <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtClass</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)])</span>
 </code></pre></div>
 
-
 <p>If an extension name is provided as a string, the string must either be the
 registered entry point of any installed extension or the importable path
 using Python&rsquo;s dot notation.</p>
@@ -156,7 +152,6 @@ do the following:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;myext&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
 <p>If an extension does not have a registered entry point, Python&rsquo;s dot
 notation may be used instead. The extension must be installed as a
 Python module on your PYTHONPATH. Generally, a class should be specified in
@@ -166,11 +161,9 @@ colon from the module.</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtClass</span>
 </code></pre></div>
 
-
 <p>Then load the extension as follows:</p>
 <div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;path.to.module:MyExtClass&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 
 <p>If only one extension is defined within a module and the module includes a
 <code>makeExtension</code> function which returns an instance of the extension, then
@@ -209,7 +202,6 @@ See the <a href="#extensions">extensions</a> keyword for details.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
-
 
 <p>When specifying the extension name, be sure to use the exact same
 string as is used in the <a href="#extensions">extensions</a> keyword to load the
@@ -291,24 +283,21 @@ from multiple threads.</p>
 argument of the <a href="#markdown"><code>markdown.markdown</code></a> function.</p>
 <p>You should also use this method if you want to process multiple strings
 without creating a new instance of the class for each string.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">()</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">()</span>
 <span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
 <span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Depending on which options and/or extensions are being used, the parser may
 need its state reset between each call to <code>convert</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
 <span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 <span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>To make this easier, you can also chain calls to <code>reset</code> together:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html3</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
+<div class="python codehilite"><pre><span></span><code><span class="n">html3</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h4 id="convertFile">Markdown.convertFile(**kwargs)<a class="headerlink" href="#convertFile" title="Permanent link">&para;</a></h4>
 <p>The arguments of this method are identical to the arguments of the same
@@ -416,7 +405,7 @@ each document. State may need to be <code>reset</code> between each call to
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -424,6 +413,7 @@ each document. State may need to be <code>reset</code> between each call to
         <li class="nav-item">
             <a href="./">Library Reference</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -452,7 +442,7 @@ each document. State may need to be <code>reset</code> between each call to
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-05-08 17:25:48
+        Docs Build Date UTC : 2020-10-06 20:56:52
         -->
     </body>
 </html>

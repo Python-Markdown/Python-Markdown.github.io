@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Sane Lists" href="../sane_lists/" />
         <link rel="prev" title="New Line to Break" href="../nl2br/" />
-        <title>Markdown in HTML &#8212; Python-Markdown 3.2.2 documentation</title>
+        <title>Markdown in HTML &#8212; Python-Markdown 3.3 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -84,6 +84,7 @@
                     
                     
                     
+                    
         </ul>
     </div>
 
@@ -92,112 +93,187 @@
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="markdown-in-html">Markdown in HTML<a class="headerlink" href="#markdown-in-html" title="Permanent link">&para;</a></h1>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
-<p>An extensions that parses Markdown inside of HTML tags.</p>
+<p>An extension that parses Markdown inside of HTML tags.</p>
+<h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
+<p>By default, Markdown ignores any content within a raw HTML block-level element. With the <code>md-in-html</code> extension
+enabled, the content of a raw HTML block-level element can be parsed as Markdown by including  a <code>markdown</code> attribute
+on the opening tag. The <code>markdown</code> attribute will be stripped from the output, while all other attributes will be
+preserved.</p>
+<p>The <code>markdown</code> attribute can be assigned one of three values: <a href="#1"><code>"1"</code></a>, <a href="#block"><code>"block"</code></a>, or <a href="#span"><code>"span"</code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The expressions &ldquo;block-level&rdquo; and &ldquo;span-level&rdquo; as used in this document refer to an element&rsquo;s designation
+according to the HTML specification. Whereas the <code>"span"</code> and <code>"block"</code> values assigned to the <code>markdown</code>
+attribute refer to the Markdown parser&rsquo;s behavior.</p>
+</div>
+<h3 id="1"><code>markdown="1"</code><a class="headerlink" href="#1" title="Permanent link">&para;</a></h3>
+<p>When the <code>markdown</code> attribute is set to <code>"1"</code>, then the parser will use the default behavior for that specific tag.</p>
+<p>The following tags have the <code>block</code> behavior by default: <code>address</code>, <code>article</code>, <code>aside</code>, <code>blockquote</code>, <code>body</code>,
+<code>colgroup</code>, <code>details</code>, <code>div</code>, <code>dl</code>, <code>fieldset</code>, <code>figcaption</code>, <code>figure</code>, <code>footer</code>, <code>form</code>, <code>iframe</code>, <code>header</code>, <code>hr</code>,
+<code>main</code>, <code>menu</code>, <code>nav</code>,  <code>map</code>, <code>noscript</code>, <code>object</code>, <code>ol</code>, <code>section</code>, <code>table</code>, <code>tbody</code>, <code>thead</code>, <code>tfoot</code>, <code>tr</code>, and
+<code>ul</code>.</p>
+<p>For example, the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+This is a *Markdown* Paragraph.
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>&hellip; is rendered as:</p>
+<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is a <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> Paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>The following tags have the <code>span</code> behavior by default: <code>address</code>, <code>dd</code>, <code>dt</code>, <code>h[1-6]</code>, <code>legend</code>, <code>li</code>, <code>p</code>, <code>td</code>,
+and <code>th</code>.</p>
+<p>For example, the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;p</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+This is not a *Markdown* Paragraph.
+<span class="nt">&lt;/p&gt;</span>
+</code></pre></div>
+
+<p>&hellip; is rendered as:</p>
+<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+This is not a <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> Paragraph.
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<h3 id="block"><code>markdown="block"</code><a class="headerlink" href="#block" title="Permanent link">&para;</a></h3>
+<p>When the <code>markdown</code> attribute is set to <code>"block"</code>, then the parser will force the <code>block</code> behavior on the contents of
+the element so long as it is one of the <code>block</code> or <code>span</code> tags.</p>
+<p>The content of a <code>block</code> element is parsed into block-level content. In other words, the text is rendered as
+paragraphs, headers, lists, blockquotes, etc. Any inline syntax within those elements is processed as well.</p>
+<p>For example, the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;section</span> <span class="na">markdown=</span><span class="s">&quot;block&quot;</span><span class="nt">&gt;</span>
+# A header.
+
+A *Markdown* paragraph.
+
+* A list item.
+* A second list item.
+
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div>
+
+<p>&hellip; is rendered as:</p>
+<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>A header.<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>A list item.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>A second list item.<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Forcing elements to be parsed as <code>block</code> elements when they are not by default could result in invalid HTML.
+For example, one could force a <code>&lt;p&gt;</code> element to be nested within another <code>&lt;p&gt;</code> element. In most cases it is
+recommended to use the default behavior of <code>markdown="1"</code>. Explicitly setting <code>markdown="block"</code> should be
+reserved for advanced users who understand the HTML specification and how browsers parse and render HTML.</p>
+</div>
+<h3 id="span"><code>markdown="span"</code><a class="headerlink" href="#span" title="Permanent link">&para;</a></h3>
+<p>When the <code>markdown</code> attribute is set to <code>"span"</code>, then the parser will force the <code>span</code> behavior on the contents
+of the element so long as it is one of the <code>block</code> or <code>span</code> tags.</p>
+<p>The content of a <code>span</code> element is not parsed into block-level content. In other words, the content will not be
+rendered as paragraphs, headers, etc. Only inline syntax will be rendered, such as links, strong, emphasis, etc.</p>
+<p>For example, the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">&quot;span&quot;</span><span class="nt">&gt;</span>
+# *Not* a header
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>&hellip; is rendered as:</p>
+<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+# <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Not<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> a header
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<h3 id="ignored-elements">Ignored Elements<a class="headerlink" href="#ignored-elements" title="Permanent link">&para;</a></h3>
+<p>The following tags are always ignored, regardless of any <code>markdown</code> attribute: <code>canvas</code>, <code>math</code>, <code>option</code>, <code>pre</code>,
+<code>script</code>, <code>style</code>, and <code>textarea</code>. All other raw HTML tags are treated as span-level tags and are not affected by this
+extension.</p>
+<h3 id="nesting">Nesting<a class="headerlink" href="#nesting" title="Permanent link">&para;</a></h3>
+<p>When nesting multiple levels of raw HTML elements, a <code>markdown</code> attribute must be defined for each block-level
+element. For any block-level element which does not have a <code>markdown</code> attribute, everything inside that element is
+ignored, including child elements with <code>markdown</code> attributes.</p>
+<p>For example, the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;article</span> <span class="na">id=</span><span class="s">&quot;my-article&quot;</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+# Article Title
+
+A Markdown paragraph.
+
+<span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;section-1&quot;</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+## Section 1 Title
+
+<span class="nt">&lt;p&gt;</span>Custom raw **HTML** which gets ignored.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;section-2&quot;</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+## Section 2 Title
+
+<span class="nt">&lt;p</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>**Markdown** content.<span class="nt">&lt;/p&gt;</span>
+
+<span class="nt">&lt;/section&gt;</span>
+
+<span class="nt">&lt;/article&gt;</span>
+</code></pre></div>
+
+<p>&hellip; is rendered as:</p>
+<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-article&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Article Title<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Markdown paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;section-1&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 1 Title<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Custom raw **HTML** which gets ignored.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;section-2&quot;</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">h2</span><span class="p">&gt;</span>Section 2 Title<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> content.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>When the value of an element&rsquo;s <code>markdown</code> attribute is more permissive that its parent, then the parent&rsquo;s stricter
+behavior is enforced. For example, a <code>block</code> element nested within a <code>span</code> element will be parsed using the <code>span</code>
+behavior. However, if the value of an element&rsquo;s <code>markdown</code> attribute is the same as, or more restrictive than, its
+parent, the the child element&rsquo;s behavior is observed. For example, a <code>block</code> element may contain either <code>block</code>
+elements or <code>span</code> elements as children and each element will be parsed using the specified behavior.</p>
+<h3 id="tag-normalization">Tag Normalization<a class="headerlink" href="#tag-normalization" title="Permanent link">&para;</a></h3>
+<p>While the default behavior is for Markdown to not alter raw HTML, as this extension is parsing the content of raw HTML elements, it will do some normalization of the tags of block-level elements. For example, the following raw HTML:</p>
+<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">markdown=</span><span class="s">&quot;1&quot;</span><span class="nt">&gt;</span>A Markdown paragraph with *no* closing tag.
+<span class="nt">&lt;p&gt;</span>A raw paragraph with *no* closing tag.
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+
+<p>&hellip; is rendered as:</p>
+<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Markdown paragraph with <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>no<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> closing tag.
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A raw paragraph with *no* closing tag.
+<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
+
+<p>Notice that the parser properly recognizes that an unclosed  <code>&lt;p&gt;</code> tag ends when another <code>&lt;p&gt;</code> tag begins or when the
+parent element ends. In both cases, a closing <code>&lt;/p&gt;</code> was added to the end of the element, regardless of whether a
+<code>markdown</code> attribute was assigned to the element.</p>
+<p>To avoid any normalization, an element must not be a descendant of any block-level element which has a <code>markdown</code>
+attribute defined.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The normalization behavior is only documented here so that document authors are not surprised when their carefully
+crafted raw HTML is altered by Markdown. This extension should not be relied on to normalize and generate valid
+HTML. For the best results, always include valid raw HTML (with both opening and closing tags) in your Markdown
+documents.</p>
+</div>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>From the Python interpreter:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">markdown</span>
+<div class="pycon codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">markdown</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;md_in_html&#39;</span><span class="p">])</span>
-</code></pre></div>
-
-
-<p>Unlike the other Extra features, this feature is built into the markdown core and
-is turned on when <code>markdown.extensions.extra</code> or <code>markdown.extensions.md_in_html</code>
-is enabled.</p>
-<p>The content of any raw HTML block element can be Markdown-formatted simply by
-adding a <code>markdown</code> attribute to the opening tag. The markdown attribute will be
-stripped from the output, but all other attributes will be preserved.</p>
-<p>If the markdown value is set to <code>1</code> (recommended) or any value other than <code>span</code>
-or <code>block</code>, the default behavior will be executed: <code>p</code>,<code>h[1-6]</code>,<code>li</code>,<code>dd</code>,<code>dt</code>,
-<code>td</code>,<code>th</code>,<code>legend</code>, and <code>address</code> elements skip block parsing while others do not.
-If the default is overridden by a value of <code>span</code>, <em>block parsing will be skipped</em>
-regardless of tag. If the default is overridden by a value of <code>block</code>,
-<em>block parsing will occur</em> regardless of tag.</p>
-<h4 id="simple-example">Simple Example:<a class="headerlink" href="#simple-example" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>This is <span class="ge">*true*</span> markdown text.
-
-&lt;div markdown=&quot;1&quot;&gt;
-This is <span class="ge">*true*</span> markdown text.
-&lt;/div&gt;
-</code></pre></div>
-
-
-<h4 id="result">Result:<a class="headerlink" href="#result" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>true<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> markdown text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>true<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> markdown text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-</code></pre></div>
-
-
-<h3 id="nested-markdown-inside-html-blocks">Nested Markdown Inside HTML Blocks<a class="headerlink" href="#nested-markdown-inside-html-blocks" title="Permanent link">&para;</a></h3>
-<p>Nested elements are more sensitive and must be used cautiously. To avoid
-unexpected results:</p>
-<ul>
-<li>Only nest elements within block mode elements.</li>
-<li>Follow the closing tag of inner elements with a blank line.</li>
-<li>Only have one level of nesting.</li>
-</ul>
-<h4 id="complex-example">Complex Example:<a class="headerlink" href="#complex-example" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code>&lt;div markdown=&quot;1&quot; name=&quot;Example&quot;&gt;
-
-The text of the <span class="sb">`Example`</span> element.
-
-&lt;div markdown=&quot;1&quot; name=&quot;DefaultBlockMode&quot;&gt;
-This text gets wrapped in <span class="sb">`p`</span> tags.
-&lt;/div&gt;
-
-The tail of the <span class="sb">`DefaultBlockMode`</span> subelement.
-
-&lt;p markdown=&quot;1&quot; name=&quot;DefaultSpanMode&quot;&gt;
-This text <span class="ge">*is not*</span> wrapped in additional <span class="sb">`p`</span> tags.
-&lt;/p&gt;
-
-The tail of the <span class="sb">`DefaultSpanMode`</span> subelement.
-
-&lt;div markdown=&quot;span&quot; name=&quot;SpanModeOverride&quot;&gt;
-This <span class="sb">`div`</span> block is not wrapped in paragraph tags.
-Note: Subelements are not required to have tail text.
-&lt;/div&gt;
-
-&lt;p markdown=&quot;block&quot; name=&quot;BlockModeOverride&quot;&gt;
-This <span class="sb">`p`</span> block <span class="ge">*is*</span> foolishly wrapped in further paragraph tags.
-&lt;/p&gt;
-
-The tail of the <span class="sb">`BlockModeOverride`</span> subelement.
-
-&lt;div name=&quot;RawHtml&quot;&gt;
-Raw HTML blocks may also be nested.
-&lt;/div&gt;
-
-&lt;/div&gt;
-
-This text is after the markdown in HTML.
-</code></pre></div>
-
-
-<h4 id="complex-result">Complex Result:<a class="headerlink" href="#complex-result" title="Permanent link">&para;</a></h4>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;Example&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The text of the <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>Example<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> element.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;DefaultBlockMode&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This text gets wrapped in <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>p<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> tags.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The tail of the <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>DefaultBlockMode<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> subelement.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;DefaultSpanMode&quot;</span><span class="p">&gt;</span>
-This text <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>is not<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> wrapped in additional <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>p<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> tags.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The tail of the <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>DefaultSpanMode<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> subelement.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;SpanModeOverride&quot;</span><span class="p">&gt;</span>
-This <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>div<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> block is not wrapped in paragraph tags.
-Note: Subelements are not required to have tail text.<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;BlockModeOverride&quot;</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>p<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> block <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>is<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> foolishly wrapped in further paragraph tags.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The tail of the <span class="p">&lt;</span><span class="nt">code</span><span class="p">&gt;</span>BlockModeOverride<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span> subelement.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">div</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;RawHtml&quot;</span><span class="p">&gt;</span>
-Raw HTML blocks may also be nested.
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This text is after the markdown in HTML.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </code></pre></div>
 
                     </div>
@@ -217,31 +293,37 @@ Raw HTML blocks may also be nested.
     </li>
             
     <li>
+        <a class="reference internal" href="#syntax">Syntax</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#1">markdown="1"</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#block">markdown="block"</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#span">markdown="span"</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#ignored-elements">Ignored Elements</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#nesting">Nesting</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#tag-normalization">Tag Normalization</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
         <a class="reference internal" href="#usage">Usage</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#simple-example">Simple Example:</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#result">Result:</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#nested-markdown-inside-html-blocks">Nested Markdown Inside HTML Blocks</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#complex-example">Complex Example:</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#complex-result">Complex Result:</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
     </li>
         </ul>
     </li>
@@ -297,7 +379,7 @@ Raw HTML blocks may also be nested.
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.2.2 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -344,6 +426,7 @@ Raw HTML blocks may also be nested.
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -354,7 +437,7 @@ Raw HTML blocks may also be nested.
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-05-08 17:25:49
+        Docs Build Date UTC : 2020-10-06 20:56:53
         -->
     </body>
 </html>
