@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Contributing to Python-Markdown" href="../contributing/" />
         <link rel="prev" title="Extension API" href="../extensions/api/" />
-        <title>Test Tools &#8212; Python-Markdown 3.3 documentation</title>
+        <title>Test Tools &#8212; Python-Markdown 3.3.1 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -99,7 +99,7 @@ test. The defaults can be overridden on individual tests.</dd>
 <code>unittest.TestCase</code>. In fact, <code>assertMarkdownRenders</code> tests could be mixed with
 other <code>unittest</code> style tests within the same test class.</p>
 <p>An example Markdown test might look like this:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.test_tools</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.test_tools</span> <span class="kn">import</span> <span class="n">TestCase</span>
 
 <span class="k">class</span> <span class="nc">TestHr</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">test_hr_before_paragraph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -166,7 +166,7 @@ directory and create a separate unit test for each set of test files using the
 naming scheme: <code>test_filename</code>. One unit test will be run for each set of input
 and output files.</p>
 <p>The definition of an example set of tests might look like this:</p>
-<div class="python codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.test_tools</span> <span class="kn">import</span> <span class="n">LegacyTestCase</span><span class="p">,</span> <span class="n">Kwargs</span>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.test_tools</span> <span class="kn">import</span> <span class="n">LegacyTestCase</span><span class="p">,</span> <span class="n">Kwargs</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Get location of this file and use to find text file dirs.</span>
@@ -203,7 +203,7 @@ which needed to be defined.</p>
 <code>unittest</code> methods of calling tests can be used. For example, to run all of
 Python-Markdown&rsquo;s tests, from the root of the git repository, run the following
 command:</p>
-<div class="sh codehilite"><pre><span></span><code>python -m unittest discover tests
+<div class="codehilite"><pre><span></span><code>python -m unittest discover tests
 </code></pre></div>
 
 <p>That simple command will search everything in the <code>tests</code> directory and it&rsquo;s
@@ -294,7 +294,7 @@ rules apply.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -331,7 +331,7 @@ rules apply.</p>
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-10-06 20:56:52
+        Docs Build Date UTC : 2020-10-12 20:01:18
         -->
     </body>
 </html>

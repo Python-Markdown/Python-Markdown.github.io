@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="SmartyPants" href="../smarty/" />
         <link rel="prev" title="Markdown in HTML" href="../md_in_html/" />
-        <title>Sane Lists &#8212; Python-Markdown 3.3 documentation</title>
+        <title>Sane Lists &#8212; Python-Markdown 3.3.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -100,7 +100,7 @@ to be less surprising.</p>
 <p>Sane Lists do not allow the mixing of list types. In other words, an ordered
 list will not continue when an unordered list item is encountered and
 vice versa. For example:</p>
-<div class="md codehilite"><pre><span></span><code><span class="k">1.</span> Ordered item 1
+<div class="codehilite"><pre><span></span><code><span class="k">1.</span> Ordered item 1
 <span class="k">2.</span> Ordered item 2
 
 <span class="k">*</span> Unordered item 1
@@ -108,7 +108,7 @@ vice versa. For example:</p>
 </code></pre></div>
 
 <p>will result in the following output:</p>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered item 1<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Ordered item 2<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">ol</span><span class="p">&gt;</span>
@@ -123,7 +123,7 @@ vice versa. For example:</p>
 <p>Note that, unlike the default Markdown behavior, if a blank line is not
 included between list items, the different list type is ignored completely.
 This corresponds to the behavior of paragraphs. For example:</p>
-<div class="md codehilite"><pre><span></span><code>A Paragraph.
+<div class="codehilite"><pre><span></span><code>A Paragraph.
 <span class="ge">* Not a list item.</span>
 
 <span class="ge">1. Ordered list item.</span>
@@ -131,7 +131,7 @@ This corresponds to the behavior of paragraphs. For example:</p>
 </code></pre></div>
 
 <p>With this extension the above will result in the following output:</p>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Paragraph.
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A Paragraph.
 * Not a list item.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 
 <span class="p">&lt;</span><span class="nt">ol</span><span class="p">&gt;</span>
@@ -142,7 +142,7 @@ This corresponds to the behavior of paragraphs. For example:</p>
 
 <p>Sane lists also recognize the number used in ordered lists. Given the following
 list:</p>
-<div class="md codehilite"><pre><span></span><code><span class="k">4.</span> Apples
+<div class="codehilite"><pre><span></span><code><span class="k">4.</span> Apples
 <span class="k">5.</span> Oranges
 <span class="k">6.</span> Pears
 </code></pre></div>
@@ -150,7 +150,7 @@ list:</p>
 <p>By default markdown will ignore the fact that the first line started
 with item number &ldquo;4&rdquo; and the HTML list will start with a number &ldquo;1&rdquo;.
 This extension will result in the following HTML output:</p>
-<div class="html codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">start</span><span class="o">=</span><span class="s">&quot;4&quot;</span><span class="p">&gt;</span>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">ol</span> <span class="na">start</span><span class="o">=</span><span class="s">&quot;4&quot;</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Apples<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Oranges<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Pears<span class="p">&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
@@ -163,7 +163,7 @@ This extension will result in the following HTML output:</p>
 name of the extension.</p>
 <p>This extension does not accept any special configuration options.</p>
 <p>A trivial example:</p>
-<div class="python codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sane_lists&#39;</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sane_lists&#39;</span><span class="p">])</span>
 </code></pre></div>
 
                     </div>
@@ -243,7 +243,7 @@ name of the extension.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.1 documentation</a> &#187;
             </li>
                     
                     
@@ -301,7 +301,7 @@ name of the extension.</p>
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-10-06 20:56:53
+        Docs Build Date UTC : 2020-10-12 20:01:19
         -->
     </body>
 </html>
