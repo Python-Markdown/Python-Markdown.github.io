@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Release Notes for v.3.3" href="release-3.3/" />
         <link rel="prev" title="Contributing to Python-Markdown" href="../contributing/" />
-        <title>Change Log &#8212; Python-Markdown 3.3.1 documentation</title>
+        <title>Change Log &#8212; Python-Markdown 3.3.3 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -71,6 +71,18 @@
             <div class="documentwrapper">
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="python-markdown-change-log">Python-Markdown Change Log<a class="headerlink" href="#python-markdown-change-log" title="Permanent link">&para;</a></h1>
+<p>Oct 25, 2020: version 3.3.3 (a bug-fix release).</p>
+<ul>
+<li>Unify all block-level tags (#1047).</li>
+<li>Fix issue where some empty elements would have text rendered as <code>None</code> when using <code>md_in_html</code> (#1049).</li>
+<li>Avoid catastrophic backtracking in <code>hr</code> regex (#1055).</li>
+<li>Fix <code>hr</code> HTML handling (#1053).</li>
+</ul>
+<p>Oct 19, 2020: version 3.3.2 (a bug-fix release).</p>
+<ul>
+<li>Properly parse inline HTML in md_in_html (#1040 &amp; #1045).</li>
+<li>Avoid crashing when md_in_html fails (#1040).</li>
+</ul>
 <p>Oct 12, 2020: version 3.3.1 (a bug-fix release).</p>
 <ul>
 <li>Correctly parse raw <code>script</code> and <code>style</code> tags (#1036).</li>
@@ -320,7 +332,7 @@ Stienstra&rsquo;s code</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.3 documentation</a> &#187;
             </li>
                     
                     
@@ -357,7 +369,7 @@ Stienstra&rsquo;s code</p>
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-10-12 20:01:18
+        Docs Build Date UTC : 2020-10-25 20:25:44
         -->
     </body>
 </html>
