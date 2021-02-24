@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Contributing to Python-Markdown" href="../contributing/" />
         <link rel="prev" title="Extension API" href="../extensions/api/" />
-        <title>Test Tools &#8212; Python-Markdown 3.3.3 documentation</title>
+        <title>Test Tools &#8212; Python-Markdown 3.3.4 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -87,12 +87,16 @@ a few additional helpers to make testing Markdown output easier.</p>
 <dd><code>default_kwargs</code>: A <code>dict</code> of keywords to pass to Markdown for each
 test. The defaults can be overridden on individual tests.</dd>
 <dt>Methods</dt>
-<dd><code>assertMarkdownRenders</code>: accepts the source text, the expected output,
-  and any keywords to pass to Markdown. The <code>default_kwargs</code> defined on the
-  class are used except where overridden by keyword arguments. The output and
-  expected output are passed to <code>TestCase.assertMultiLineEqual</code>. An
-  <code>AssertionError</code> is raised with a diff if the actual output does not equal the
-  expected output.</dd>
+<dd><code>assertMarkdownRenders</code>: accepts the source text, the expected output, an optional
+  dictionary of <code>expected_attrs</code>, and any keywords to pass to Markdown. The
+  <code>default_kwargs</code> defined on the class are used except where overridden by
+  keyword arguments. The output and expected output are passed to
+  <code>TestCase.assertMultiLineEqual</code>. An <code>AssertionError</code> is raised with a diff
+  if the actual output does not equal the expected output. The optional
+  keyword <code>expected_attrs</code> accepts a dictionary of attribute names as keys with
+  expected values. Each value is checked against the attribute of that
+  name on the instance of the <code>Markdown</code> class using <code>TestCase.assertEqual</code>. An
+  <code>AssertionError</code> is raised if any value does not match the expected value.</dd>
 <dd><code>dedent</code>: Dedent triple-quoted strings.</dd>
 </dl>
 <p>In all other respects, <code>markdown.test_tools.TestCase</code> behaves as
@@ -294,7 +298,7 @@ rules apply.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -331,7 +335,7 @@ rules apply.</p>
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-10-25 20:25:44
+        Docs Build Date UTC : 2021-02-24 19:59:36
         -->
     </body>
 </html>

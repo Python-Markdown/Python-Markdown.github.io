@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Test Tools" href="../../test_tools/" />
         <link rel="prev" title="WikiLinks" href="../wikilinks/" />
-        <title>Extension API &#8212; Python-Markdown 3.3.3 documentation</title>
+        <title>Extension API &#8212; Python-Markdown 3.3.4 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -80,7 +80,7 @@ parser. An extension will patch into one or more stages of the parser:</p>
 <li><a href="#inlineprocessors"><em>Inline Processors</em></a> are common tree processors for inline elements, such as <code>*strong*</code>. </li>
 <li><a href="#postprocessors"><em>Postprocessors</em></a> munge of the output of the parser just before it is returned. </li>
 </ul>
-<p>The parser loads text, applies the preprocessors, creates and builds an <a href="https://effbot.org/zone/element-index.htm">ElementTree</a> object from the
+<p>The parser loads text, applies the preprocessors, creates and builds an <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">ElementTree</a> object from the
 block processors and inline processors, renders the ElementTree object as Unicode text, and then then applies the
 postprocessors.</p>
 <p>There are classes and helpers provided to ease writing your extension. Each part of the API is discussed in its
@@ -613,7 +613,7 @@ ready for output.  Note that preprocessors use a list of lines while postprocess
 </tbody>
 </table>
 <h2 id="working_with_et">Working with the ElementTree<a class="headerlink" href="#working_with_et" title="Permanent link">&para;</a></h2>
-<p>As mentioned, the Markdown parser converts a source document to an <a href="https://effbot.org/zone/element-index.htm">ElementTree</a> object before
+<p>As mentioned, the Markdown parser converts a source document to an <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">ElementTree</a> object before
 serializing that back to Unicode text. Markdown has provided some helpers to ease that manipulation within the context
 of the Markdown module.</p>
 <p>First, import the ElementTree module:</p>
@@ -648,9 +648,23 @@ elements:</p>
         <span class="n">set_link_class</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="c1"># run recursively on children</span>
 </code></pre></div>
 
-<p>For more information about working with ElementTree see the ElementTree
-<a href="https://effbot.org/zone/element-index.htm">Documentation</a> (<a href="https://docs.python.org/3/library/xml.etree.elementtree.html">Python
-Docs</a>).</p>
+<p>For more information about working with ElementTree see the <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">ElementTree
+Documentation</a>.</p>
+<h2 id="working_with_raw_html">Working with Raw HTML<a class="headerlink" href="#working_with_raw_html" title="Permanent link">&para;</a></h2>
+<p>Occasionally an extension may need to call out to a third party library which returns a pre-made string
+of raw HTML that needs to be inserted into the document unmodified. Raw strings can be stashed for later
+retrieval using an <code>htmlStash</code> instance, rather than converting them into <code>ElementTree</code> objects. A raw string
+(which may or may not be raw HTML) passed to <code>self.md.htmlStash.store()</code> will be saved to the stash and a
+placeholder string will be returned which should be inserted into the tree instead. After the tree is
+serialized, a postprocessor will replace the placeholder with the raw string. This prevents subsequent
+processing steps from modifying the HTML data. For example,</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;p&gt;This is some &lt;em&gt;raw&lt;/em&gt; HTML data&lt;/p&gt;&quot;</span>
+<span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">)</span>
+<span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">md</span><span class="o">.</span><span class="n">htmlStash</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</code></pre></div>
+
+<p>For the global <code>htmlStash</code> instance to be available from a processor, the <code>markdown.Markdown</code> instance must
+be passed to the processor from <a href="#extendmarkdown">extendMarkdown</a> and will be available as <code>self.md.htmlStash</code>.</p>
 <h2 id="integrating_into_markdown">Integrating Your Code Into Markdown<a class="headerlink" href="#integrating_into_markdown" title="Permanent link">&para;</a></h2>
 <p>Once you have the various pieces of your extension built, you need to tell Markdown about them and ensure that they
 are run in the proper sequence. Markdown accepts an <code>Extension</code> instance for each extension. Therefore, you will need
@@ -1011,6 +1025,10 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
     </li>
             
     <li>
+        <a class="reference internal" href="#working_with_raw_html">Working with Raw HTML</a>
+    </li>
+            
+    <li>
         <a class="reference internal" href="#integrating_into_markdown">Integrating Your Code Into Markdown</a>
         <ul>
             
@@ -1113,7 +1131,7 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -1150,7 +1168,7 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
 
         <!--
         MkDocs version      : 1.1
-        Docs Build Date UTC : 2020-10-25 20:25:44
+        Docs Build Date UTC : 2021-02-24 19:59:36
         -->
     </body>
 </html>
