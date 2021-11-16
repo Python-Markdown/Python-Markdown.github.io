@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.3.2" href="../release-3.2/" />
         <link rel="prev" title="Change Log" href="../" />
-        <title>Release Notes for v.3.3 &#8212; Python-Markdown 3.3.4 documentation</title>
+        <title>Release Notes for v.3.3 &#8212; Python-Markdown 3.3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -82,10 +82,10 @@ instance of the prefix. Similarly, if you are using a third party syntax highlig
 the prefix, or requires a different prefix, then you will want to redefine the prefix globally using the <code>lang_prefix</code>
 configuration option of either the <code>fenced_code</code> or <code>codehilite</code> extensions.</p>
 <p>For example, to configure <code>fenced_code</code> to not apply any prefix (the previous behavior), set the option to an empty string:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions.fenced_code</span> <span class="kn">import</span> <span class="n">FencedCodeExtension</span>
+<pre class="codehilite"><code class="language-python">from markdown.extensions.fenced_code import FencedCodeExtension
 
-<span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">FencedCodeExtension</span><span class="p">(</span><span class="n">lang_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)])</span>
-</code></pre></div>
+markdown.markdown(src, extensions=[FencedCodeExtension(lang_prefix='')])
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -167,7 +167,6 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 <li>Fix unescaping of HTML characters <code>&lt;&gt;</code> in CodeHilite (#990).</li>
 <li>Fix complex scenarios involving lists and admonitions (#1004).</li>
 <li>Fix complex scenarios with nested ordered and unordered lists in a definition list (#918).</li>
-<li>Fix corner cases with lists under admonitions.</li>
 </ul>
 
                     </div>
@@ -257,7 +256,7 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -287,14 +286,14 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
         </div>
         <script>var base_url = '../..';</script>
         <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1
-        Docs Build Date UTC : 2021-02-24 19:59:36
+        MkDocs version      : 1.1.2
+        Docs Build Date UTC : 2021-11-16 16:01:43.805691+00:00
         -->
     </body>
 </html>

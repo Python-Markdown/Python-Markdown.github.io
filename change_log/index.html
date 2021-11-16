@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Release Notes for v.3.3" href="release-3.3/" />
         <link rel="prev" title="Contributing to Python-Markdown" href="../contributing/" />
-        <title>Change Log &#8212; Python-Markdown 3.3.4 documentation</title>
+        <title>Change Log &#8212; Python-Markdown 3.3.5 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3.4 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -71,6 +71,16 @@
             <div class="documentwrapper">
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="python-markdown-change-log">Python-Markdown Change Log<a class="headerlink" href="#python-markdown-change-log" title="Permanent link">&para;</a></h1>
+<p>Nov 16, 2021: version 3.3.5 (a bug-fix release).</p>
+<ul>
+<li>Make the <code>slugify_unicode</code> function not remove diacritical marks (#1118).</li>
+<li>Fix <code>[toc]</code> detection when used with <code>nl2br</code> extension (#1160).</li>
+<li>Re-use compiled regex for block level checks (#1169).</li>
+<li>Don&rsquo;t process shebangs in fenced code blocks when using CodeHilite (#1156).</li>
+<li>Improve email address validation for Automatic Links (#1165).</li>
+<li>Ensure <code>&lt;summary&gt;</code> tags are parsed correctly (#1079).</li>
+<li>Support Python 3.10 (#1124).</li>
+</ul>
 <p>Feb 24, 2021: version 3.3.4 (a bug-fix release).</p>
 <ul>
 <li>Properly parse unclosed tags in code spans (#1066).</li>
@@ -78,7 +88,8 @@
 <li>Properly parse code spans in md_in_html (#1069).</li>
 <li>Preserve text immediately before an admonition (#1092).</li>
 <li>Simplified regex for HTML placeholders (#928) addressing (#932).</li>
-<li>Ensure <code>permalinks</code> and <code>ankorlinks</code> are not restricted by <code>toc_depth</code> (#1107).</li>
+<li>Ensure <code>permalinks</code> and <code>anchorlinks</code> are not restricted by <code>toc_depth</code> (#1107).</li>
+<li>Fix corner cases with lists under admonitions (#1102).</li>
 </ul>
 <p>Oct 25, 2020: version 3.3.3 (a bug-fix release).</p>
 <ul>
@@ -341,7 +352,7 @@ Stienstra&rsquo;s code</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.3.4 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -371,14 +382,14 @@ Stienstra&rsquo;s code</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
         </div>
         <script>var base_url = '..';</script>
         <script src="../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1
-        Docs Build Date UTC : 2021-02-24 19:59:36
+        MkDocs version      : 1.1.2
+        Docs Build Date UTC : 2021-11-16 16:01:43.758826+00:00
         -->
     </body>
 </html>

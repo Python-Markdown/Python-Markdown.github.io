@@ -238,10 +238,6 @@ code {
     font-family: monospace;
 }
 
-pre code {
-    background-color: transparent;
-}
-
 .viewcode-back {
     font-family: Arial, sans-serif;
 }

@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Extension API" href="../api/" />
         <link rel="prev" title="Tables" href="../tables/" />
-        <title>WikiLinks &#8212; Python-Markdown 3.3.4 documentation</title>
+        <title>WikiLinks &#8212; Python-Markdown 3.3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -99,12 +99,12 @@
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
 <p>A <code>[[bracketed]]</code> word is any combination of  upper or lower case letters,
 number, dashes, underscores and spaces surrounded by double brackets. Therefore</p>
-<div class="codehilite"><pre><span></span><code>[[Bracketed]]
-</code></pre></div>
+<pre class="codehilite"><code class="language-md">[[Bracketed]]
+</code></pre>
 
 <p>would produce the following HTML:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/Bracketed/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>Bracketed<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/Bracketed/&quot; class=&quot;wikilink&quot;&gt;Bracketed&lt;/a&gt;
+</code></pre>
 
 <p>Note that WikiLinks are automatically assigned <code>class="wikilink"</code> making it
 easy to style WikiLinks differently from other links on a page if one so
@@ -112,12 +112,12 @@ desires. See below for ways to alter the class.</p>
 <p>Also note that when a space is used, the space is converted to an underscore in
 the link but left as-is in the label. Perhaps an example would illustrate this
 best:</p>
-<div class="codehilite"><pre><span></span><code>[[Wiki Link]]
-</code></pre></div>
+<pre class="codehilite"><code class="language-md">[[Wiki Link]]
+</code></pre>
 
 <p>becomes</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/Wiki_Link/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>Wiki Link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/Wiki_Link/&quot; class=&quot;wikilink&quot;&gt;Wiki Link&lt;/a&gt;
+</code></pre>
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>wikilinks</code> as the
@@ -146,43 +146,43 @@ the HTML class <code>wikilink</code>.</p>
 </li>
 </ul>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;wikilinks&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['wikilinks'])
+</code></pre>
 
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
 <p>For an example, let us suppose links should always point to the sub-directory
 <code>/wiki/</code> and end with <code>.html</code></p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.extensions.wikilinks</span> <span class="kn">import</span> <span class="n">WikiLinkExtension</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">WikiLinkExtension</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="s1">&#39;/wiki/&#39;</span><span class="p">,</span> <span class="n">end_url</span><span class="o">=</span><span class="s1">&#39;.html&#39;</span><span class="p">)]</span>
-<span class="gp">... </span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; from markdown.extensions.wikilinks import WikiLinkExtension
+&gt;&gt;&gt; html = markdown.markdown(text,
+...     extensions=[WikiLinkExtension(base_url='/wiki/', end_url='.html')]
+... )
+</code></pre>
 
 <p>The above would result in the following link for <code>[[WikiLink]]</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/wiki/WikiLink.html&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;wikilink&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/wiki/WikiLink.html&quot; class=&quot;wikilink&quot;&gt;WikiLink&lt;/a&gt;
+</code></pre>
 
 <p>If you want to do more that just alter the base and/or end of the URL, you
 could also pass in a callable which must accept three arguments (<code>label</code>,
 <code>base</code>, and <code>end</code>). The callable must return the URL in it&rsquo;s entirety.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="k">def</span> <span class="nf">my_url_builder</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">base</span><span class="p">,</span> <span class="n">end</span><span class="p">):</span>
-<span class="gp">... </span>   <span class="c1"># do stuff</span>
-<span class="gp">... </span>   <span class="k">return</span> <span class="n">url</span>
-<span class="gp">...</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">WikiLinkExtension</span><span class="p">(</span><span class="n">build_url</span><span class="o">=</span><span class="n">my_url_builder</span><span class="p">)],</span>
-<span class="gp">... </span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; def my_url_builder(label, base, end):
+...    # do stuff
+...    return url
+...
+&gt;&gt;&gt; html = markdown.markdown(text,
+...     extensions=[WikiLinkExtension(build_url=my_url_builder)],
+... )
+</code></pre>
 
 <p>The option is also provided to change or remove the class attribute.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
-<span class="gp">... </span>    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">WikiLinkExtension</span><span class="p">(</span><span class="n">html_class</span><span class="o">=</span><span class="s1">&#39;myclass&#39;</span><span class="p">)]</span>
-<span class="gp">... </span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; html = markdown.markdown(text,
+...     extensions=[WikiLinkExtension(html_class='myclass')]
+... )
+</code></pre>
 
 <p>Would cause all WikiLinks to be assigned to the class <code>myclass</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/WikiLink/&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;myclass&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;a href=&quot;/WikiLink/&quot; class=&quot;myclass&quot;&gt;WikiLink&lt;/a&gt;
+</code></pre>
 
 <h2 id="using-with-meta-data-extension">Using with Meta-Data extension<a class="headerlink" href="#using-with-meta-data-extension" title="Permanent link">&para;</a></h2>
 <p>The WikiLink extension also supports the <a href="../meta_data/">Meta-Data</a> extension.
@@ -196,16 +196,16 @@ meta-data keywords are:</p>
 <p>When used, the meta-data will override the settings provided through the
 <code>extension_configs</code> interface.</p>
 <p>This document:</p>
-<div class="codehilite"><pre><span></span><code>wiki_base_url: http://example.com/
+<pre class="codehilite"><code class="language-md">wiki_base_url: http://example.com/
 wiki_end_url:  .html
 wiki_html_class:
 
 A [[WikiLink]] in the first paragraph.
-</code></pre></div>
+</code></pre>
 
 <p>would result in the following output (notice the blank <code>wiki_html_class</code>):</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>A <span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://example.com/WikiLink.html&quot;</span><span class="p">&gt;</span>WikiLink<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span> in the first paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;p&gt;A &lt;a href=&quot;http://example.com/WikiLink.html&quot;&gt;WikiLink&lt;/a&gt; in the first paragraph.&lt;/p&gt;
+</code></pre>
 
                     </div>
                 </div>
@@ -294,7 +294,7 @@ A [[WikiLink]] in the first paragraph.
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -345,14 +345,14 @@ A [[WikiLink]] in the first paragraph.
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
         </div>
         <script>var base_url = '../..';</script>
         <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1
-        Docs Build Date UTC : 2021-02-24 19:59:37
+        MkDocs version      : 1.1.2
+        Docs Build Date UTC : 2021-11-16 16:01:43.930663+00:00
         -->
     </body>
 </html>
