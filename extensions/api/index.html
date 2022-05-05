@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Test Tools" href="../../test_tools/" />
         <link rel="prev" title="WikiLinks" href="../wikilinks/" />
-        <title>Extension API &#8212; Python-Markdown 3.3.6 documentation</title>
+        <title>Extension API &#8212; Python-Markdown 3.3.7 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.6 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -74,11 +74,11 @@
 <p>Python-Markdown includes an API for extension writers to plug their own custom functionality and syntax into the
 parser. An extension will patch into one or more stages of the parser:</p>
 <ul>
-<li><a href="#preprocessors"><em>Preprocessors</em></a> alter the source before it is passed to the parser. </li>
+<li><a href="#preprocessors"><em>Preprocessors</em></a> alter the source before it is passed to the parser.</li>
 <li><a href="#blockprocessors"><em>Block Processors</em></a> work with blocks of text separated by blank lines.</li>
 <li><a href="#treeprocessors"><em>Tree Processors</em></a> modify the constructed ElementTree</li>
-<li><a href="#inlineprocessors"><em>Inline Processors</em></a> are common tree processors for inline elements, such as <code>*strong*</code>. </li>
-<li><a href="#postprocessors"><em>Postprocessors</em></a> munge of the output of the parser just before it is returned. </li>
+<li><a href="#inlineprocessors"><em>Inline Processors</em></a> are common tree processors for inline elements, such as <code>*strong*</code>.</li>
+<li><a href="#postprocessors"><em>Postprocessors</em></a> munge of the output of the parser just before it is returned.</li>
 </ul>
 <p>The parser loads text, applies the preprocessors, creates and builds an <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">ElementTree</a> object from the
 block processors and inline processors, renders the ElementTree object as Unicode text, and then then applies the
@@ -105,9 +105,9 @@ class NoRender(Preprocessor):
         new_lines = []
         for line in lines:
             m = re.search(&quot;NO RENDER&quot;, line)
-            if not m:    
+            if not m:
                 # any line without NO RENDER is passed through
-                new_lines.append(line)  
+                new_lines.append(line)
         return new_lines
 </code></pre>
 
@@ -151,18 +151,18 @@ class NoRender(Preprocessor):
 </table>
 <h3 id="blockprocessors">Block Processors<a class="headerlink" href="#blockprocessors" title="Permanent link">&para;</a></h3>
 <p>A block processor parses blocks of text and adds new elements to the <code>ElementTree</code>. Blocks of text, separated from
-other text by blank lines, may have a different syntax and produce a differently structured tree than other Markdown. 
+other text by blank lines, may have a different syntax and produce a differently structured tree than other Markdown.
 Block processors excel at code formatting, equation layouts, and tables.</p>
 <p>Block processors inherit from <code>markdown.blockprocessors.BlockProcessor</code>, are passed <code>md.parser</code> on initialization, and
-implement both the <code>test</code> and <code>run</code> methods:  </p>
+implement both the <code>test</code> and <code>run</code> methods:</p>
 <ul>
 <li><code>test(self, parent, block)</code> takes two parameters: <code>parent</code> is the parent <code>ElementTree</code> element and <code>block</code> is a
   single, multi-line, Unicode string of the current block. <code>test</code>, often a regular expression match, returns a true
-  value if the block processor&rsquo;s <code>run</code> method should be called to process starting at that block.  </li>
+  value if the block processor&rsquo;s <code>run</code> method should be called to process starting at that block.</li>
 <li><code>run(self, parent, blocks)</code> has the same <code>parent</code> parameter as <code>test</code>; and <code>blocks</code> is the list of all remaining
   blocks in the document, starting with the <code>block</code> passed to <code>test</code>. <code>run</code> may return <code>False</code> (not <code>None</code>) to signal
   failure, meaning that it did not process the blocks after all. On success, <code>run</code> is expected to <code>pop</code> one or more
-  blocks from the front of <code>blocks</code> and attach new nodes to <code>parent</code>.  </li>
+  blocks from the front of <code>blocks</code> and attach new nodes to <code>parent</code>.</li>
 </ul>
 <p>Crafting block processors is more involved and flexible than the other processors, involving controlling recursive
 parsing of the block&rsquo;s contents and managing state across invocations. For example, a blank line is allowed in
@@ -174,12 +174,12 @@ and more.</p>
 <ul>
 <li><code>lastChild(parent)</code> returns the last child of the given element or <code>None</code> if it has no children.</li>
 <li><code>detab(text)</code> removes one level of indent (four spaces by default) from the front of each line of the given
-  multi-line, text string, until a non-blank line is indented less. </li>
+  multi-line, text string, until a non-blank line is indented less.</li>
 <li><code>looseDetab(text, level)</code> removes multiple levels
-  of indent from the front of each line of <code>text</code> but does not affect lines indented less.  </li>
+  of indent from the front of each line of <code>text</code> but does not affect lines indented less.</li>
 </ul>
 <p>Also, <code>BlockProcessor</code> provides the fields <code>self.tab_length</code>, the tab length (default 4), and <code>self.parser</code>, the
-current <code>BlockParser</code> instance.  </p>
+current <code>BlockParser</code> instance.</p>
 <h4 id="blockparser">BlockParser<a class="headerlink" href="#blockparser" title="Permanent link">&para;</a></h4>
 <p><code>BlockParser</code>, not to be confused with <code>BlockProcessor</code>, is the class used by Markdown to cycle through all the
 registered block processors.  You should never need to create your own instance; use <code>self.parser</code> instead.</p>
@@ -192,16 +192,16 @@ processor.  There are three methods:</p>
 <li><code>parseDocument(lines)</code> parses a list of lines, each a single-line Unicode string, returning a complete
   <code>ElementTree</code>.</li>
 <li><code>parseChunk(parent, text)</code> parses a single, multi-line, possibly multi-block, Unicode string <code>text</code> and attaches the
-  resulting tree to <code>parent</code>.  </li>
+  resulting tree to <code>parent</code>.</li>
 <li><code>parseBlocks(parent, blocks)</code> takes a list of <code>blocks</code>, each a multi-line Unicode string without blank lines, and
-  attaches the resulting tree to <code>parent</code>.   </li>
+  attaches the resulting tree to <code>parent</code>.</li>
 </ul>
 <p>For perspective, Markdown calls <code>parseDocument</code> which calls <code>parseChunk</code> which calls <code>parseBlocks</code> which calls your
 block processor, which, in turn, might call one of these routines.</p>
 <h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
 <p>This example calls out important paragraphs by giving them a border.  It looks for a fence line of exclamation points
 before and after and renders the fenced blocks into a new, styled <code>div</code>.  If it does not find the ending fence line,
-it does nothing.  </p>
+it does nothing.</p>
 <p>Our code, like most block processors, is longer than other examples:</p>
 <pre class="codehilite"><code class="language-python">def test_block_processor():
     class BoxBlockProcessor(BlockProcessor):
@@ -251,7 +251,7 @@ Another regular paragraph of text.
 
 <p>The fenced text adds one node with two children to the tree:</p>
 <ul>
-<li><code>div</code>, with a <code>style</code> attribute.  It renders as 
+<li><code>div</code>, with a <code>style</code> attribute.  It renders as
   <code>&lt;div style="display: inline-block; border: 1px solid red;"&gt;...&lt;/div&gt;</code><ul>
 <li><code>p</code> with text <code>First paragraph of wrapped text.</code></li>
 <li><code>p</code> with text <code>Second Paragraph of **wrapped** text</code>.  The conversion to a <code>&lt;strong&gt;</code> tag will happen when
@@ -367,7 +367,7 @@ processor code is often quite short.</p>
 <p><code>__init__(self, pattern, md=None)</code> is the inherited constructor.  You do not need to implement your own.</p>
 <ul>
 <li><code>pattern</code> is the regular expression string that must match the code block in order for the <code>handleMatch</code> method
-  to be called.   </li>
+  to be called.</li>
 <li><code>md</code>, an optional parameter, is a pointer to the instance of <code>markdown.Markdown</code> and is available as <code>self.md</code>
   on the <code>InlineProcessor</code> instance.</li>
 </ul>
@@ -375,9 +375,9 @@ processor code is often quite short.</p>
 <li>
 <p><code>handleMatch(self, m, data)</code> must be implemented in all <code>InlineProcessor</code> subclasses.</p>
 <ul>
-<li><code>m</code> is the regular expression <a href="https://docs.python.org/3/library/re.html#match-objects">match object</a> found by the <code>pattern</code> passed to <code>__init__</code>.   </li>
+<li><code>m</code> is the regular expression <a href="https://docs.python.org/3/library/re.html#match-objects">match object</a> found by the <code>pattern</code> passed to <code>__init__</code>.</li>
 <li><code>data</code> is a single, multi-line, Unicode string containing the entire block of text around the pattern.  A block
-  is text set apart by blank lines.  </li>
+  is text set apart by blank lines.</li>
 <li>Returns either <code>(None, None, None)</code>, indicating the provided match was rejected or <code>(el, start, end)</code>, if the
   match was successfully processed.  On success, <code>el</code> is the element being added the tree, <code>start</code> and <code>end</code> are
   indexes in <code>data</code> that were &ldquo;consumed&rdquo; by the pattern.  The &ldquo;consumed&rdquo; span will be replaced by a placeholder.
@@ -438,12 +438,12 @@ End of the block.</p></p>
   <code>First line of the block.\nThis is --strike one--.\nThis is --strike two--.\nEnd of the block.</code></li>
 </ul>
 <p>Because the match was successful, the region between the returned <code>start</code> and <code>end</code> are replaced with a
-placeholder token and the new element is added to the tree.    </p>
+placeholder token and the new element is added to the tree.</p>
 </li>
 <li>
 <p>On the second call to <code>handleMatch</code></p>
 <ul>
-<li><code>m</code> will be the match for <code>--strike two--</code> </li>
+<li><code>m</code> will be the match for <code>--strike two--</code></li>
 <li><code>data</code> will be the string
   <code>First line of the block.\nThis is klzzwxh:0000.\nThis is --strike two--.\nEnd of the block.</code></li>
 </ul>
@@ -894,7 +894,7 @@ assert someitem in registry
 <li><code>priority</code>: An integer or float used to sort against all items.</li>
 </ul>
 <p>If an item is registered with a &ldquo;name&rdquo; which already exists, the existing item is replaced with the new item.
-Tread carefully as the old item is lost with no way to recover it. The new item will be sorted according to its
+Be careful as the old item is lost with no way to recover it. The new item will be sorted according to its
 priority and will <strong>not</strong> retain the position of the old item.</p>
 </dd>
 </dl>
@@ -1131,7 +1131,7 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.6 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -1168,7 +1168,7 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2021-11-17 16:00:33.022897+00:00
+        Docs Build Date UTC : 2022-05-05 19:10:52.488131+00:00
         -->
     </body>
 </html>
