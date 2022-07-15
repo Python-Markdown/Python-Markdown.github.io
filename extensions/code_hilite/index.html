@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Definition Lists" href="../definition_lists/" />
         <link rel="prev" title="Attribute Lists" href="../attr_list/" />
-        <title>CodeHilite &#8212; Python-Markdown 3.3.7 documentation</title>
+        <title>CodeHilite &#8212; Python-Markdown 3.4 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.7 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -69,6 +69,7 @@
                 
                 
                 
+                    
                     
                     
                     
@@ -278,8 +279,19 @@ in the browser to highlight the code block. See the <a href="#lang_prefix"><code
 <li>
 <p><strong id="lang_prefix"><code>lang_prefix</code></strong>:
     The prefix prepended to the language class assigned to the HTML <code>&lt;code&gt;</code> tag. Default: <code>language-</code>.</p>
-<p>This option only applies when <code>use_pygments</code> is <code>False</code> as Pygments does not provide an option to include a
-language prefix.</p>
+</li>
+<li>
+<p><strong id="pygments_formatter"><code>pygments_formatter</code></strong>:
+    This option can be used to change the Pygments formatter used for highlighting code blocks. By default, this
+    is set to the string <code>'html'</code>, which means it&rsquo;ll use the default <code>HtmlFormatter</code> provided by Pygments.</p>
+<p>This can be set to a string representing any of the other default formatters, or set to a formatter class (or
+any callable).</p>
+<p>The code&rsquo;s language is always passed to the formatter as an extra option <code>lang_str</code>, with the value formatted as
+<code>{lang_prefix}{lang}</code>. If the language is unspecified, the language guessed by Pygments will be used. While
+this option has no effect to the Pygments&rsquo;s builtin formatters, a user can make use of the language in their custom
+formatter. See an example below.</p>
+<p>To see what formatters are available and how to subclass an existing formatter, please visit <a href="https://pygments.org/docs/formatters/">Pygments
+documentation on this topic</a>.</p>
 </li>
 <li>
 <p>Any other Pygments&rsquo; options:</p>
@@ -290,6 +302,46 @@ whichever <a href="https://pygments.org/docs/lexers/">lexer</a> the code&rsquo;s
 </ul>
 <p>A trivial example:</p>
 <pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['codehilite'])
+</code></pre>
+
+<p>To keep the code block&rsquo;s language in the Pygments generated HTML output, one can provide a custom Pygments formatter
+that takes the <code>lang_str</code> option. For example,</p>
+<pre class="codehilite"><code class="language-python">from pygments.formatters import HtmlFormatter
+from markdown.extensions.codehilite import CodeHiliteExtension
+
+
+class CustomHtmlFormatter(HtmlFormatter):
+    def __init__(self, lang_str='', **options):
+        super().__init__(**options)
+        # lang_str has the value {lang_prefix}{lang}
+        # specified by the CodeHilite's options
+        self.lang_str = lang_str
+
+    def _wrap_code(self, source):
+        yield 0, f'&lt;code class=&quot;{self.lang_str}&quot;&gt;'
+        yield from source
+        yield 0, '&lt;/code&gt;'
+
+
+some_text = '''\
+    :::python
+    print('hellow world')
+'''
+
+markdown.markdown(
+    some_text,
+    extensions=[CodeHiliteExtension(pygments_formatter=CustomHtmlFormatter)],
+)
+</code></pre>
+
+<p>The formatter above will output the following HTML structure for a code block:</p>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;codehilite&quot;&gt;
+    &lt;pre&gt;
+        &lt;code class=&quot;language-python&quot;&gt;
+        ...
+        &lt;/code&gt;
+    &lt;/pre&gt;
+&lt;/div&gt;
 </code></pre>
 
                     </div>
@@ -401,7 +453,7 @@ whichever <a href="https://pygments.org/docs/lexers/">lexer</a> the code&rsquo;s
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.7 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -449,6 +501,7 @@ whichever <a href="https://pygments.org/docs/lexers/">lexer</a> the code&rsquo;s
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -459,7 +512,7 @@ whichever <a href="https://pygments.org/docs/lexers/">lexer</a> the code&rsquo;s
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2022-05-05 19:10:52.519373+00:00
+        Docs Build Date UTC : 2022-07-15 14:11:49.048028+00:00
         -->
     </body>
 </html>

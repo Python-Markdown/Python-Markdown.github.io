@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="WikiLinks" href="../wikilinks/" />
         <link rel="prev" title="Table of Contents" href="../toc/" />
-        <title>Tables &#8212; Python-Markdown 3.3.7 documentation</title>
+        <title>Tables &#8212; Python-Markdown 3.4 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.7 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -69,6 +69,7 @@
             <a href="./">Tables</a>
          &#187; </li>
                 
+                    
                     
                     
                     
@@ -132,9 +133,26 @@ Content Cell  | Content Cell
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>tables</code> as the
 name of the extension.</p>
-<p>This extension does not accept any special configuration options.</p>
+<p>See the <a href="../../reference/#extensions">Library Reference</a> for information about
+configuring extensions.</p>
+<p>The following options are provided to change the default behavior:</p>
+<ul>
+<li>
+<p><strong><code>use_align_attribute</code></strong>: Set to <code>True</code> to use <code>align</code> instead of an appropriate <code>style</code> attribute</p>
+<p>Default: <code>'False'</code></p>
+</li>
+</ul>
 <p>A trivial example:</p>
 <pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['tables'])
+</code></pre>
+
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
+<p>For an example, let us suppose that alignment should be controlled by the legacy <code>align</code>
+attribute.</p>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; from markdown.extensions.tables import TableExtension
+&gt;&gt;&gt; html = markdown.markdown(text,
+...                 extensions=[TableExtension(use_align_attribute=True)]
+... )
 </code></pre>
 
                     </div>
@@ -159,6 +177,12 @@ name of the extension.</p>
             
     <li>
         <a class="reference internal" href="#usage">Usage</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#examples">Examples</a>
+    </li>
+        </ul>
     </li>
         </ul>
     </li>
@@ -214,7 +238,7 @@ name of the extension.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.3.7 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4 documentation</a> &#187;
             </li>
                     
                     
@@ -262,6 +286,7 @@ name of the extension.</p>
                     
                     
                     
+                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
@@ -272,7 +297,7 @@ name of the extension.</p>
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2022-05-05 19:10:52.581858+00:00
+        Docs Build Date UTC : 2022-07-15 14:11:49.110512+00:00
         -->
     </body>
 </html>
