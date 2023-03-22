@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Definition Lists" href="../definition_lists/" />
         <link rel="prev" title="Attribute Lists" href="../attr_list/" />
-        <title>CodeHilite &#8212; Python-Markdown 3.4.1 documentation</title>
+        <title>CodeHilite &#8212; Python-Markdown 3.4.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.2 documentation</a> &#187;
             </li>
                     
                     
@@ -108,8 +108,8 @@ Pygments, but it won&rsquo;t highlight anything (same behavior as setting
 The CSS rules either need to be defined in or linked from the header of your
 HTML templates. Pygments can generate CSS rules for you. Just run the following
 command from the command line:</p>
-<pre class="codehilite"><code class="language-bash">pygmentize -S default -f html -a .codehilite &gt; styles.css
-</code></pre>
+<div class="codehilite"><pre><span></span><code>pygmentize -S default -f html -a .codehilite &gt; styles.css
+</code></pre></div>
 
 <p>If you are using a different <code>css_class</code> (default: <code>.codehilite</code>), then
 set the value of the <code>-a</code> option to that class name. The CSS rules will be
@@ -118,8 +118,8 @@ your HTML templates.</p>
 <p>If you would like to use a different theme, swap out <code>default</code> for the desired
 theme. For a list of themes installed on your system (additional themes can be
 installed via Pygments plugins), run the following command:</p>
-<pre class="codehilite"><code class="language-bash">pygmentize -L style
-</code></pre>
+<div class="codehilite"><pre><span></span><code>pygmentize -L style
+</code></pre></div>
 
 <p>See Pygments&rsquo; excellent <a href="http://pygments.org/docs/">documentation</a> for more details. If no language is
 defined, Pygments will attempt to guess the language. When that fails, the code
@@ -151,53 +151,54 @@ of the code block.</p>
 <h3 id="shebang-with-path">Shebang (with path)<a class="headerlink" href="#shebang-with-path" title="Permanent link">&para;</a></h3>
 <p>If the first line of the code block contains a shebang, the language is derived
 from that and line numbers are used.</p>
-<pre class="codehilite"><code class="language-md">    #!/usr/bin/python
+<div class="codehilite"><pre><span></span><code>    #!/usr/bin/python
     # Code goes here ...
-</code></pre>
+</code></pre></div>
 
 <p>Will result in:</p>
-<pre class="codehilite"><code class="language-python linenums">#!/usr/bin/python
-# Code goes here ...
-</code></pre>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/usr/bin/python</span>
+<span class="c1"># Code goes here ...</span>
+</code></pre></div></td></tr></table></div>
 
 <h3 id="shebang-no-path">Shebang (no path)<a class="headerlink" href="#shebang-no-path" title="Permanent link">&para;</a></h3>
 <p>If the first line contains a shebang, but the shebang line does not contain a
 path (a single <code>/</code> or even a space), then that line is removed from the code
 block before processing. Line numbers are used.</p>
-<pre class="codehilite"><code class="language-md">    #!python
+<div class="codehilite"><pre><span></span><code>    #!python
     # Code goes here ...
-</code></pre>
+</code></pre></div>
 
 <p>Will result in:</p>
-<pre class="codehilite"><code class="language-python linenums"># Code goes here ...
-</code></pre>
+<div class="codehilite"><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Code goes here ...</span>
+</code></pre></div></td></tr></table></div>
 
 <h3 id="colons">Colons<a class="headerlink" href="#colons" title="Permanent link">&para;</a></h3>
 <p>If the first line begins with three or more colons, the text following the
 colons identifies the language. The first line is removed from the code block
 before processing and line numbers are not used.</p>
-<pre class="codehilite"><code class="language-md">    :::python
+<div class="codehilite"><pre><span></span><code>    :::python
     # Code goes here ...
-</code></pre>
+</code></pre></div>
 
 <p>Will result in:</p>
-<pre class="codehilite"><code class="language-python"># Code goes here ...
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="c1"># Code goes here ...</span>
+</code></pre></div>
 
 <p>Certain lines can be selected for emphasis with the colon syntax. When
 using Pygments&rsquo; default CSS styles, emphasized lines have a yellow background.
 This is useful to direct the reader&rsquo;s attention to specific lines.</p>
-<pre class="codehilite"><code class="language-md">    :::python hl_lines=&quot;1 3&quot;
+<div class="codehilite"><pre><span></span><code>    :::python hl_lines=&quot;1 3&quot;
     # This line is emphasized
-    # This line isn't
+    # This line isn&#39;t
     # This line is emphasized
-</code></pre>
+</code></pre></div>
 
 <p>Will result in:</p>
-<pre class="codehilite"><code class="language-python"># This line is emphasized
-# This line isn't
-# This line is emphasized
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="hll"><span class="c1"># This line is emphasized</span>
+</span><span class="c1"># This line isn&#39;t</span>
+<span class="hll"><span class="c1"># This line is emphasized</span>
+</span></code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -207,17 +208,17 @@ This is useful to direct the reader&rsquo;s attention to specific lines.</p>
 <p>CodeHilite is completely backwards compatible so that if a code block is
 encountered that does not define a language, the block is simply wrapped in
 <code>&lt;pre&gt;</code> tags and output.</p>
-<pre class="codehilite"><code class="language-md">    # Code goes here ...
-</code></pre>
+<div class="codehilite"><pre><span></span><code>    # Code goes here ...
+</code></pre></div>
 
 <p>Will result in:</p>
-<pre class="codehilite"><code># Code goes here ...
-</code></pre>
+<div class="codehilite"><pre><span></span><code># Code goes here ...
+</code></pre></div>
 
 <p>Lets see the source for that:</p>
-<pre class="codehilite"><code class="language-html">&lt;div class=&quot;codehilite&quot;&gt;&lt;pre&gt;&lt;code&gt;# Code goes here ...
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;codehilite&quot;</span><span class="p">&gt;&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span><span class="p">&gt;</span># Code goes here ...
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -301,48 +302,48 @@ whichever <a href="https://pygments.org/docs/lexers/">lexer</a> the code&rsquo;s
 </li>
 </ul>
 <p>A trivial example:</p>
-<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['codehilite'])
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;codehilite&#39;</span><span class="p">])</span>
+</code></pre></div>
 
 <p>To keep the code block&rsquo;s language in the Pygments generated HTML output, one can provide a custom Pygments formatter
 that takes the <code>lang_str</code> option. For example,</p>
-<pre class="codehilite"><code class="language-python">from pygments.formatters import HtmlFormatter
-from markdown.extensions.codehilite import CodeHiliteExtension
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pygments.formatters</span> <span class="kn">import</span> <span class="n">HtmlFormatter</span>
+<span class="kn">from</span> <span class="nn">markdown.extensions.codehilite</span> <span class="kn">import</span> <span class="n">CodeHiliteExtension</span>
 
 
-class CustomHtmlFormatter(HtmlFormatter):
-    def __init__(self, lang_str='', **options):
-        super().__init__(**options)
-        # lang_str has the value {lang_prefix}{lang}
-        # specified by the CodeHilite's options
-        self.lang_str = lang_str
+<span class="k">class</span> <span class="nc">CustomHtmlFormatter</span><span class="p">(</span><span class="n">HtmlFormatter</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lang_str</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+        <span class="c1"># lang_str has the value {lang_prefix}{lang}</span>
+        <span class="c1"># specified by the CodeHilite&#39;s options</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lang_str</span> <span class="o">=</span> <span class="n">lang_str</span>
 
-    def _wrap_code(self, source):
-        yield 0, f'&lt;code class=&quot;{self.lang_str}&quot;&gt;'
-        yield from source
-        yield 0, '&lt;/code&gt;'
+    <span class="k">def</span> <span class="nf">_wrap_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;&lt;code class=&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">lang_str</span><span class="si">}</span><span class="s1">&quot;&gt;&#39;</span>
+        <span class="k">yield from</span> <span class="n">source</span>
+        <span class="k">yield</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;&lt;/code&gt;&#39;</span>
 
 
-some_text = '''\
-    :::python
-    print('hellow world')
-'''
+<span class="n">some_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
+<span class="s1">    :::python</span>
+<span class="s1">    print(&#39;hellow world&#39;)</span>
+<span class="s1">&#39;&#39;&#39;</span>
 
-markdown.markdown(
-    some_text,
-    extensions=[CodeHiliteExtension(pygments_formatter=CustomHtmlFormatter)],
-)
-</code></pre>
+<span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span>
+    <span class="n">some_text</span><span class="p">,</span>
+    <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">CodeHiliteExtension</span><span class="p">(</span><span class="n">pygments_formatter</span><span class="o">=</span><span class="n">CustomHtmlFormatter</span><span class="p">)],</span>
+<span class="p">)</span>
+</code></pre></div>
 
 <p>The formatter above will output the following HTML structure for a code block:</p>
-<pre class="codehilite"><code class="language-html">&lt;div class=&quot;codehilite&quot;&gt;
-    &lt;pre&gt;
-        &lt;code class=&quot;language-python&quot;&gt;
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;codehilite&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;language-python&quot;</span><span class="p">&gt;</span>
         ...
-        &lt;/code&gt;
-    &lt;/pre&gt;
-&lt;/div&gt;
-</code></pre>
+        <span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</code></pre></div>
 
                     </div>
                 </div>
@@ -453,7 +454,7 @@ markdown.markdown(
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.2 documentation</a> &#187;
             </li>
                     
                     
@@ -504,7 +505,7 @@ markdown.markdown(
                     
         </ul>
     </div>
-        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
         Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
         </div>
         <script>var base_url = '../..';</script>
@@ -512,7 +513,7 @@ markdown.markdown(
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2022-07-15 19:18:32.583876+00:00
+        Docs Build Date UTC : 2023-03-22 17:10:20.975207+00:00
         -->
     </body>
 </html>

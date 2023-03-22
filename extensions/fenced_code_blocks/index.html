@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Footnotes" href="../footnotes/" />
         <link rel="prev" title="Extra" href="../extra/" />
-        <title>Fenced Code Blocks &#8212; Python-Markdown 3.4.1 documentation</title>
+        <title>Fenced Code Blocks &#8212; Python-Markdown 3.4.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.2 documentation</a> &#187;
             </li>
                     
                     
@@ -103,45 +103,45 @@ indented code blocks.</p>
 <p>Fenced code blocks begin with three or more backticks (<code>```</code>) or tildes (<code>~~~</code>) on a line by themselves and end with
 a matching set of backticks or tildes on a line by themselves. The closing set must contain the same number and type
 of characters as the opening set. It is recommended that a blank line be placed before and after the code block.</p>
-<pre class="codehilite"><code class="language-md">A paragraph before the code block.
+<div class="codehilite"><pre><span></span><code>A paragraph before the code block.
 
-```
-a one-line code block
-```
+<span class="sb">```</span>
+<span class="sb">a one-line code block</span>
+<span class="sb">```</span>
 
 A paragraph after the code block.
-</code></pre>
+</code></pre></div>
 
 <p>While backticks seem to be more popular among users, tildes may be used as well.</p>
-<pre class="codehilite"><code class="language-md">~~~
+<div class="codehilite"><pre><span></span><code>~~~
 a one-line code block
 ~~~
-</code></pre>
+</code></pre></div>
 
 <p>To include a set of backticks (or tildes) within a code block, use a different number of backticks for the
-deliminators.</p>
-<pre class="codehilite"><code class="language-md">````
+delimiters.</p>
+<div class="codehilite"><pre><span></span><code>````
 ```
 ````
-</code></pre>
+</code></pre></div>
 
 <p>Fenced code blocks can have a blank line as the first and/or last line of the code block and those lines will be
 preserved.</p>
-<pre class="codehilite"><code class="language-md">```
+<div class="codehilite"><pre><span></span><code><span class="sb">```</span>
 
-a three-line code block
+<span class="sb">a three-line code block</span>
 
-```
-</code></pre>
+<span class="sb">```</span>
+</code></pre></div>
 
 <p>Unlike indented code blocks, a fenced code block can immediately follow a list item without becoming
 part of the list.</p>
-<pre class="codehilite"><code class="language-md">* A list item.
+<div class="codehilite"><pre><span></span><code><span class="k">*</span> A list item.
 
-```
-not part of the list
-```
-</code></pre>
+<span class="sb">```</span>
+<span class="sb">not part of the list</span>
+<span class="sb">```</span>
+</code></pre></div>
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -154,30 +154,30 @@ instead.</p>
 deliminator. The attributes should be wrapped in curly braces <code>{}</code> and be on the same line as the deliminator. It is
 generally best to separate the attribute list from the deliminator with a space. Attributes within the list must be
 separated by a space.</p>
-<pre class="codehilite"><code class="language-md">``` { attributes go here }
+<div class="codehilite"><pre><span></span><code>``` { attributes go here }
 a code block with attributes
 ```
-</code></pre>
+</code></pre></div>
 
 <p>How those attributes will affect the output will depend on various factors as described below.</p>
 <h4 id="language">Language<a class="headerlink" href="#language" title="Permanent link">&para;</a></h4>
 <p>The language of the code within a code block can be specified for use by syntax highlighters, etc. The language should
 be prefixed with a dot and not contain any whitespace (<code>.language-name</code>).</p>
-<pre class="codehilite"><code class="language-md">``` { .html }
+<div class="codehilite"><pre><span></span><code>``` { .html }
 &lt;p&gt;HTML Document&lt;/p&gt;
 ```
-</code></pre>
+</code></pre></div>
 
 <p>So long as the language is the only option specified, the curly brackets and/or the dot may be excluded:</p>
-<pre class="codehilite"><code class="language-md">``` html
+<div class="codehilite"><pre><span></span><code>``` html
 &lt;p&gt;HTML Document&lt;/p&gt;
 ```
-</code></pre>
+</code></pre></div>
 
 <p>Either of the above examples will output the following HTML:</p>
-<pre class="codehilite"><code class="language-html">&lt;pre&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;p&amp;gt;HTML Document&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">pre</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;language-html&quot;</span><span class="p">&gt;</span><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>HTML Document<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+</code></pre></div>
 
 <p>Note that the language name has been prefixed with <code>language-</code> and it has been assigned to the <code>class</code> attribute on
 the <code>&lt;code&gt;</code> tag, which is the format suggested by the <a href="https://html.spec.whatwg.org/#the-code-element">HTML 5 Specification</a> (see the second &ldquo;example&rdquo; in the
@@ -185,54 +185,54 @@ Specification). While <code>language</code> is the default prefix, the prefix ma
 <a href="#lang_prefix"><code>lang_prefix</code></a> configuration option.</p>
 <h4 id="classes">Classes<a class="headerlink" href="#classes" title="Permanent link">&para;</a></h4>
 <p>In addition to the language, additional classes may be defined by prefixing them with a dot, just like the language.</p>
-<pre class="codehilite"><code class="language-md">``` { .html .foo .bar }
+<div class="codehilite"><pre><span></span><code>``` { .html .foo .bar }
 &lt;p&gt;HTML Document&lt;/p&gt;
 ```
-</code></pre>
+</code></pre></div>
 
 <p>When defining multiple classes, only the first class will be used as the &ldquo;language&rdquo; for the code block. All others are
 assigned to the <code>&lt;pre&gt;</code> tag unaltered. Additionally, the curly braces and dot are required for all classes, including
 the language class if more than one class is defined.</p>
 <p>The above example will output the following HTML:</p>
-<pre class="codehilite"><code class="language-html">&lt;pre class=&quot;foo bar&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&amp;lt;p&amp;gt;HTML Document&amp;lt;/p&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">pre</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;foo bar&quot;</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;language-html&quot;</span><span class="p">&gt;</span><span class="ni">&amp;lt;</span>p<span class="ni">&amp;gt;</span>HTML Document<span class="ni">&amp;lt;</span>/p<span class="ni">&amp;gt;</span>
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+</code></pre></div>
 
 <h4 id="id">ID<a class="headerlink" href="#id" title="Permanent link">&para;</a></h4>
 <p>An <code>id</code> can be defined for a code block, which would allow a link to point directly to the code block using a URL
 hash. IDs must be prefixed with a hash character (<code>#</code>) and only contain characters permitted in HTML <code>id</code> attributes.</p>
-<pre class="codehilite"><code class="language-md">``` { #example }
+<div class="codehilite"><pre><span></span><code>``` { <span class="ni">#example</span> }
 A linkable code block
 ```
-</code></pre>
+</code></pre></div>
 
 <p>The <code>id</code> attribute is assigned to the <code>&lt;pre&gt;</code> tag of the output. The above example will output the following HTML:</p>
-<pre class="codehilite"><code class="language-html">&lt;pre id=&quot;example&quot;&gt;&lt;code&gt;A linkable code block
-&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">pre</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;example&quot;</span><span class="p">&gt;&lt;</span><span class="nt">code</span><span class="p">&gt;</span>A linkable code block
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+</code></pre></div>
 
 <p>From elsewhere within the same document, one could link to the code block with <code>[link](#example)</code>.</p>
 <p>IDs may be defined along with the language, other classes, or any other supported attributes. The order of items does
 not matter.</p>
-<pre class="codehilite"><code class="language-md">``` { #example .lang .foo .bar }
+<div class="codehilite"><pre><span></span><code>``` { <span class="ni">#example</span> .lang .foo .bar }
 A linkable code block
 ```
-</code></pre>
+</code></pre></div>
 
 <h4 id="keyvalue-pairs">Key/Value Pairs<a class="headerlink" href="#keyvalue-pairs" title="Permanent link">&para;</a></h4>
 <p>If the <code>fenced_code</code> and <a href="../attr_list/"><code>attr_list</code></a> extensions are both enabled, then key/value pairs can be defined in
 the attribute list. So long as code highlighting is not enabled (see below), the key/value pairs will be assigned as
 attributes on the <code>&lt;code&gt;</code> tag in the output. Key/value pairs must be defined using the syntax documented for the
 <code>attr_list</code> extension (for example, values with whitespace must be wrapped in quotes).</p>
-<pre class="codehilite"><code class="language-md">``` { .lang #example style=&quot;color: #333; background: #f8f8f8;&quot; }
+<div class="codehilite"><pre><span></span><code>``` { .lang <span class="ni">#example</span> style=&quot;color: <span class="ni">#333</span>; background: <span class="ni">#f8f8f8</span>;&quot; }
 A code block with inline styles. Fancy!
 ```
-</code></pre>
+</code></pre></div>
 
 <p>The above example will output the following HTML:</p>
-<pre class="codehilite"><code class="language-html">&lt;pre id=&quot;example&quot;&gt;&lt;code class=&quot;language-lang&quot;  style=&quot;color: #333; background: #f8f8f8;&quot;&gt;A code block with inline styles. Fancy!
-&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">pre</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;example&quot;</span><span class="p">&gt;&lt;</span><span class="nt">code</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;language-lang&quot;</span>  <span class="na">style</span><span class="o">=</span><span class="s">&quot;color: #333; background: #f8f8f8;&quot;</span><span class="p">&gt;</span>A code block with inline styles. Fancy!
+<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">pre</span><span class="p">&gt;</span>
+</code></pre></div>
 
 <p>If the <code>attr_list</code> extension is not enabled, then the key/value pairs will be ignored.</p>
 <h4 id="syntax-highlighting">Syntax Highlighting<a class="headerlink" href="#syntax-highlighting" title="Permanent link">&para;</a></h4>
@@ -242,10 +242,10 @@ list will be passed to <code>codehilite</code> to ensure that the correct langua
 language guessing is not disabled for the <code>codehilite</code> extension, then the language will be guessed.</p>
 <p>The <code>codehilite</code> extension uses the <a href="http://pygments.org/">Pygments</a> engine to do syntax highlighting. Any valid Pygments options can be
 defined as key/value pairs in the attribute list and will be passed on to Pygments.</p>
-<pre class="codehilite"><code class="language-md">``` { .lang linenos=true linenostart=42 hl_lines=&quot;43-44 50&quot; title=&quot;An Example Code Block&quot; }`
+<div class="codehilite"><pre><span></span><code>``` { .lang linenos=true linenostart=42 hl_lines=&quot;43-44 50&quot; title=&quot;An Example Code Block&quot; }`
 A truncated code block...
 ```
-</code></pre>
+</code></pre></div>
 
 <p>Valid options include any option accepted by Pygments&rsquo; <a href="https://pygments.org/docs/formatters/#HtmlFormatter"><code>HTMLFormatter</code></a> except for the <code>full</code> option,
 as well as any options accepted by the relevant <a href="https://pygments.org/docs/lexers/">lexer</a> (each language has its own lexer). While most lexers
@@ -281,8 +281,8 @@ extension&rsquo;s <a href="../code_hilite/#setup">documentation</a> for details.
     The prefix prepended to the language class assigned to the HTML <code>&lt;code&gt;</code> tag. Default: <code>language-</code>.</li>
 </ul>
 <p>A trivial example:</p>
-<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['fenced_code'])
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;fenced_code&#39;</span><span class="p">])</span>
+</code></pre></div>
 
                     </div>
                 </div>
@@ -395,7 +395,7 @@ extension&rsquo;s <a href="../code_hilite/#setup">documentation</a> for details.
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.2 documentation</a> &#187;
             </li>
                     
                     
@@ -446,7 +446,7 @@ extension&rsquo;s <a href="../code_hilite/#setup">documentation</a> for details.
                     
         </ul>
     </div>
-        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
         Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
         </div>
         <script>var base_url = '../..';</script>
@@ -454,7 +454,7 @@ extension&rsquo;s <a href="../code_hilite/#setup">documentation</a> for details.
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2022-07-15 19:18:32.599498+00:00
+        Docs Build Date UTC : 2023-03-22 17:10:21.006450+00:00
         -->
     </body>
 </html>

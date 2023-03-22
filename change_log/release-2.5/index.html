@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.2.4" href="../release-2.4/" />
         <link rel="prev" title="Release Notes for v.2.6" href="../release-2.6/" />
-        <title>Release Notes for v.2.5 &#8212; Python-Markdown 3.4.1 documentation</title>
+        <title>Release Notes for v.2.5 &#8212; Python-Markdown 3.4.2 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.2 documentation</a> &#187;
             </li>
                     
                     
@@ -96,26 +96,26 @@ and fixes various bugs. See the list of changes below for details.</p>
   passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>) after being converted to HTML
   by markdown.</p>
 <p>If your code previously looked like this:</p>
-<pre class="codehilite"><code>html = markdown.markdown(text, same_mode=True)
-</code></pre>
+<div class="codehilite"><pre><span></span><code>html = markdown.markdown(text, same_mode=True)
+</code></pre></div>
 
 <p>Then it is recommended that you change your code to read something like this:</p>
-<pre class="codehilite"><code>import bleach
-html = bleach.clean(markdown.markdown(text))
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">bleach</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</code></pre></div>
 
 <p>If you are not interested in sanitizing untrusted text, but simply desire to
 escape raw HTML, then that can be accomplished through an extension which
 removes HTML parsing:</p>
-<pre class="codehilite"><code>from markdown.extensions import Extension
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
 
-class EscapeHtml(Extension):
-    def extendMarkdown(self, md, md_globals):
-        del md.preprocessors['html_block']
-        del md.inlinePatterns['html']
+<span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">md_globals</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">preprocessors</span><span class="p">[</span><span class="s1">&#39;html_block&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
 
-html = markdown.markdown(text, extensions=[EscapeHtml()])
-</code></pre>
+<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
+</code></pre></div>
 
 <p>As the HTML would not be parsed with the above Extension, then the
 serializer will escape the raw HTML, which is exactly what happens now when
@@ -126,12 +126,12 @@ serializer will escape the raw HTML, which is exactly what happens now when
   all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
   Only keyword arguments should be used. For example, if your code previously
   looked like this:</p>
-<pre class="codehilite"><code> html = markdown.markdown(text, ['extra'])
-</code></pre>
+<div class="codehilite"><pre><span></span><code> html = markdown.markdown(text, [&#39;extra&#39;])
+</code></pre></div>
 
 <p>Then it is recommended that you change it to read something like this:</p>
-<pre class="codehilite"><code>html = markdown.markdown(text, extensions=['extra'])
-</code></pre>
+<div class="codehilite"><pre><span></span><code>html = markdown.markdown(text, extensions=[&#39;extra&#39;])
+</code></pre></div>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -150,16 +150,16 @@ for this reason.</p>
   raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. Ensure that you always use the
   full path to your extensions. For example, if you previously did the
   following:</p>
-<pre class="codehilite"><code>markdown.markdown(text, extensions=['extra'])
-</code></pre>
+<div class="codehilite"><pre><span></span><code>markdown.markdown(text, extensions=[&#39;extra&#39;])
+</code></pre></div>
 
 <p>You should change your code to the following:</p>
-<pre class="codehilite"><code>markdown.markdown(text, extensions=['markdown.extensions.extra'])
-</code></pre>
+<div class="codehilite"><pre><span></span><code>markdown.markdown(text, extensions=[&#39;markdown.extensions.extra&#39;])
+</code></pre></div>
 
 <p>The same applies to the command line:</p>
-<pre class="codehilite"><code>$ python -m markdown -x markdown.extensions.extra input.txt
-</code></pre>
+<div class="codehilite"><pre><span></span><code>$ python -m markdown -x markdown.extensions.extra input.txt
+</code></pre></div>
 
 <p>See the <a href="../../reference/#extensions">documentation</a> for a full explanation
 of the current behavior.</p>
@@ -191,12 +191,12 @@ of the current behavior.</p>
 end of the name (which uses dot notation from PYTHONPATH) and be separated
 by a colon from the module.</p>
 <p>Therefore, if you were to import the class like this:</p>
-<pre class="codehilite"><code>from path.to.module import SomeExtensionClass
-</code></pre>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
+</code></pre></div>
 
 <p>Then the named extension would comprise this string:</p>
-<pre class="codehilite"><code>&quot;path.to.module:SomeExtensionClass&quot;
-</code></pre>
+<div class="codehilite"><pre><span></span><code>&quot;path.to.module:SomeExtensionClass&quot;
+</code></pre></div>
 
 <p>This allows multiple extensions to be implemented within the same module and
 still accessible when the user is not able to import the extension directly
@@ -317,7 +317,7 @@ practices. See the <a href="../../extensions/api/#configsettings">API</a> docume
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.1 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.2 documentation</a> &#187;
             </li>
                     
                     
@@ -347,7 +347,7 @@ practices. See the <a href="../../extensions/api/#configsettings">API</a> docume
                     
         </ul>
     </div>
-        <div class="footer" role="contentinfo">Copyright &copy; 2010-2017, The Python-Markdown Project.
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
         Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
         </div>
         <script>var base_url = '../..';</script>
@@ -355,7 +355,7 @@ practices. See the <a href="../../extensions/api/#configsettings">API</a> docume
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2022-07-15 19:18:32.490122+00:00
+        Docs Build Date UTC : 2023-03-22 17:10:20.834617+00:00
         -->
     </body>
 </html>
