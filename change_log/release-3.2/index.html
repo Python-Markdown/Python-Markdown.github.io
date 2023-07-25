@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.3.1" href="../release-3.1/" />
         <link rel="prev" title="Release Notes for v.3.3" href="../release-3.3/" />
-        <title>Release Notes for v.3.2 &#8212; Python-Markdown 3.4.3 documentation</title>
+        <title>Release Notes for v.3.2 &#8212; Python-Markdown 3.4.4 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -79,7 +79,7 @@ PyPy3.</p>
 <p>Python 2.7 reaches end-of-life on 2020-01-01 and Python-Markdown 3.2 has dropped
 support for it. Please upgrade to Python 3, or use Python-Markdown 3.1.</p>
 <h3 id="em-and-strong-inline-processor-changes"><code>em</code> and <code>strong</code> inline processor changes<a class="headerlink" href="#em-and-strong-inline-processor-changes" title="Permanent link">&para;</a></h3>
-<p>In order to fix issue #792, <code>em</code>/<code>strong</code> inline processors were refactored. This
+<p>In order to fix issue <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/792" title="GitHub Issue Python-Markdown/markdown #792">#792</a>, <code>em</code>/<code>strong</code> inline processors were refactored. This
 translated into removing many of the existing inline processors that handled this
 logic:</p>
 <ul>
@@ -102,7 +102,7 @@ refactored logic and simply overrides the <code>em_strong2</code> inline process
 - <code>&lt;pre&gt;foo = 'bar'&lt;/pre&gt;</code>  if you <strong>were</strong> using Pygments.</p>
 <p>To make the cases more consistent (and adhere to many Markdown specifications and
 HTML code block markup suggestions), CodeHilite will now always additionally wrap
-code with <code>&lt;code&gt;</code> tags. See #862 for more details.</p>
+code with <code>&lt;code&gt;</code> tags. See <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/862" title="GitHub Issue Python-Markdown/markdown #862">#862</a> for more details.</p>
 <p>This change does not alter the Python-Markdown API, but users relying on the old
 markup will find their output now changed.</p>
 <p>Internally, this change relies on the Pygments 2.4, so you must be using at least
@@ -131,16 +131,16 @@ release.</p>
   assigned to the <code>anchorlink</code> and <code>permalink</code> respectively. This allows using
   icon fonts from CSS for the links. Therefore, an empty string passed to
   <code>permalink</code> now generates an empty <code>permalink</code>. Previously no <code>permalink</code>
-  would have been generated. (#776)</p>
+  would have been generated. (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/776" title="GitHub Issue Python-Markdown/markdown #776">#776</a>)</p>
 </li>
 <li>
 <p>The <code>permalink_title</code> option allows the title attribute of a <code>permalink</code> to be
-  set to something other than the default English string <code>Permanent link</code>. (#877)</p>
+  set to something other than the default English string <code>Permanent link</code>. (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/877" title="GitHub Issue Python-Markdown/markdown #877">#877</a>)</p>
 </li>
 </ul>
 </li>
 <li>
-<p>Document thread safety (#812).</p>
+<p>Document thread safety (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/812" title="GitHub Issue Python-Markdown/markdown #812">#812</a>).</p>
 </li>
 <li>
 <p>Markdown parsing in HTML has been exposed via a separate extension called
@@ -153,10 +153,10 @@ release.</p>
 <h2 id="bug-fixes">Bug fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h2>
 <p>The following bug fixes are included in the 3.2 release:</p>
 <ul>
-<li>HTML tag placeholders are no longer included in  <code>.toc_tokens</code> (#899).</li>
-<li>Unescape backslash-escaped characters in TOC ids (#864).</li>
-<li>Refactor bold and italic logic in order to solve complex nesting issues (#792).</li>
-<li>Always wrap CodeHilite code in <code>code</code> tags (#862).</li>
+<li>HTML tag placeholders are no longer included in  <code>.toc_tokens</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/899" title="GitHub Issue Python-Markdown/markdown #899">#899</a>).</li>
+<li>Unescape backslash-escaped characters in TOC ids (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/864" title="GitHub Issue Python-Markdown/markdown #864">#864</a>).</li>
+<li>Refactor bold and italic logic in order to solve complex nesting issues (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/792" title="GitHub Issue Python-Markdown/markdown #792">#792</a>).</li>
+<li>Always wrap CodeHilite code in <code>code</code> tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/862" title="GitHub Issue Python-Markdown/markdown #862">#862</a>).</li>
 </ul>
 
                     </div>
@@ -254,7 +254,7 @@ release.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -292,7 +292,7 @@ release.</p>
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-03-23 13:16:53.788501+00:00
+        Docs Build Date UTC : 2023-07-25 15:15:31.684310+00:00
         -->
     </body>
 </html>

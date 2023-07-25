@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Change Log" href="../change_log/" />
         <link rel="prev" title="Test Tools" href="../test_tools/" />
-        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.4.3 documentation</title>
+        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.4.4 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -115,9 +115,15 @@ implemented as third party extensions outside of the core Python-Markdown
 library. Keeping new feature requests implemented as third party extensions
 allows us to keep the maintenance overhead of Python-Markdown to a minimum, so
 that the focus can be on continued stability, bug fixes, and documentation.</p>
-<p>Closing an issue does not necessarily mean the end of a discussion. If you
-believe your issue has been closed incorrectly, explain why and we&rsquo;ll consider
-if it needs to be reopened.</p>
+<p>If you intend to submit a fix for your bug or provide an implementation of your
+feature request, it is not necessary to first open an issue. You can report a
+bug or make a feature request as part of a pull request. Of course, if you want
+to receive feedback on how to implement a bug-fix or feature before submitting
+a solution, then it would be appropriate to open an issue first and ask your
+questions there.</p>
+<p>Having your issue closed does not necessarily mean the end of a discussion. If
+you believe your issue has been closed incorrectly, explain why and we&rsquo;ll
+consider if it needs to be reopened.</p>
 <h2 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h2>
 <p>A pull request often represents the start of a discussion, and does not
 necessarily need to be the final, finished submission. In fact, if you discover
@@ -151,6 +157,11 @@ request. After making a pull request, check the build status in the
 GitHub interface to ensure that all tests are running as expected. If any checks
 fail, you may push additional commits to your branch. GitHub will add those
 commits to the pull request and rerun the checks.</p>
+<p>It is generally best not to squash multiple commits and force-push your changes
+to a pull request. Instead, the maintainers would like to be able to follow the
+series of commits along with the discussion about those changes as they
+progress over time. If your pull request is accepted, it will be squashed at
+that time if deemed appropriate.</p>
 <h2 id="style-guides">Style Guides<a class="headerlink" href="#style-guides" title="Permanent link">&para;</a></h2>
 <p>In an effort to maintain consistency, Python-Markdown adheres to the following
 style guides in its code and documentation. A pull request may be rejected if it
@@ -244,6 +255,29 @@ Python-Markdown&rsquo;s <a href="../extensions/admonition/#syntax">Admonition Ex
     This is the content of the note.
 </code></pre></div>
 
+<h4 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h4>
+<p>Any commit/pull request which changes the behavior of the Markdown library in
+any way must include an entry in the release notes. If a change only alters the
+documentation or tooling for the project, then an entry in the release notes is
+not necessary. The release notes can be found at <code>docs/change_log</code>.</p>
+<p>Each release must have an entry in <code>docs/change_log/index.md</code> which follows the
+format of the existing entries. A MAJOR release (<code>X.0.0</code>) and a MINOR release
+(<code>X.X.0</code>) should only include a single line in <code>docs/change_log/index.md</code> which
+links to a full document outlining all changes included in the release.
+However, a PATCH release (X.X.X) should include a list of single line entries
+summarizing each change directly in the file <code>docs/change_log/index.md</code> (see
+<a href="#versions">Versions</a> for an explanation of MAJOR, MINOR, and PATCH releases).
+The description of each change should include a reference to the relevant
+GitHub issue in the format <code>#123</code> (where <code>123</code> is the issue number).</p>
+<p>Prior to a version being released, the text <code>*under development*</code> should be
+used as a placeholder for the release date. That text will be replaced with the
+release date as part of the <a href="#release-process">release process</a>.</p>
+<p>If a change is the first since the last release, then the appropriate entries
+and/or files may need to be created and included in a pull request. A pull
+request should not alter an entry for an existing version which has already
+been released, unless it is editing an error in the release notes for that
+version, or is otherwise expressly deemed appropriate by the project
+maintainers.</p>
 <h3 id="commit-message-style-guide">Commit Message Style Guide<a class="headerlink" href="#commit-message-style-guide" title="Permanent link">&para;</a></h3>
 <p>Use the present tense (&ldquo;Add feature&rdquo; not &ldquo;Added feature&rdquo;).</p>
 <p>Use the imperative mood (&ldquo;Move item to&hellip;&rdquo; not &ldquo;Moves item to&hellip;&rdquo;).</p>
@@ -283,7 +317,7 @@ activate the environment:</p>
 <p>To be able to run the Markdown library directly while working on it, install the
 working copy into the environment in <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode">Development Mode</a> after activating the
 virtual environment for the first time:</p>
-<div class="codehilite"><pre><span></span><code>pip install --editable .
+<div class="codehilite"><pre><span></span><code>pip install -e .
 </code></pre></div>
 
 <p>Now any saved changes will immediately be available within the virtual
@@ -292,8 +326,32 @@ environment.</p>
 <div class="codehilite"><pre><span></span><code>python -m markdown
 </code></pre></div>
 
+<p>Before building the documentation for the first time, you will need to install
+some optional dependencies with the command:</p>
+<div class="codehilite"><pre><span></span><code>pip install -e .<span class="o">[</span>docs<span class="o">]</span>
+</code></pre></div>
+
+<p>To build the documentation and serve it locally on a development server, run:</p>
+<div class="codehilite"><pre><span></span><code>mkdocs serve
+</code></pre></div>
+
+<p>Then point your browser at <code>http://127.0.0.1:8000/</code>. For a complete list of
+options available, view MkDocs&rsquo; help with the command:</p>
+<div class="codehilite"><pre><span></span><code>mkdocs --help
+</code></pre></div>
+
+<p>Before running tests for the first time, you will need to install some optional
+dependencies with the command:</p>
+<div class="codehilite"><pre><span></span><code>pip install -e .<span class="o">[</span>testing<span class="o">]</span>
+</code></pre></div>
+
 <p>And you can directly run the tests with:</p>
 <div class="codehilite"><pre><span></span><code>python -m unittest discover tests
+</code></pre></div>
+
+<p>To get a coverage report after running the tests, use these commands instead:</p>
+<div class="codehilite"><pre><span></span><code>coverage run --source<span class="o">=</span>markdown -m unittest discover tests
+coverage report --show-missing
 </code></pre></div>
 
 <div class="admonition note">
@@ -302,17 +360,17 @@ environment.</p>
 library. If you do not have PyTidyLib installed, the tests which depend upon
 it will be skipped. Given the difficulty in installing the HTML Tidy library
 on many systems, you may choose to leave both libraries uninstalled and
-depend on the Travis server to run those tests when you submit a pull
-request.</p>
+depend on the continuous integration server to run those tests when you
+submit a pull request.</p>
 </div>
 <p>The above setup will only run tests against the code in one version of Python.
 However,  Python-Markdown supports multiple versions of Python. Therefore, a
 <a href="https://tox.readthedocs.io/en/latest/">tox</a> configuration is included in the repository, which includes test
 environments for all supported Python versions, a <a href="http://flake8.pycqa.org/en/latest/index.html">Flake8</a> test environment, and
 a spellchecker for the documentation. While it is generally fine to leave those
-tests for the Travis server to run when a pull request is submitted, for more
-advanced changes, you may want to run those tests locally. To do so, simply
-install tox:</p>
+tests for the continuous integration server to run when a pull request is
+submitted, for more advanced changes, you may want to run those tests locally.
+To do so, simply install tox:</p>
 <div class="codehilite"><pre><span></span><code>pip install tox
 </code></pre></div>
 
@@ -332,7 +390,7 @@ the scope of this guide.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See Also</p>
-<p>Python-Markdown provides <a href="../test_tools/">test tools</a> which simply testing Markdown syntax.
+<p>Python-Markdown provides <a href="../test_tools/">test tools</a> which simply test Markdown syntax.
 Understanding those tools will often help in understanding why a test may be
 failing.</p>
 </div>
@@ -412,8 +470,9 @@ deploy manually:</p>
 <li>
 <p>Deploy an update to the documentation using <a href="https://www.mkdocs.org/">MkDocs</a>. The following example
   assumes that local clones of the <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> and
-  <a href="https://github.com/Python-Markdown/Python-Markdown.github.io">Python-Markdown/Python-Markdown.github.io</a> repositories are in sibling
-  directories named <code>markdown</code> and <code>Python-Markdown.github.io</code> respectively.</p>
+  <a href="https://github.com/Python-Markdown/Python-Markdown.github.io"><code>Python-Markdown/Python-Markdown.github.io</code></a>
+  repositories are in sibling directories named <code>markdown</code> and <code>Python-Markdown.github.io</code>
+  respectively.</p>
 <div class="codehilite"><pre><span></span><code>cd Python-Markdown.github.io
 mkdocs gh-deploy --config-file ../markdown/mkdocs.yml --remote-branch master
 </code></pre></div>
@@ -653,6 +712,10 @@ label from the same group.</p>
     <li>
         <a class="reference internal" href="#notes-and-warnings">Notes and Warnings</a>
     </li>
+            
+    <li>
+        <a class="reference internal" href="#release-notes">Release Notes</a>
+    </li>
         </ul>
     </li>
             
@@ -759,7 +822,7 @@ label from the same group.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -797,7 +860,7 @@ label from the same group.</p>
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-03-23 13:16:53.694772+00:00
+        Docs Build Date UTC : 2023-07-25 15:15:31.574966+00:00
         -->
     </body>
 </html>

@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.3.2" href="../release-3.2/" />
         <link rel="prev" title="Release Notes for v.3.4" href="../release-3.4/" />
-        <title>Release Notes for v.3.3 &#8212; Python-Markdown 3.4.3 documentation</title>
+        <title>Release Notes for v.3.3 &#8212; Python-Markdown 3.4.4 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -94,7 +94,7 @@ configuration option of either the <code>fenced_code</code> or <code>codehilite<
 provide an option to include the language class in the output, let alone prefix it. Therefore, any language prefix
 is only applied when syntax highlighting is disabled.</p>
 </div>
-<h3 id="attribute-lists-are-more-strict-898">Attribute Lists are more strict (#898).<a class="headerlink" href="#attribute-lists-are-more-strict-898" title="Permanent link">&para;</a></h3>
+<h3 id="attribute-lists-are-more-strict-898">Attribute Lists are more strict (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/898" title="GitHub Issue Python-Markdown/markdown #898">#898</a>).<a class="headerlink" href="#attribute-lists-are-more-strict-898" title="Permanent link">&para;</a></h3>
 <p>Empty curly braces are now completely ignored by the <a href="../../extensions/attr_list/">Attribute List</a> extension. Previously, the extension would
 recognize them as attribute lists and remove them from the document. Therefore, it is no longer necessary to backslash
 escape a set of curly braces which are empty or only contain whitespace.</p>
@@ -105,12 +105,12 @@ lists defined on inline elements within a cell and the attribute list for the ce
 with how attribute lists are defined on other types of elements.</p>
 <p>The extension has also added support for defining attribute lists on table header cells (<code>&lt;th&gt;</code> elements) in the same
 manner as data cells (<code>&lt;td&gt;</code> elements).</p>
-<p>In addition, the documentation for the extensions received an overhaul. The features (#987) and limitations (#965) of the extension are now fully documented.</p>
+<p>In addition, the documentation for the extensions received an overhaul. The features (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/987" title="GitHub Issue Python-Markdown/markdown #987">#987</a>) and limitations (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/965" title="GitHub Issue Python-Markdown/markdown #965">#965</a>) of the extension are now fully documented.</p>
 <h2 id="new-features">New features<a class="headerlink" href="#new-features" title="Permanent link">&para;</a></h2>
 <p>The following new features have been included in the 3.3 release:</p>
 <ul>
 <li>
-<p>All Pygments&rsquo; options are now available for syntax highlighting (#816).</p>
+<p>All Pygments&rsquo; options are now available for syntax highlighting (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/816" title="GitHub Issue Python-Markdown/markdown #816">#816</a>).</p>
 <ul>
 <li>The <a href="../../extensions/code_hilite/">Codehilite</a> extension now accepts any options
   which Pygments supports as global configuration settings on the extension.</li>
@@ -125,25 +125,25 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 <p><a href="../../extensions/fenced_code_blocks/">Fenced Code Blocks</a> now work with
   <a href="../../extensions/attr_list/">Attribute Lists</a> when syntax highlighting is disabled.
   Any random HTML attribute can be defined and set on the <code>&lt;code&gt;</code> tag of fenced code
-  blocks when the <code>attr_list</code> extension is enabled (#816).</p>
+  blocks when the <code>attr_list</code> extension is enabled (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/816" title="GitHub Issue Python-Markdown/markdown #816">#816</a>).</p>
 </li>
 <li>
 <p>The HTML parser has been completely replaced. The new HTML parser is built on Python&rsquo;s
-  <a href="https://docs.python.org/3/library/html.parser.html">html.parser.HTMLParser</a>, which
-  alleviates various bugs and simplify maintenance of the code (#803, #830).</p>
+  <a href="https://docs.python.org/3/library/html.parser.html"><code>html.parser.HTMLParser</code></a>, which
+  alleviates various bugs and simplify maintenance of the code (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/803" title="GitHub Issue Python-Markdown/markdown #803">#803</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/830" title="GitHub Issue Python-Markdown/markdown #830">#830</a>).</p>
 </li>
 <li>
 <p>The <a href="../../extensions/md_in_html/">Markdown in HTML</a> extension has been rebuilt on the
   new HTML Parser, which drastically simplifies it. Note that raw HTML elements with a
   <code>markdown</code> attribute defined are now converted to ElementTree Elements and are rendered
-  by the serializer. Various bugs have been fixed (#803, #595, #780, and #1012).</p>
+  by the serializer. Various bugs have been fixed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/803" title="GitHub Issue Python-Markdown/markdown #803">#803</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/595" title="GitHub Issue Python-Markdown/markdown #595">#595</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/780" title="GitHub Issue Python-Markdown/markdown #780">#780</a>, and <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1012" title="GitHub Issue Python-Markdown/markdown #1012">#1012</a>).</p>
 </li>
 <li>
 <p>Link reference parsing, abbreviation reference parsing and footnote reference parsing
   has all been moved from <code>preprocessors</code> to <code>blockprocessors</code>, which allows them to be
   nested within other block level elements. Specifically, this change was necessary to
   maintain the current behavior in the rebuilt Markdown in HTML extension. A few random
-  edge-case bugs (see the included tests) were resolved in the process (#803).</p>
+  edge-case bugs (see the included tests) were resolved in the process (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/803" title="GitHub Issue Python-Markdown/markdown #803">#803</a>).</p>
 </li>
 <li>
 <p>An alternate function <code>markdown.extensions.headerid.slugify_unicode</code> has been included
@@ -160,14 +160,14 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 <h2 id="bug-fixes">Bug fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h2>
 <p>The following bug fixes are included in the 3.3 release:</p>
 <ul>
-<li>Document how to pass configuration options to Extra (#1019).</li>
-<li>Fix HR which follows strong em (#897).</li>
-<li>Support short reference image links (#894).</li>
-<li>Avoid a <code>RecursionError</code> from deeply nested blockquotes (#799).</li>
-<li>Fix issues with complex emphasis (#979).</li>
-<li>Fix unescaping of HTML characters <code>&lt;&gt;</code> in CodeHilite (#990).</li>
-<li>Fix complex scenarios involving lists and admonitions (#1004).</li>
-<li>Fix complex scenarios with nested ordered and unordered lists in a definition list (#918).</li>
+<li>Document how to pass configuration options to Extra (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1019" title="GitHub Issue Python-Markdown/markdown #1019">#1019</a>).</li>
+<li>Fix HR which follows strong em (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/897" title="GitHub Issue Python-Markdown/markdown #897">#897</a>).</li>
+<li>Support short reference image links (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/894" title="GitHub Issue Python-Markdown/markdown #894">#894</a>).</li>
+<li>Avoid a <code>RecursionError</code> from deeply nested blockquotes (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/799" title="GitHub Issue Python-Markdown/markdown #799">#799</a>).</li>
+<li>Fix issues with complex emphasis (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/979" title="GitHub Issue Python-Markdown/markdown #979">#979</a>).</li>
+<li>Fix unescaping of HTML characters <code>&lt;&gt;</code> in CodeHilite (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/990" title="GitHub Issue Python-Markdown/markdown #990">#990</a>).</li>
+<li>Fix complex scenarios involving lists and admonitions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1004" title="GitHub Issue Python-Markdown/markdown #1004">#1004</a>).</li>
+<li>Fix complex scenarios with nested ordered and unordered lists in a definition list (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/918" title="GitHub Issue Python-Markdown/markdown #918">#918</a>).</li>
 </ul>
 
                     </div>
@@ -257,7 +257,7 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -295,7 +295,7 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-03-23 13:16:53.788501+00:00
+        Docs Build Date UTC : 2023-07-25 15:15:31.684310+00:00
         -->
     </body>
 </html>

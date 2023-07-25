@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Release Notes for v.3.3" href="../release-3.3/" />
         <link rel="prev" title="Change Log" href="../" />
-        <title>Release Notes for v.3.4 &#8212; Python-Markdown 3.4.3 documentation</title>
+        <title>Release Notes for v.3.4 &#8212; Python-Markdown 3.4.4 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -88,7 +88,7 @@ configuration option to <code>True</code> when enabling the extension.</p>
 <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">TableExtension</span><span class="p">(</span><span class="n">use_align_attribute</span><span class="o">=</span><span class="kc">True</span><span class="p">)])</span>
 </code></pre></div>
 
-<h3 id="backslash-unescaping-moved-to-treeprocessor-1131">Backslash unescaping moved to Treeprocessor (#1131).<a class="headerlink" href="#backslash-unescaping-moved-to-treeprocessor-1131" title="Permanent link">&para;</a></h3>
+<h3 id="backslash-unescaping-moved-to-treeprocessor-1131">Backslash unescaping moved to Treeprocessor (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1131" title="GitHub Issue Python-Markdown/markdown #1131">#1131</a>).<a class="headerlink" href="#backslash-unescaping-moved-to-treeprocessor-1131" title="Permanent link">&para;</a></h3>
 <p>Unescaping backslash escapes has been moved to a Treeprocessor, which  enables
 proper HTML escaping during serialization. However, it is recognized that
 various third-party extensions may be calling the old class at
@@ -166,7 +166,7 @@ valid parameter and will raise an error if provided.</p>
 <ul>
 <li>
 <p>Some new configuration options have been added to the
-  <a href="../../extensions/footnotes/">footnotes</a> extension (#1218):</p>
+  <a href="../../extensions/footnotes/">footnotes</a> extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1218" title="GitHub Issue Python-Markdown/markdown #1218">#1218</a>):</p>
 <ul>
 <li>
 <p>Small refactor of the <code>BACKLINK_TITLE</code> option; The use of <code>format()</code>
@@ -186,11 +186,11 @@ valid parameter and will raise an error if provided.</p>
 <li>
 <p>The <a href="../../extensions/toc/">Table of Contents</a> extension now accepts a
   <code>toc_class</code> parameter which can be used to set the CSS class(es) on the
-  <code>&lt;div&gt;</code> that contains the Table of Contents (#1224).</p>
+  <code>&lt;div&gt;</code> that contains the Table of Contents (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1224" title="GitHub Issue Python-Markdown/markdown #1224">#1224</a>).</p>
 </li>
 <li>
 <p>The CodeHilite extension now supports a <code>pygments_formatter</code> option that can
-  be set to a custom formatter class (#1187).</p>
+  be set to a custom formatter class (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1187" title="GitHub Issue Python-Markdown/markdown #1187">#1187</a>).</p>
 <ul>
 <li>If <code>pygments_formatter</code> is set to a string (ex: <code>'html'</code>), Pygments&rsquo;
   default formatter by that name is used.</li>
@@ -199,7 +199,7 @@ valid parameter and will raise an error if provided.</p>
   used.</li>
 </ul>
 <p>The formatter class is now passed an additional option, <code>lang_str</code>, to
-denote the language of the code block (#1258). While Pygments&rsquo; built-in
+denote the language of the code block (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1258" title="GitHub Issue Python-Markdown/markdown #1258">#1258</a>). While Pygments&rsquo; built-in
 formatters will ignore the option, a custom formatter assigned to the
 <code>pygments_formatter</code> option can make use of the <code>lang_str</code> to include the
 code block&rsquo;s language in the output.</p>
@@ -208,9 +208,10 @@ code block&rsquo;s language in the output.</p>
 <h2 id="bug-fixes">Bug fixes<a class="headerlink" href="#bug-fixes" title="Permanent link">&para;</a></h2>
 <p>The following bug fixes are included in the 3.4 release:</p>
 <ul>
-<li>Extension entry-points are only loaded if needed (#1216).</li>
+<li>Extension entry-points are only loaded if needed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1216" title="GitHub Issue Python-Markdown/markdown #1216">#1216</a>).</li>
 <li>Added additional checks to the <code>&lt;pre&gt;&lt;code&gt;</code> handling of
-  <code>PrettifyTreeprocessor</code> (#1261, #1263).</li>
+  <code>PrettifyTreeprocessor</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1261" title="GitHub Issue Python-Markdown/markdown #1261">#1261</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1263" title="GitHub Issue Python-Markdown/markdown #1263">#1263</a>).</li>
+<li>Fix XML deprecation warnings.</li>
 </ul>
 
                     </div>
@@ -304,7 +305,7 @@ code block&rsquo;s language in the output.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -342,7 +343,7 @@ code block&rsquo;s language in the output.</p>
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-03-23 13:16:53.788501+00:00
+        Docs Build Date UTC : 2023-07-25 15:15:31.699932+00:00
         -->
     </body>
 </html>

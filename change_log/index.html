@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Release Notes for v.3.4" href="release-3.4/" />
         <link rel="prev" title="Contributing to Python-Markdown" href="../contributing/" />
-        <title>Change Log &#8212; Python-Markdown 3.4.3 documentation</title>
+        <title>Change Log &#8212; Python-Markdown 3.4.4 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
@@ -37,7 +37,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -72,79 +72,85 @@
             <div class="documentwrapper">
                 <div class="bodywrapper">
                     <div class="body" role="main"><h1 id="python-markdown-change-log">Python-Markdown Change Log<a class="headerlink" href="#python-markdown-change-log" title="Permanent link">&para;</a></h1>
+<p>July 25, 2023: version 3.4.4 (a bug-fix release).</p>
+<ul>
+<li>Add a special case for initial <code>'s</code> to smarty extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1305" title="GitHub Issue Python-Markdown/markdown #1305">#1305</a>).</li>
+<li>Unescape any backslash escaped inline raw HTML (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1358" title="GitHub Issue Python-Markdown/markdown #1358">#1358</a>).</li>
+<li>Unescape backslash escaped TOC token names (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1360" title="GitHub Issue Python-Markdown/markdown #1360">#1360</a>).</li>
+</ul>
 <p>March 23, 2023: version 3.4.3 (a bug-fix release).</p>
 <ul>
-<li>Restore console script (#1327).</li>
+<li>Restore console script (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1327" title="GitHub Issue Python-Markdown/markdown #1327">#1327</a>).</li>
 </ul>
 <p>March 22, 2023: version 3.4.2 (a bug-fix release).</p>
 <ul>
-<li>Improve standalone * and _ parsing (#1300).</li>
-<li>Consider <code>&lt;html&gt;</code> HTML tag a block-level element (#1309).</li>
+<li>Improve standalone * and _ parsing (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1300" title="GitHub Issue Python-Markdown/markdown #1300">#1300</a>).</li>
+<li>Consider <code>&lt;html&gt;</code> HTML tag a block-level element (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1309" title="GitHub Issue Python-Markdown/markdown #1309">#1309</a>).</li>
 <li>Officially support Python 3.11.</li>
 <li>Switch from <code>setup.py</code> to <code>pyproject.toml</code>.</li>
 </ul>
 <p>July 15, 2022: version 3.4.1 (a bug-fix release).</p>
 <ul>
-<li>Fix an import issue with <code>importlib.util</code> (#1274).</li>
+<li>Fix an import issue with <code>importlib.util</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1274" title="GitHub Issue Python-Markdown/markdown #1274">#1274</a>).</li>
 </ul>
 <p>July 15, 2022: version 3.4 (<a href="release-3.4/">Notes</a>).</p>
 <p>May 5, 2022: version 3.3.7 (a bug-fix release).</p>
 <ul>
-<li>Disallow square brackets in reference link ids (#1209).</li>
-<li>Retain configured <code>pygments_style</code> after first code block (#1240).</li>
-<li>Ensure fenced code attributes are properly escaped (#1247).</li>
+<li>Disallow square brackets in reference link ids (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1209" title="GitHub Issue Python-Markdown/markdown #1209">#1209</a>).</li>
+<li>Retain configured <code>pygments_style</code> after first code block (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1240" title="GitHub Issue Python-Markdown/markdown #1240">#1240</a>).</li>
+<li>Ensure fenced code attributes are properly escaped (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1247" title="GitHub Issue Python-Markdown/markdown #1247">#1247</a>).</li>
 </ul>
 <p>Nov 17, 2021: version 3.3.6 (a bug-fix release).</p>
 <ul>
-<li>Fix a dependency issue (#1195, #1196).</li>
+<li>Fix a dependency issue (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1195" title="GitHub Issue Python-Markdown/markdown #1195">#1195</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1196" title="GitHub Issue Python-Markdown/markdown #1196">#1196</a>).</li>
 </ul>
 <p>Nov 16, 2021: version 3.3.5 (a bug-fix release).</p>
 <ul>
-<li>Make the <code>slugify_unicode</code> function not remove diacritical marks (#1118).</li>
-<li>Fix <code>[toc]</code> detection when used with <code>nl2br</code> extension (#1160).</li>
-<li>Re-use compiled regex for block level checks (#1169).</li>
-<li>Don&rsquo;t process shebangs in fenced code blocks when using CodeHilite (#1156).</li>
-<li>Improve email address validation for Automatic Links (#1165).</li>
-<li>Ensure <code>&lt;summary&gt;</code> tags are parsed correctly (#1079).</li>
-<li>Support Python 3.10 (#1124).</li>
+<li>Make the <code>slugify_unicode</code> function not remove diacritical marks (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1118" title="GitHub Issue Python-Markdown/markdown #1118">#1118</a>).</li>
+<li>Fix <code>[toc]</code> detection when used with <code>nl2br</code> extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1160" title="GitHub Issue Python-Markdown/markdown #1160">#1160</a>).</li>
+<li>Re-use compiled regex for block level checks (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1169" title="GitHub Issue Python-Markdown/markdown #1169">#1169</a>).</li>
+<li>Don&rsquo;t process shebangs in fenced code blocks when using CodeHilite (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1156" title="GitHub Issue Python-Markdown/markdown #1156">#1156</a>).</li>
+<li>Improve email address validation for Automatic Links (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1165" title="GitHub Issue Python-Markdown/markdown #1165">#1165</a>).</li>
+<li>Ensure <code>&lt;summary&gt;</code> tags are parsed correctly (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1079" title="GitHub Issue Python-Markdown/markdown #1079">#1079</a>).</li>
+<li>Support Python 3.10 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1124" title="GitHub Issue Python-Markdown/markdown #1124">#1124</a>).</li>
 </ul>
 <p>Feb 24, 2021: version 3.3.4 (a bug-fix release).</p>
 <ul>
-<li>Properly parse unclosed tags in code spans (#1066).</li>
-<li>Properly parse processing instructions in md_in_html (#1070).</li>
-<li>Properly parse code spans in md_in_html (#1069).</li>
-<li>Preserve text immediately before an admonition (#1092).</li>
-<li>Simplified regex for HTML placeholders (#928) addressing (#932).</li>
-<li>Ensure <code>permalinks</code> and <code>anchorlinks</code> are not restricted by <code>toc_depth</code> (#1107).</li>
-<li>Fix corner cases with lists under admonitions (#1102).</li>
+<li>Properly parse unclosed tags in code spans (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1066" title="GitHub Issue Python-Markdown/markdown #1066">#1066</a>).</li>
+<li>Properly parse processing instructions in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1070" title="GitHub Issue Python-Markdown/markdown #1070">#1070</a>).</li>
+<li>Properly parse code spans in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1069" title="GitHub Issue Python-Markdown/markdown #1069">#1069</a>).</li>
+<li>Preserve text immediately before an admonition (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1092" title="GitHub Issue Python-Markdown/markdown #1092">#1092</a>).</li>
+<li>Simplified regex for HTML placeholders (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/928" title="GitHub Issue Python-Markdown/markdown #928">#928</a>) addressing (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/932" title="GitHub Issue Python-Markdown/markdown #932">#932</a>).</li>
+<li>Ensure <code>permalinks</code> and <code>anchorlinks</code> are not restricted by <code>toc_depth</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1107" title="GitHub Issue Python-Markdown/markdown #1107">#1107</a>).</li>
+<li>Fix corner cases with lists under admonitions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1102" title="GitHub Issue Python-Markdown/markdown #1102">#1102</a>).</li>
 </ul>
 <p>Oct 25, 2020: version 3.3.3 (a bug-fix release).</p>
 <ul>
-<li>Unify all block-level tags (#1047).</li>
-<li>Fix issue where some empty elements would have text rendered as <code>None</code> when using <code>md_in_html</code> (#1049).</li>
-<li>Avoid catastrophic backtracking in <code>hr</code> regex (#1055).</li>
-<li>Fix <code>hr</code> HTML handling (#1053).</li>
+<li>Unify all block-level tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1047" title="GitHub Issue Python-Markdown/markdown #1047">#1047</a>).</li>
+<li>Fix issue where some empty elements would have text rendered as <code>None</code> when using <code>md_in_html</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1049" title="GitHub Issue Python-Markdown/markdown #1049">#1049</a>).</li>
+<li>Avoid catastrophic backtracking in <code>hr</code> regex (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1055" title="GitHub Issue Python-Markdown/markdown #1055">#1055</a>).</li>
+<li>Fix <code>hr</code> HTML handling (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1053" title="GitHub Issue Python-Markdown/markdown #1053">#1053</a>).</li>
 </ul>
 <p>Oct 19, 2020: version 3.3.2 (a bug-fix release).</p>
 <ul>
-<li>Properly parse inline HTML in md_in_html (#1040 &amp; #1045).</li>
-<li>Avoid crashing when md_in_html fails (#1040).</li>
+<li>Properly parse inline HTML in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1040" title="GitHub Issue Python-Markdown/markdown #1040">#1040</a> &amp; <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1045" title="GitHub Issue Python-Markdown/markdown #1045">#1045</a>).</li>
+<li>Avoid crashing when md_in_html fails (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1040" title="GitHub Issue Python-Markdown/markdown #1040">#1040</a>).</li>
 </ul>
 <p>Oct 12, 2020: version 3.3.1 (a bug-fix release).</p>
 <ul>
-<li>Correctly parse raw <code>script</code> and <code>style</code> tags (#1036).</li>
-<li>Ensure consistent class handling by <code>fenced_code</code> and <code>codehilite</code> (#1032).</li>
+<li>Correctly parse raw <code>script</code> and <code>style</code> tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1036" title="GitHub Issue Python-Markdown/markdown #1036">#1036</a>).</li>
+<li>Ensure consistent class handling by <code>fenced_code</code> and <code>codehilite</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1032" title="GitHub Issue Python-Markdown/markdown #1032">#1032</a>).</li>
 </ul>
 <p>Oct 6, 2020: version 3.3 (<a href="release-3.3/">Notes</a>).</p>
 <p>May 8, 2020: version 3.2.2 (a bug-fix release).</p>
 <ul>
 <li>Add <code>checklinks</code> tox environment to ensure all links in documentation are good.</li>
-<li>Refactor extension API documentation (#729).</li>
+<li>Refactor extension API documentation (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/729" title="GitHub Issue Python-Markdown/markdown #729">#729</a>).</li>
 <li>Load entry_points (for extensions) only once using <code>importlib.metadata</code>.</li>
 <li>Do not double escape entities in TOC.</li>
-<li>Correctly report if an extension raises a <code>TypeError</code> (#939).</li>
+<li>Correctly report if an extension raises a <code>TypeError</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/939" title="GitHub Issue Python-Markdown/markdown #939">#939</a>).</li>
 <li>Raise a <code>KeyError</code> when attempting to delete a nonexistent key from the
-  extension registry (#939).</li>
+  extension registry (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/939" title="GitHub Issue Python-Markdown/markdown #939">#939</a>).</li>
 <li>Remove import of <code>packaging</code> (or <code>pkg_resources</code> fallback) entirely.</li>
 <li>Remove <code>setuptools</code> as a run-time dependency (<code>install_required</code>).</li>
 </ul>
@@ -157,20 +163,20 @@
 <p>May 20, 2019: Released version 3.1.1 (a bug-fix release).</p>
 <ul>
 <li>Fixed import failure in <code>setup.py</code> when the source directory is not
-  on <code>sys.path</code> (#823).</li>
+  on <code>sys.path</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/823" title="GitHub Issue Python-Markdown/markdown #823">#823</a>).</li>
 <li>Prefer public <code>packaging</code> module to pkg_resources&rsquo; private copy of
-  it (#825).</li>
+  it (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/825" title="GitHub Issue Python-Markdown/markdown #825">#825</a>).</li>
 </ul>
 <p>Mar 25, 2019: Released version 3.1 (<a href="release-3.1/">Notes</a>).</p>
 <p>Sept 28, 2018: Released version 3.0.1 (a bug-fix release).</p>
 <ul>
-<li>Brought back the <code>version</code> and <code>version_info</code> variables (#709).</li>
-<li>Added support for hexadecimal HTML entities (#712).</li>
+<li>Brought back the <code>version</code> and <code>version_info</code> variables (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/709" title="GitHub Issue Python-Markdown/markdown #709">#709</a>).</li>
+<li>Added support for hexadecimal HTML entities (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/712" title="GitHub Issue Python-Markdown/markdown #712">#712</a>).</li>
 </ul>
 <p>Sept 21, 2018: Released version 3.0 (<a href="release-3.0/">Notes</a>).</p>
 <p>Jan 4, 2018: Released version 2.6.11 (a bug-fix release). Added a new
 <code>BACKLINK-TITLE</code> option to the footnote extension so that non-English
-users can provide a custom title to back links (see #610).</p>
+users can provide a custom title to back links (see <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/610" title="GitHub Issue Python-Markdown/markdown #610">#610</a>).</p>
 <p>Dec 7, 2017: Released version 2.6.10 (a documentation update).</p>
 <p>Aug 17, 2017: Released version 2.6.9 (a bug-fix release).</p>
 <p>Jan 25, 2017: Released version 2.6.8 (a bug-fix release).</p>
@@ -213,9 +219,9 @@ and various bug fixes.</p>
 <p>August 18 2008: Reorganized directory structure. Added a &lsquo;docs&rsquo; directory
 and moved all extensions into a &lsquo;markdown-extensions&rsquo; package.
 Added additional documentation and a few bug fixes. (v2.0-beta)</p>
-<p>August 4 2008: Updated included extensions to ElementTree. Added a
+<p>August 4 2008: Updated included extensions to <code>ElementTree</code>. Added a
 separate command line script. (v2.0-alpha)</p>
-<p>July 2008: Switched from home-grown NanoDOM to ElementTree and
+<p>July 2008: Switched from home-grown <code>NanoDOM</code> to <code>ElementTree</code> and
 various related bugs (thanks Artem Yunusov).</p>
 <p>June 2008: Fixed issues with nested inline patterns and cleaned
 up testing framework (thanks Artem Yunusov).</p>
@@ -244,7 +250,7 @@ escaping option.</p>
 <p>Oct 30, 2007: Fixed <code>BOM</code> removal (thanks Malcolm Tredinnick). Fixed
 infinite loop in bracket regular expression for inline links.</p>
 <p>Oct 11, 2007: <code>LineBreaks</code> is now an <code>inlinePattern</code>. Fixed <code>HR</code> in
-blockquotes. Refactored <code>_processSection</code> method (see tracker #1793419).</p>
+blockquotes. Refactored <code>_processSection</code> method (see tracker <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1793419" title="GitHub Issue Python-Markdown/markdown #1793419">#1793419</a>).</p>
 <p>Oct 9, 2007: Added <code>textPreprocessor</code> (from 1.6b).</p>
 <p>Oct 8, 2008: Fixed Lazy Blockquote. Fixed code block on first line.
 Fixed empty inline image link.</p>
@@ -260,7 +266,7 @@ comments.  Added &ldquo;safe mode&rdquo; (user&rsquo;s HTML tags are removed).</
 with ampersand normalization and HTML blocks.</p>
 <p>July 10, 2006: Switched to using <code>optparse</code>.  Added proper support for
 Unicode.</p>
-<p>July 9, 2006: Fixed the <code>&lt;!--@address.com&gt;</code> problem (Tracker #1501354).</p>
+<p>July 9, 2006: Fixed the <code>&lt;!--@address.com&gt;</code> problem (Tracker <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1501354" title="GitHub Issue Python-Markdown/markdown #1501354">#1501354</a>).</p>
 <p>May 18, 2006: Stopped catching unquoted titles in reference links.
 Stopped creating blank headers.</p>
 <p>May 15, 2006: A bug with lists, recursion on block-level elements,
@@ -301,7 +307,7 @@ attribute support.</p>
 syntax in headers (e.g. links) and got the lists to use p-tags
 correctly (v. 0.8)</p>
 <p>Aug. 29, 2005: Added flexible tabs, fixed a few small issues, added
-basic support for footnotes.  Got rid of xml.dom.minidom and added
+basic support for footnotes.  Got rid of <code>xml.dom.minidom</code> and added
 pretty-printing. (v. 0.7)</p>
 <p>Aug. 13, 2005: Fixed a number of small bugs in order to conform to the
 test suite.  (v. 0.6)</p>
@@ -379,7 +385,7 @@ Stienstra&rsquo;s code</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.3 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
             </li>
                     
                     
@@ -417,7 +423,7 @@ Stienstra&rsquo;s code</p>
 
         <!--
         MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-03-23 13:16:53.726014+00:00
+        Docs Build Date UTC : 2023-07-25 15:15:31.621831+00:00
         -->
     </body>
 </html>
