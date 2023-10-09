@@ -11,9 +11,12 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Tables" href="../tables/" />
         <link rel="prev" title="SmartyPants" href="../smarty/" />
-        <title>Table of Contents &#8212; Python-Markdown 3.4.4 documentation</title>
+        <title>Table of Contents &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
         <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
@@ -23,7 +26,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -37,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -75,17 +78,6 @@
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
 
@@ -101,63 +93,63 @@ document and adds it into the resulting HTML document.</p>
 <p>By default, all headers will automatically have unique <code>id</code> attributes
 generated based upon the text of the header. Note this example, in which all
 three headers would have the same <code>id</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="gh">#Header</span>
-<span class="gh">#Header</span>
-<span class="gh">#Header</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-md">#Header
+#Header
+#Header
+</code></pre>
 
 <p>Results in:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header&quot;</span><span class="p">&gt;</span>Header<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header_1&quot;</span><span class="p">&gt;</span>Header<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header_2&quot;</span><span class="p">&gt;</span>Header<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;h1 id=&quot;header&quot;&gt;Header&lt;/h1&gt;
+&lt;h1 id=&quot;header_1&quot;&gt;Header&lt;/h1&gt;
+&lt;h1 id=&quot;header_2&quot;&gt;Header&lt;/h1&gt;
+</code></pre>
 
 <p>Place a marker in the document where you would like the Table of Contents to
 appear. Then, a nested list of all the headers in the document will replace the
 marker. The marker defaults to <code>[TOC]</code> so the following document:</p>
-<div class="codehilite"><pre><span></span><code>[TOC]
+<pre class="codehilite"><code class="language-md">[TOC]
 
-<span class="gh"># Header 1</span>
+# Header 1
 
-<span class="gu">## Header 2</span>
-</code></pre></div>
+## Header 2
+</code></pre>
 
 <p>would generate the following output:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;toc&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#header-1&quot;</span><span class="p">&gt;</span>Header 1<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#header-2&quot;</span><span class="p">&gt;</span>Header 2<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header-1&quot;</span><span class="p">&gt;</span>Header 1<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h2</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;header-2&quot;</span><span class="p">&gt;</span>Header 2<span class="p">&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;toc&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#header-1&quot;&gt;Header 1&lt;/a&gt;&lt;/li&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#header-2&quot;&gt;Header 2&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id=&quot;header-1&quot;&gt;Header 1&lt;/h1&gt;
+&lt;h2 id=&quot;header-2&quot;&gt;Header 2&lt;/h2&gt;
+</code></pre>
 
 <p>Regardless of whether a <code>marker</code> is found in the document (or disabled), the
 Table of Contents is available as an attribute (<code>toc</code>) on the Markdown class.
 This allows one to insert the Table of Contents elsewhere in their page
 template. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;toc&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">page</span> <span class="o">=</span> <span class="n">render_some_template</span><span class="p">(</span><span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;body&#39;</span><span class="p">:</span> <span class="n">html</span><span class="p">,</span> <span class="s1">&#39;toc&#39;</span><span class="p">:</span> <span class="n">md</span><span class="o">.</span><span class="n">toc</span><span class="p">})</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; md = markdown.Markdown(extensions=['toc'])
+&gt;&gt;&gt; html = md.convert(text)
+&gt;&gt;&gt; page = render_some_template(context={'body': html, 'toc': md.toc})
+</code></pre>
 
 <p>The <code>toc_tokens</code> attribute is also available on the Markdown class and contains
 a nested list of dict objects. For example, the above document would result in
 the following object at <code>md.toc_tokens</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;header-1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Header 1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;children&#39;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span><span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;header-2&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Header 2&#39;</span><span class="p">,</span> <span class="s1">&#39;children&#39;</span><span class="p">:[]}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">[
+    {
+        'level': 1,
+        'id': 'header-1',
+        'name': 'Header 1',
+        'children': [
+            {'level': 2, 'id': 'header-2', 'name': 'Header 2', 'children':[]}
+        ]
+    }
+]
+</code></pre>
 
 <p>Note that the <code>level</code> refers to the <code>hn</code> level. In other words, <code>&lt;h1&gt;</code> is level
 <code>1</code> and <code>&lt;h2&gt;</code> is level <code>2</code>, etc. Be aware that improperly nested levels in the
@@ -169,25 +161,25 @@ extension is used in conjunction with the <a href="../attr_list/">Attribute List
 <code>data-toc-label</code> attribute is defined on the header, then the contents of that
 attribute will be used as the text label for the item in the Table of Contents.
 For example, the following Markdown:</p>
-<div class="codehilite"><pre><span></span><code>[TOC]
+<pre class="codehilite"><code class="language-md">[TOC]
 
-<span class="gh"># Functions</span>
+# Functions
 
-<span class="gu">## `markdown.markdown(text [, **kwargs])` { #markdown data-toc-label=&#39;markdown.markdown&#39; }</span>
-</code></pre></div>
+## `markdown.markdown(text [, **kwargs])` { #markdown data-toc-label='markdown.markdown' }
+</code></pre>
 
 <p>would generate the following output:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;toc&quot;</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#functions&quot;</span><span class="p">&gt;</span>Functions<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
-        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#markdown&quot;</span><span class="p">&gt;</span>markdown.markdown<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
-      <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;functions&quot;</span><span class="p">&gt;</span>Functions<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h2</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;markdown&quot;</span><span class="p">&gt;&lt;</span><span class="nt">code</span><span class="p">&gt;</span>markdown.markdown(text [, **kwargs])<span class="p">&lt;/</span><span class="nt">code</span><span class="p">&gt;&lt;/</span><span class="nt">h2</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;div class=&quot;toc&quot;&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;#functions&quot;&gt;Functions&lt;/a&gt;&lt;/li&gt;
+      &lt;ul&gt;
+        &lt;li&gt;&lt;a href=&quot;#markdown&quot;&gt;markdown.markdown&lt;/a&gt;&lt;/li&gt;
+      &lt;/ul&gt;
+  &lt;/ul&gt;
+&lt;/div&gt;
+&lt;h1 id=&quot;functions&quot;&gt;Functions&lt;/h1&gt;
+&lt;h2 id=&quot;markdown&quot;&gt;&lt;code&gt;markdown.markdown(text [, **kwargs])&lt;/code&gt;&lt;/h2&gt;
+</code></pre>
 
 <p>Notice that the text in the Table of Contents is much cleaner and easier to read
 in the context of a Table of Contents. The <code>data-toc-label</code> is not included in
@@ -211,6 +203,10 @@ some time, especially on long documents.</p>
 <li>
 <p><strong><code>title</code></strong>:
     Title to insert in the Table of Contents&rsquo; <code>&lt;div&gt;</code>. Defaults to <code>None</code>.</p>
+</li>
+<li>
+<p><strong><code>title_class</code></strong>:
+    CSS class used for the title contained in the Table of Contents. Defaults to <code>toctitle</code>.</p>
 </li>
 <li>
 <p><strong><code>toc_class</code></strong>:
@@ -241,21 +237,30 @@ text.</p>
     Title attribute of the permanent link. Defaults to <code>Permanent link</code>.</p>
 </li>
 <li>
+<p><strong><code>permalink_leading</code></strong>:
+    Set to <code>True</code> if the extension should generate leading permanent links.
+    Default is <code>False</code>.</p>
+<p>Leading permanent links are placed at the start of the header tag,
+before any header content. The default <code>permalink</code> behavior (when
+<code>permalink_leading</code> is unset or set to <code>False</code>) creates trailing
+permanent links, which are placed at the end of the header content.</p>
+</li>
+<li>
 <p><strong><code>baselevel</code></strong>:
     Base level for headers. Defaults to <code>1</code>.</p>
 <p>The <code>baselevel</code> setting allows the header levels to be automatically
 adjusted to fit within the hierarchy of your HTML templates. For example,
 suppose the Markdown text for a page should not contain any headers higher
 than level 3 (<code>&lt;h3&gt;</code>). The following will accomplish that:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span> <span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="gp">... </span><span class="s1">#Some Header</span>
-<span class="gp">... </span><span class="s1">## Next Level&#39;&#39;&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.extensions.toc</span> <span class="kn">import</span> <span class="n">TocExtension</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">TocExtension</span><span class="p">(</span><span class="n">baselevel</span><span class="o">=</span><span class="mi">3</span><span class="p">)])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">html</span>
-<span class="go">&lt;h3 id=&quot;some_header&quot;&gt;Some Header&lt;/h3&gt;</span>
-<span class="go">&lt;h4 id=&quot;next_level&quot;&gt;Next Level&lt;/h4&gt;&#39;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt;  text = '''
+... #Some Header
+... ## Next Level'''
+&gt;&gt;&gt; from markdown.extensions.toc import TocExtension
+&gt;&gt;&gt; html = markdown.markdown(text, extensions=[TocExtension(baselevel=3)])
+&gt;&gt;&gt; print html
+&lt;h3 id=&quot;some_header&quot;&gt;Some Header&lt;/h3&gt;
+&lt;h4 id=&quot;next_level&quot;&gt;Next Level&lt;/h4&gt;'
+</code></pre>
 
 </li>
 <li>
@@ -292,8 +297,8 @@ have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
 </li>
 </ul>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;toc&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['toc'])
+</code></pre>
 
                     </div>
                 </div>
@@ -346,14 +351,6 @@ have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/toc.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -364,7 +361,7 @@ have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -378,7 +375,7 @@ have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -416,28 +413,16 @@ have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.871764+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.534177+00:00
         -->
     </body>
 </html>

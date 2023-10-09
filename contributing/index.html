@@ -9,11 +9,14 @@
         <link rel="canonical" href="https://Python-Markdown.github.io/contributing/">
         <link rel="shortcut icon" href="../favicon.ico">
         <link rel="search" title="Search" href="../search.html" />
-        <link rel="next" title="Change Log" href="../change_log/" />
-        <link rel="prev" title="Test Tools" href="../test_tools/" />
-        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.4.4 documentation</title>
+        <link rel="next" title="Changelog" href="../changelog/" />
+        <link rel="prev" title="<code>test_tools</code>" href="../reference/markdown/test_tools/" />
+        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
         <script type="text/javascript" src="../static/underscore.js"></script> 
     </head>
@@ -23,22 +26,23 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../change_log/" title="Change Log" accesskey="N">next</a> |
+                <a href="../changelog/" title="Changelog" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../test_tools/" title="Test Tools" accesskey="P">previous</a> |
+                <a href="../reference/markdown/test_tools/" title="<code>test_tools</code>" accesskey="P">previous</a> |
             </li>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -51,18 +55,6 @@
         <li class="nav-item">
             <a href="./">Contributing to Python-Markdown</a>
          &#187; </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
         </ul>
@@ -145,7 +137,7 @@ should not cause an issue to be closed, then the action word should not be
 included when referencing that issue.</p>
 <p>Before being accepted, each pull request must include the applicable code, new
 tests of all new features, updated tests for any changed features, documentation
-updates, and an appropriate update to the release notes. All changes must follow
+updates, and an appropriate update to the changelog. All changes must follow
 the applicable style guides. Failure to meet any one of the requirements is
 likely to delay any serious consideration of your pull request and may even
 cause it to be closed. Of course, if you are in the early stages of development,
@@ -183,23 +175,23 @@ arguments on the first line and further indentation should be used to clearly
 distinguish itself as a continuation line. The closing parenthesis, bracket or
 brace should be on a line by itself and should line up under the first character
 of the line that starts the multi-line construct.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
-    <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
-<span class="p">]</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">some_function_that_takes_arguments</span><span class="p">(</span>
-    <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span>
-<span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">my_list = [
+    1, 2, 3,
+    4, 5, 6,
+]
+result = some_function_that_takes_arguments(
+    'a', 'b', 'c',
+    'd', 'e', 'f',
+)
+</code></pre>
 
 <p>When the conditional part of an <code>if</code>-statement is long enough to require that it
 be written across multiple lines, extra indentation should be included on the
 conditional continuation line.</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="p">(</span><span class="n">this_is_one_thing</span>
-        <span class="ow">and</span> <span class="n">that_is_another_thing</span><span class="p">):</span>
-    <span class="n">do_something</span><span class="p">()</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">if (this_is_one_thing
+        and that_is_another_thing):
+    do_something()
+</code></pre>
 
 <h3 id="documentation-style-guide">Documentation Style Guide<a class="headerlink" href="#documentation-style-guide" title="Permanent link">&para;</a></h3>
 <p>Documentation should be in American English. The tone of the documentation
@@ -217,31 +209,31 @@ the basic Markdown syntax, the following extensions are supported: <a href="../e
 documentation.</p>
 <h4 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h4>
 <p>Headers should use the hash style. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="gu">## Some important topic</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-md">## Some important topic
+</code></pre>
 
 <p>The underline style should not be used. Don&rsquo;t do this:</p>
-<div class="codehilite"><pre><span></span><code><span class="gh">Some important topic</span>
-<span class="gh">====================</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-md">Some important topic
+====================
+</code></pre>
 
 <h4 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h4>
 <p>Links should always use the reference style, with the referenced hyperlinks kept
 at the end of the document.</p>
-<div class="codehilite"><pre><span></span><code>Here is a link to [<span class="nt">some other thing</span>][<span class="nl">other-thing</span>].
+<pre class="codehilite"><code class="language-md">Here is a link to [some other thing][other-thing].
 
 More text...
 
-[<span class="nl">other-thing</span>]: <span class="na">http://example.com/other/thing</span>
-</code></pre></div>
+[other-thing]: http://example.com/other/thing
+</code></pre>
 
 <p>This style helps keep the documentation source consistent and readable.</p>
 <p>If you are linking to another document within Python-Markdown&rsquo;s documentation,
 you should use a relative link, and link to the <code>.md</code> suffix. If applicable, it
 is preferred that the link includes a hash fragment pointing to the specific
 section of the page. For example:</p>
-<div class="codehilite"><pre><span></span><code>[<span class="nl">authentication</span>]: <span class="na">reference.md#Markdown</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-md">[authentication]: reference.md#Markdown
+</code></pre>
 
 <p>Linking in this style ensures that the links work when browsing the
 documentation on GitHub. If your Markdown editor makes links clickable, they
@@ -250,41 +242,39 @@ converted into regular links which point to the built HTML pages.</p>
 <h4 id="notes-and-warnings">Notes and Warnings<a class="headerlink" href="#notes-and-warnings" title="Permanent link">&para;</a></h4>
 <p>If you want to draw attention to a note or warning, use the syntax defined in
 Python-Markdown&rsquo;s <a href="../extensions/admonition/#syntax">Admonition Extension</a>:</p>
-<div class="codehilite"><pre><span></span><code>!!! note
+<pre class="codehilite"><code class="language-md">!!! note
 
     This is the content of the note.
-</code></pre></div>
+</code></pre>
 
-<h4 id="release-notes">Release Notes<a class="headerlink" href="#release-notes" title="Permanent link">&para;</a></h4>
+<h4 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h4>
 <p>Any commit/pull request which changes the behavior of the Markdown library in
-any way must include an entry in the release notes. If a change only alters the
-documentation or tooling for the project, then an entry in the release notes is
-not necessary. The release notes can be found at <code>docs/change_log</code>.</p>
-<p>Each release must have an entry in <code>docs/change_log/index.md</code> which follows the
-format of the existing entries. A MAJOR release (<code>X.0.0</code>) and a MINOR release
-(<code>X.X.0</code>) should only include a single line in <code>docs/change_log/index.md</code> which
-links to a full document outlining all changes included in the release.
-However, a PATCH release (X.X.X) should include a list of single line entries
-summarizing each change directly in the file <code>docs/change_log/index.md</code> (see
-<a href="#versions">Versions</a> for an explanation of MAJOR, MINOR, and PATCH releases).
-The description of each change should include a reference to the relevant
-GitHub issue in the format <code>#123</code> (where <code>123</code> is the issue number).</p>
-<p>Prior to a version being released, the text <code>*under development*</code> should be
-used as a placeholder for the release date. That text will be replaced with the
-release date as part of the <a href="#release-process">release process</a>.</p>
-<p>If a change is the first since the last release, then the appropriate entries
-and/or files may need to be created and included in a pull request. A pull
-request should not alter an entry for an existing version which has already
-been released, unless it is editing an error in the release notes for that
-version, or is otherwise expressly deemed appropriate by the project
+any way must include an entry in the changelog. If a change only alters the
+documentation or tooling for the project, then an entry in the changelog is
+not necessary. The current changelog can be found at <code>docs/changelog.md</code>.</p>
+<p>The current changelog follows the format defined at
+<a href="https://keepachangelog.com/en/1.1.0/">keepachangelog.com</a>. The description of
+each change should include a reference to the relevant GitHub issue in the
+format <code>#123</code> (where <code>123</code> is the issue number).</p>
+<p>Edits to the changelog should generally add entries to the <code>[unreleased]</code>
+version at the top of the log. A pull request should not alter an entry for a
+previously released version, unless it is editing an error in the notes for
+that version, or is otherwise expressly deemed appropriate by the project
 maintainers.</p>
+<p>The current changelog should only document the changes for one MAJOR release and
+its various MINOR and PATCH releases (see <a href="#versions">Versions</a> for an
+explanation of MAJOR, MINOR, and PATCH releases). Older versions from previous
+series of releases can be found in the archive at <code>docs/change_log/</code> and may
+follow a different format. Note that the archived changelogs are not in the site
+navigation and are only linked from the <a href="../changelog/#previous-releases">Previous
+Releases</a> section of the current changelog.</p>
 <h3 id="commit-message-style-guide">Commit Message Style Guide<a class="headerlink" href="#commit-message-style-guide" title="Permanent link">&para;</a></h3>
 <p>Use the present tense (&ldquo;Add feature&rdquo; not &ldquo;Added feature&rdquo;).</p>
 <p>Use the imperative mood (&ldquo;Move item to&hellip;&rdquo; not &ldquo;Moves item to&hellip;&rdquo;).</p>
 <p>Limit the first line to 72 characters or less.</p>
 <p>Reference issues and pull requests liberally after the first line. Include a
 summary of the changes/additions made without replicating the content of the
-documentation or release notes. This is where an explanation of the choices made
+documentation or changelog. This is where an explanation of the choices made
 should be found. References to issues and pull requests should only provide the
 context in which a choice was made. However, the commit should be able to stand
 on its own.</p>
@@ -297,8 +287,8 @@ to <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork">co
 environment</a>, which isolates any experimental code from the general system. To
 create a virtual environment, use the following command from the root of the
 local working copy of your GitHub fork:</p>
-<div class="codehilite"><pre><span></span><code>virtualenv venv
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">virtualenv venv
+</code></pre>
 
 <p>That creates a virtual environment which is contained in the <code>venv</code> directory
 within your local working copy. Note that the repository is configured so that
@@ -306,53 +296,53 @@ git will ignore any files within a directory named <code>venv</code> or <code>EN
 very reason.</p>
 <p>On Posix systems (Linux, BSD, MacOS, etc.), use the following command to
 activate the environment:</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">source</span> venv/bin/activate
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">source venv/bin/activate
+</code></pre>
 
 <p>On Windows, use this command instead:</p>
-<div class="codehilite"><pre><span></span><code>venv/Scripts/activate
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">venv/Scripts/activate
+</code></pre>
 
 <p>See the <a href="https://virtualenv.pypa.io/en/stable/user_guide.html">User Guide</a> for more information on using virtual environments.</p>
 <p>To be able to run the Markdown library directly while working on it, install the
 working copy into the environment in <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode">Development Mode</a> after activating the
 virtual environment for the first time:</p>
-<div class="codehilite"><pre><span></span><code>pip install -e .
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">pip install -e .
+</code></pre>
 
 <p>Now any saved changes will immediately be available within the virtual
 environment.</p>
 <p>You can run the command line script with the following command:</p>
-<div class="codehilite"><pre><span></span><code>python -m markdown
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">python -m markdown
+</code></pre>
 
 <p>Before building the documentation for the first time, you will need to install
 some optional dependencies with the command:</p>
-<div class="codehilite"><pre><span></span><code>pip install -e .<span class="o">[</span>docs<span class="o">]</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">pip install -e .[docs]
+</code></pre>
 
 <p>To build the documentation and serve it locally on a development server, run:</p>
-<div class="codehilite"><pre><span></span><code>mkdocs serve
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">mkdocs serve
+</code></pre>
 
 <p>Then point your browser at <code>http://127.0.0.1:8000/</code>. For a complete list of
 options available, view MkDocs&rsquo; help with the command:</p>
-<div class="codehilite"><pre><span></span><code>mkdocs --help
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">mkdocs --help
+</code></pre>
 
 <p>Before running tests for the first time, you will need to install some optional
 dependencies with the command:</p>
-<div class="codehilite"><pre><span></span><code>pip install -e .<span class="o">[</span>testing<span class="o">]</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">pip install -e .[testing]
+</code></pre>
 
 <p>And you can directly run the tests with:</p>
-<div class="codehilite"><pre><span></span><code>python -m unittest discover tests
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">python -m unittest discover tests
+</code></pre>
 
 <p>To get a coverage report after running the tests, use these commands instead:</p>
-<div class="codehilite"><pre><span></span><code>coverage run --source<span class="o">=</span>markdown -m unittest discover tests
+<pre class="codehilite"><code class="language-sh">coverage run --source=markdown -m unittest discover tests
 coverage report --show-missing
-</code></pre></div>
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -371,8 +361,8 @@ a spellchecker for the documentation. While it is generally fine to leave those
 tests for the continuous integration server to run when a pull request is
 submitted, for more advanced changes, you may want to run those tests locally.
 To do so, simply install tox:</p>
-<div class="codehilite"><pre><span></span><code>pip install tox
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">pip install tox
+</code></pre>
 
 <p>Then, to run all configured test environments, simply call the command <code>tox</code>
 with no arguments. See help (<code>tox -h</code>) for more options.</p>
@@ -395,13 +385,14 @@ Understanding those tools will often help in understanding why a test may be
 failing.</p>
 </div>
 <h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h2>
-<p>Python-Markdown follows <a href="https://semver.org/">Semantic Versioning</a> and uses the
+<p>Python-Markdown follows <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a> and uses the
 <code>MAJOR.MINOR.PATCH[.dev#|a#|b#|rc#]</code> format for identifying releases. The status
 of the <code>master</code> branch should always be identified in the <code>__version_info__</code>
 tuple defined in <a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/__meta__.py#L29"><code>markdown/__meta__.py</code></a>. The contents of
 that tuple will automatically be converted into a normalized version which
-conforms to <a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a>. An invalid <code>__version_info__</code> tuple will raise an error,
-preventing the library from running and the package from building.</p>
+conforms to <a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a>. Each time the version is changed, the continuous
+integration server will run a test to ensure that the current version is in a
+valid normalized format.</p>
 <h3 id="version-status">Version Status<a class="headerlink" href="#version-status" title="Permanent link">&para;</a></h3>
 <p>A MAJOR version is in development status when the MINOR version is <code>0</code>, the
 PATCH version is <code>0</code>, and the version includes a <code>dev</code> segment.</p>
@@ -416,7 +407,7 @@ so long as all tests pass, including one or more new tests which would have
 failed prior to the change.</p>
 <p>New features and backward incompatible changes may only be merged to the
 <code>master</code> branch when the MAJOR and/or MINOR version is in development status
-pursuant to <a href="https://semver.org/">Semantic Versioning</a>.</p>
+pursuant to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
 <p>A separate commit to the <code>master</code> branch should be made to bump up the MAJOR
 and/or MINOR version and set development status. Only then will any pull
 requests implementing new features or backward incompatible changes be accepted.</p>
@@ -437,8 +428,8 @@ following steps:</p>
    have been resolved.</p>
 </li>
 <li>
-<p>Confirm that the release notes and change log have been updated and indicate
-   the date of the new release.</p>
+<p>Confirm that the changelog has been updated and indicate the date and
+   version of the new release.</p>
 </li>
 <li>
 <p>Update the version defined in <a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/__meta__.py#L29"><code>markdown/__meta__.py</code></a>.</p>
@@ -449,8 +440,8 @@ following steps:</p>
 </li>
 <li>
 <p>Create a pull request with a commit message in the following format:</p>
-<div class="codehilite"><pre><span></span><code>Bump version to X.X.X
-</code></pre></div>
+<pre class="codehilite"><code>Bump version to X.X.X
+</code></pre>
 
 </li>
 <li>
@@ -473,9 +464,9 @@ deploy manually:</p>
   <a href="https://github.com/Python-Markdown/Python-Markdown.github.io"><code>Python-Markdown/Python-Markdown.github.io</code></a>
   repositories are in sibling directories named <code>markdown</code> and <code>Python-Markdown.github.io</code>
   respectively.</p>
-<div class="codehilite"><pre><span></span><code>cd Python-Markdown.github.io
+<pre class="codehilite"><code>cd Python-Markdown.github.io
 mkdocs gh-deploy --config-file ../markdown/mkdocs.yml --remote-branch master
-</code></pre></div>
+</code></pre>
 
 </li>
 </ul>
@@ -714,7 +705,7 @@ label from the same group.</p>
     </li>
             
     <li>
-        <a class="reference internal" href="#release-notes">Release Notes</a>
+        <a class="reference internal" href="#changelog">Changelog</a>
     </li>
         </ul>
     </li>
@@ -774,13 +765,13 @@ label from the same group.</p>
             
             <h4>Previous topic</h4>
             <p class="topless">
-                <a href="../test_tools/" title="previous page">Test Tools</a>
+                <a href="../reference/markdown/test_tools/" title="previous page"><code>test_tools</code></a>
             </p>
 
             
             <h4>Next topic</h4>
             <p class="topless">
-                <a href="../change_log/" title="next page">Change Log</a>
+                <a href="../changelog/" title="next page">Changelog</a>
             </p>
 
             <div role="note" aria-label="source link">
@@ -790,14 +781,6 @@ label from the same group.</p>
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/contributing.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -808,22 +791,23 @@ label from the same group.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../change_log/" title="Change Log" accesskey="N">next</a> |
+                <a href="../changelog/" title="Changelog" accesskey="N">next</a> |
             </li>
             <li class="right">
-                <a href="../test_tools/" title="Test Tools" accesskey="P">previous</a> |
+                <a href="../reference/markdown/test_tools/" title="<code>test_tools</code>" accesskey="P">previous</a> |
             </li>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
+                    
                     
                     
                     
@@ -838,29 +822,16 @@ label from the same group.</p>
          &#187; </li>
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '..';</script>
-        <script src="../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.574966+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.522625+00:00
         -->
     </body>
 </html>

@@ -11,9 +11,12 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Command Line" href="../cli/" />
         <link rel="prev" title="Installation" href="../install/" />
-        <title>Library Reference &#8212; Python-Markdown 3.4.4 documentation</title>
+        <title>Library Reference &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../static/jquery.js"></script>
         <script type="text/javascript" src="../static/underscore.js"></script> 
     </head>
@@ -23,7 +26,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -37,7 +40,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -45,17 +48,6 @@
         <li class="nav-item">
             <a href="./">Library Reference</a>
          &#187; </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     
                     
                     
@@ -76,9 +68,9 @@
 used by various projects to convert Markdown syntax into HTML.</p>
 <h2 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">&para;</a></h2>
 <p>To use markdown as a module:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">markdown</span>
-<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">your_text_string</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">import markdown
+html = markdown.markdown(your_text_string)
+</code></pre>
 
 <h2 id="the-details">The Details<a class="headerlink" href="#the-details" title="Permanent link">&para;</a></h2>
 <p>Python-Markdown provides two public functions (<a href="#markdown"><code>markdown.markdown</code></a>
@@ -100,15 +92,15 @@ method appropriately (<a href="#convert">see below</a>).</p>
 <p>Python-Markdown expects a <strong>Unicode</strong> string as input (some simple ASCII binary strings <em>may</em> work only by
 coincidence) and returns output as a Unicode string. Do not pass binary strings to it! If your input is
 encoded, (e.g. as UTF-8), it is your responsibility to decode it.  For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_file.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_file</span><span class="p">:</span>
-    <span class="n">text</span> <span class="o">=</span> <span class="n">input_file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">with open(&quot;some_file.txt&quot;, &quot;r&quot;, encoding=&quot;utf-8&quot;) as input_file:
+    text = input_file.read()
+html = markdown.markdown(text)
+</code></pre>
 
 <p>If you want to write the output to disk, you <em>must</em> encode it yourself:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;some_file.html&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;xmlcharrefreplace&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output_file</span><span class="p">:</span>
-    <span class="n">output_file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">with open(&quot;some_file.html&quot;, &quot;w&quot;, encoding=&quot;utf-8&quot;, errors=&quot;xmlcharrefreplace&quot;) as output_file:
+    output_file.write(html)
+</code></pre>
 
 </div>
 </dd>
@@ -122,8 +114,8 @@ library. See the <a href="../extensions/">extension documentation</a> for a
 list of available extensions.</p>
 <p>The list of extensions may contain instances of extensions and/or strings
 of extension names.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtClass</span><span class="p">(),</span> <span class="s1">&#39;myext&#39;</span><span class="p">,</span> <span class="s1">&#39;path.to.my.ext:MyExtClass&#39;</span><span class="p">]</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">extensions=[MyExtClass(), 'myext', 'path.to.my.ext:MyExtClass']
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -135,12 +127,12 @@ directly (from the command line or in a template).</p>
 of <code>markdown.extensions.Extension</code> and any configuration options should be
 defined when initiating the class instance rather than using the
 <a href="#extension_configs"><code>extension_configs</code></a> keyword. For example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
-<span class="k">class</span> <span class="nc">MyExtClass</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
-    <span class="c1"># define your extension here...</span>
+<pre class="codehilite"><code class="language-python">from markdown.extensions import Extension
+class MyExtClass(Extension):
+    # define your extension here...
 
-<span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtClass</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)])</span>
-</code></pre></div>
+markdown.markdown(text, extensions=[MyExtClass(option='value')])
+</code></pre>
 
 <p>If an extension name is provided as a string, the string must either be the
 registered entry point of any installed extension or the importable path
@@ -150,8 +142,8 @@ to an extension as an entry point.  Simply include the defined name as
 a string in the list of extensions. For example, if an extension has the
 name <code>myext</code> assigned to it and the extension is properly installed, then
 do the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;myext&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(text, extensions=['myext'])
+</code></pre>
 
 <p>If an extension does not have a registered entry point, Python&rsquo;s dot
 notation may be used instead. The extension must be installed as a
@@ -159,12 +151,12 @@ Python module on your PYTHONPATH. Generally, a class should be specified in
 the name. The class must be at the end of the name and be separated by a
 colon from the module.</p>
 <p>Therefore, if you were to import the class like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtClass</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">from path.to.module import MyExtClass
+</code></pre>
 
 <p>Then load the extension as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;path.to.module:MyExtClass&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(text, extensions=['path.to.module:MyExtClass'])
+</code></pre>
 
 <p>If only one extension is defined within a module and the module includes a
 <code>makeExtension</code> function which returns an instance of the extension, then
@@ -193,16 +185,16 @@ does not require use of the <code>extension_configs</code> keyword at all.
 See the <a href="#extensions">extensions</a> keyword for details.</p>
 </div>
 <p>The dictionary of configuration settings must be in the following format:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">extension_configs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;extension_name_1&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;option_1&#39;</span><span class="p">:</span> <span class="s1">&#39;value_1&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;option_2&#39;</span><span class="p">:</span> <span class="s1">&#39;value_2&#39;</span>
-    <span class="p">},</span>
-    <span class="s1">&#39;extension_name_2&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;option_1&#39;</span><span class="p">:</span> <span class="s1">&#39;value_1&#39;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">extension_configs = {
+    'extension_name_1': {
+        'option_1': 'value_1',
+        'option_2': 'value_2'
+    },
+    'extension_name_2': {
+        'option_1': 'value_1'
+    }
+}
+</code></pre>
 
 <p>When specifying the extension name, be sure to use the exact same
 string as is used in the <a href="#extensions">extensions</a> keyword to load the
@@ -284,21 +276,21 @@ from multiple threads.</p>
 argument of the <a href="#markdown"><code>markdown.markdown</code></a> function.</p>
 <p>You should also use this method if you want to process multiple strings
 without creating a new instance of the class for each string.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">()</span>
-<span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
-<span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">md = markdown.Markdown()
+html1 = md.convert(text1)
+html2 = md.convert(text2)
+</code></pre>
 
 <p>Depending on which options and/or extensions are being used, the parser may
 need its state reset between each call to <code>convert</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text1</span><span class="p">)</span>
-<span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text2</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">html1 = md.convert(text1)
+md.reset()
+html2 = md.convert(text2)
+</code></pre>
 
 <p>To make this easier, you can also chain calls to <code>reset</code> together:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html3</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text3</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">html3 = md.reset().convert(text3)
+</code></pre>
 
 <h4 id="convertFile">Markdown.convertFile(**kwargs)<a class="headerlink" href="#convertFile" title="Permanent link">&para;</a></h4>
 <p>The arguments of this method are identical to the arguments of the same
@@ -374,14 +366,6 @@ each document. State may need to be <code>reset</code> between each call to
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/reference.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -392,7 +376,7 @@ each document. State may need to be <code>reset</code> between each call to
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -406,7 +390,7 @@ each document. State may need to be <code>reset</code> between each call to
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -423,28 +407,16 @@ each document. State may need to be <code>reset</code> between each call to
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '..';</script>
-        <script src="../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.606207+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.523392+00:00
         -->
     </body>
 </html>

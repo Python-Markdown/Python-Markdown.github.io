@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/test_tools/">
+        <link rel="shortcut icon" href="../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../search.html" />
+        <link rel="next" title="Contributing to Python-Markdown" href="../../../contributing/" />
+        <link rel="prev" title="<code>htmlparser</code>" href="../htmlparser/" />
+        <title>test_tools &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../../../contributing/" title="Contributing to Python-Markdown" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../htmlparser/" title="<code>htmlparser</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>test_tools</code></a>
+         &#187; </li>
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.test_tools" class="doc doc-heading">
+          <code>markdown.test_tools</code>
+
+
+<a href="#markdown.test_tools" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>A collection of tools for testing the Markdown code base and extensions.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.test_tools.TestCase" class="doc doc-heading">
+          <code>markdown.test_tools.TestCase</code>
+
+
+<a href="#markdown.test_tools.TestCase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" title="unittest.TestCase" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase">TestCase</a></code></p>
+
+  
+      <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass with helpers for testing Markdown output.</p>
+<p>Define <code>default_kwargs</code> as a <code>dict</code> of keywords to pass to Markdown for each
+test. The defaults can be overridden on individual tests.</p>
+<p>The <code>assertMarkdownRenders</code> method accepts the source text, the expected
+output, and any keywords to pass to Markdown. The <code>default_kwargs</code> are used
+except where overridden by <code>kwargs</code>. The output and expected output are passed
+to <code>TestCase.assertMultiLineEqual</code>. An <code>AssertionError</code> is raised with a diff
+if the actual output does not equal the expected output.</p>
+<p>The <code>dedent</code> method is available to dedent triple-quoted strings if
+necessary.</p>
+<p>In all other respects, behaves as <code>unittest.TestCase</code>.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.test_tools.TestCase.default_kwargs" class="doc doc-heading">
+          <code class=" language-python">markdown.test_tools.TestCase.default_kwargs: dict[str, Any] = {}</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.test_tools.TestCase.default_kwargs" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Default options to pass to Markdown for each test.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.test_tools.TestCase.assertMarkdownRenders" class="doc doc-heading">
+          <code class=" language-python">markdown.test_tools.TestCase.assertMarkdownRenders(source, expected, expected_attrs=None, **kwargs)</code>
+
+<a href="#markdown.test_tools.TestCase.assertMarkdownRenders" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Test that source Markdown text renders to expected output with given keywords.</p>
+<p><code>expected_attrs</code> accepts a <code>dict</code>. Each key should be the name of an attribute
+on the <code>Markdown</code> instance and the value should be the expected value after
+the source text is parsed by Markdown. After the expected output is tested,
+the expected value for each attribute is compared against the actual
+attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual</code>.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.test_tools.TestCase.dedent" class="doc doc-heading">
+          <code class=" language-python">markdown.test_tools.TestCase.dedent(text)</code>
+
+<a href="#markdown.test_tools.TestCase.dedent" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Dedent text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.test_tools.recursionlimit" class="doc doc-heading">
+            <code class=" language-python">markdown.test_tools.recursionlimit(limit)</code>
+
+<a href="#markdown.test_tools.recursionlimit" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>A context manager which temporarily modifies the Python recursion limit.</p>
+<p>The testing framework, coverage, etc. may add an arbitrary number of levels to the depth. To maintain consistency
+in the tests, the current stack depth is determined when called, then added to the provided limit.</p>
+<p>Example usage:</p>
+<pre class="codehilite"><code class="language-python">with recursionlimit(20):
+    # test code here
+</code></pre>
+
+<p>See <a href="https://stackoverflow.com/a/50120316/866026">https://stackoverflow.com/a/50120316/866026</a>.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.test_tools.Kwargs" class="doc doc-heading">
+          <code>markdown.test_tools.Kwargs</code>
+
+
+<a href="#markdown.test_tools.Kwargs" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code></p>
+
+  
+      <p>A <code>dict</code> like class for holding keyword arguments.</p>
+
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.test_tools.LegacyTestCase" class="doc doc-heading">
+          <code>markdown.test_tools.LegacyTestCase</code>
+
+
+<a href="#markdown.test_tools.LegacyTestCase" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" title="unittest.TestCase" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase">TestCase</a></code></p>
+
+  
+      <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass for running Markdown&rsquo;s legacy file-based tests.</p>
+<p>A subclass should define various properties which point to a directory of
+text-based test files and define various behaviors/defaults for those tests.
+The following properties are supported:</p>
+
+
+
+  <p>Attributes:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>location</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A path to the directory of test files. An absolute path is preferred.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>exclude</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of tests to exclude. Each test name should comprise the filename
+without an extension.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>normalize</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A boolean value indicating if the HTML should be normalized. Default: <code>False</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>input_ext</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A string containing the file extension of input files. Default: <code>.txt</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>output_ext</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A string containing the file extension of expected output files. Default: <code>html</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>default_kwargs</code></b>
+            (<code><a class="autorefs autorefs-internal" title="markdown.test_tools.Kwargs" href="#markdown.test_tools.Kwargs">Kwargs</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>The default set of keyword arguments for all test files in the directory.</p>
+        </div>
+      </li>
+  </ul>
+      <p>In addition, properties can be defined for each individual set of test files within
+the directory. The property should be given the name of the file without the file
+extension. Any spaces and dashes in the filename should be replaced with
+underscores. The value of the property should be a <code>Kwargs</code> instance which
+contains the keyword arguments that should be passed to <code>Markdown</code> for that
+test file. The keyword arguments will &ldquo;update&rdquo; the <code>default_kwargs</code>.</p>
+<p>When the class instance is created, it will walk the given directory and create
+a separate <code>Unitttest</code> for each set of test files using the naming scheme:
+<code>test_filename</code>. One <code>Unittest</code> will be run for each set of input and output files.</p>
+
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.test_tools">test_tools</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.test_tools.TestCase">TestCase</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.test_tools.TestCase.default_kwargs">default_kwargs</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.test_tools.TestCase.assertMarkdownRenders">assertMarkdownRenders()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.test_tools.TestCase.dedent">dedent()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.test_tools.recursionlimit">recursionlimit</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.test_tools.Kwargs">Kwargs</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.test_tools.LegacyTestCase">LegacyTestCase</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../htmlparser/" title="previous page"><code>htmlparser</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../../../contributing/" title="next page">Contributing to Python-Markdown</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/test_tools.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../../../contributing/" title="Contributing to Python-Markdown" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../htmlparser/" title="<code>htmlparser</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>test_tools</code></a>
+         &#187; </li>
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
+        </div>
+        <script>var base_url = '../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.541847+00:00
+        -->
+    </body>
+</html>

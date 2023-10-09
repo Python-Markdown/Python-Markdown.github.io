@@ -11,9 +11,12 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Legacy Attributes" href="../legacy_attrs/" />
         <link rel="prev" title="Fenced Code Blocks" href="../fenced_code_blocks/" />
-        <title>Footnotes &#8212; Python-Markdown 3.4.4 documentation</title>
+        <title>Footnotes &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
         <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
@@ -23,7 +26,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -37,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -75,17 +78,6 @@
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
 
@@ -103,11 +95,11 @@ Markdown community at large and almost exactly matches <a href="http://michelf.c
 implementation of footnotes. The only differences involve a few subtleties in
 the output.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><code>Footnotes[^1] have a label[^@#$%] and the footnote&#39;s content.
+<pre class="codehilite"><code class="language-md">Footnotes[^1] have a label[^@#$%] and the footnote's content.
 
-[<span class="nl">^1</span>]: <span class="na">This is a footnote content.</span>
-[<span class="nl">^@#$%</span>]: <span class="na">A footnote on the label: &quot;@#$%&quot;.</span>
-</code></pre></div>
+[^1]: This is a footnote content.
+[^@#$%]: A footnote on the label: &quot;@#$%&quot;.
+</code></pre>
 
 <p>A footnote label must start with a caret <code>^</code> and may contain any inline text
 (including spaces) between a set of square brackets <code>[]</code>. Only the first
@@ -122,18 +114,18 @@ one tab).</p>
 <p>When working with multiple blocks, it may be helpful to start the content on a
 separate line from the label which defines the content. This way the entire block
 is indented consistently and any errors are more easily discernible by the author.</p>
-<div class="codehilite"><pre><span></span><code>[<span class="nl">^1</span>]:
-    <span class="na">The first paragraph of the definition.</span>
+<pre class="codehilite"><code class="language-md">[^1]:
+    The first paragraph of the definition.
 
     Paragraph two of the definition.
 
-<span class="k">    &gt; </span><span class="ge">A blockquote with</span>
-<span class="k">    &gt; </span><span class="ge">multiple lines.</span>
+    &gt; A blockquote with
+    &gt; multiple lines.
 
         a code block
 
     A final paragraph.
-</code></pre></div>
+</code></pre>
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>footnotes</code> as the
@@ -176,8 +168,8 @@ definitions are placed at the end of the resulting HTML document.</p>
 </li>
 </ul>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;footnotes&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['footnotes'])
+</code></pre>
 
 <h2 id="resetting-instance-state">Resetting Instance State<a class="headerlink" href="#resetting-instance-state" title="Permanent link">&para;</a></h2>
 <p>Footnote definitions are stored within the  <code>markdown.Markdown</code> class instance between
@@ -193,11 +185,11 @@ document, and should have footnotes pertaining only to that page. By calling <co
 between runs, the footnote definitions from the first document will be cleared before
 the second document is rendered.</p>
 <p>An example of calling <code>reset</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;footnotes&#39;</span><span class="p">])</span>
-<span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_with_footnote</span><span class="p">)</span>
-<span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_without_footnote</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">md = markdown.Markdown(extensions=['footnotes'])
+html1 = md.convert(text_with_footnote)
+md.reset()
+html2 = md.convert(text_without_footnote)
+</code></pre>
 
                     </div>
                 </div>
@@ -248,14 +240,6 @@ the second document is rendered.</p>
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/footnotes.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -266,7 +250,7 @@ the second document is rendered.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -280,7 +264,7 @@ the second document is rendered.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -318,28 +302,16 @@ the second document is rendered.</p>
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.809279+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.530502+00:00
         -->
     </body>
 </html>

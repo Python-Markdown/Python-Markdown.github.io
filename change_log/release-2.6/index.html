@@ -9,11 +9,14 @@
         <link rel="canonical" href="https://Python-Markdown.github.io/change_log/release-2.6/">
         <link rel="shortcut icon" href="../../favicon.ico">
         <link rel="search" title="Search" href="../../search.html" />
-        <link rel="next" title="Release Notes for v.2.5" href="../release-2.5/" />
-        <link rel="prev" title="Release Notes for v.3.0" href="../release-3.0/" />
-        <title>Release Notes for v.2.6 &#8212; Python-Markdown 3.4.4 documentation</title>
+        
+        
+        <title>Release Notes for v2.6 &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
         <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
@@ -23,41 +26,23 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
-            <li class="right">
-                <a href="../release-2.5/" title="Release Notes for v.2.5" accesskey="N">next</a> |
-            </li>
-            <li class="right">
-                <a href="../release-3.0/" title="Release Notes for v.3.0" accesskey="P">previous</a> |
-            </li>
+            
+            
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        <li class="nav-item">
-            <a href="./">Release Notes for v.2.6</a>
-         &#187; </li>
                     
                     
                     
@@ -89,27 +74,27 @@ converted to HTML by markdown. In fact, <a href="https://github.com/yourcelf/ble
 list of tags, attributes, and styles suitable for filtering user-provided HTML
 using bleach.</p>
 <p>If your code previously looked like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">html = markdown.markdown(text, safe_mode=True)
+</code></pre>
 
 <p>Then it is recommended that you change your code to read something like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">bleach</span>
-<span class="kn">from</span> <span class="nn">bleach_whitelist</span> <span class="kn">import</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span>
-<span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">import bleach
+from bleach_whitelist import markdown_tags, markdown_attrs
+html = bleach.clean(markdown.markdown(text), markdown_tags, markdown_attrs)
+</code></pre>
 
 <p>If you are not interested in sanitizing untrusted text, but simply desire to
 escape raw HTML, then that can be accomplished through an extension which
 removes HTML parsing:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+<pre class="codehilite"><code class="language-python">from markdown.extensions import Extension
 
-<span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">md_globals</span><span class="p">):</span>
-        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">preprocessors</span><span class="p">[</span><span class="s1">&#39;html_block&#39;</span><span class="p">]</span>
-        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
+class EscapeHtml(Extension):
+    def extendMarkdown(self, md, md_globals):
+        del md.preprocessors['html_block']
+        del md.inlinePatterns['html']
 
-<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
-</code></pre></div>
+html = markdown.markdown(text, extensions=[EscapeHtml()])
+</code></pre>
 
 <p>As the HTML would not be parsed with the above Extension, then the serializer
 will escape the raw HTML, which is exactly what happens now when
@@ -120,12 +105,12 @@ all except the <code>text</code> argument on the <code>markdown.markdown()</code
 Using positional arguments will raise a <strong><code>DeprecationWarning</code></strong> in 2.6 and an
 error in the next release. Only keyword arguments should be used. For example,
 if your code previously looked like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">html = markdown.markdown(text, [SomeExtension()])
+</code></pre>
 
 <p>Then it is recommended that you change it to read something like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">html = markdown.markdown(text, extensions=[SomeExtension()])
+</code></pre>
 
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -143,27 +128,27 @@ special treatment. This behavior is deprecated and will raise a
 <strong><code>DeprecationWarning</code></strong> in version 2.6 and an error in the next release. Ensure
 that you always use the full path to your extensions. For example, if you
 previously did the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;extra&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(text, extensions=['extra'])
+</code></pre>
 
 <p>You should change your code to the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.extra&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(text, extensions=['markdown.extensions.extra'])
+</code></pre>
 
 <p>The same applies to the command line:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">markdown</span> <span class="o">-</span><span class="n">x</span> <span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">extra</span> <span class="nb">input</span><span class="o">.</span><span class="n">txt</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">python -m markdown -x markdown.extensions.extra input.txt
+</code></pre>
 
 <p>Similarly, if you have used a third party extension (for example <code>mdx_math</code>),
 previously you might have called it like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;math&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(text, extensions=['math'])
+</code></pre>
 
 <p>As the <code>"mdx"</code> prefix will no longer be appended, you will need to change your
 code as follows (assuming the file <code>mdx_math.py</code> is installed at the root of
 your PYTHONPATH):</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;mdx_math&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(text, extensions=['mdx_math'])
+</code></pre>
 
 <p>Extension authors will want to update their documentation to reflect the new
 behavior.</p>
@@ -192,24 +177,24 @@ statements accordingly (<code>from markdown.extensions.toc import slugify, uniqu
 individual configuration option should be passed to the class as a keyword/value
 pair. For example. one might have previously initiated an extension subclass
 like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ext</span> <span class="o">=</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;somekey&#39;</span><span class="p">:</span> <span class="s1">&#39;somevalue&#39;</span><span class="p">})</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">ext = SomeExtension(configs={'somekey': 'somevalue'})
+</code></pre>
 
 <p>That code should be updated to pass in the options directly:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ext</span> <span class="o">=</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="n">somekey</span><span class="o">=</span><span class="s1">&#39;somevalue&#39;</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">ext = SomeExtension(somekey='somevalue')
+</code></pre>
 
 <p>Extension authors will want to note that this affects the <code>makeExtension</code>
 function as well. Previously it was common for the function to be defined as
 follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">makeExtension</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="n">configs</span><span class="o">=</span><span class="n">configs</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">def makeExtension(configs=None):
+    return SomeExtension(configs=configs)
+</code></pre>
 
 <p>Extension authors will want to update their code to the following instead:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">makeExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">SomeExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">def makeExtension(**kwargs):
+    return SomeExtension(**kwargs)
+</code></pre>
 
 <p>Failing to do so will result in a <strong><code>DeprecationWarning</code></strong> and will raise an
 error in the next release. See the <a href="../../extensions/api/#makeextension">Extension API</a> documentation for more
@@ -218,18 +203,18 @@ information.</p>
 <code>__init__</code> method and implements its own configuration handling, then the above
 may not apply. However, it is recommended that the subclass still calls the
 parent <code>__init__</code> method to handle configuration options like so:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SomeExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extension</span><span class="o">.</span><span class="n">Extension</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="c1"># Do pre-config stuff here</span>
-        <span class="c1"># Set config defaults</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;option1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;option2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;description2&#39;</span><span class="p">]</span>
-        <span class="p">}</span>
-        <span class="c1"># Set user defined configs</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">MyExtension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="c1"># Do post-config stuff here</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">class SomeExtension(markdown.extension.Extension):
+    def __init__(**kwargs):
+        # Do pre-config stuff here
+        # Set config defaults
+        self.config = {
+            'option1' : ['value1', 'description1'],
+            'option2' : ['value2', 'description2']
+        }
+        # Set user defined configs
+        super(MyExtension, self).__init__(**kwargs)
+        # Do post-config stuff here
+</code></pre>
 
 <p>Note the call to <code>super</code> to get the benefits of configuration handling from the
 parent class. See the <a href="../../extensions/api/#configsettings">documentation</a> for more information.</p>
@@ -371,16 +356,8 @@ for a complete history of the changes.</p>
     </li>
             </ul>
             
-            <h4>Previous topic</h4>
-            <p class="topless">
-                <a href="../release-3.0/" title="previous page">Release Notes for v.3.0</a>
-            </p>
 
             
-            <h4>Next topic</h4>
-            <p class="topless">
-                <a href="../release-2.5/" title="next page">Release Notes for v.2.5</a>
-            </p>
 
             <div role="note" aria-label="source link">
                 <h3>This Page</h3>
@@ -389,14 +366,6 @@ for a complete history of the changes.</p>
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/change_log/release-2.6.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -407,41 +376,23 @@ for a complete history of the changes.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
-            <li class="right">
-                <a href="../release-2.5/" title="Release Notes for v.2.5" accesskey="N">next</a> |
-            </li>
-            <li class="right">
-                <a href="../release-3.0/" title="Release Notes for v.3.0" accesskey="P">previous</a> |
-            </li>
+            
+            
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        <li class="nav-item">
-            <a href="./">Release Notes for v.2.6</a>
-         &#187; </li>
                     
                     
                     
@@ -452,14 +403,13 @@ for a complete history of the changes.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.653078+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.526332+00:00
         -->
     </body>
 </html>

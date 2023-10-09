@@ -11,9 +11,12 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="New Line to Break" href="../nl2br/" />
         <link rel="prev" title="Legacy Emphasis" href="../legacy_em/" />
-        <title>Meta-Data &#8212; Python-Markdown 3.4.4 documentation</title>
+        <title>Meta-Data &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
         <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
@@ -23,7 +26,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -37,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -75,17 +78,6 @@
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
 
@@ -103,7 +95,7 @@ directly by your python code.</p>
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
 <p>Meta-data consists of a series of keywords and values defined at the beginning
 of a markdown document like this:</p>
-<div class="codehilite"><pre><span></span><code>Title:   My Document
+<pre class="codehilite"><code class="language-md">Title:   My Document
 Summary: A brief description of my document.
 Authors: Waylan Limberg
          John Doe
@@ -112,7 +104,7 @@ blank-value:
 base_url: http://example.com
 
 This is the first paragraph of the document.
-</code></pre></div>
+</code></pre>
 
 <p>The keywords are case-insensitive and may consist of letters, numbers,
 underscores and dashes and must end with a colon. The values consist of
@@ -133,29 +125,29 @@ by Markdown.</p>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>meta</code> as the name
 of the extension.</p>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;meta&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['meta'])
+</code></pre>
 
 <h2 id="accessing-the-meta-data">Accessing the Meta-Data<a class="headerlink" href="#accessing-the-meta-data" title="Permanent link">&para;</a></h2>
 <p>The meta-data is made available as a python Dict in the <code>Meta</code> attribute of an
 instance of the Markdown class. For example, using the above document:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;meta&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Meta-data has been stripped from output</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">html</span>
-<span class="go">&lt;p&gt;This is the first paragraph of the document.&lt;/p&gt;</span>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; md = markdown.Markdown(extensions = ['meta'])
+&gt;&gt;&gt; html = md.convert(text)
+&gt;&gt;&gt; # Meta-data has been stripped from output
+&gt;&gt;&gt; print html
+&lt;p&gt;This is the first paragraph of the document.&lt;/p&gt;
 
-<span class="gp">&gt;&gt;&gt; </span><span class="c1"># View meta-data</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">md</span><span class="o">.</span><span class="n">Meta</span>
-<span class="go">{</span>
-<span class="go">&#39;title&#39; : [&#39;My Document&#39;],</span>
-<span class="go">&#39;summary&#39; : [&#39;A brief description of my document.&#39;],</span>
-<span class="go">&#39;authors&#39; : [&#39;Waylan Limberg&#39;, &#39;John Doe&#39;],</span>
-<span class="go">&#39;date&#39; : [&#39;October 2, 2007&#39;],</span>
-<span class="go">&#39;blank-value&#39; : [&#39;&#39;],</span>
-<span class="go">&#39;base_url&#39; : [&#39;http://example.com&#39;]</span>
-<span class="go">}</span>
-</code></pre></div>
+&gt;&gt;&gt; # View meta-data
+&gt;&gt;&gt; print md.Meta
+{
+'title' : ['My Document'],
+'summary' : ['A brief description of my document.'],
+'authors' : ['Waylan Limberg', 'John Doe'],
+'date' : ['October 2, 2007'],
+'blank-value' : [''],
+'base_url' : ['http://example.com']
+}
+</code></pre>
 
 <p>Note that the keys are all lowercase and the values consist of a list of
 strings where each item is one line for that key. This way, one could preserve
@@ -230,14 +222,6 @@ extension. The keywords they are known to support are also listed.</p>
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/meta_data.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -248,7 +232,7 @@ extension. The keywords they are known to support are also listed.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -262,7 +246,7 @@ extension. The keywords they are known to support are also listed.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -300,28 +284,16 @@ extension. The keywords they are known to support are also listed.</p>
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.840521+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.532162+00:00
         -->
     </body>
 </html>

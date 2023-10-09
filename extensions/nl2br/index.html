@@ -11,9 +11,12 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Markdown in HTML" href="../md_in_html/" />
         <link rel="prev" title="Meta-Data" href="../meta_data/" />
-        <title>New Line to Break &#8212; Python-Markdown 3.4.4 documentation</title>
+        <title>New Line to Break &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
         <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
@@ -23,7 +26,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -37,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -75,17 +78,6 @@
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
 
@@ -97,24 +89,24 @@
 <p>The New-Line-to-Break (<code>nl2br</code>) Extension will cause newlines to be treated as
 hard breaks; like StackOverflow and <a href="https://github.github.com/github-flavored-markdown/">GitHub</a> flavored Markdown do.</p>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">markdown</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
-<span class="gp">... </span><span class="s2">Line 1</span>
-<span class="gp">... </span><span class="s2">Line 2</span>
-<span class="gp">... </span><span class="s2">&quot;&quot;&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nl2br&#39;</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span> <span class="n">html</span>
-<span class="go">&lt;p&gt;Line 1&lt;br /&gt;</span>
-<span class="go">Line 2&lt;/p&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; import markdown
+&gt;&gt;&gt; text = &quot;&quot;&quot;
+... Line 1
+... Line 2
+... &quot;&quot;&quot;
+&gt;&gt;&gt; html = markdown.markdown(text, extensions=['nl2br'])
+&gt;&gt;&gt; print html
+&lt;p&gt;Line 1&lt;br /&gt;
+Line 2&lt;/p&gt;
+</code></pre>
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>nl2br</code> as the name
 of the extension.</p>
 <p>This extension does not accept any special configuration options.</p>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;nl2br&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['nl2br'])
+</code></pre>
 
                     </div>
                 </div>
@@ -161,14 +153,6 @@ of the extension.</p>
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/nl2br.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -179,7 +163,7 @@ of the extension.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -193,7 +177,7 @@ of the extension.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -231,28 +215,16 @@ of the extension.</p>
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.840521+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.532574+00:00
         -->
     </body>
 </html>

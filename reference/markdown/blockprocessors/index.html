@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/blockprocessors/">
+        <link rel="shortcut icon" href="../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../search.html" />
+        <link rel="next" title="<code>treeprocessors</code>" href="../treeprocessors/" />
+        <link rel="prev" title="<code>blockparser</code>" href="../blockparser/" />
+        <title>blockprocessors &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../treeprocessors/" title="<code>treeprocessors</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../blockparser/" title="<code>blockparser</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>blockprocessors</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.blockprocessors" class="doc doc-heading">
+          <code>markdown.blockprocessors</code>
+
+
+<a href="#markdown.blockprocessors" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>A block processor parses blocks of text and adds new elements to the ElementTree. Blocks of text,
+separated from other text by blank lines, may have a different syntax and produce a differently
+structured tree than other Markdown. Block processors excel at handling code formatting, equation
+layouts, tables, etc.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.blockprocessors.build_block_parser" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.build_block_parser(md: Markdown, **kwargs: Any) -&gt; BlockParser</code>
+
+<a href="#markdown.blockprocessors.build_block_parser" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Build the default block parser used by Markdown.</p>
+      <p>Return a <a class="autorefs autorefs-internal" href="../blockparser/#markdown.blockparser.BlockParser"><code>BlockParser</code></a> instance which contains the following collection of classes with their assigned names and priorities.</p>
+<table>
+<thead>
+<tr>
+<th>Class Instance</th>
+<th>Name</th>
+<th style="text-align: center;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.EmptyBlockProcessor"><code>EmptyBlockProcessor</code></a></td>
+<td><code>empty</code></td>
+<td style="text-align: center;"><code>100</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.ListIndentProcessor"><code>ListIndentProcessor</code></a></td>
+<td><code>indent</code></td>
+<td style="text-align: center;"><code>90</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.CodeBlockProcessor"><code>CodeBlockProcessor</code></a></td>
+<td><code>code</code></td>
+<td style="text-align: center;"><code>80</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.HashHeaderProcessor"><code>HashHeaderProcessor</code></a></td>
+<td><code>hashheader</code></td>
+<td style="text-align: center;"><code>70</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.SetextHeaderProcessor"><code>SetextHeaderProcessor</code></a></td>
+<td><code>setextheader</code></td>
+<td style="text-align: center;"><code>60</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.HRProcessor"><code>HRProcessor</code></a></td>
+<td><code>hr</code></td>
+<td style="text-align: center;"><code>50</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.OListProcessor"><code>OListProcessor</code></a></td>
+<td><code>olist</code></td>
+<td style="text-align: center;"><code>40</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.UListProcessor"><code>UListProcessor</code></a></td>
+<td><code>ulist</code></td>
+<td style="text-align: center;"><code>30</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.BlockQuoteProcessor"><code>BlockQuoteProcessor</code></a></td>
+<td><code>quote</code></td>
+<td style="text-align: center;"><code>20</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.ReferenceProcessor"><code>ReferenceProcessor</code></a></td>
+<td><code>reference</code></td>
+<td style="text-align: center;"><code>15</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.blockprocessors.ParagraphProcessor"><code>ParagraphProcessor</code></a></td>
+<td><code>paragraph</code></td>
+<td style="text-align: center;"><code>10</code></td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.BlockProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.BlockProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.BlockProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Base class for block processors.</p>
+<p>Each subclass will provide the methods below to work with the source and
+tree. Each processor will need to define it&rsquo;s own <code>test</code> and <code>run</code>
+methods. The <code>test</code> method should return True or False, to indicate
+whether the current block should be processed by this processor. If the
+test passes, the parser will call the processors <code>run</code> method.</p>
+
+
+
+  <p>Attributes:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>BlockProcessor.parser</code></b>
+            (<code><a class="autorefs autorefs-internal" title="markdown.blockparser.BlockParser" href="../blockparser/#markdown.blockparser.BlockParser">BlockParser</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The <code>BlockParser</code> instance this is attached to.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>BlockProcessor.tab_length</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#int">int</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The tab length set on the <code>Markdown</code> instance.</p>
+        </div>
+      </li>
+  </ul>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.BlockProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.BlockProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.BlockProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockProcessor.test" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockProcessor.test(parent: etree.Element, block: list[str]) -&gt; bool</code>
+
+<a href="#markdown.blockprocessors.BlockProcessor.test" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Test for block type. Must be overridden by subclasses.</p>
+<p>As the parser loops through processors, it will call the <code>test</code>
+method on each to determine if the given block of text is of that
+type. This method must return a boolean <code>True</code> or <code>False</code>. The
+actual method of testing is left to the needs of that particular
+block type. It could be as simple as <code>block.startswith(some_string)</code>
+or a complex regular expression. As the block type may be different
+depending on the parent of the block (i.e. inside a list), the parent
+<code>etree</code> element is also provided and may be used as part of the test.</p>
+
+
+
+  <p>Other Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>parent</code></b>
+            (<code><span title="xml.Element">Element</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>An <code>etree</code> element which will be the parent of the block.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>block</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>A block of text from the source which has been split at blank lines.</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockProcessor.run" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockProcessor.run(parent: etree.Element, blocks: list[str]) -&gt; bool | None</code>
+
+<a href="#markdown.blockprocessors.BlockProcessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Run processor. Must be overridden by subclasses.</p>
+<p>When the parser determines the appropriate type of a block, the parser
+will call the corresponding processor&rsquo;s <code>run</code> method. This method
+should parse the individual lines of the block and append them to
+the <code>etree</code>.</p>
+<p>Note that both the <code>parent</code> and <code>etree</code> keywords are pointers
+to instances of the objects which should be edited in place. Each
+processor must make changes to the existing objects as there is no
+mechanism to return new/different objects to replace them.</p>
+<p>This means that this method should be adding <code>SubElements</code> or adding text
+to the parent, and should remove (<code>pop</code>) or add (<code>insert</code>) items to
+the list of blocks.</p>
+<p>If <code>False</code> is returned, this will have the same effect as returning <code>False</code>
+from the <code>test</code> method.</p>
+
+
+
+  <p>Other Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>parent</code></b>
+            (<code><span title="xml.Element">Element</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>An <code>etree</code> element which is the parent of the current block.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>blocks</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of all remaining blocks of the document.</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.ListIndentProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.ListIndentProcessor(*args)</code>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process children of list items.</p>
+<p>Example</p>
+<pre class="codehilite"><code>* a list item
+    process this part
+
+    or this part
+</code></pre>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ListIndentProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ListIndentProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ListIndentProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.ListIndentProcessor.ITEM_TYPES" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.ITEM_TYPES = ['li']</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor.ITEM_TYPES" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>List of tags used for list items.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.ListIndentProcessor.LIST_TYPES" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.LIST_TYPES = ['ul', 'ol']</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor.LIST_TYPES" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Types of lists this processor can operate on.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ListIndentProcessor.create_item" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.create_item(parent: etree.Element, block: str)</code>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor.create_item" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Create a new <code>li</code> and parse the block with it as the parent.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ListIndentProcessor.get_level" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.get_level(parent: etree.Element, block: str) -&gt; tuple[int, etree.Element]</code>
+
+<a href="#markdown.blockprocessors.ListIndentProcessor.get_level" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get level of indentation based on list level.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.CodeBlockProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.CodeBlockProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process code blocks.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.CodeBlockProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.CodeBlockProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.CodeBlockProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.CodeBlockProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.CodeBlockProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.CodeBlockProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.BlockQuoteProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.BlockQuoteProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process blockquotes.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockQuoteProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.BlockQuoteProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockQuoteProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.BlockQuoteProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockQuoteProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.BlockQuoteProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.BlockQuoteProcessor.clean" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.clean(line: str) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.BlockQuoteProcessor.clean" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove <code>&gt;</code> from beginning of a line.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.OListProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.OListProcessor(parser)</code>
+
+<a href="#markdown.blockprocessors.OListProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process ordered list blocks.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.OListProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.OListProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.OListProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.TAG" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.TAG: str = 'ol'</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.OListProcessor.TAG" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The tag used for the the wrapping element.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.STARTSWITH" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.STARTSWITH: int = '1'</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.OListProcessor.STARTSWITH" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The integer (as a string ) with which the list starts. For example, if a list is initialized as
+<code>3. Item</code>, then the <code>ol</code> tag will be assigned an HTML attribute of <code>starts="3"</code>. Default: <code>"1"</code>.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.LAZY_OL" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.LAZY_OL: bool = True</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.OListProcessor.LAZY_OL" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Ignore <code>STARTSWITH</code> if <code>True</code>.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.SIBLING_TAGS" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.SIBLING_TAGS: list[str] = ['ol', 'ul']</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.OListProcessor.SIBLING_TAGS" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Markdown does not require the type of a new list item match the previous list item type.
+This is the list of types which can be mixed.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.OListProcessor.get_items" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.OListProcessor.get_items(block: str) -&gt; list[str]</code>
+
+<a href="#markdown.blockprocessors.OListProcessor.get_items" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Break a block into list items.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.UListProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.UListProcessor(parser)</code>
+
+<a href="#markdown.blockprocessors.UListProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.OListProcessor" href="#markdown.blockprocessors.OListProcessor">OListProcessor</a></code></p>
+
+  
+      <p>Process unordered list blocks.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.UListProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.UListProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.UListProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.STARTSWITH" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.STARTSWITH: int = '1'</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.UListProcessor.STARTSWITH" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The integer (as a string ) with which the list starts. For example, if a list is initialized as
+<code>3. Item</code>, then the <code>ol</code> tag will be assigned an HTML attribute of <code>starts="3"</code>. Default: <code>"1"</code>.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.LAZY_OL" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.LAZY_OL: bool = True</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.UListProcessor.LAZY_OL" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Ignore <code>STARTSWITH</code> if <code>True</code>.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.SIBLING_TAGS" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.SIBLING_TAGS: list[str] = ['ol', 'ul']</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.UListProcessor.SIBLING_TAGS" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Markdown does not require the type of a new list item match the previous list item type.
+This is the list of types which can be mixed.</p>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.get_items" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.get_items(block: str) -&gt; list[str]</code>
+
+<a href="#markdown.blockprocessors.UListProcessor.get_items" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Break a block into list items.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.blockprocessors.UListProcessor.TAG" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.UListProcessor.TAG: str = 'ul'</code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.blockprocessors.UListProcessor.TAG" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>The tag used for the the wrapping element.</p>
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.HashHeaderProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.HashHeaderProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process Hash Headers.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.HashHeaderProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.HashHeaderProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.HashHeaderProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.HashHeaderProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.HashHeaderProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.HashHeaderProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.SetextHeaderProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.SetextHeaderProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process Setext-style Headers.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.SetextHeaderProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.SetextHeaderProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.SetextHeaderProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.SetextHeaderProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.SetextHeaderProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.SetextHeaderProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.HRProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.HRProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.HRProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process Horizontal Rules.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.HRProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.HRProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.HRProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.HRProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.HRProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.HRProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.HRProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.HRProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.HRProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.EmptyBlockProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.EmptyBlockProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process blocks that are empty or start with an empty line.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.EmptyBlockProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.EmptyBlockProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.EmptyBlockProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.EmptyBlockProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.EmptyBlockProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.EmptyBlockProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.ReferenceProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.ReferenceProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.ReferenceProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process link references.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ReferenceProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ReferenceProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.ReferenceProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ReferenceProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ReferenceProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.ReferenceProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ReferenceProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ReferenceProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.ReferenceProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockprocessors.ParagraphProcessor" class="doc doc-heading">
+            <code class=" language-python">markdown.blockprocessors.ParagraphProcessor(parser: BlockParser)</code>
+
+<a href="#markdown.blockprocessors.ParagraphProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process Paragraph blocks.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ParagraphProcessor.lastChild" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ParagraphProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
+
+<a href="#markdown.blockprocessors.ParagraphProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return the last child of an <code>etree</code> element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ParagraphProcessor.detab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ParagraphProcessor.detab(text: str, length: int = None) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.ParagraphProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from the front of each line of the given text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockprocessors.ParagraphProcessor.looseDetab" class="doc doc-heading">
+          <code class=" language-python">markdown.blockprocessors.ParagraphProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
+
+<a href="#markdown.blockprocessors.ParagraphProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove a tab from front of lines but allowing dedented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors">blockprocessors</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.build_block_parser">build_block_parser()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockProcessor">BlockProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockProcessor.looseDetab">looseDetab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockProcessor.test">test()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockProcessor.run">run()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor">ListIndentProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor.looseDetab">looseDetab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor.ITEM_TYPES">ITEM_TYPES</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor.LIST_TYPES">LIST_TYPES</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor.create_item">create_item()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ListIndentProcessor.get_level">get_level()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.CodeBlockProcessor">CodeBlockProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.CodeBlockProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.CodeBlockProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.CodeBlockProcessor.looseDetab">looseDetab()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockQuoteProcessor">BlockQuoteProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockQuoteProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockQuoteProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockQuoteProcessor.looseDetab">looseDetab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.BlockQuoteProcessor.clean">clean()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor">OListProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.looseDetab">looseDetab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.TAG">TAG</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.STARTSWITH">STARTSWITH</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.LAZY_OL">LAZY_OL</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.SIBLING_TAGS">SIBLING_TAGS</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.OListProcessor.get_items">get_items()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor">UListProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.looseDetab">looseDetab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.STARTSWITH">STARTSWITH</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.LAZY_OL">LAZY_OL</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.SIBLING_TAGS">SIBLING_TAGS</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.get_items">get_items()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.UListProcessor.TAG">TAG</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HashHeaderProcessor">HashHeaderProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HashHeaderProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HashHeaderProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HashHeaderProcessor.looseDetab">looseDetab()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.SetextHeaderProcessor">SetextHeaderProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.SetextHeaderProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.SetextHeaderProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.SetextHeaderProcessor.looseDetab">looseDetab()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HRProcessor">HRProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HRProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HRProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.HRProcessor.looseDetab">looseDetab()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.EmptyBlockProcessor">EmptyBlockProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.EmptyBlockProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.EmptyBlockProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.EmptyBlockProcessor.looseDetab">looseDetab()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ReferenceProcessor">ReferenceProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ReferenceProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ReferenceProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ReferenceProcessor.looseDetab">looseDetab()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ParagraphProcessor">ParagraphProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ParagraphProcessor.lastChild">lastChild()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ParagraphProcessor.detab">detab()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockprocessors.ParagraphProcessor.looseDetab">looseDetab()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../blockparser/" title="previous page"><code>blockparser</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../treeprocessors/" title="next page"><code>treeprocessors</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/blockprocessors.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../treeprocessors/" title="<code>treeprocessors</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../blockparser/" title="<code>blockparser</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>blockprocessors</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
+        </div>
+        <script>var base_url = '../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.537254+00:00
+        -->
+    </body>
+</html>

@@ -11,9 +11,12 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="CodeHilite" href="../code_hilite/" />
         <link rel="prev" title="Admonition" href="../admonition/" />
-        <title>Attribute Lists &#8212; Python-Markdown 3.4.4 documentation</title>
+        <title>Attribute Lists &#8212; Python-Markdown 3.5 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
         <script type="text/javascript" src="../../static/jquery.js"></script>
         <script type="text/javascript" src="../../static/underscore.js"></script> 
     </head>
@@ -23,7 +26,7 @@
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -37,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -75,17 +78,6 @@
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
 
@@ -101,8 +93,8 @@ HTML elements in markdown&rsquo;s output.</p>
 <p>The basic syntax was inspired by Maruku&rsquo;s Attribute Lists feature (see <a href="https://web.archive.org/web/20170324172643/http://maruku.rubyforge.org/proposal.html">web archive</a>).</p>
 <h3 id="the-list">The List<a class="headerlink" href="#the-list" title="Permanent link">&para;</a></h3>
 <p>An example attribute list might look like this:</p>
-<div class="codehilite"><pre><span></span><code>{: #someid .someclass somekey=&#39;some value&#39; }
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">{: #someid .someclass somekey='some value' }
+</code></pre>
 
 <p>A word which starts with a hash (<code>#</code>) will set the id of an element.</p>
 <p>A word which starts with a dot (<code>.</code>) will be added to the list of classes
@@ -110,26 +102,26 @@ assigned to an element.</p>
 <p>A key/value pair (<code>somekey='some value'</code>) will assign that pair to the element.</p>
 <p>Be aware that while the dot syntax will add to a class, using key/value pairs
 will always override the previously defined attribute. Consider the following:</p>
-<div class="codehilite"><pre><span></span><code>{: #id1 .class1 id=id2 class=&quot;class2 class3&quot; .class4 }
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">{: #id1 .class1 id=id2 class=&quot;class2 class3&quot; .class4 }
+</code></pre>
 
 <p>The above example would result in the following attributes being defined:</p>
-<div class="codehilite"><pre><span></span><code>id=&quot;id2&quot; class=&quot;class2 class3 class4&quot;
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">id=&quot;id2&quot; class=&quot;class2 class3 class4&quot;
+</code></pre>
 
 <p>HTML includes support for some attributes to be a single term, like <code>checked</code>, for example. Therefore, the attribute
 list <code>{: checked }</code> would result in <code>checked</code> if the <a href="../../reference/#output_format">output format</a> is <code>html</code> or
 <code>checked="checked"</code> if the output format is <code>xhtml</code>.</p>
 <p>Curly braces can be backslash escaped to avoid being identified as an attribute list.</p>
-<div class="codehilite"><pre><span></span><code>\{ not an attribute list }
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">\{ not an attribute list }
+</code></pre>
 
 <p>Opening and closing curly braces which are empty or only contain whitespace are ignored whether they are escaped or
 not. Additionally, any attribute lists which are not located in the specific locations documented below are ignored.</p>
 <p>The colon after the opening brace is optional, but is supported to maintain consistency with other implementations.
 Therefore, the following is also a valid attribute list:</p>
-<div class="codehilite"><pre><span></span><code>{ #someid .someclass somekey=&#39;some value&#39; }
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">{ #someid .someclass somekey='some value' }
+</code></pre>
 
 <p>In addition, the spaces after the opening brace and before the closing brace are optional. They are recommended as
 they improve readability, but they are not required.</p>
@@ -140,25 +132,25 @@ characters are reduced to a single underscore.</p>
 <h3 id="block-level">Block Level<a class="headerlink" href="#block-level" title="Permanent link">&para;</a></h3>
 <p>To define attributes for a block level element, the attribute list should
 be defined on the last line of the block by itself.</p>
-<div class="codehilite"><pre><span></span><code>This is a paragraph.
+<pre class="codehilite"><code class="language-text">This is a paragraph.
 {: #an_id .a_class }
-</code></pre></div>
+</code></pre>
 
 <p>The above results in the following output:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;an_id&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;a_class&quot;</span><span class="p">&gt;</span>This is a paragraph.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;p id=&quot;an_id&quot; class=&quot;a_class&quot;&gt;This is a paragraph.&lt;/p&gt;
+</code></pre>
 
 <p>An exception is headers, as they are only ever allowed on one line.</p>
-<div class="codehilite"><pre><span></span><code>A setext style header {: #setext}
+<pre class="codehilite"><code class="language-text">A setext style header {: #setext}
 =================================
 
 ### A hash style header ### {: #hash }
-</code></pre></div>
+</code></pre>
 
 <p>The above results in the following output:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;setext&quot;</span><span class="p">&gt;</span>A setext style header<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">h3</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;hash&quot;</span><span class="p">&gt;</span>A hash style header<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;h1 id=&quot;setext&quot;&gt;A setext style header&lt;/h1&gt;
+&lt;h3 id=&quot;hash&quot;&gt;A hash style header&lt;/h3&gt;
+</code></pre>
 
 <div class="admonition seealso">
 <p class="admonition-title">See Also</p>
@@ -168,38 +160,38 @@ attribute lists. To get <a href="../fenced_code_blocks/#keyvalue-pairs">full sup
 <h3 id="inline">Inline<a class="headerlink" href="#inline" title="Permanent link">&para;</a></h3>
 <p>To define attributes on inline elements, the attribute list should be defined
 immediately after the inline element with no white space.</p>
-<div class="codehilite"><pre><span></span><code>[link](http://example.com){: class=&quot;foo bar&quot; title=&quot;Some title!&quot; }
-</code></pre></div>
+<pre class="codehilite"><code class="language-text">[link](http://example.com){: class=&quot;foo bar&quot; title=&quot;Some title!&quot; }
+</code></pre>
 
 <p>The above results in the following output:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;http://example.com&quot;</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;foo bar&quot;</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;Some title!&quot;</span><span class="p">&gt;</span>link<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;p&gt;&lt;a href=&quot;http://example.com&quot; class=&quot;foo bar&quot; title=&quot;Some title!&quot;&gt;link&lt;/a&gt;&lt;/p&gt;
+</code></pre>
 
 <p>If the <a href="../tables/">tables</a> extension is enabled, attribute lists can be defined on table cells. To differentiate
 attributes for an inline element from attributes for the containing cell, the attribute list must be separated from
 the content by at least one space and be defined at the end of the cell content. As table cells can only ever be on
 a single line, the attribute list must remain on the same line as the content of the cell.</p>
-<div class="codehilite"><pre><span></span><code>| set on td    | set on em   |
+<pre class="codehilite"><code class="language-text">| set on td    | set on em   |
 |--------------|-------------|
 | *a* { .foo } | *b*{ .foo } |
-</code></pre></div>
+</code></pre>
 
 <p>The above example results in the following output:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>set on td<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>set on em<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;foo&quot;</span><span class="p">&gt;&lt;</span><span class="nt">em</span><span class="p">&gt;</span>a<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">em</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;foo&quot;</span><span class="p">&gt;</span>b<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;set on td&lt;/th&gt;
+      &lt;th&gt;set on em&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td class=&quot;foo&quot;&gt;&lt;em&gt;a&lt;/em&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;em class=&quot;foo&quot;&gt;b&lt;/em&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
 
 <p>Note that in the first column, the attribute list is preceded by a space; therefore, it is assigned to the table cell
 (<code>&lt;td&gt;</code> element). However, in the second column, the attribute list is not preceded by a space; therefore, it is
@@ -237,8 +229,8 @@ following: <code>ul</code>, <code>ol</code>, <code>dl</code>, <code>table</code>
 name of the extension.</p>
 <p>This extension does not accept any special configuration options.</p>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;attr_list&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['attr_list'])
+</code></pre>
 
                     </div>
                 </div>
@@ -303,14 +295,6 @@ name of the extension.</p>
                     <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/attr_list.md">Edit on GitHub</a></li>
                 </ul>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
-            </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
 
         </div>
     </div>
@@ -321,7 +305,7 @@ name of the extension.</p>
         <h3>Navigation</h3>
         <ul>
                 <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown/" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
                 </li>
             <li class="right" style="margin-right: 10px">
                 <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
@@ -335,7 +319,7 @@ name of the extension.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.4.4 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
             </li>
                     
                     
@@ -373,28 +357,16 @@ name of the extension.</p>
                     
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.1.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
-        <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.1.2
-        Docs Build Date UTC : 2023-07-25 15:15:31.778042+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-10-09 18:02:55.528279+00:00
         -->
     </body>
 </html>
