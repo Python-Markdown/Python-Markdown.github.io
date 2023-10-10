@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/extensions/md_in_html/">
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../../search.html" />
+        <link rel="next" title="<code>meta</code>" href="../meta/" />
+        <link rel="prev" title="<code>legacy_em</code>" href="../legacy_em/" />
+        <title>md_in_html &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../meta/" title="<code>meta</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../legacy_em/" title="<code>legacy_em</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>md_in_html</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.extensions.md_in_html" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.extensions.md_in_html</code>
+
+
+
+<a href="#markdown.extensions.md_in_html" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>An implementation of <a href="http://michelf.com/projects/php-markdown/extra/">PHP Markdown Extra</a>&rsquo;s
+parsing of Markdown syntax in raw HTML.</p>
+<p>See the <a href="https://Python-Markdown.github.io/extensions/raw_html">documentation</a>
+for details.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.md_in_html.HTMLExtractorExtra" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L33" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">HTMLExtractorExtra</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.HTMLExtractorExtra" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.htmlparser.HTMLExtractor" href="../../htmlparser/#markdown.htmlparser.HTMLExtractor">HTMLExtractor</a></code></p>
+
+  
+      <p>Override <code>HTMLExtractor</code> and create <code>etree</code> <code>Elements</code> for any elements which should have content parsed as
+Markdown.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.reset" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L55-L60" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">HTMLExtractorExtra</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.HTMLExtractorExtra.reset" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Reset this instance.  Loses all unprocessed data.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.close" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L62-L68" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">HTMLExtractorExtra</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.HTMLExtractorExtra.close" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Handle any buffered data.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.get_element" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L70-L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">HTMLExtractorExtra</span><span class="o">.</span><span class="n">get_element</span><span class="p">()</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.HTMLExtractorExtra.get_element" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return element from <code>treebuilder</code> and reset <code>treebuilder</code> for later use.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.get_state" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L76-L95" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">HTMLExtractorExtra</span><span class="o">.</span><span class="n">get_state</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">attrs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.HTMLExtractorExtra.get_state" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return state from tag and <code>markdown</code> attribute. One of &lsquo;block&rsquo;, &lsquo;span&rsquo;, or &lsquo;off&rsquo;.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.md_in_html.HtmlBlockPreprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L239" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">HtmlBlockPreprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.HtmlBlockPreprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.preprocessors.Preprocessor" href="../../preprocessors/#markdown.preprocessors.Preprocessor">Preprocessor</a></code></p>
+
+  
+      <p>Remove html blocks from the text and store them for later retrieval.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.md_in_html.MarkdownInHtmlProcessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L250" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">MarkdownInHtmlProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.MarkdownInHtmlProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Process Markdown Inside HTML Blocks which have been stored in the <code>HtmlStash</code>.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.md_in_html.MarkdownInHtmlProcessor.parse_element_content" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L257-L325" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">MarkdownInHtmlProcessor</span><span class="o">.</span><span class="n">parse_element_content</span><span class="p">(</span><span class="n">element</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.MarkdownInHtmlProcessor.parse_element_content" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Recursively parse the text content of an <code>etree</code> Element as Markdown.</p>
+<p>Any block level elements generated from the Markdown will be inserted as children of the element in place
+of the text content. All <code>markdown</code> attributes are removed. For any elements in which Markdown parsing has
+been disabled, the text content of it and its children are wrapped in an <code>AtomicString</code>.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L346" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">MarkdownInHTMLPostprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.postprocessors.RawHtmlPostprocessor" href="../../postprocessors/#markdown.postprocessors.RawHtmlPostprocessor">RawHtmlPostprocessor</a></code></p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor.stash_to_string" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L347-L352" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">MarkdownInHTMLPostprocessor</span><span class="o">.</span><span class="n">stash_to_string</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor.stash_to_string" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Override default to handle any <code>etree</code> elements still in the stash.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.md_in_html.MarkdownInHtmlExtension" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L355" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">MarkdownInHtmlExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.MarkdownInHtmlExtension" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+
+  
+      <p>Add Markdown parsing in HTML to Markdown class.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.md_in_html.MarkdownInHtmlExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\md_in_html.py#L358-L368" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">md_in_html</span><span class="o">.</span><span class="n">MarkdownInHtmlExtension</span><span class="o">.</span><span class="n">extendMarkdown</span><span class="p">(</span><span class="n">md</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.md_in_html.MarkdownInHtmlExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Register extension instances.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html">md_in_html</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.HTMLExtractorExtra">HTMLExtractorExtra</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.reset">reset()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.close">close()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.get_element">get_element()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.get_state">get_state()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.HtmlBlockPreprocessor">HtmlBlockPreprocessor</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.MarkdownInHtmlProcessor">MarkdownInHtmlProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.MarkdownInHtmlProcessor.parse_element_content">parse_element_content()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor">MarkdownInHTMLPostprocessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor.stash_to_string">stash_to_string()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.MarkdownInHtmlExtension">MarkdownInHtmlExtension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.md_in_html.MarkdownInHtmlExtension.extendMarkdown">extendMarkdown()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../legacy_em/" title="previous page"><code>legacy_em</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../meta/" title="next page"><code>meta</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\md_in_html.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../meta/" title="<code>meta</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../legacy_em/" title="<code>legacy_em</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>md_in_html</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.737382+00:00
+        -->
+    </body>
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/blockparser/">
+        <link rel="shortcut icon" href="../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../search.html" />
+        <link rel="next" title="<code>blockprocessors</code>" href="../blockprocessors/" />
+        <link rel="prev" title="<code>preprocessors</code>" href="../preprocessors/" />
+        <title>blockparser &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../blockprocessors/" title="<code>blockprocessors</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../preprocessors/" title="<code>preprocessors</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>blockparser</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.blockparser" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.blockparser</code>
+
+
+
+<a href="#markdown.blockparser" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>The block parser handles basic parsing of Markdown blocks.  It doesn&rsquo;t concern
+itself with inline elements such as <code>**bold**</code> or <code>*italics*</code>, but rather just
+catches blocks, lists, quotes, etc.</p>
+<p>The <code>BlockParser</code> is made up of a bunch of <code>BlockProcessors</code>, each handling a
+different type of block. Extensions may add/replace/remove <code>BlockProcessors</code>
+as they need to alter how Markdown blocks are parsed.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockparser.State" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L40" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.blockparser.State</code>
+
+
+
+<a href="#markdown.blockparser.State" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a></code></p>
+
+  
+      <p>Track the current and nested state of the parser.</p>
+<p>This utility class is used to track the state of the <code>BlockParser</code> and
+support multiple levels if nesting. It&rsquo;s just a simple API wrapped around
+a list. Each time a state is set, that state is appended to the end of the
+list. Each time a state is reset, that state is removed from the end of
+the list.</p>
+<p>Therefore, each time a state is set for a nested block, that state must be
+reset when we back out of that level of nesting or the state could be
+corrupted.</p>
+<p>While all the methods of a list object are available, only the three
+defined below need be used.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockparser.State.set" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L58-L60" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span></code>
+
+
+<a href="#markdown.blockparser.State.set" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Set a new state.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockparser.State.reset" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L62-L64" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></code>
+
+
+<a href="#markdown.blockparser.State.reset" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Step back one step in nested state.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockparser.State.isstate" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L66-L71" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">isstate</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+
+
+<a href="#markdown.blockparser.State.isstate" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Test that top (current) level is of given state.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.blockparser.BlockParser" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span><span class="p">)</span></code>
+
+
+<a href="#markdown.blockparser.BlockParser" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Parse Markdown blocks into an <code>ElementTree</code> object.</p>
+<p>A wrapper class that stitches the various <code>BlockProcessors</code> together,
+looping through them and creating an <code>ElementTree</code> object.</p>
+  
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>md</code></b>
+            (<code><a class="autorefs autorefs-internal" title="markdown.Markdown" href="../#markdown.Markdown">Markdown</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A Markdown instance.</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Attributes:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>BlockParser.md</code></b>
+            (<code><a class="autorefs autorefs-internal" title="markdown.Markdown" href="../#markdown.Markdown">Markdown</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A Markdown instance.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>BlockParser.state</code></b>
+            (<code><a class="autorefs autorefs-internal" title="markdown.blockparser.State" href="#markdown.blockparser.State">State</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Tracks the nesting level of current location in document being parsed.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>BlockParser.blockprocessors</code></b>
+            (<code><a class="autorefs autorefs-internal" title="markdown.util.Registry" href="../util/#markdown.util.Registry">Registry</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>A collection of
+<a class="autorefs autorefs-internal" href="../blockprocessors/#markdown.blockprocessors"><code>blockprocessors</code></a>.</p>
+        </div>
+      </li>
+  </ul>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockparser.BlockParser.parseDocument" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L99-L117" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="o">.</span><span class="n">parseDocument</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">ElementTree</span></code>
+
+
+<a href="#markdown.blockparser.BlockParser.parseDocument" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Parse a Markdown document into an <code>ElementTree</code>.</p>
+<p>Given a list of lines, an <code>ElementTree</code> object (not just a parent
+<code>Element</code>) is created and the root element is passed to the parser
+as the parent. The <code>ElementTree</code> object is returned.</p>
+<p>This should only be called on an entire document, not pieces.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>lines</code></b>
+            (<code><a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>A list of lines (strings).</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><span title="xml.ElementTree">ElementTree</span></code>
+        –
+        <div class="doc-md-description">
+          <p>An element tree.</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockparser.BlockParser.parseChunk" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L119-L135" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="o">.</span><span class="n">parseChunk</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span></code>
+
+
+<a href="#markdown.blockparser.BlockParser.parseChunk" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Parse a chunk of Markdown text and attach to given <code>etree</code> node.</p>
+<p>While the <code>text</code> argument is generally assumed to contain multiple
+blocks which will be split on blank lines, it could contain only one
+block. Generally, this method would be called by extensions when
+block parsing is required.</p>
+<p>The <code>parent</code> <code>etree</code> Element passed in is altered in place.
+Nothing is returned.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>parent</code></b>
+            (<code><span title="xml.Element">Element</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>The parent element.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>text</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The text to parse.</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.blockparser.BlockParser.parseBlocks" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L137-L159" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="o">.</span><span class="n">parseBlocks</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">blocks</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span></code>
+
+
+<a href="#markdown.blockparser.BlockParser.parseBlocks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Process blocks of Markdown text and attach to given <code>etree</code> node.</p>
+<p>Given a list of <code>blocks</code>, each <code>blockprocessor</code> is stepped through
+until there are no blocks left. While an extension could potentially
+call this method directly, it&rsquo;s generally expected to be used
+internally.</p>
+<p>This is a public method as an extension may need to add/alter
+additional <code>BlockProcessors</code> which call this method to recursively
+parse a nested block.</p>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>parent</code></b>
+            (<code><span title="xml.Element">Element</span></code>)
+        –
+        <div class="doc-md-description">
+          <p>The parent element.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>blocks</code></b>
+            (<code><a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+        –
+        <div class="doc-md-description">
+          <p>The blocks of text to parse.</p>
+        </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.blockparser">blockparser</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.State">State</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.State.set">set()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.State.reset">reset()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.State.isstate">isstate()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.BlockParser">BlockParser</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.BlockParser.parseDocument">parseDocument()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.BlockParser.parseChunk">parseChunk()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.blockparser.BlockParser.parseBlocks">parseBlocks()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../preprocessors/" title="previous page"><code>preprocessors</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../blockprocessors/" title="next page"><code>blockprocessors</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\blockparser.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../blockprocessors/" title="<code>blockprocessors</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../preprocessors/" title="<code>preprocessors</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>blockparser</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.690489+00:00
+        -->
+    </body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/">
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link rel="search" title="Search" href="../search.html" />
+        <link rel="next" title="Abbreviations" href="abbreviations/" />
+        <link rel="prev" title="Command Line" href="../cli/" />
+        <title>Extensions &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="abbreviations/" title="Abbreviations" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../cli/" title="Command Line" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Extensions</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h1>
+<p>Python Markdown offers a flexible extension mechanism, which makes it possible
+to change and/or extend the behavior of the parser without having to edit the
+actual source files.</p>
+<p>To use an extension, pass it to markdown with the <code>extensions</code> keyword.</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtClass</span><span class="p">(),</span> <span class="s1">&#39;myext&#39;</span><span class="p">,</span> <span class="s1">&#39;path.to.my.ext:MyExtClass&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+<p>See the <a href="../reference/#extensions">Library Reference</a> for more details.</p>
+<p>From the command line, specify an extension with the <code>-x</code> option.</p>
+<div class="codehilite"><pre><span></span><code>python -m markdown -x myext -x path.to.module:MyExtClass input.txt &gt; output.html
+</code></pre></div>
+
+<p>See the <a href="../cli/">Command Line docs</a> or use the <code>--help</code> option for more details.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See Also</p>
+<p>If you would like to write your own extensions, see the
+<a href="api/">Extension API</a> for details.</p>
+</div>
+<h2 id="officially-supported-extensions">Officially Supported Extensions<a class="headerlink" href="#officially-supported-extensions" title="Permanent link">&para;</a></h2>
+<p>The extensions listed below are included with (at least) the most recent release
+and are officially supported by Python-Markdown. Any documentation is
+maintained here and all bug reports should be made to the project. If you
+have a typical install of Python-Markdown, these extensions are already
+available to you using the &ldquo;Entry Point&rdquo; name listed in the second column below.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Entry Point</th>
+<th>Dot Notation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="extra/">Extra</a></td>
+<td><code>extra</code></td>
+<td><code>markdown.extensions.extra</code></td>
+</tr>
+<tr>
+<td>&nbsp; &nbsp; <a href="abbreviations/">Abbreviations</a></td>
+<td><code>abbr</code></td>
+<td><code>markdown.extensions.abbr</code></td>
+</tr>
+<tr>
+<td>&nbsp; &nbsp; <a href="attr_list/">Attribute Lists</a></td>
+<td><code>attr_list</code></td>
+<td><code>markdown.extensions.attr_list</code></td>
+</tr>
+<tr>
+<td>&nbsp; &nbsp; <a href="definition_lists/">Definition Lists</a></td>
+<td><code>def_list</code></td>
+<td><code>markdown.extensions.def_list</code></td>
+</tr>
+<tr>
+<td>&nbsp; &nbsp; <a href="fenced_code_blocks/">Fenced Code Blocks</a></td>
+<td><code>fenced_code</code></td>
+<td><code>markdown.extensions.fenced_code</code></td>
+</tr>
+<tr>
+<td>&nbsp; &nbsp; <a href="footnotes/">Footnotes</a></td>
+<td><code>footnotes</code></td>
+<td><code>markdown.extensions.footnotes</code></td>
+</tr>
+<tr>
+<td>&nbsp; &nbsp; <a href="md_in_html/">Markdown in HTML</a></td>
+<td><code>md_in_html</code></td>
+<td><code>markdown.extensions.md_in_html</code></td>
+</tr>
+<tr>
+<td>&nbsp; &nbsp; <a href="tables/">Tables</a></td>
+<td><code>tables</code></td>
+<td><code>markdown.extensions.tables</code></td>
+</tr>
+<tr>
+<td><a href="admonition/">Admonition</a></td>
+<td><code>admonition</code></td>
+<td><code>markdown.extensions.admonition</code></td>
+</tr>
+<tr>
+<td><a href="code_hilite/">CodeHilite</a></td>
+<td><code>codehilite</code></td>
+<td><code>markdown.extensions.codehilite</code></td>
+</tr>
+<tr>
+<td><a href="legacy_attrs/">Legacy Attributes</a></td>
+<td><code>legacy_attrs</code></td>
+<td><code>markdown.extensions.legacy_attrs</code></td>
+</tr>
+<tr>
+<td><a href="legacy_em/">Legacy Emphasis</a></td>
+<td><code>legacy_em</code></td>
+<td><code>markdown.extensions.legacy_em</code></td>
+</tr>
+<tr>
+<td><a href="meta_data/">Meta-Data</a></td>
+<td><code>meta</code></td>
+<td><code>markdown.extensions.meta</code></td>
+</tr>
+<tr>
+<td><a href="nl2br/">New Line to Break</a></td>
+<td><code>nl2br</code></td>
+<td><code>markdown.extensions.nl2br</code></td>
+</tr>
+<tr>
+<td><a href="sane_lists/">Sane Lists</a></td>
+<td><code>sane_lists</code></td>
+<td><code>markdown.extensions.sane_lists</code></td>
+</tr>
+<tr>
+<td><a href="smarty/">SmartyPants</a></td>
+<td><code>smarty</code></td>
+<td><code>markdown.extensions.smarty</code></td>
+</tr>
+<tr>
+<td><a href="toc/">Table of Contents</a></td>
+<td><code>toc</code></td>
+<td><code>markdown.extensions.toc</code></td>
+</tr>
+<tr>
+<td><a href="wikilinks/">WikiLinks</a></td>
+<td><code>wikilinks</code></td>
+<td><code>markdown.extensions.wikilinks</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="third-party-extensions">Third Party Extensions<a class="headerlink" href="#third-party-extensions" title="Permanent link">&para;</a></h2>
+<p>Various individuals and/or organizations have developed extensions which they
+have made available to the public. A <a href="https://github.com/Python-Markdown/markdown/wiki/Third-Party-Extensions">list of third party extensions</a>
+is maintained on the wiki for your convenience. The Python-Markdown team
+offers no official support for these extensions. Please see the developer of
+each extension for support.</p>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#extensions">Extensions</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#officially-supported-extensions">Officially Supported Extensions</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#third-party-extensions">Third Party Extensions</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../cli/" title="previous page">Command Line</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="abbreviations/" title="next page">Abbreviations</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/index.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="abbreviations/" title="Abbreviations" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../cli/" title="Command Line" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Extensions</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.659279+00:00
+        -->
+    </body>
+</html>

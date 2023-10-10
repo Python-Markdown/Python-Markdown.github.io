@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/extensions/extra/">
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../../search.html" />
+        <link rel="next" title="<code>fenced_code</code>" href="../fenced_code/" />
+        <link rel="prev" title="<code>def_list</code>" href="../def_list/" />
+        <title>extra &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../fenced_code/" title="<code>fenced_code</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../def_list/" title="<code>def_list</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>extra</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.extensions.extra" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\extra.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.extensions.extra</code>
+
+
+
+<a href="#markdown.extensions.extra" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>A compilation of various Python-Markdown extensions that imitates
+<a href="http://michelf.com/projects/php-markdown/extra/">PHP Markdown Extra</a>.</p>
+<p>Note that each of the individual extensions still need to be available
+on your <code>PYTHONPATH</code>. This extension simply wraps them all up as a
+convenience so that only one extension needs to be listed when
+initiating Markdown. See the documentation for each individual
+extension for specifics about that extension.</p>
+<p>There may be additional extensions that are distributed with
+Python-Markdown that are not included here in Extra. Those extensions
+are not part of PHP Markdown Extra, and therefore, not part of
+Python-Markdown Extra. If you really would like Extra to include
+additional extensions, we suggest creating your own clone of Extra
+under a different name. You could also edit the <code>extensions</code> global
+variable defined below, but be aware that such changes may be lost
+when you upgrade to any future version of Python-Markdown.</p>
+<p>See the <a href="https://Python-Markdown.github.io/extensions/extra">documentation</a>
+for details.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h2 id="markdown.extensions.extra.extensions" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\extra.py#L41-L49" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">extra</span><span class="o">.</span><span class="n">extensions</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#markdown.extensions.extra.extensions" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+    
+      <p>The list of included extensions.</p>
+
+  <p>Defined Value:</p>
+  <div class="codehilite"><pre><span></span><code><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;fenced_code&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;footnotes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;attr_list&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;def_list&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;tables&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;abbr&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;md_in_html&#39;</span>
+<span class="p">]</span>
+</code></pre></div>  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.extra.ExtraExtension" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\extra.py#L53" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">extra</span><span class="o">.</span><span class="n">ExtraExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.extra.ExtraExtension" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+
+  
+      <p>Add various extensions to Markdown class.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.extra.ExtraExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\extra.py#L60-L62" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">extra</span><span class="o">.</span><span class="n">ExtraExtension</span><span class="o">.</span><span class="n">extendMarkdown</span><span class="p">(</span><span class="n">md</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.extra.ExtraExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Register extension instances.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.extensions.extra">extra</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.extra.extensions">extensions</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.extra.ExtraExtension">ExtraExtension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.extra.ExtraExtension.extendMarkdown">extendMarkdown()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../def_list/" title="previous page"><code>def_list</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../fenced_code/" title="next page"><code>fenced_code</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\extra.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../fenced_code/" title="<code>fenced_code</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../def_list/" title="<code>def_list</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>extra</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.721731+00:00
+        -->
+    </body>
+</html>

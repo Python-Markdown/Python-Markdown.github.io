@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/extensions/sane_lists/">
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../../search.html" />
+        <link rel="next" title="<code>smarty</code>" href="../smarty/" />
+        <link rel="prev" title="<code>nl2br</code>" href="../nl2br/" />
+        <title>sane_lists &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../smarty/" title="<code>smarty</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../nl2br/" title="<code>nl2br</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>sane_lists</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.extensions.sane_lists" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.extensions.sane_lists</code>
+
+
+
+<a href="#markdown.extensions.sane_lists" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>Modify the behavior of Lists in Python-Markdown to act in a sane manor.</p>
+<p>See <a href="https://Python-Markdown.github.io/extensions/sane_lists">documentation</a>
+for details.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.sane_lists.SaneOListProcessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py#L29" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">sane_lists</span><span class="o">.</span><span class="n">SaneOListProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.sane_lists.SaneOListProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.OListProcessor" href="../../blockprocessors/#markdown.blockprocessors.OListProcessor">OListProcessor</a></code></p>
+
+  
+      <p>Override <code>SIBLING_TAGS</code> to not include <code>ul</code> and set <code>LAZY_OL</code> to <code>False</code>.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py#L32" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">sane_lists</span><span class="o">.</span><span class="n">SaneOListProcessor</span><span class="o">.</span><span class="n">SIBLING_TAGS</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+    
+      <p>Exclude <code>ul</code> from list of siblings.</p>
+
+  <p>Defined Value:</p>
+  <div class="codehilite"><pre><span></span><code><span class="n">SIBLING_TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ol&#39;</span><span class="p">]</span>
+</code></pre></div>  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py#L34" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">sane_lists</span><span class="o">.</span><span class="n">SaneOListProcessor</span><span class="o">.</span><span class="n">LAZY_OL</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+    
+      <p>Disable lazy list behavior.</p>
+
+  <p>Defined Value:</p>
+  <div class="codehilite"><pre><span></span><code><span class="n">LAZY_OL</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.sane_lists.SaneUListProcessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py#L43" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">sane_lists</span><span class="o">.</span><span class="n">SaneUListProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.sane_lists.SaneUListProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.UListProcessor" href="../../blockprocessors/#markdown.blockprocessors.UListProcessor">UListProcessor</a></code></p>
+
+  
+      <p>Override <code>SIBLING_TAGS</code> to not include <code>ol</code>.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py#L46" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">sane_lists</span><span class="o">.</span><span class="n">SaneUListProcessor</span><span class="o">.</span><span class="n">SIBLING_TAGS</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+    
+      <p>Exclude <code>ol</code> from list of siblings.</p>
+
+  <p>Defined Value:</p>
+  <div class="codehilite"><pre><span></span><code><span class="n">SIBLING_TAGS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ul&#39;</span><span class="p">]</span>
+</code></pre></div>  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.sane_lists.SaneListExtension" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py#L55" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">sane_lists</span><span class="o">.</span><span class="n">SaneListExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.sane_lists.SaneListExtension" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+
+  
+      <p>Add sane lists to Markdown.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.sane_lists.SaneListExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\sane_lists.py#L58-L61" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">sane_lists</span><span class="o">.</span><span class="n">SaneListExtension</span><span class="o">.</span><span class="n">extendMarkdown</span><span class="p">(</span><span class="n">md</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.sane_lists.SaneListExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Override existing Processors.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists">sane_lists</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneOListProcessor">SaneOListProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS">SIBLING_TAGS</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL">LAZY_OL</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneUListProcessor">SaneUListProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS">SIBLING_TAGS</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneListExtension">SaneListExtension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneListExtension.extendMarkdown">extendMarkdown()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../nl2br/" title="previous page"><code>nl2br</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../smarty/" title="next page"><code>smarty</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\sane_lists.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../smarty/" title="<code>smarty</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../nl2br/" title="<code>nl2br</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>sane_lists</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.737382+00:00
+        -->
+    </body>
+</html>

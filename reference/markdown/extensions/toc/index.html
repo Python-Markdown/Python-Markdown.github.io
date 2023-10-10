@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/extensions/toc/">
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../../search.html" />
+        <link rel="next" title="<code>wikilinks</code>" href="../wikilinks/" />
+        <link rel="prev" title="<code>tables</code>" href="../tables/" />
+        <title>toc &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../wikilinks/" title="<code>wikilinks</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../tables/" title="<code>tables</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>toc</code></a>
+         &#187; </li>
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.extensions.toc" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.extensions.toc</code>
+
+
+
+<a href="#markdown.extensions.toc" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>Add table of contents support to Python-Markdown.</p>
+<p>See the <a href="https://Python-Markdown.github.io/extensions/toc">documentation</a>
+for details.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.toc.slugify" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L32-L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">slugify</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">separator</span><span class="p">,</span> <span class="n">unicode</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.slugify" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Slugify a string, to make it URL friendly.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.toc.slugify_unicode" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L42-L44" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">slugify_unicode</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">separator</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.slugify_unicode" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Slugify a string, to make it URL friendly while preserving Unicode characters.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.toc.unique" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L50-L59" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">ids</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.unique" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Ensure id is unique in set of ids. Append &lsquo;_1&rsquo;, &lsquo;_2&rsquo;&hellip; if not</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.toc.get_name" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L62-L71" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">get_name</span><span class="p">(</span><span class="n">el</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.get_name" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get title name.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.toc.stashedHTML2text" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L74-L88" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">stashedHTML2text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">strip_entities</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.stashedHTML2text" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Extract raw HTML from stash, reduce to plain text and swap with placeholder.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.toc.unescape" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L91-L94" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.unescape" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Unescape escaped text.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.toc.nest_toc_tokens" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L97-L159" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">nest_toc_tokens</span><span class="p">(</span><span class="n">toc_list</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.nest_toc_tokens" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Given an unsorted list with errors and skips, return a nested one.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">[{&#39;level&#39;: 1}, {&#39;level&#39;: 2}]</span><span class="w"></span>
+<span class="o">=</span><span class="s">&gt;</span><span class="w"></span>
+<span class="k">[{&#39;level&#39;: 1, &#39;children&#39;: [{&#39;level&#39;: 2, &#39;children&#39;: []}]}]</span><span class="w"></span>
+</code></pre></div>
+
+<p>A wrong list is also converted:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">[{&#39;level&#39;: 2}, {&#39;level&#39;: 1}]</span><span class="w"></span>
+<span class="o">=</span><span class="s">&gt;</span><span class="w"></span>
+<span class="k">[{&#39;level&#39;: 2, &#39;children&#39;: []}, {&#39;level&#39;: 1, &#39;children&#39;: []}]</span><span class="w"></span>
+</code></pre></div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.toc.TocTreeprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L162" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocTreeprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.TocTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+
+  
+      <p>Step through document and build TOC.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.toc.TocTreeprocessor.iterparent" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L190-L199" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocTreeprocessor</span><span class="o">.</span><span class="n">iterparent</span><span class="p">(</span><span class="n">node</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.TocTreeprocessor.iterparent" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Iterator wrapper to get allowed parent and child all at once.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.toc.TocTreeprocessor.replace_marker" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L201-L220" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocTreeprocessor</span><span class="o">.</span><span class="n">replace_marker</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.TocTreeprocessor.replace_marker" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Replace marker with elem.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.toc.TocTreeprocessor.set_level" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L222-L227" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocTreeprocessor</span><span class="o">.</span><span class="n">set_level</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.TocTreeprocessor.set_level" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Adjust header level according to base level.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.toc.TocTreeprocessor.build_toc_div" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L257-L286" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocTreeprocessor</span><span class="o">.</span><span class="n">build_toc_div</span><span class="p">(</span><span class="n">toc_list</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.TocTreeprocessor.build_toc_div" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return a string div given a toc list.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.toc.TocExtension" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L338" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.TocExtension" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.extensions.toc.TocExtension.config" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L343-L389" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocExtension</span><span class="o">.</span><span class="n">config</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.extensions.toc.TocExtension.config" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+    
+      <p>Default configuration options.</p>
+
+  <p>Defined Value:</p>
+  <div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;[TOC]&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Text to find and replace with Table of Contents. Set to an empty string to disable. &#39;</span>
+        <span class="s1">&#39;Default: `[TOC]`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;Title to insert into TOC `&lt;div&gt;`. Default: an empty string.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;title_class&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;toctitle&#39;</span><span class="p">,</span> <span class="s1">&#39;CSS class used for the title. Default: `toctitle`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;toc_class&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;toc&#39;</span><span class="p">,</span> <span class="s1">&#39;CSS class(es) used for the link. Default: `toclink`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;anchorlink&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;True if header should be a self link. Default: `False`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;anchorlink_class&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;toclink&#39;</span><span class="p">,</span> <span class="s1">&#39;CSS class(es) used for the link. Defaults: `toclink`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;permalink&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;True or link text if a Sphinx-style permalink should be added. Default: `False`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;permalink_class&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;headerlink&#39;</span><span class="p">,</span> <span class="s1">&#39;CSS class(es) used for the link. Default: `headerlink`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;permalink_title&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;Permanent link&#39;</span><span class="p">,</span> <span class="s1">&#39;Title attribute of the permalink. Default: `Permanent link`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;permalink_leading&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">&#39;True if permalinks should be placed at start of the header, rather than end. Default: False.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;baselevel&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;Base level for headers. Default: `1`.&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;slugify&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="n">slugify</span><span class="p">,</span> <span class="s1">&#39;Function to generate anchors based on header text. Default: `slugify`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;separator&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;Word separator. Default: `-`.&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;toc_depth&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="mi">6</span><span class="p">,</span>
+        <span class="s1">&#39;Define the range of section levels to include in the Table of Contents. A single integer &#39;</span>
+        <span class="s1">&#39;(b) defines the bottom section level (&lt;h1&gt;..&lt;hb&gt;) only. A string consisting of two digits &#39;</span>
+        <span class="s1">&#39;separated by a hyphen in between (`2-5`) defines the top (t) and the bottom (b) (&lt;ht&gt;..&lt;hb&gt;). &#39;</span>
+        <span class="s1">&#39;Default: `6` (bottom).&#39;</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.toc.TocExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\toc.py#L394-L400" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">toc</span><span class="o">.</span><span class="n">TocExtension</span><span class="o">.</span><span class="n">extendMarkdown</span><span class="p">(</span><span class="n">md</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.toc.TocExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Add TOC tree processor to Markdown.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc">toc</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.slugify">slugify()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.slugify_unicode">slugify_unicode()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.unique">unique()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.get_name">get_name()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.stashedHTML2text">stashedHTML2text()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.unescape">unescape()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.nest_toc_tokens">nest_toc_tokens()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocTreeprocessor">TocTreeprocessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocTreeprocessor.iterparent">iterparent()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocTreeprocessor.replace_marker">replace_marker()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocTreeprocessor.set_level">set_level()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocTreeprocessor.build_toc_div">build_toc_div()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocExtension">TocExtension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocExtension.config">config</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.toc.TocExtension.extendMarkdown">extendMarkdown()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../tables/" title="previous page"><code>tables</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../wikilinks/" title="next page"><code>wikilinks</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\toc.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../wikilinks/" title="<code>wikilinks</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../tables/" title="<code>tables</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>toc</code></a>
+         &#187; </li>
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.737382+00:00
+        -->
+    </body>
+</html>

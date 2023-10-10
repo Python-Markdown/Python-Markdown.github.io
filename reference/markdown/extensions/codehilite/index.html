@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/extensions/codehilite/">
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../../search.html" />
+        <link rel="next" title="<code>def_list</code>" href="../def_list/" />
+        <link rel="prev" title="<code>attr_list</code>" href="../attr_list/" />
+        <title>codehilite &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../def_list/" title="<code>def_list</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../attr_list/" title="<code>attr_list</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>codehilite</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.extensions.codehilite" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.extensions.codehilite</code>
+
+
+
+<a href="#markdown.extensions.codehilite" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>Adds code/syntax highlighting to standard Python-Markdown code blocks.</p>
+<p>See the <a href="https://Python-Markdown.github.io/extensions/code_hilite">documentation</a>
+for details.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.codehilite.parse_hl_lines" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L38-L50" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">parse_hl_lines</span><span class="p">(</span><span class="n">expr</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span></code>
+
+
+<a href="#markdown.extensions.codehilite.parse_hl_lines" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Support our syntax for emphasizing certain lines of code.</p>
+<p><code>expr</code> should be like &lsquo;1 2&rsquo; to emphasize lines 1 and 2 of a code block.
+Returns a list of integers, the line numbers to emphasize.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.codehilite.CodeHilite" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L54" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">CodeHilite</span><span class="p">(</span><span class="n">src</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.codehilite.CodeHilite" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+
+  
+      <p>Determine language of source code, and pass it on to the Pygments highlighter.</p>
+<p>Usage:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">code</span> <span class="o">=</span> <span class="n">CodeHilite</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="n">some_code</span><span class="p">,</span> <span class="n">lang</span><span class="o">=</span><span class="s1">&#39;python&#39;</span><span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">code</span><span class="o">.</span><span class="n">hilite</span><span class="p">()</span>
+</code></pre></div>
+
+
+
+  <p>Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>src</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Source string or any object with a <code>.readline</code> attribute.</p>
+        </div>
+      </li>
+  </ul>
+
+
+
+  <p>Other Parameters:</p>
+  <ul>
+      <li class="field-body">
+        <b><code>lang</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>String name of Pygments lexer to use for highlighting. Default: <code>None</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>guess_lang</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Auto-detect which lexer to use.
+Ignored if <code>lang</code> is set to a valid value. Default: <code>True</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>use_pygments</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Pass code to Pygments for code highlighting. If <code>False</code>, the code is
+instead wrapped for highlighting by a JavaScript library. Default: <code>True</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>pygments_formatter</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>The name of a Pygments formatter or a formatter class used for
+highlighting the code blocks. Default: <code>html</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>linenums</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/functions.html#bool">bool</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>An alias to Pygments <code>linenos</code> formatter option. Default: <code>None</code>.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>css_class</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>An alias to Pygments <code>cssclass</code> formatter option. Default: &lsquo;codehilite&rsquo;.</p>
+        </div>
+      </li>
+      <li class="field-body">
+        <b><code>lang_prefix</code></b>
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+        –
+        <div class="doc-md-description">
+          <p>Prefix prepended to the language. Default: &ldquo;language-&ldquo;.</p>
+        </div>
+      </li>
+  </ul>
+      <p>Other Options:</p>
+<p>Any other options are accepted and passed on to the lexer and formatter. Therefore,
+valid options include any options which are accepted by the <code>html</code> formatter or
+whichever lexer the code&rsquo;s language uses. Note that most lexers do not have any
+options. However, a few have very useful options, such as PHP&rsquo;s <code>startinline</code> option.
+Any invalid options are ignored without error.</p>
+<ul>
+<li><strong>Formatter options</strong>: <a href="https://pygments.org/docs/formatters/#HtmlFormatter">https://pygments.org/docs/formatters/#HtmlFormatter</a></li>
+<li><strong>Lexer Options</strong>: <a href="https://pygments.org/docs/lexers/">https://pygments.org/docs/lexers/</a></li>
+</ul>
+<p>Additionally, when Pygments is enabled, the code&rsquo;s language is passed to the
+formatter as an extra option <code>lang_str</code>, whose value being <code>{lang_prefix}{lang}</code>.
+This option has no effect to the Pygments&rsquo; builtin formatters.</p>
+<p>Advanced Usage:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">code</span> <span class="o">=</span> <span class="n">CodeHilite</span><span class="p">(</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">some_code</span><span class="p">,</span>
+    <span class="n">lang</span> <span class="o">=</span> <span class="s1">&#39;php&#39;</span><span class="p">,</span>
+    <span class="n">startinline</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>      <span class="c1"># Lexer option. Snippet does not start with `&lt;?php`.</span>
+    <span class="n">linenostart</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span>        <span class="c1"># Formatter option. Snippet starts on line 42.</span>
+    <span class="n">hl_lines</span> <span class="o">=</span> <span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="c1"># Formatter option. Highlight lines 45, 49, and 50.</span>
+    <span class="n">linenos</span> <span class="o">=</span> <span class="s1">&#39;inline&#39;</span>       <span class="c1"># Formatter option. Avoid alignment problems.</span>
+<span class="p">)</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">code</span><span class="o">.</span><span class="n">hilite</span><span class="p">()</span>
+</code></pre></div>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.codehilite.CodeHilite.hilite" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L131-L188" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">CodeHilite</span><span class="o">.</span><span class="n">hilite</span><span class="p">(</span><span class="n">shebang</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+
+
+<a href="#markdown.extensions.codehilite.CodeHilite.hilite" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Pass code to the <a href="https://pygments.org/">Pygments</a> highlighter with
+optional line numbers. The output should then be styled with CSS to
+your liking. No styles are applied by default - only styling hooks
+(i.e.: <code>&lt;span class="k"&gt;</code>).</p>
+<p>returns : A string of html.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.codehilite.HiliteTreeprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L249" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">HiliteTreeprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.codehilite.HiliteTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+
+  
+      <p>Highlight source code in code blocks.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.codehilite.HiliteTreeprocessor.code_unescape" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L252-L259" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">HiliteTreeprocessor</span><span class="o">.</span><span class="n">code_unescape</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.codehilite.HiliteTreeprocessor.code_unescape" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Unescape code.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.codehilite.HiliteTreeprocessor.run" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L261-L279" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">HiliteTreeprocessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">root</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.codehilite.HiliteTreeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Find code blocks and store in <code>htmlStash</code>.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.codehilite.CodeHiliteExtension" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L282" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">CodeHiliteExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.codehilite.CodeHiliteExtension" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+
+  
+      <p>Add source code highlighting to markdown code blocks.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.extensions.codehilite.CodeHiliteExtension.config" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L287-L312" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">CodeHiliteExtension</span><span class="o">.</span><span class="n">config</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.extensions.codehilite.CodeHiliteExtension.config" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+    
+      <p>Default configuration options.</p>
+
+  <p>Defined Value:</p>
+  <div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;linenums&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;Use lines numbers. True|table|inline=yes, False=no, None=auto. Default: `None`.&quot;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;guess_lang&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">True</span><span class="p">,</span> <span class="s2">&quot;Automatic language detection - Default: `True`.&quot;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;css_class&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;codehilite&quot;</span><span class="p">,</span> <span class="s2">&quot;Set class name for wrapper &lt;div&gt; - Default: `codehilite`.&quot;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;pygments_style&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;Pygments HTML Formatter Style (Colorscheme). Default: `default`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;noclasses&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Use inline styles instead of CSS classes - Default `False`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;use_pygments&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Highlight code blocks with pygments. Disable if using a JavaScript library. Default: `True`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;lang_prefix&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;language-&#39;</span><span class="p">,</span> <span class="s1">&#39;Prefix prepended to the language when `use_pygments` is false. Default: `language-`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;pygments_formatter&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="s1">&#39;Use a specific formatter for Pygments highlighting. Default: `html`.&#39;</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.codehilite.CodeHiliteExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\codehilite.py#L328-L334" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">codehilite</span><span class="o">.</span><span class="n">CodeHiliteExtension</span><span class="o">.</span><span class="n">extendMarkdown</span><span class="p">(</span><span class="n">md</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.codehilite.CodeHiliteExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Add <code>HilitePostprocessor</code> to Markdown instance.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite">codehilite</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.parse_hl_lines">parse_hl_lines()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.CodeHilite">CodeHilite</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.CodeHilite.hilite">hilite()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.HiliteTreeprocessor">HiliteTreeprocessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.HiliteTreeprocessor.code_unescape">code_unescape()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.HiliteTreeprocessor.run">run()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.CodeHiliteExtension">CodeHiliteExtension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.CodeHiliteExtension.config">config</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.codehilite.CodeHiliteExtension.extendMarkdown">extendMarkdown()</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../attr_list/" title="previous page"><code>attr_list</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../def_list/" title="next page"><code>def_list</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\codehilite.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../def_list/" title="<code>def_list</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../attr_list/" title="<code>attr_list</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>codehilite</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.721731+00:00
+        -->
+    </body>
+</html>

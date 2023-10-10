@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/changelog/">
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link rel="search" title="Search" href="../search.html" />
+        <link rel="next" title="Authors" href="../authors/" />
+        <link rel="prev" title="Contributing to Python-Markdown" href="../contributing/" />
+        <title>Changelog &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../authors/" title="Authors" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../contributing/" title="Contributing to Python-Markdown" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Changelog</a>
+         &#187; </li>
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="python-markdown-changelog">Python-Markdown Changelog<a class="headerlink" href="#python-markdown-changelog" title="Permanent link">&para;</a></h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
+and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>. See the <a href="../contributing/">Contributing Guide</a> for details.</p>
+<h2 id="35-2023-10-06">[3.5] &ndash; 2023-10-06<a class="headerlink" href="#35-2023-10-06" title="Permanent link">&para;</a></h2>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<h4 id="add-permalink_leading-configuration-option-to-the-toc-extension-1339">Add <code>permalink_leading</code> configuration option to the toc extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1339" title="GitHub Issue Python-Markdown/markdown #1339">#1339</a>)<a class="headerlink" href="#add-permalink_leading-configuration-option-to-the-toc-extension-1339" title="Permanent link">&para;</a></h4>
+<p>A new boolean option <code>permalink_leading</code> controls the position of the permanent
+link anchors generated with <code>permalink</code>. Setting <code>permalink_leading</code> to <code>True</code>
+will cause the links to be inserted at the start of the header, before any other
+header content. The default behavior for <code>permalink</code> is to append permanent
+links to the header, placing them after all other header content.</p>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add support for cPython version 3.12 (and PyPy 3.10) and drop support for
+  Python version 3.7 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1357" title="GitHub Issue Python-Markdown/markdown #1357">#1357</a>).</li>
+<li>Refactor changelog to use the format defined at <a href="https://keepachangelog.com/">https://keepachangelog.com/</a>.</li>
+<li>Update the list of empty HTML tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1353" title="GitHub Issue Python-Markdown/markdown #1353">#1353</a>).</li>
+<li>Add customizable TOC title class to TOC extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1293" title="GitHub Issue Python-Markdown/markdown #1293">#1293</a>).</li>
+<li>Add API documentation of the code base which is generated by
+  <a href="https://mkdocstrings.github.io/">mkdocstrings</a> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1220" title="GitHub Issue Python-Markdown/markdown #1220">#1220</a>).</li>
+</ul>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix a corner case in admonitions where if an indented code block was provided
+  as the first block, the output would be malformed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1329" title="GitHub Issue Python-Markdown/markdown #1329">#1329</a>).</li>
+</ul>
+<h2 id="344-2023-07-25">[3.4.4] &ndash; 2023-07-25<a class="headerlink" href="#344-2023-07-25" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add a special case for initial <code>'s</code> to smarty extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1305" title="GitHub Issue Python-Markdown/markdown #1305">#1305</a>).</li>
+<li>Unescape any backslash escaped inline raw HTML (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1358" title="GitHub Issue Python-Markdown/markdown #1358">#1358</a>).</li>
+<li>Unescape backslash escaped TOC token names (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1360" title="GitHub Issue Python-Markdown/markdown #1360">#1360</a>).</li>
+</ul>
+<h2 id="343-2023-03-23">[3.4.3] &ndash; 2023-03-23<a class="headerlink" href="#343-2023-03-23" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Restore console script (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1327" title="GitHub Issue Python-Markdown/markdown #1327">#1327</a>).</li>
+</ul>
+<h2 id="342-2023-03-22">[3.4.2] &ndash; 2023-03-22<a class="headerlink" href="#342-2023-03-22" title="Permanent link">&para;</a></h2>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Officially support Python 3.11.</li>
+</ul>
+<h3 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Improve standalone * and _ parsing (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1300" title="GitHub Issue Python-Markdown/markdown #1300">#1300</a>).</li>
+<li>Consider <code>&lt;html&gt;</code> HTML tag a block-level element (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1309" title="GitHub Issue Python-Markdown/markdown #1309">#1309</a>).</li>
+</ul>
+<h3 id="infrastructure">Infrastructure<a class="headerlink" href="#infrastructure" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Switch from <code>setup.py</code> to <code>pyproject.toml</code>.</li>
+</ul>
+<h2 id="341-2022-07-15">[3.4.1] &ndash; 2022-07-15<a class="headerlink" href="#341-2022-07-15" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Fix an import issue with <code>importlib.util</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1274" title="GitHub Issue Python-Markdown/markdown #1274">#1274</a>).</li>
+</ul>
+<h2 id="34-2022-07-15">[3.4] &ndash; 2022-07-15<a class="headerlink" href="#34-2022-07-15" title="Permanent link">&para;</a></h2>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<h4 id="the-tables-extension-now-uses-a-style-attribute-instead-of-an-align-attribute-for-alignment">The <code>tables</code> extension now uses a <code>style</code> attribute instead of an <code>align</code> attribute for alignment.<a class="headerlink" href="#the-tables-extension-now-uses-a-style-attribute-instead-of-an-align-attribute-for-alignment" title="Permanent link">&para;</a></h4>
+<p>The <a href="https://www.w3.org/TR/html4/present/graphics.html#h-15.1.2">HTML4 spec</a>
+specifically deprecates the use of the <code>align</code> attribute and it does not appear
+at all in the <a href="https://www.w3.org/TR/html53/tabular-data.html#attributes-common-to-td-and-th-elements">HTML5
+spec</a>.
+Therefore, by default, the <a href="../extensions/tables/">tables</a> extension will now use
+the <code>style</code> attribute (setting just the <code>text-align</code> property) in <code>td</code> and <code>th</code>
+blocks.</p>
+<p>The former behavior is available by setting the <code>use_align_attribute</code>
+configuration option to <code>True</code> when enabling the extension.</p>
+<p>For example, to configure the old <code>align</code> behavior:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions.tables</span> <span class="kn">import</span> <span class="n">TableExtension</span>
+
+<span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">TableExtension</span><span class="p">(</span><span class="n">use_align_attribute</span><span class="o">=</span><span class="kc">True</span><span class="p">)])</span>
+</code></pre></div>
+
+<h4 id="backslash-unescaping-moved-to-treeprocessor-1131">Backslash unescaping moved to Treeprocessor (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1131" title="GitHub Issue Python-Markdown/markdown #1131">#1131</a>).<a class="headerlink" href="#backslash-unescaping-moved-to-treeprocessor-1131" title="Permanent link">&para;</a></h4>
+<p>Unescaping backslash escapes has been moved to a Treeprocessor, which  enables
+proper HTML escaping during serialization. However, it is recognized that
+various third-party extensions may be calling the old class at
+<code>postprocessors.UnescapePostprocessor</code>. Therefore, the old class remains in the
+code base, but has been deprecated and will be removed in a future release. The
+new class <code>treeprocessors.UnescapeTreeprocessor</code> should be used instead.</p>
+<h4 id="previously-deprecated-objects-have-been-removed">Previously deprecated objects have been removed<a class="headerlink" href="#previously-deprecated-objects-have-been-removed" title="Permanent link">&para;</a></h4>
+<p>Various objects were deprecated in version 3.0 and began raising deprecation
+warnings (see the <a href="#30-2018-09-21">version 3.0 release notes</a> for details). Any of those objects
+which remained in version 3.3 have been removed from the code base in version 3.4
+and will now raise errors. The relevant objects are listed below.</p>
+<table>
+<thead>
+<tr>
+<th>Deprecated Object</th>
+<th>Replacement Object</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>markdown.version</code></td>
+<td><code>markdown.__version__</code></td>
+</tr>
+<tr>
+<td><code>markdown.version_info</code></td>
+<td><code>markdown.__version_info__</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.etree</code></td>
+<td><code>xml.etree.ElementTree</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.string_type</code></td>
+<td><code>str</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.text_type</code></td>
+<td><code>str</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.int2str</code></td>
+<td><code>chr</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.iterrange</code></td>
+<td><code>range</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.isBlockLevel</code></td>
+<td><code>markdown.Markdown().is_block_level</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.Processor().markdown</code></td>
+<td><code>markdown.util.Processor().md</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.Registry().__setitem__</code></td>
+<td><code>markdown.util.Registry().register</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.Registry().__delitem__</code></td>
+<td><code>markdown.util.Registry().deregister</code></td>
+</tr>
+<tr>
+<td><code>markdown.util.Registry().add</code></td>
+<td><code>markdown.util.Registry().register</code></td>
+</tr>
+</tbody>
+</table>
+<p>In addition, the <code>md_globals</code> parameter of
+<code>Markdown.extensions.Extension.extendMarkdown()</code> is no longer recognized as a
+valid parameter and will raise an error if provided.</p>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Some new configuration options have been added to the
+  <a href="../extensions/footnotes/">footnotes</a> extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1218" title="GitHub Issue Python-Markdown/markdown #1218">#1218</a>):</p>
+<ul>
+<li>
+<p>Small refactor of the <code>BACKLINK_TITLE</code> option; The use of <code>format()</code>
+  instead of &ldquo;old&rdquo; <code>%d</code> formatter allows one to specify text without the
+  need to have the number of the footnote in it (like footnotes on
+  Wikipedia for example). The modification is backward compatible so no
+  configuration change is required.</p>
+</li>
+<li>
+<p>Addition of a new option <code>SUPERSCRIPT_TEXT</code> that allows one to specify a
+  custom placeholder for the footnote itself in the text.
+  Ex: <code>[{}]</code> will give <code>&lt;sup&gt;[1]&lt;/sup&gt;</code>, <code>({})</code> will give <code>&lt;sup&gt;(1)&lt;/sup&gt;</code>,
+  or by default, the current behavior: <code>&lt;sup&gt;1&lt;/sup&gt;</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The <a href="../extensions/toc/">Table of Contents</a> extension now accepts a
+  <code>toc_class</code> parameter which can be used to set the CSS class(es) on the
+  <code>&lt;div&gt;</code> that contains the Table of Contents (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1224" title="GitHub Issue Python-Markdown/markdown #1224">#1224</a>).</p>
+</li>
+<li>
+<p>The CodeHilite extension now supports a <code>pygments_formatter</code> option that can
+  be set to a custom formatter class (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1187" title="GitHub Issue Python-Markdown/markdown #1187">#1187</a>).</p>
+<ul>
+<li>If <code>pygments_formatter</code> is set to a string (ex: <code>'html'</code>), Pygments&rsquo;
+  default formatter by that name is used.</li>
+<li>If <code>pygments_formatter</code> is set to a formatter class (or any callable
+  which returns a formatter instance), then an instance of that class is
+  used.</li>
+</ul>
+<p>The formatter class is now passed an additional option, <code>lang_str</code>, to
+denote the language of the code block (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1258" title="GitHub Issue Python-Markdown/markdown #1258">#1258</a>). While Pygments&rsquo; built-in
+formatters will ignore the option, a custom formatter assigned to the
+<code>pygments_formatter</code> option can make use of the <code>lang_str</code> to include the
+code block&rsquo;s language in the output.</p>
+</li>
+</ul>
+<h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Extension entry-points are only loaded if needed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1216" title="GitHub Issue Python-Markdown/markdown #1216">#1216</a>).</li>
+<li>Added additional checks to the <code>&lt;pre&gt;&lt;code&gt;</code> handling of
+  <code>PrettifyTreeprocessor</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1261" title="GitHub Issue Python-Markdown/markdown #1261">#1261</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1263" title="GitHub Issue Python-Markdown/markdown #1263">#1263</a>).</li>
+<li>Fix XML deprecation warnings.</li>
+</ul>
+<h2 id="337-2022-05-05">[3.3.7] &ndash; 2022-05-05<a class="headerlink" href="#337-2022-05-05" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Disallow square brackets in reference link ids (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1209" title="GitHub Issue Python-Markdown/markdown #1209">#1209</a>).</li>
+<li>Retain configured <code>pygments_style</code> after first code block (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1240" title="GitHub Issue Python-Markdown/markdown #1240">#1240</a>).</li>
+<li>Ensure fenced code attributes are properly escaped (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1247" title="GitHub Issue Python-Markdown/markdown #1247">#1247</a>).</li>
+</ul>
+<h2 id="336-2021-11-17">[3.3.6] &ndash; 2021-11-17<a class="headerlink" href="#336-2021-11-17" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fix a dependency issue (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1195" title="GitHub Issue Python-Markdown/markdown #1195">#1195</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1196" title="GitHub Issue Python-Markdown/markdown #1196">#1196</a>).</li>
+</ul>
+<h2 id="335-2021-11-16">[3.3.5] &ndash; 2021-11-16<a class="headerlink" href="#335-2021-11-16" title="Permanent link">&para;</a></h2>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Support Python 3.10 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1124" title="GitHub Issue Python-Markdown/markdown #1124">#1124</a>).</li>
+</ul>
+<h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Make the <code>slugify_unicode</code> function not remove diacritical marks (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1118" title="GitHub Issue Python-Markdown/markdown #1118">#1118</a>).</li>
+<li>Fix <code>[toc]</code> detection when used with <code>nl2br</code> extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1160" title="GitHub Issue Python-Markdown/markdown #1160">#1160</a>).</li>
+<li>Re-use compiled regex for block level checks (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1169" title="GitHub Issue Python-Markdown/markdown #1169">#1169</a>).</li>
+<li>Don&rsquo;t process shebangs in fenced code blocks when using CodeHilite (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1156" title="GitHub Issue Python-Markdown/markdown #1156">#1156</a>).</li>
+<li>Improve email address validation for Automatic Links (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1165" title="GitHub Issue Python-Markdown/markdown #1165">#1165</a>).</li>
+<li>Ensure <code>&lt;summary&gt;</code> tags are parsed correctly (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1079" title="GitHub Issue Python-Markdown/markdown #1079">#1079</a>).</li>
+</ul>
+<h2 id="334-2021-02-24">[3.3.4] &ndash; 2021-02-24<a class="headerlink" href="#334-2021-02-24" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Properly parse unclosed tags in code spans (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1066" title="GitHub Issue Python-Markdown/markdown #1066">#1066</a>).</li>
+<li>Properly parse processing instructions in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1070" title="GitHub Issue Python-Markdown/markdown #1070">#1070</a>).</li>
+<li>Properly parse code spans in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1069" title="GitHub Issue Python-Markdown/markdown #1069">#1069</a>).</li>
+<li>Preserve text immediately before an admonition (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1092" title="GitHub Issue Python-Markdown/markdown #1092">#1092</a>).</li>
+<li>Simplified regex for HTML placeholders (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/928" title="GitHub Issue Python-Markdown/markdown #928">#928</a>) addressing (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/932" title="GitHub Issue Python-Markdown/markdown #932">#932</a>).</li>
+<li>Ensure <code>permalinks</code> and <code>anchorlinks</code> are not restricted by <code>toc_depth</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1107" title="GitHub Issue Python-Markdown/markdown #1107">#1107</a>).</li>
+<li>Fix corner cases with lists under admonitions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1102" title="GitHub Issue Python-Markdown/markdown #1102">#1102</a>).</li>
+</ul>
+<h2 id="333-2020-10-25">[3.3.3] &ndash; 2020-10-25<a class="headerlink" href="#333-2020-10-25" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_9">Fixed<a class="headerlink" href="#fixed_9" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Unify all block-level tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1047" title="GitHub Issue Python-Markdown/markdown #1047">#1047</a>).</li>
+<li>Fix issue where some empty elements would have text rendered as <code>None</code> when using <code>md_in_html</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1049" title="GitHub Issue Python-Markdown/markdown #1049">#1049</a>).</li>
+<li>Avoid catastrophic backtracking in <code>hr</code> regex (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1055" title="GitHub Issue Python-Markdown/markdown #1055">#1055</a>).</li>
+<li>Fix <code>hr</code> HTML handling (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1053" title="GitHub Issue Python-Markdown/markdown #1053">#1053</a>).</li>
+</ul>
+<h2 id="332-2020-10-19">[3.3.2] &ndash; 2020-10-19<a class="headerlink" href="#332-2020-10-19" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_10">Fixed<a class="headerlink" href="#fixed_10" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Properly parse inline HTML in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1040" title="GitHub Issue Python-Markdown/markdown #1040">#1040</a> &amp; <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1045" title="GitHub Issue Python-Markdown/markdown #1045">#1045</a>).</li>
+<li>Avoid crashing when md_in_html fails (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1040" title="GitHub Issue Python-Markdown/markdown #1040">#1040</a>).</li>
+</ul>
+<h2 id="331-2020-10-12">[3.3.1] &ndash; 2020-10-12<a class="headerlink" href="#331-2020-10-12" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_11">Fixed<a class="headerlink" href="#fixed_11" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Correctly parse raw <code>script</code> and <code>style</code> tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1036" title="GitHub Issue Python-Markdown/markdown #1036">#1036</a>).</li>
+<li>Ensure consistent class handling by <code>fenced_code</code> and <code>codehilite</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1032" title="GitHub Issue Python-Markdown/markdown #1032">#1032</a>).</li>
+</ul>
+<h2 id="33-2020-10-06">[3.3] &ndash; 2020-10-06<a class="headerlink" href="#33-2020-10-06" title="Permanent link">&para;</a></h2>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<h4 id="the-prefix-language-is-now-prepended-to-all-language-classes-by-default-on-code-blocks">The prefix <code>language-</code> is now prepended to all language classes by default on code blocks.<a class="headerlink" href="#the-prefix-language-is-now-prepended-to-all-language-classes-by-default-on-code-blocks" title="Permanent link">&para;</a></h4>
+<p>The <a href="https://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5
+spec</a>
+recommends that the class defining the language of a code block be prefixed with
+<code>language-</code>. Therefore, by default, both the
+<a href="../extensions/fenced_code_blocks/">fenced_code</a> and
+<a href="../extensions/code_hilite/">codehilite</a> extensions now prepend the prefix when
+code highlighting is disabled.</p>
+<p>If you have previously been including the prefix manually in your fenced code blocks, then you will not want a second
+instance of the prefix. Similarly, if you are using a third party syntax highlighting tool which does not recognize
+the prefix, or requires a different prefix, then you will want to redefine the prefix globally using the <code>lang_prefix</code>
+configuration option of either the <code>fenced_code</code> or <code>codehilite</code> extensions.</p>
+<p>For example, to configure <code>fenced_code</code> to not apply any prefix (the previous behavior), set the option to an empty string:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions.fenced_code</span> <span class="kn">import</span> <span class="n">FencedCodeExtension</span>
+
+<span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">FencedCodeExtension</span><span class="p">(</span><span class="n">lang_prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)])</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When code highlighting is
+<a href="../extensions/fenced_code_blocks/#enabling-syntax-highlighting">enabled</a>,
+the output from Pygments is used unaltered. Currently, Pygments does not
+provide an option to include the language class in the output, let alone
+prefix it. Therefore, any language prefix is only applied when syntax
+highlighting is disabled.</p>
+</div>
+<h4 id="attribute-lists-are-more-strict-898">Attribute Lists are more strict (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/898" title="GitHub Issue Python-Markdown/markdown #898">#898</a>).<a class="headerlink" href="#attribute-lists-are-more-strict-898" title="Permanent link">&para;</a></h4>
+<p>Empty curly braces are now completely ignored by the <a href="../extensions/attr_list/">Attribute List</a> extension. Previously, the extension would
+recognize them as attribute lists and remove them from the document. Therefore, it is no longer necessary to backslash
+escape a set of curly braces which are empty or only contain whitespace.</p>
+<p>Despite not being documented, previously an attribute list could be defined anywhere within a table cell and get
+applied to the cell (<code>&lt;td&gt;</code> element). Now the attribute list must be defined at the end of the cell content and must
+be separated from the rest of the content by at least one space. This makes it easy to differentiate between attribute
+lists defined on inline elements within a cell and the attribute list for the cell itself. It is also more consistent
+with how attribute lists are defined on other types of elements.</p>
+<p>The extension has also added support for defining attribute lists on table header cells (<code>&lt;th&gt;</code> elements) in the same
+manner as data cells (<code>&lt;td&gt;</code> elements).</p>
+<p>In addition, the documentation for the extensions received an overhaul. The features (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/987" title="GitHub Issue Python-Markdown/markdown #987">#987</a>) and limitations (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/965" title="GitHub Issue Python-Markdown/markdown #965">#965</a>) of the extension are now fully documented.</p>
+<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>All Pygments&rsquo; options are now available for syntax highlighting (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/816" title="GitHub Issue Python-Markdown/markdown #816">#816</a>).</p>
+<ul>
+<li>The <a href="../extensions/code_hilite/">Codehilite</a> extension now accepts any options
+  which Pygments supports as global configuration settings on the extension.</li>
+<li><a href="../extensions/fenced_code_blocks/">Fenced Code Blocks</a> will accept any of the
+  same options on individual code blocks.</li>
+<li>Any of the previously supported aliases to Pygments&rsquo; options continue to be
+  supported at this time. However, it is recommended that the Pygments option names
+  be used directly to ensure continued compatibility in the future.</li>
+</ul>
+</li>
+<li>
+<p><a href="../extensions/fenced_code_blocks/">Fenced Code Blocks</a> now work with
+  <a href="../extensions/attr_list/">Attribute Lists</a> when syntax highlighting is disabled.
+  Any random HTML attribute can be defined and set on the <code>&lt;code&gt;</code> tag of fenced code
+  blocks when the <code>attr_list</code> extension is enabled (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/816" title="GitHub Issue Python-Markdown/markdown #816">#816</a>).</p>
+</li>
+<li>
+<p>The HTML parser has been completely replaced. The new HTML parser is built on Python&rsquo;s
+  <a href="https://docs.python.org/3/library/html.parser.html"><code>html.parser.HTMLParser</code></a>, which
+  alleviates various bugs and simplify maintenance of the code (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/803" title="GitHub Issue Python-Markdown/markdown #803">#803</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/830" title="GitHub Issue Python-Markdown/markdown #830">#830</a>).</p>
+</li>
+<li>
+<p>The <a href="../extensions/md_in_html/">Markdown in HTML</a> extension has been rebuilt on the
+  new HTML Parser, which drastically simplifies it. Note that raw HTML elements with a
+  <code>markdown</code> attribute defined are now converted to ElementTree Elements and are rendered
+  by the serializer. Various bugs have been fixed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/803" title="GitHub Issue Python-Markdown/markdown #803">#803</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/595" title="GitHub Issue Python-Markdown/markdown #595">#595</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/780" title="GitHub Issue Python-Markdown/markdown #780">#780</a>, and <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1012" title="GitHub Issue Python-Markdown/markdown #1012">#1012</a>).</p>
+</li>
+<li>
+<p>Link reference parsing, abbreviation reference parsing and footnote reference parsing
+  has all been moved from <code>preprocessors</code> to <code>blockprocessors</code>, which allows them to be
+  nested within other block level elements. Specifically, this change was necessary to
+  maintain the current behavior in the rebuilt Markdown in HTML extension. A few random
+  edge-case bugs (see the included tests) were resolved in the process (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/803" title="GitHub Issue Python-Markdown/markdown #803">#803</a>).</p>
+</li>
+<li>
+<p>An alternate function <code>markdown.extensions.headerid.slugify_unicode</code> has been included
+  with the <a href="../extensions/toc/">Table of Contents</a> extension which supports Unicode
+  characters in table of contents slugs. The old <code>markdown.extensions.headerid.slugify</code>
+  method which removes non-ASCII characters remains the default. Import and pass
+  <code>markdown.extensions.headerid.slugify_unicode</code> to the <code>slugify</code> configuration option
+  to use the new behavior.</p>
+</li>
+<li>
+<p>Support was added for Python 3.9 and dropped for Python 3.5.</p>
+</li>
+</ul>
+<h3 id="fixed_12">Fixed<a class="headerlink" href="#fixed_12" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Document how to pass configuration options to Extra (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1019" title="GitHub Issue Python-Markdown/markdown #1019">#1019</a>).</li>
+<li>Fix HR which follows strong em (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/897" title="GitHub Issue Python-Markdown/markdown #897">#897</a>).</li>
+<li>Support short reference image links (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/894" title="GitHub Issue Python-Markdown/markdown #894">#894</a>).</li>
+<li>Avoid a <code>RecursionError</code> from deeply nested blockquotes (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/799" title="GitHub Issue Python-Markdown/markdown #799">#799</a>).</li>
+<li>Fix issues with complex emphasis (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/979" title="GitHub Issue Python-Markdown/markdown #979">#979</a>).</li>
+<li>Fix unescaping of HTML characters <code>&lt;&gt;</code> in CodeHilite (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/990" title="GitHub Issue Python-Markdown/markdown #990">#990</a>).</li>
+<li>Fix complex scenarios involving lists and admonitions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1004" title="GitHub Issue Python-Markdown/markdown #1004">#1004</a>).</li>
+<li>Fix complex scenarios with nested ordered and unordered lists in a definition list (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/918" title="GitHub Issue Python-Markdown/markdown #918">#918</a>).</li>
+</ul>
+<h2 id="322-2020-05-08">[3.2.2] &ndash; 2020-05-08<a class="headerlink" href="#322-2020-05-08" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_13">Fixed<a class="headerlink" href="#fixed_13" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Add <code>checklinks</code> tox environment to ensure all links in documentation are good.</li>
+<li>Refactor extension API documentation (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/729" title="GitHub Issue Python-Markdown/markdown #729">#729</a>).</li>
+<li>Load entry_points (for extensions) only once using <code>importlib.metadata</code>.</li>
+<li>Do not double escape entities in TOC.</li>
+<li>Correctly report if an extension raises a <code>TypeError</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/939" title="GitHub Issue Python-Markdown/markdown #939">#939</a>).</li>
+<li>Raise a <code>KeyError</code> when attempting to delete a nonexistent key from the
+  extension registry (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/939" title="GitHub Issue Python-Markdown/markdown #939">#939</a>).</li>
+<li>Remove import of <code>packaging</code> (or <code>pkg_resources</code> fallback) entirely.</li>
+<li>Remove <code>setuptools</code> as a run-time dependency (<code>install_required</code>).</li>
+</ul>
+<h2 id="321-2020-02-12">[3.2.1] &ndash; 2020-02-12<a class="headerlink" href="#321-2020-02-12" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_14">Fixed<a class="headerlink" href="#fixed_14" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The <code>name</code> property in <code>toc_tokens</code> from the TOC extension now
+  escapes HTML special characters (<code>&lt;</code>, <code>&gt;</code>, and <code>&amp;</code>).</li>
+</ul>
+<h2 id="32-2020-02-07">[3.2] &ndash; 2020-02-07<a class="headerlink" href="#32-2020-02-07" title="Permanent link">&para;</a></h2>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<h4 id="drop-support-for-python-27">Drop support for Python 2.7<a class="headerlink" href="#drop-support-for-python-27" title="Permanent link">&para;</a></h4>
+<p>Python 2.7 reaches end-of-life on 2020-01-01 and Python-Markdown 3.2 has dropped
+support for it. Please upgrade to Python 3, or use Python-Markdown 3.1.</p>
+<h4 id="em-and-strong-inline-processor-changes"><code>em</code> and <code>strong</code> inline processor changes<a class="headerlink" href="#em-and-strong-inline-processor-changes" title="Permanent link">&para;</a></h4>
+<p>In order to fix issue <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/792" title="GitHub Issue Python-Markdown/markdown #792">#792</a>, <code>em</code>/<code>strong</code> inline processors were refactored. This
+translated into removing many of the existing inline processors that handled this
+logic:</p>
+<ul>
+<li><code>em_strong</code></li>
+<li><code>strong</code></li>
+<li><code>emphasis</code></li>
+<li><code>strong2</code></li>
+<li><code>emphasis</code></li>
+</ul>
+<p>These processors were replaced with two new ones:</p>
+<ul>
+<li><code>em_strong</code></li>
+<li><code>em_strong2</code></li>
+</ul>
+<p>The <a href="../extensions/legacy_em/"><code>legacy_em</code></a> extension was also modified with new,
+refactored logic and simply overrides the <code>em_strong2</code> inline processor.</p>
+<h4 id="codehilite-now-always-wraps-with-code-tags">CodeHilite now always wraps with <code>&lt;code&gt;</code> tags<a class="headerlink" href="#codehilite-now-always-wraps-with-code-tags" title="Permanent link">&para;</a></h4>
+<p>Before, the HTML generated by CodeHilite looked like:
+- <code>&lt;pre&gt;&lt;code&gt;foo = 'bar'&lt;/code&gt;&lt;/pre&gt;</code> if you <strong>were not</strong> using Pygments.
+- <code>&lt;pre&gt;foo = 'bar'&lt;/pre&gt;</code>  if you <strong>were</strong> using Pygments.</p>
+<p>To make the cases more consistent (and adhere to many Markdown specifications and
+HTML code block markup suggestions), CodeHilite will now always additionally wrap
+code with <code>&lt;code&gt;</code> tags. See <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/862" title="GitHub Issue Python-Markdown/markdown #862">#862</a> for more details.</p>
+<p>This change does not alter the Python-Markdown API, but users relying on the old
+markup will find their output now changed.</p>
+<p>Internally, this change relies on the Pygments 2.4, so you must be using at least
+that version to see this effect. Users with earlier Pygments versions will
+continue to see the old behavior.</p>
+<h4 id="markdownutiletree-deprecated"><code>markdown.util.etree</code> deprecated<a class="headerlink" href="#markdownutiletree-deprecated" title="Permanent link">&para;</a></h4>
+<p>Previously, Python-Markdown was using either the <code>xml.etree.cElementTree</code> module
+or the <code>xml.etree.ElementTree</code> module, based on their availability. In modern
+Python versions, the former is a deprecated alias for the latter. Thus, the
+compatibility layer is deprecated and extensions are advised to use
+<code>xml.etree.ElementTree</code> directly. Importing <code>markdown.util.etree</code> will raise
+a <code>DeprecationWarning</code> beginning in version 3.2 and may be removed in a future
+release.</p>
+<p>Therefore, extension developers are encouraged to replace
+<code>from markdown.util import etree</code> with
+<code>import xml.etree.ElementTree as etree</code> in their code.</p>
+<h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Some new configuration options have been added to the <a href="../extensions/toc/">toc</a>
+  extension:</p>
+<ul>
+<li>
+<p>The <code>anchorlink_class</code> and <code>permalink_class</code> options allow class(es) to be
+  assigned to the <code>anchorlink</code> and <code>permalink</code> respectively. This allows using
+  icon fonts from CSS for the links. Therefore, an empty string passed to
+  <code>permalink</code> now generates an empty <code>permalink</code>. Previously no <code>permalink</code>
+  would have been generated. (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/776" title="GitHub Issue Python-Markdown/markdown #776">#776</a>)</p>
+</li>
+<li>
+<p>The <code>permalink_title</code> option allows the title attribute of a <code>permalink</code> to be
+  set to something other than the default English string <code>Permanent link</code>. (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/877" title="GitHub Issue Python-Markdown/markdown #877">#877</a>)</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Document thread safety (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/812" title="GitHub Issue Python-Markdown/markdown #812">#812</a>).</p>
+</li>
+<li>
+<p>Markdown parsing in HTML has been exposed via a separate extension called
+  <a href="../extensions/md_in_html/"><code>md_in_html</code></a>.</p>
+</li>
+<li>
+<p>Add support for Python 3.8.</p>
+</li>
+</ul>
+<h3 id="fixed_15">Fixed<a class="headerlink" href="#fixed_15" title="Permanent link">&para;</a></h3>
+<ul>
+<li>HTML tag placeholders are no longer included in  <code>.toc_tokens</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/899" title="GitHub Issue Python-Markdown/markdown #899">#899</a>).</li>
+<li>Unescape backslash-escaped characters in TOC ids (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/864" title="GitHub Issue Python-Markdown/markdown #864">#864</a>).</li>
+<li>Refactor bold and italic logic in order to solve complex nesting issues (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/792" title="GitHub Issue Python-Markdown/markdown #792">#792</a>).</li>
+<li>Always wrap CodeHilite code in <code>code</code> tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/862" title="GitHub Issue Python-Markdown/markdown #862">#862</a>).</li>
+</ul>
+<h2 id="311-2019-05-20">[3.1.1] &ndash; 2019-05-20<a class="headerlink" href="#311-2019-05-20" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_16">Fixed<a class="headerlink" href="#fixed_16" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Fixed import failure in <code>setup.py</code> when the source directory is not
+  on <code>sys.path</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/823" title="GitHub Issue Python-Markdown/markdown #823">#823</a>).</li>
+<li>Prefer public <code>packaging</code> module to pkg_resources&rsquo; private copy of
+  it (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/825" title="GitHub Issue Python-Markdown/markdown #825">#825</a>).</li>
+</ul>
+<h2 id="31-2019-03-25">[3.1] &ndash; 2019-03-25<a class="headerlink" href="#31-2019-03-25" title="Permanent link">&para;</a></h2>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<h4 id="markdownversion-and-markdownversion_info-deprecated"><code>markdown.version</code> and <code>markdown.version_info</code> deprecated<a class="headerlink" href="#markdownversion-and-markdownversion_info-deprecated" title="Permanent link">&para;</a></h4>
+<p>Historically, version numbers were acquired via the attributes
+<code>markdown.version</code> and <code>markdown.version_info</code>. As of 3.0, a more standardized
+approach is being followed and versions are acquired via the
+<code>markdown.__version__</code> and <code>markdown.__version_info__</code> attributes.  As of 3.1
+the legacy attributes will raise a <code>DeprecationWarning</code> if they are accessed. In
+a future release the legacy attributes will be removed.</p>
+<h3 id="added_6">Added<a class="headerlink" href="#added_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>A <a href="../contributing/">Contributing Guide</a> has been added (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/732" title="GitHub Issue Python-Markdown/markdown #732">#732</a>).</p>
+</li>
+<li>
+<p>A new configuration option to set the footnote separator has been added. Also,
+  the <code>rel</code> and <code>rev</code> attributes have been removed from footnotes as they are
+  not valid in HTML5. The <code>refs</code> and <code>backrefs</code> classes already exist and
+  serve the same purpose (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/723" title="GitHub Issue Python-Markdown/markdown #723">#723</a>).</p>
+</li>
+<li>
+<p>A new option for <code>toc_depth</code> to set not only the bottom section level,
+  but also the top section level. A string consisting of two digits
+  separated by a hyphen in between (<code>"2-5"</code>), defines the top (<code>t</code>) and the
+  bottom (<code>b</code>) (<code>&lt;ht&gt;..&lt;hb&gt;</code>). A single integer still defines the bottom
+  section level (<code>&lt;h1&gt;..&lt;hb&gt;</code>) only. (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/787" title="GitHub Issue Python-Markdown/markdown #787">#787</a>).</p>
+</li>
+</ul>
+<h3 id="fixed_17">Fixed<a class="headerlink" href="#fixed_17" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Update CLI to support PyYAML 5.1.</li>
+<li>Overlapping raw HTML matches no longer leave placeholders behind (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/458" title="GitHub Issue Python-Markdown/markdown #458">#458</a>).</li>
+<li>Emphasis patterns now recognize newline characters as whitespace (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/783" title="GitHub Issue Python-Markdown/markdown #783">#783</a>).</li>
+<li>Version format had been updated to be PEP 440 compliant (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/736" title="GitHub Issue Python-Markdown/markdown #736">#736</a>).</li>
+<li>Block level elements are defined per instance, not as class attributes
+  (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/731" title="GitHub Issue Python-Markdown/markdown #731">#731</a>).</li>
+<li>Double escaping of block code has been eliminated (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/725" title="GitHub Issue Python-Markdown/markdown #725">#725</a>).</li>
+<li>Problems with newlines in references has been fixed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/742" title="GitHub Issue Python-Markdown/markdown #742">#742</a>).</li>
+<li>Escaped <code>#</code> are now handled in header syntax (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/762" title="GitHub Issue Python-Markdown/markdown #762">#762</a>).</li>
+</ul>
+<h2 id="301-2018-09-28">[3.0.1] &ndash; 2018-09-28<a class="headerlink" href="#301-2018-09-28" title="Permanent link">&para;</a></h2>
+<h3 id="fixed_18">Fixed<a class="headerlink" href="#fixed_18" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Brought back the <code>version</code> and <code>version_info</code> variables (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/709" title="GitHub Issue Python-Markdown/markdown #709">#709</a>).</li>
+<li>Added support for hexadecimal HTML entities (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/712" title="GitHub Issue Python-Markdown/markdown #712">#712</a>).</li>
+</ul>
+<h2 id="30-2018-09-21">[3.0] &ndash; 2018-09-21<a class="headerlink" href="#30-2018-09-21" title="Permanent link">&para;</a></h2>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<h4 id="enable_attributes-keyword-deprecated"><code>enable_attributes</code> keyword deprecated<a class="headerlink" href="#enable_attributes-keyword-deprecated" title="Permanent link">&para;</a></h4>
+<p>The <code>enable_attributes</code> keyword is deprecated in version 3.0 and will be
+ignored. Previously the keyword was <code>True</code> by default and enabled an
+undocumented way to define attributes on document elements. The feature has been
+removed from version 3.0. As most users did not use the undocumented feature, it
+should not affect most users. For the few who did use the feature, it can be
+enabled by using the <a href="../extensions/legacy_attrs/">Legacy Attributes</a>
+extension.</p>
+<h4 id="smart_emphasis-keyword-and-smart_strong-extension-deprecated"><code>smart_emphasis</code> keyword and <code>smart_strong</code> extension deprecated<a class="headerlink" href="#smart_emphasis-keyword-and-smart_strong-extension-deprecated" title="Permanent link">&para;</a></h4>
+<p>The <code>smart_emphasis</code> keyword is deprecated in version 3.0 and will be ignored.
+Previously the keyword was <code>True</code> by default and caused the parser to ignore
+middle-word emphasis. Additionally, the optional <code>smart_strong</code> extension
+provided the same behavior for strong emphasis. Both of those features are now
+part of the default behavior, and the <a href="../extensions/legacy_em/">Legacy
+Emphasis</a> extension is available to disable that
+behavior.</p>
+<h4 id="output_formats-simplified-to-html-and-xhtml"><code>output_formats</code> simplified to <code>html</code> and <code>xhtml</code>.<a class="headerlink" href="#output_formats-simplified-to-html-and-xhtml" title="Permanent link">&para;</a></h4>
+<p>The <code>output_formats</code> keyword now only accepts two options: <code>html</code> and <code>xhtml</code>
+Note that if <code>(x)html1</code>, <code>(x)html4</code> or <code>(x)html5</code> are passed in, the number is
+stripped and ignored.</p>
+<h4 id="safe_mode-and-html_replacement_text-keywords-deprecated"><code>safe_mode</code> and <code>html_replacement_text</code> keywords deprecated<a class="headerlink" href="#safe_mode-and-html_replacement_text-keywords-deprecated" title="Permanent link">&para;</a></h4>
+<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords are
+deprecated in version 3.0 and will be ignored. The so-called &ldquo;safe mode&rdquo; was
+never actually &ldquo;safe&rdquo; which has resulted in many people having a false sense of
+security when using it. As an alternative, the developers of Python-Markdown
+recommend that any untrusted content be passed through an HTML sanitizer (like
+<a href="https://bleach.readthedocs.io/">Bleach</a>) after being converted to HTML by
+markdown. In fact, <a href="https://github.com/yourcelf/bleach-whitelist">Bleach
+Whitelist</a> provides a curated list
+of tags, attributes, and styles suitable for filtering user-provided HTML using
+bleach.</p>
+<p>If your code previously looked like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">safe_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Then it is recommended that you change your code to read something like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">bleach</span>
+<span class="kn">from</span> <span class="nn">bleach_whitelist</span> <span class="kn">import</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">),</span> <span class="n">markdown_tags</span><span class="p">,</span> <span class="n">markdown_attrs</span><span class="p">)</span>
+</code></pre></div>
+
+<p>If you are not interested in sanitizing untrusted text, but simply desire to
+escape raw HTML, then that can be accomplished through an extension which
+removes HTML parsing:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+
+<span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">deregister</span><span class="p">(</span><span class="s1">&#39;html_block&#39;</span><span class="p">)</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">deregister</span><span class="p">(</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+
+<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
+</code></pre></div>
+
+<p>As the HTML would not be parsed with the above Extension, then the serializer
+will escape the raw HTML, which is exactly what happened in previous versions
+with <code>safe_mode="escape"</code>.</p>
+<h4 id="positional-arguments-deprecated">Positional arguments deprecated<a class="headerlink" href="#positional-arguments-deprecated" title="Permanent link">&para;</a></h4>
+<p>Positional arguments on the <code>markdown.Markdown()</code> class are deprecated as are
+all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
+Using positional arguments will raise an error. Only keyword arguments should be
+used. For example, if your code previously looked like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
+</code></pre></div>
+
+<p>Then it is recommended that you change it to read something like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">SomeExtension</span><span class="p">()])</span>
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the
+<code>safe_mode</code> argument was one of the positional arguments. When that argument
+is removed, the two arguments following it will no longer be at the correct
+position. It is recommended that you always use keywords when they are
+supported for this reason.</p>
+</div>
+<h4 id="extension-name-behavior-has-changed">Extension name behavior has changed<a class="headerlink" href="#extension-name-behavior-has-changed" title="Permanent link">&para;</a></h4>
+<p>In previous versions of Python-Markdown, the built-in extensions received
+special status and did not require the full path to be provided. Additionally,
+third party extensions whose name started with <code>"mdx_"</code> received the same
+special treatment. This is no longer the case.</p>
+<p>Support has been added for extensions to define an <a href="../extensions/api/#entry_point">entry
+point</a>. An entry point is a string name which
+can be used to point to an <code>Extension</code> class. The built-in extensions now have
+entry points which match the old short names. And any third-party extensions
+which define entry points can now get the same behavior. See the documentation
+for each specific extension to find the assigned name.</p>
+<p>If an extension does not define an entry point, then the full path to the
+extension must be used. See the <a href="../reference/#extensions">documentation</a> for
+a full explanation of the current behavior.</p>
+<h4 id="extension-configuration-as-part-of-extension-name-deprecated">Extension configuration as part of extension name deprecated<a class="headerlink" href="#extension-configuration-as-part-of-extension-name-deprecated" title="Permanent link">&para;</a></h4>
+<p>The previously documented method of appending the extension configuration
+options as a string to the extension name is deprecated and will raise an error.
+The <a href="../reference/#extension_configs"><code>extension_configs</code></a> keyword should be
+used instead. See the <a href="../reference/#extension_configs">documentation</a> for a
+full explanation of the current behavior.</p>
+<h4 id="headerid-extension-deprecated">HeaderId extension deprecated<a class="headerlink" href="#headerid-extension-deprecated" title="Permanent link">&para;</a></h4>
+<p>The HeaderId Extension is deprecated and will raise an error if specified. Use
+the <a href="../extensions/toc/">Table of Contents</a> Extension instead, which offers
+most of the features of the HeaderId Extension and more (support for meta data
+is missing).</p>
+<p>Extension authors who have been using the <code>slugify</code> and <code>unique</code> functions
+defined in the HeaderId Extension should note that those functions are now
+defined in the Table of Contents extension and should adjust their import
+statements accordingly (<code>from markdown.extensions.toc import slugify, unique</code>).</p>
+<h4 id="homegrown-ordereddict-has-been-replaced-with-a-purpose-built-registry">Homegrown <code>OrderedDict</code> has been replaced with a purpose-built <code>Registry</code><a class="headerlink" href="#homegrown-ordereddict-has-been-replaced-with-a-purpose-built-registry" title="Permanent link">&para;</a></h4>
+<p>All processors and patterns now get &ldquo;registered&rdquo; to a
+<a href="../extensions/api/#registry">Registry</a>. A backwards compatible shim is
+included so that existing simple extensions should continue to work.
+A <code>DeprecationWarning</code> will be raised for any code which calls the old API.</p>
+<h4 id="markdown-class-instance-references">Markdown class instance references.<a class="headerlink" href="#markdown-class-instance-references" title="Permanent link">&para;</a></h4>
+<p>Previously, instances of the <code>Markdown</code> class were represented as any one of
+<code>md</code>, <code>md_instance</code>, or <code>markdown</code>. This inconsistency made it difficult when
+developing extensions, or just maintaining the existing code. Now, all instances
+are consistently represented as <code>md</code>.</p>
+<p>The old attributes on class instances still exist, but raise a
+<code>DeprecationWarning</code> when accessed. Also on classes where the instance was
+optional, the attribute always exists now and is simply <code>None</code> if no instance
+was provided (previously the attribute would not exist).</p>
+<h4 id="markdownutilisblocklevel-deprecated"><code>markdown.util.isBlockLevel</code> deprecated<a class="headerlink" href="#markdownutilisblocklevel-deprecated" title="Permanent link">&para;</a></h4>
+<p>The <code>markdown.util.isBlockLevel</code> function is deprecated and will raise a
+<code>DeprecationWarning</code>. Instead, extensions should use the <code>isBlockLevel</code> method
+of the <code>Markdown</code> class instance. Additionally, a list of block level elements
+is defined in the <code>block_level_elements</code> attribute of the <code>Markdown</code> class which
+extensions can access to alter the list of elements which are treated as block
+level elements.</p>
+<h4 id="md_globals-keyword-deprecated-from-extension-api"><code>md_globals</code> keyword deprecated from extension API<a class="headerlink" href="#md_globals-keyword-deprecated-from-extension-api" title="Permanent link">&para;</a></h4>
+<p>Previously, the <code>extendMarkdown</code> method of a <code>markdown.extensions.Extension</code>
+subclasses accepted an <code>md_globals</code> keyword, which contained the value returned
+by Python&rsquo;s <code>globals()</code> built-in function. As all of the configuration is now
+held within the <code>Markdown</code> class instance, access to the globals is no longer
+necessary and any extensions which expect the keyword will raise a
+<code>DeprecationWarning</code>. A future release will raise an error.</p>
+<h4 id="markdownversion-and-markdownversion_info-deprecated_1"><code>markdown.version</code> and <code>markdown.version_info</code> deprecated<a class="headerlink" href="#markdownversion-and-markdownversion_info-deprecated_1" title="Permanent link">&para;</a></h4>
+<p>Historically, version numbers were acquired via the attributes
+<code>markdown.version</code> and <code>markdown.version_info</code>. Moving forward, a more
+standardized approach is being followed and versions are acquired via the
+<code>markdown.__version__</code> and <code>markdown.__version_info__</code> attributes.  The legacy
+attributes are still available to allow distinguishing versions between the
+legacy Markdown 2.0 series and the Markdown 3.0 series, but in the future the
+legacy attributes will be removed.</p>
+<h4 id="added-new-more-flexible-inlineprocessor-class">Added new, more flexible <code>InlineProcessor</code> class<a class="headerlink" href="#added-new-more-flexible-inlineprocessor-class" title="Permanent link">&para;</a></h4>
+<p>A new <code>InlineProcessor</code> class handles inline processing much better and allows
+for more flexibility. The new <code>InlineProcessor</code> classes no longer utilize
+unnecessary pretext and post-text captures. New class can accept the buffer that
+is being worked on and manually process the text without regular expressions and
+return new replacement bounds. This helps us to handle links in a better way and
+handle nested brackets and logic that is too much for regular expression.</p>
+<h3 id="added_7">Added<a class="headerlink" href="#added_7" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>A new <a href="../test_tools/">testing framework</a> is included as a part of the
+  Markdown library, which can also be used by third party extensions.</p>
+</li>
+<li>
+<p>A new <code>toc_depth</code> parameter has been added to the
+  <a href="../extensions/toc/">Table of Contents Extension</a>.</p>
+</li>
+<li>
+<p>A new <code>toc_tokens</code> attribute has been added to the Markdown class by the
+  <a href="../extensions/toc/">Table of Contents Extension</a>, which contains the raw
+  tokens used to build the Table of Contents. Users can use this to build their
+  own custom Table of Contents rather than needing to parse the HTML available
+  on the <code>toc</code> attribute of the Markdown class.</p>
+</li>
+<li>
+<p>When the <a href="../extensions/toc/">Table of Contents Extension</a> is used in
+  conjunction with the <a href="../extensions/attr_list/">Attribute Lists Extension</a>
+  and a <code>data-toc-label</code> attribute is defined on a header, the content of the
+  <code>data-toc-label</code> attribute is now used as the content of the Table of Contents
+  item for that header.</p>
+</li>
+<li>
+<p>Additional CSS class names can be appended to
+  <a href="../extensions/admonition/">Admonitions</a>.</p>
+</li>
+</ul>
+<h2 id="previous-releases">Previous Releases<a class="headerlink" href="#previous-releases" title="Permanent link">&para;</a></h2>
+<p>For information on prior releases, see their changelogs:</p>
+<ul>
+<li><a href="../change_log/">2.x and earlier</a></li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#python-markdown-changelog">Python-Markdown Changelog</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#35-2023-10-06">[3.5] -- 2023-10-06</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#344-2023-07-25">[3.4.4] -- 2023-07-25</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#343-2023-03-23">[3.4.3] -- 2023-03-23</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#342-2023-03-22">[3.4.2] -- 2023-03-22</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#341-2022-07-15">[3.4.1] -- 2022-07-15</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#34-2022-07-15">[3.4] -- 2022-07-15</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#337-2022-05-05">[3.3.7] -- 2022-05-05</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#336-2021-11-17">[3.3.6] -- 2021-11-17</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#335-2021-11-16">[3.3.5] -- 2021-11-16</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#334-2021-02-24">[3.3.4] -- 2021-02-24</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#333-2020-10-25">[3.3.3] -- 2020-10-25</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#332-2020-10-19">[3.3.2] -- 2020-10-19</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#331-2020-10-12">[3.3.1] -- 2020-10-12</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#33-2020-10-06">[3.3] -- 2020-10-06</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#322-2020-05-08">[3.2.2] -- 2020-05-08</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#321-2020-02-12">[3.2.1] -- 2020-02-12</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#32-2020-02-07">[3.2] -- 2020-02-07</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#311-2019-05-20">[3.1.1] -- 2019-05-20</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#31-2019-03-25">[3.1] -- 2019-03-25</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#301-2018-09-28">[3.0.1] -- 2018-09-28</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#30-2018-09-21">[3.0] -- 2018-09-21</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#previous-releases">Previous Releases</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../contributing/" title="previous page">Contributing to Python-Markdown</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../authors/" title="next page">Authors</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/changelog.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../authors/" title="Authors" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../contributing/" title="Contributing to Python-Markdown" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Changelog</a>
+         &#187; </li>
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.643658+00:00
+        -->
+    </body>
+</html>

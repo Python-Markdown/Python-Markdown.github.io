@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/preprocessors/">
+        <link rel="shortcut icon" href="../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../search.html" />
+        <link rel="next" title="<code>blockparser</code>" href="../blockparser/" />
+        <link rel="prev" title="<code>markdown</code>" href="../" />
+        <title>preprocessors &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../blockparser/" title="<code>blockparser</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../" title="<code>markdown</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="./"><code>preprocessors</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.preprocessors" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.preprocessors</code>
+
+
+
+<a href="#markdown.preprocessors" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>Preprocessors work on source text before it is broken down into its individual parts.
+This is an excellent place to clean up bad characters or to extract portions for later
+processing that the parser may otherwise choke on.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.preprocessors.build_preprocessors" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L37-L42" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">build_preprocessors</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">util</span><span class="o">.</span><span class="n">Registry</span></code>
+
+
+<a href="#markdown.preprocessors.build_preprocessors" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Build and return the default set of preprocessors used by Markdown.</p>
+      <p>Return a <a class="autorefs autorefs-internal" href="../util/#markdown.util.Registry"><code>Registry</code></a> instance which contains the following collection of classes with their assigned names and priorities.</p>
+<table>
+<thead>
+<tr>
+<th>Class Instance</th>
+<th>Name</th>
+<th style="text-align: center;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.preprocessors.NormalizeWhitespace"><code>NormalizeWhitespace</code></a></td>
+<td><code>normalize_whitespace</code></td>
+<td style="text-align: center;"><code>30</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" href="#markdown.preprocessors.HtmlBlockPreprocessor"><code>HtmlBlockPreprocessor</code></a></td>
+<td><code>html_block</code></td>
+<td style="text-align: center;"><code>20</code></td>
+</tr>
+</tbody>
+</table>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.preprocessors.Preprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">Preprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#markdown.preprocessors.Preprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.util.Processor" href="../util/#markdown.util.Processor">Processor</a></code></p>
+
+  
+      <p>Preprocessors are run after the text is broken into lines.</p>
+<p>Each preprocessor implements a <code>run</code> method that takes a pointer to a
+list of lines of the document, modifies it as necessary and returns
+either the same pointer or a pointer to a new list.</p>
+<p>Preprocessors must extend <code>Preprocessor</code>.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.preprocessors.Preprocessor.run" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L56-L63" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">Preprocessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+
+
+<a href="#markdown.preprocessors.Preprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Each subclass of <code>Preprocessor</code> should override the <code>run</code> method, which
+takes the document as a list of strings split by newlines and returns
+the (possibly modified) list of lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.preprocessors.NormalizeWhitespace" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L66" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">NormalizeWhitespace</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#markdown.preprocessors.NormalizeWhitespace" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.preprocessors.Preprocessor" href="#markdown.preprocessors.Preprocessor">Preprocessor</a></code></p>
+
+  
+      <p>Normalize whitespace for consistent parsing.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.preprocessors.HtmlBlockPreprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L78" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">HtmlBlockPreprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+
+
+<a href="#markdown.preprocessors.HtmlBlockPreprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.preprocessors.Preprocessor" href="#markdown.preprocessors.Preprocessor">Preprocessor</a></code></p>
+
+  
+      <p>Remove html blocks from the text and store them for later retrieval.</p>
+<p>The raw HTML is stored in the <a class="autorefs autorefs-internal" href="../util/#markdown.util.HtmlStash"><code>htmlStash</code></a> of the
+<a class="autorefs autorefs-internal" href="../#markdown.Markdown"><code>Markdown</code></a> instance.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.preprocessors">preprocessors</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.preprocessors.build_preprocessors">build_preprocessors()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.preprocessors.Preprocessor">Preprocessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.preprocessors.Preprocessor.run">run()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.preprocessors.NormalizeWhitespace">NormalizeWhitespace</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.preprocessors.HtmlBlockPreprocessor">HtmlBlockPreprocessor</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../" title="previous page"><code>markdown</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../blockparser/" title="next page"><code>blockparser</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\preprocessors.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../blockparser/" title="<code>blockparser</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../" title="<code>markdown</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../"><code>markdown</code></a>
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="./"><code>preprocessors</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.706139+00:00
+        -->
+    </body>
+</html>

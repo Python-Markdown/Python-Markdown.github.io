@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/change_log/release-2.5/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        
+        
+        <title>Release Notes for v2.5 &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            
+            
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="python-markdown-25-release-notes">Python-Markdown 2.5 Release Notes<a class="headerlink" href="#python-markdown-25-release-notes" title="Permanent link">&para;</a></h1>
+<p>We are pleased to release Python-Markdown 2.5 which adds a few new features
+and fixes various bugs. See the list of changes below for details.</p>
+<p>Python-Markdown version 2.5 supports Python versions 2.7, 3.2, 3.3, and 3.4.</p>
+<h2 id="backwards-incompatible-changes">Backwards-incompatible Changes<a class="headerlink" href="#backwards-incompatible-changes" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Python-Markdown no longer supports Python version 2.6. You must be using Python
+  versions 2.7, 3.2, 3.3, or 3.4.</p>
+</li>
+<li>
+<p>The <code>force_linenos</code> configuration key on the <a href="../../extensions/code_hilite/">CodeHilite Extension</a> has been <strong>deprecated</strong>
+  and will raise a <code>KeyError</code> if provided. In the previous release (2.4), it was
+  issuing a <code>DeprecationWarning</code>. The <a href="../../extensions/code_hilite/#usage"><code>linenums</code></a> keyword should be used
+  instead, which provides more control of the output.</p>
+</li>
+<li>
+<p>Both <code>safe_mode</code> and the associated <code>html_replacement_text</code> keywords will be
+  deprecated in version 2.6 and will raise a <strong><code>PendingDeprecationWarning</code></strong> in
+  2.5. The so-called &ldquo;safe mode&rdquo; was never actually &ldquo;safe&rdquo; which has resulted in
+  many people having a false sense of security when using it. As an alternative,
+  the developers of Python-Markdown recommend that any untrusted content be
+  passed through an HTML sanitizer (like <a href="https://bleach.readthedocs.io/">Bleach</a>) after being converted to HTML
+  by markdown.</p>
+<p>If your code previously looked like this:</p>
+<div class="codehilite"><pre><span></span><code>html = markdown.markdown(text, same_mode=True)
+</code></pre></div>
+
+<p>Then it is recommended that you change your code to read something like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">bleach</span>
+<span class="n">html</span> <span class="o">=</span> <span class="n">bleach</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>
+</code></pre></div>
+
+<p>If you are not interested in sanitizing untrusted text, but simply desire to
+escape raw HTML, then that can be accomplished through an extension which
+removes HTML parsing:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+
+<span class="k">class</span> <span class="nc">EscapeHtml</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">,</span> <span class="n">md_globals</span><span class="p">):</span>
+        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">preprocessors</span><span class="p">[</span><span class="s1">&#39;html_block&#39;</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span>
+
+<span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">EscapeHtml</span><span class="p">()])</span>
+</code></pre></div>
+
+<p>As the HTML would not be parsed with the above Extension, then the
+serializer will escape the raw HTML, which is exactly what happens now when
+<code>safe_mode="escape"</code>.</p>
+</li>
+<li>
+<p>Positional arguments on the <code>markdown.Markdown()</code> are pending deprecation as are
+  all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
+  Only keyword arguments should be used. For example, if your code previously
+  looked like this:</p>
+<div class="codehilite"><pre><span></span><code> html = markdown.markdown(text, [&#39;extra&#39;])
+</code></pre></div>
+
+<p>Then it is recommended that you change it to read something like this:</p>
+<div class="codehilite"><pre><span></span><code>html = markdown.markdown(text, extensions=[&#39;extra&#39;])
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the
+<code>safe_mode</code> argument was one of the positional arguments. When that argument
+is removed, the two arguments following it will no longer be at the correct
+position. It is recommended that you always use keywords when they are supported
+for this reason.</p>
+</div>
+</li>
+<li>
+<p>In previous versions of Python-Markdown, the built-in extensions received
+  special status and did not require the full path to be provided. Additionally,
+  third party extensions whose name started with <code>"mdx_"</code> received the same
+  special treatment. This behavior will be deprecated in version 2.6 and will
+  raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. Ensure that you always use the
+  full path to your extensions. For example, if you previously did the
+  following:</p>
+<div class="codehilite"><pre><span></span><code>markdown.markdown(text, extensions=[&#39;extra&#39;])
+</code></pre></div>
+
+<p>You should change your code to the following:</p>
+<div class="codehilite"><pre><span></span><code>markdown.markdown(text, extensions=[&#39;markdown.extensions.extra&#39;])
+</code></pre></div>
+
+<p>The same applies to the command line:</p>
+<div class="codehilite"><pre><span></span><code>$ python -m markdown -x markdown.extensions.extra input.txt
+</code></pre></div>
+
+<p>See the <a href="../../reference/#extensions">documentation</a> for a full explanation
+of the current behavior.</p>
+</li>
+<li>
+<p>The previously documented method of appending the extension configuration as
+  a string to the extension name will be deprecated in Python-Markdown
+  version 2.6 and will raise a <strong><code>PendingDeprecationWarning</code></strong> in 2.5. The
+  <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword should
+  be used instead. See the <a href="../../reference/#extension-configs">documentation</a>
+  for a full explanation of the current behavior.</p>
+</li>
+</ul>
+<h2 id="whats-new-in-python-markdown-25">What&rsquo;s New in Python-Markdown 2.5<a class="headerlink" href="#whats-new-in-python-markdown-25" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>The <a href="../../extensions/smarty/">Smarty Extension</a> has had a number of additional configuration settings
+  added, which allows one to define their own substitutions to better support
+  languages other than English. Thanks to <a href="https://github.com/MartinAltmayer">Martin Altmayer</a> for implementing this
+  feature.</p>
+</li>
+<li>
+<p>Named Extensions (strings passed to the <a href="../../reference/#extensions"><code>extensions</code></a> keyword of
+  <code>markdown.Markdown</code>) can now point to any module and/or Class on your
+  PYTHONPATH. While dot notation was previously supported, a module could not
+  be at the root of your PYTHONPATH. The name had to contain at least one dot
+  (requiring it to be a sub-module). This restriction no longer exists.</p>
+<p>Additionally, a Class may be specified in the name. The class must be at the
+end of the name (which uses dot notation from PYTHONPATH) and be separated
+by a colon from the module.</p>
+<p>Therefore, if you were to import the class like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">SomeExtensionClass</span>
+</code></pre></div>
+
+<p>Then the named extension would comprise this string:</p>
+<div class="codehilite"><pre><span></span><code>&quot;path.to.module:SomeExtensionClass&quot;
+</code></pre></div>
+
+<p>This allows multiple extensions to be implemented within the same module and
+still accessible when the user is not able to import the extension directly
+(perhaps from a template filter or the command line).</p>
+<p>This also means that extension modules are no longer required to include the
+<code>makeExtension</code> function which returns an instance of the extension class.
+However, if the user does not specify the class name (she only provides
+<code>"path.to.module"</code>) the extension will fail to load without the
+<code>makeExtension</code> function included in the module. Extension authors will want
+to document carefully what is required to load their extensions.</p>
+</li>
+<li>
+<p>The Extension Configuration code has been refactored to make it a little
+  easier for extension authors to work with configuration settings. As a
+  result, the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword now accepts a dictionary
+  rather than requiring a list of tuples. A list of tuples is still supported
+  so no one needs to change their existing code. This should also simplify the
+  learning curve for new users.</p>
+<p>Extension authors are encouraged to review the new methods available on the
+<code>markdown.extnesions.Extension</code> class for handling configuration and adjust
+their code going forward. The included extensions provide a model for best
+practices. See the <a href="../../extensions/api/#configsettings">API</a> documentation for a full explanation.</p>
+</li>
+<li>
+<p>The <a href="../../cli/#using-extensions">Command Line Interface</a> now accepts a <code>--extensions_config</code> (or
+  <code>-c</code>) option which accepts a file name and passes the parsed content of a
+  <a href="https://yaml.org/">YAML</a> or <a href="https://json.org/">JSON</a> file to the <a href="../../reference/#extension_configs"><code>extension_configs</code></a> keyword of the
+  <code>markdown.Markdown</code> class. The contents of the YAML or JSON must map to a
+  Python Dictionary which matches the format required by the
+  <code>extension_configs</code> keyword. Note that <a href="https://pyyaml.org/">PyYAML</a> is required to parse YAML
+  files.</p>
+</li>
+<li>
+<p>The <a href="../../extensions/admonition/">Admonition Extension</a> is no longer considered &ldquo;experimental.&rdquo;</p>
+</li>
+<li>
+<p>There have been various refactors of the testing framework. While those
+  changes will not directly effect end users, the code is being better tested
+  which will benefit everyone.</p>
+</li>
+<li>
+<p>Various bug fixes have been made. See the <a href="https://github.com/Python-Markdown/markdown/commits/master">commit
+  log</a> for a
+  complete history of the changes.</p>
+</li>
+</ul>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#python-markdown-25-release-notes">Python-Markdown 2.5 Release Notes</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#backwards-incompatible-changes">Backwards-incompatible Changes</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#whats-new-in-python-markdown-25">What's New in Python-Markdown 2.5</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+
+            
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/change_log/release-2.5.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            
+            
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.659279+00:00
+        -->
+    </body>
+</html>

@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/extensions/api/">
+        <link rel="shortcut icon" href="../../favicon.ico">
+        <link rel="search" title="Search" href="../../search.html" />
+        <link rel="next" title="Test Tools" href="../../test_tools/" />
+        <link rel="prev" title="WikiLinks" href="../wikilinks/" />
+        <title>Extension API &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../../test_tools/" title="Test Tools" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../wikilinks/" title="WikiLinks" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Extension API</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="writing-extensions-for-python-markdown">Writing Extensions for Python-Markdown<a class="headerlink" href="#writing-extensions-for-python-markdown" title="Permanent link">&para;</a></h1>
+<p>Python-Markdown includes an API for extension writers to plug their own custom functionality and syntax into the
+parser. An extension will patch into one or more stages of the parser:</p>
+<ul>
+<li><a href="#preprocessors"><em>Preprocessors</em></a> alter the source before it is passed to the parser.</li>
+<li><a href="#blockprocessors"><em>Block Processors</em></a> work with blocks of text separated by blank lines.</li>
+<li><a href="#treeprocessors"><em>Tree Processors</em></a> modify the constructed ElementTree</li>
+<li><a href="#inlineprocessors"><em>Inline Processors</em></a> are common tree processors for inline elements, such as <code>*strong*</code>.</li>
+<li><a href="#postprocessors"><em>Postprocessors</em></a> munge of the output of the parser just before it is returned.</li>
+</ul>
+<p>The parser loads text, applies the preprocessors, creates and builds an <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">ElementTree</a> object from the
+block processors and inline processors, renders the ElementTree object as Unicode text, and then then applies the
+postprocessors.</p>
+<p>There are classes and helpers provided to ease writing your extension. Each part of the API is discussed in its
+respective section below. Additionally, you can walk through the <a href="https://github.com/Python-Markdown/markdown/wiki/Tutorial-1---Writing-Extensions-for-Python-Markdown">Tutorial on Writing Extensions</a>; look at
+some of the <a href="../">Available Extensions</a> and their <a href="https://github.com/Python-Markdown/markdown/tree/master/markdown/extensions">source code</a>. As always, you may report bugs, ask
+for help, and discuss various other issues on the <a href="https://github.com/Python-Markdown/markdown/issues">bug tracker</a>.</p>
+<h2 id="stages">Phases of processing<a class="headerlink" href="#stages" title="Permanent link">&para;</a></h2>
+<h3 id="preprocessors">Preprocessors<a class="headerlink" href="#preprocessors" title="Permanent link">&para;</a></h3>
+<p>Preprocessors munge the source text before it is passed to the Markdown parser. This is an excellent place to clean up
+bad characters or to extract portions for later processing that the parser may otherwise choke on.</p>
+<p>Preprocessors inherit from <code>markdown.preprocessors.Preprocessor</code> and implement a <code>run</code> method, which takes a single
+parameter <code>lines</code>. This parameter is the entire source text stored as a list of Unicode strings, one per line.  <code>run</code>
+should return its processed list of Unicode strings, one per line.</p>
+<h4 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h4>
+<p>This simple example removes any lines with &lsquo;NO RENDER&rsquo; before processing:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.preprocessors</span> <span class="kn">import</span> <span class="n">Preprocessor</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">class</span> <span class="nc">NoRender</span><span class="p">(</span><span class="n">Preprocessor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Skip any line with words &#39;NO RENDER&#39; in it. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lines</span><span class="p">):</span>
+        <span class="n">new_lines</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">m</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;NO RENDER&quot;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">m</span><span class="p">:</span>
+                <span class="c1"># any line without NO RENDER is passed through</span>
+                <span class="n">new_lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_lines</span>
+</code></pre></div>
+
+<h4 id="usages">Usages<a class="headerlink" href="#usages" title="Permanent link">&para;</a></h4>
+<p>Some preprocessors in the Markdown source tree include:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/preprocessors.py"><code>NormalizeWhiteSpace</code></a></td>
+<td>built-in</td>
+<td>Normalizes whitespace by expanding tabs, fixing <code>\r</code> line endings, etc.</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/preprocessors.py"><code>HtmlBlockPreprocessor</code></a></td>
+<td>built-in</td>
+<td>Removes html blocks from the text and stores them for later processing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/preprocessors.py"><code>ReferencePreprocessor</code></a></td>
+<td>built-in</td>
+<td>Removes reference definitions from text and stores for later processing</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/meta.py"><code>MetaPreprocessor</code></a></td>
+<td>extension</td>
+<td>Strips and records meta data at top of documents</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/footnotes.py"><code>FootnotesPreprocessor</code></a></td>
+<td>extension</td>
+<td>Removes footnote blocks from the text and stores them for later processing</td>
+</tr>
+</tbody>
+</table>
+<h3 id="blockprocessors">Block Processors<a class="headerlink" href="#blockprocessors" title="Permanent link">&para;</a></h3>
+<p>A block processor parses blocks of text and adds new elements to the <code>ElementTree</code>. Blocks of text, separated from
+other text by blank lines, may have a different syntax and produce a differently structured tree than other Markdown.
+Block processors excel at code formatting, equation layouts, and tables.</p>
+<p>Block processors inherit from <code>markdown.blockprocessors.BlockProcessor</code>, are passed <code>md.parser</code> on initialization, and
+implement both the <code>test</code> and <code>run</code> methods:</p>
+<ul>
+<li><code>test(self, parent, block)</code> takes two parameters: <code>parent</code> is the parent <code>ElementTree</code> element and <code>block</code> is a
+  single, multi-line, Unicode string of the current block. <code>test</code>, often a regular expression match, returns a true
+  value if the block processor&rsquo;s <code>run</code> method should be called to process starting at that block.</li>
+<li><code>run(self, parent, blocks)</code> has the same <code>parent</code> parameter as <code>test</code>; and <code>blocks</code> is the list of all remaining
+  blocks in the document, starting with the <code>block</code> passed to <code>test</code>. <code>run</code> may return <code>False</code> (not <code>None</code>) to signal
+  failure, meaning that it did not process the blocks after all. On success, <code>run</code> is expected to <code>pop</code> one or more
+  blocks from the front of <code>blocks</code> and attach new nodes to <code>parent</code>.</li>
+</ul>
+<p>Crafting block processors is more involved and flexible than the other processors, involving controlling recursive
+parsing of the block&rsquo;s contents and managing state across invocations. For example, a blank line is allowed in
+indented code, so the second invocation of the inline code processor appends to the element tree generated by the
+previous call.  Other block processors may insert new text into the <code>blocks</code> list, signal to future calls of itself,
+and more.</p>
+<p>To make writing these complex beasts more tractable, three convenience functions have been provided by the
+<code>BlockProcessor</code> parent class:</p>
+<ul>
+<li><code>lastChild(parent)</code> returns the last child of the given element or <code>None</code> if it has no children.</li>
+<li><code>detab(text)</code> removes one level of indent (four spaces by default) from the front of each line of the given
+  multi-line, text string, until a non-blank line is indented less.</li>
+<li><code>looseDetab(text, level)</code> removes multiple levels
+  of indent from the front of each line of <code>text</code> but does not affect lines indented less.</li>
+</ul>
+<p>Also, <code>BlockProcessor</code> provides the fields <code>self.tab_length</code>, the tab length (default 4), and <code>self.parser</code>, the
+current <code>BlockParser</code> instance.</p>
+<h4 id="blockparser">BlockParser<a class="headerlink" href="#blockparser" title="Permanent link">&para;</a></h4>
+<p><code>BlockParser</code>, not to be confused with <code>BlockProcessor</code>, is the class used by Markdown to cycle through all the
+registered block processors.  You should never need to create your own instance; use <code>self.parser</code> instead.</p>
+<p>The <code>BlockParser</code> instance provides a stack of strings for its current state, which your processor can push with
+<code>self.parser.set(state)</code>,  pop with <code>self.parser.reset()</code>, or check the the top state with
+<code>self.parser.isstate(state)</code>. Be sure your code pops the states it pushes.</p>
+<p>The <code>BlockParser</code> instance can also be called recursively, that is, to process blocks from within your block
+processor.  There are three methods:</p>
+<ul>
+<li><code>parseDocument(lines)</code> parses a list of lines, each a single-line Unicode string, returning a complete
+  <code>ElementTree</code>.</li>
+<li><code>parseChunk(parent, text)</code> parses a single, multi-line, possibly multi-block, Unicode string <code>text</code> and attaches the
+  resulting tree to <code>parent</code>.</li>
+<li><code>parseBlocks(parent, blocks)</code> takes a list of <code>blocks</code>, each a multi-line Unicode string without blank lines, and
+  attaches the resulting tree to <code>parent</code>.</li>
+</ul>
+<p>For perspective, Markdown calls <code>parseDocument</code> which calls <code>parseChunk</code> which calls <code>parseBlocks</code> which calls your
+block processor, which, in turn, might call one of these routines.</p>
+<h4 id="example_1">Example<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h4>
+<p>This example calls out important paragraphs by giving them a border.  It looks for a fence line of exclamation points
+before and after and renders the fenced blocks into a new, styled <code>div</code>.  If it does not find the ending fence line,
+it does nothing.</p>
+<p>Our code, like most block processors, is longer than other examples:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">test_block_processor</span><span class="p">():</span>
+    <span class="k">class</span> <span class="nc">BoxBlockProcessor</span><span class="p">(</span><span class="n">BlockProcessor</span><span class="p">):</span>
+        <span class="n">RE_FENCE_START</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;^ *!{3,} *\n&#39;</span> <span class="c1"># start line, e.g., `   !!!! `</span>
+        <span class="n">RE_FENCE_END</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\n *!{3,}\s*$&#39;</span>  <span class="c1"># last non-blank line, e.g, &#39;!!!\n  \n\n&#39;</span>
+
+        <span class="k">def</span> <span class="nf">test</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RE_FENCE_START</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parent</span><span class="p">,</span> <span class="n">blocks</span><span class="p">):</span>
+            <span class="n">original_block</span> <span class="o">=</span> <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RE_FENCE_START</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+            <span class="c1"># Find block with ending fence</span>
+            <span class="k">for</span> <span class="n">block_num</span><span class="p">,</span> <span class="n">block</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">blocks</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RE_FENCE_END</span><span class="p">,</span> <span class="n">block</span><span class="p">):</span>
+                    <span class="c1"># remove fence</span>
+                    <span class="n">blocks</span><span class="p">[</span><span class="n">block_num</span><span class="p">]</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">RE_FENCE_END</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+                    <span class="c1"># render fenced area inside a new div</span>
+                    <span class="n">e</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="s1">&#39;div&#39;</span><span class="p">)</span>
+                    <span class="n">e</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;display: inline-block; border: 1px solid red;&#39;</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">parseBlocks</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">block_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+                    <span class="c1"># remove used blocks</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">block_num</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                        <span class="n">blocks</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="kc">True</span>  <span class="c1"># or could have had no return statement</span>
+            <span class="c1"># No closing marker!  Restore and do nothing</span>
+            <span class="n">blocks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">original_block</span>
+            <span class="k">return</span> <span class="kc">False</span>  <span class="c1"># equivalent to our test() routine returning False</span>
+
+    <span class="k">class</span> <span class="nc">BoxExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+            <span class="n">md</span><span class="o">.</span><span class="n">parser</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">BoxBlockProcessor</span><span class="p">(</span><span class="n">md</span><span class="o">.</span><span class="n">parser</span><span class="p">),</span> <span class="s1">&#39;box&#39;</span><span class="p">,</span> <span class="mi">175</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Start with this example input:</p>
+<div class="codehilite"><pre><span></span><code>A regular paragraph of text.
+
+!!!!!
+First paragraph of wrapped text.
+
+Second Paragraph of **wrapped** text.
+!!!!!
+
+Another regular paragraph of text.
+</code></pre></div>
+
+<p>The fenced text adds one node with two children to the tree:</p>
+<ul>
+<li><code>div</code>, with a <code>style</code> attribute.  It renders as
+  <code>&lt;div style="display: inline-block; border: 1px solid red;"&gt;...&lt;/div&gt;</code><ul>
+<li><code>p</code> with text <code>First paragraph of wrapped text.</code></li>
+<li><code>p</code> with text <code>Second Paragraph of **wrapped** text</code>.  The conversion to a <code>&lt;strong&gt;</code> tag will happen when
+  running the inline processors, which will happen after all of the block processors have completed.</li>
+</ul>
+</li>
+</ul>
+<p>The example output might display as follows:</p>
+<div class="admonition note">
+<p><p>A regular paragraph of text.</p>
+<div style="display: inline-block; border: 1px solid red;">
+<p>First paragraph of wrapped text.</p>
+<p>Second Paragraph of <strong>wrapped</strong> text.</p>
+</div>
+<p>Another regular paragraph of text.</p></p>
+</div>
+<h4 id="usages_1">Usages<a class="headerlink" href="#usages_1" title="Permanent link">&para;</a></h4>
+<p>Some block processors in the Markdown source tree include:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/blockprocessors.py"><code>HashHeaderProcessor</code></a></td>
+<td>built-in</td>
+<td>Title hashes (<code>#</code>), which may split blocks</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/blockprocessors.py"><code>HRProcessor</code></a></td>
+<td>built-in</td>
+<td>Horizontal lines, e.g., <code>---</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/blockprocessors.py"><code>OListProcessor</code></a></td>
+<td>built-in</td>
+<td>Ordered lists; complex and using <code>state</code></td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/admonition.py"><code>Admonition</code></a></td>
+<td>extension</td>
+<td>Render each <a href="https://python-markdown.github.io/extensions/admonition/">Admonition</a> in a new <code>div</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="treeprocessors">Tree processors<a class="headerlink" href="#treeprocessors" title="Permanent link">&para;</a></h3>
+<p>Tree processors manipulate the tree created by block processors.  They can even create an entirely new ElementTree
+object. This is an excellent place for creating summaries, adding collected references, or last minute adjustments.</p>
+<p>A tree processor must inherit from <code>markdown.treeprocessors.Treeprocessor</code> (note the capitalization). A tree processor
+must implement a <code>run</code> method which takes a single argument <code>root</code>. In most cases <code>root</code> would be an
+<code>xml.etree.ElementTree.Element</code> instance; however, in rare cases it could be some other type of ElementTree object.
+The <code>run</code> method may return <code>None</code>, in which case the (possibly modified) original <code>root</code> object is used, or it may
+return an entirely new <code>Element</code> object, which will replace the existing <code>root</code> object and all of its children.  It is
+generally preferred to modify <code>root</code> in place and return <code>None</code>, which avoids creating multiple copies of the entire
+document tree in memory.</p>
+<p>For specifics on manipulating the ElementTree, see <a href="#working_with_et">Working with the ElementTree</a> below.</p>
+<h4 id="example_2">Example<a class="headerlink" href="#example_2" title="Permanent link">&para;</a></h4>
+<p>A pseudo example:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.treeprocessors</span> <span class="kn">import</span> <span class="n">Treeprocessor</span>
+
+<span class="k">class</span> <span class="nc">MyTreeprocessor</span><span class="p">(</span><span class="n">Treeprocessor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">):</span>
+        <span class="n">root</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;modified content&#39;</span>
+        <span class="c1"># No return statement is same as `return None`</span>
+</code></pre></div>
+
+<h4 id="usages_2">Usages<a class="headerlink" href="#usages_2" title="Permanent link">&para;</a></h4>
+<p>The  core <code>InlineProcessor</code> class is a tree processor.  It walks the tree, matches patterns, and splits and creates
+nodes on matches.</p>
+<p>Additional tree processors in the Markdown source tree include:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/treeprocessors.py"><code>PrettifyTreeprocessor</code></a></td>
+<td>built-in</td>
+<td>Add line breaks to the html document</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/toc.py"><code>TocTreeprocessor</code></a></td>
+<td>extension</td>
+<td>Builds a <a href="https://python-markdown.github.io/extensions/toc/">table of contents</a> from the finished tree</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/footnotes.py"><code>FootnoteTreeprocessor</code></a></td>
+<td>extension</td>
+<td>Create <a href="https://python-markdown.github.io/extensions/footnotes/">footnote</a> div at end of document</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/footnotes.py"><code>FootnotePostTreeprocessor</code></a></td>
+<td>extension</td>
+<td>Amend div created by <code>FootnoteTreeprocessor</code> with duplicates</td>
+</tr>
+</tbody>
+</table>
+<h3 id="inlineprocessors">Inline Processors<a class="headerlink" href="#inlineprocessors" title="Permanent link">&para;</a></h3>
+<p>Inline processors, previously called inline patterns, are used to add formatting, such as <code>**emphasis**</code>, by replacing
+a matched pattern with a new element tree node. It is an excellent for adding new syntax for inline tags.  Inline
+processor code is often quite short.</p>
+<p>Inline processors inherit from <code>InlineProcessor</code>, are initialized, and implement <code>handleMatch</code>:</p>
+<ul>
+<li>
+<p><code>__init__(self, pattern, md=None)</code> is the inherited constructor.  You do not need to implement your own.</p>
+<ul>
+<li><code>pattern</code> is the regular expression string that must match the code block in order for the <code>handleMatch</code> method
+  to be called.</li>
+<li><code>md</code>, an optional parameter, is a pointer to the instance of <code>markdown.Markdown</code> and is available as <code>self.md</code>
+  on the <code>InlineProcessor</code> instance.</li>
+</ul>
+</li>
+<li>
+<p><code>handleMatch(self, m, data)</code> must be implemented in all <code>InlineProcessor</code> subclasses.</p>
+<ul>
+<li><code>m</code> is the regular expression <a href="https://docs.python.org/3/library/re.html#match-objects">match object</a> found by the <code>pattern</code> passed to <code>__init__</code>.</li>
+<li><code>data</code> is a single, multi-line, Unicode string containing the entire block of text around the pattern.  A block
+  is text set apart by blank lines.</li>
+<li>Returns either <code>(None, None, None)</code>, indicating the provided match was rejected or <code>(el, start, end)</code>, if the
+  match was successfully processed.  On success, <code>el</code> is the element being added the tree, <code>start</code> and <code>end</code> are
+  indexes in <code>data</code> that were &ldquo;consumed&rdquo; by the pattern.  The &ldquo;consumed&rdquo; span will be replaced by a placeholder.
+  The same inline processor may be called several times on the same block.</li>
+</ul>
+</li>
+</ul>
+<p>Inline Processors can define the property <code>ANCESTOR_EXCLUDES</code> which is either a list or tuple of undesirable ancestors.
+The processor will be skipped if it would cause the content to be a descendant of one of the listed tag names.</p>
+<h5 id="convenience-classes">Convenience Classes<a class="headerlink" href="#convenience-classes" title="Permanent link">&para;</a></h5>
+<p>Convenience subclasses of <code>InlineProcessor</code> are provide for common operations:</p>
+<ul>
+<li><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/inlinepatterns.py"><code>SimpleTextInlineProcessor</code></a> returns the text of <code>group(1)</code> of the match.</li>
+<li><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/inlinepatterns.py"><code>SubstituteTagInlineProcessor</code></a> is initialized as <code>SubstituteTagInlineProcessor(pattern, tag)</code>. It returns a
+  new element <code>tag</code> whenever <code>pattern</code> is matched.</li>
+<li><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/inlinepatterns.py"><code>SimpleTagInlineProcessor</code></a> is initialized as <code>SimpleTagInlineProcessor(pattern, tag)</code>. It returns an element
+  <code>tag</code> with a text field of <code>group(2)</code> of the match.</li>
+</ul>
+<h5 id="example_3">Example<a class="headerlink" href="#example_3" title="Permanent link">&para;</a></h5>
+<p>This example changes <code>--strike--</code> to <code>&lt;del&gt;strike&lt;/del&gt;</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">InlineProcessor</span>
+<span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">etree</span>
+
+
+<span class="k">class</span> <span class="nc">DelInlineProcessor</span><span class="p">(</span><span class="n">InlineProcessor</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handleMatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s1">&#39;del&#39;</span><span class="p">)</span>
+        <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">el</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">m</span><span class="o">.</span><span class="n">end</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">DelExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+        <span class="n">DEL_PATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;--(.*?)--&#39;</span>  <span class="c1"># like --del--</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">DelInlineProcessor</span><span class="p">(</span><span class="n">DEL_PATTERN</span><span class="p">,</span> <span class="n">md</span><span class="p">),</span> <span class="s1">&#39;del&#39;</span><span class="p">,</span> <span class="mi">175</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Use this input example:</p>
+<div class="codehilite"><pre><span></span><code>First line of the block.
+This is --strike one--.
+This is --strike two--.
+End of the block.
+</code></pre></div>
+
+<p>The example output might display as follows:</p>
+<div class="admonition note">
+<p><p>First line of the block.
+This is <del>strike one</del>.
+This is <del>strike two</del>.
+End of the block.</p></p>
+</div>
+<ul>
+<li>
+<p>On the first call to <code>handleMatch</code></p>
+<ul>
+<li><code>m</code> will be the match for <code>--strike one--</code></li>
+<li><code>data</code> will be the string:
+  <code>First line of the block.\nThis is --strike one--.\nThis is --strike two--.\nEnd of the block.</code></li>
+</ul>
+<p>Because the match was successful, the region between the returned <code>start</code> and <code>end</code> are replaced with a
+placeholder token and the new element is added to the tree.</p>
+</li>
+<li>
+<p>On the second call to <code>handleMatch</code></p>
+<ul>
+<li><code>m</code> will be the match for <code>--strike two--</code></li>
+<li><code>data</code> will be the string
+  <code>First line of the block.\nThis is klzzwxh:0000.\nThis is --strike two--.\nEnd of the block.</code></li>
+</ul>
+</li>
+</ul>
+<p>Note the placeholder token <code>klzzwxh:0000</code>. This allows the regular expression to be run against the entire block,
+not just the the text contained in an individual element. The placeholders will later be swapped back out for the
+actual elements by the parser.</p>
+<p>Actually it would not be necessary to create the above inline processor. The fact is, that example is not very DRY
+(Don&rsquo;t Repeat Yourself). A pattern for <code>**strong**</code> text would be almost identical, with the exception that it would
+create a <code>strong</code> element. Therefore, Markdown provides a number of generic <code>InlineProcessor</code> subclasses that can
+provide some common functionality. For example, strike could be implemented with an instance of the
+<code>SimpleTagInlineProcessor</code> class as demonstrated below. Feel free to use or extend any of the <code>InlineProcessor</code>
+subclasses found at <code>markdown.inlinepatterns</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">SimpleTagInlineProcessor</span>
+<span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+
+<span class="k">class</span> <span class="nc">DelExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">SimpleTagInlineProcessor</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;()--(.*?)--&#39;</span><span class="p">,</span> <span class="s1">&#39;del&#39;</span><span class="p">),</span> <span class="s1">&#39;del&#39;</span><span class="p">,</span> <span class="mi">175</span><span class="p">)</span>
+</code></pre></div>
+
+<h5 id="usages_3">Usages<a class="headerlink" href="#usages_3" title="Permanent link">&para;</a></h5>
+<p>Here are some convenience functions and other examples:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/inlinepatterns.py"><code>AsteriskProcessor</code></a></td>
+<td>built-in</td>
+<td>Emphasis processor for handling strong and em matches inside asterisks</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/abbr.py"><code>AbbrInlineProcessor</code></a></td>
+<td>extension</td>
+<td>Apply tag to abbreviation registered by preprocessor</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/wikilinks.py"><code>WikiLinksInlineProcessor</code></a></td>
+<td>extension</td>
+<td>Link <code>[[article names]]</code> to wiki given in metadata</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/footnotes.py"><code>FootnoteInlineProcessor</code></a></td>
+<td>extension</td>
+<td>Replaces footnote in text with link to footnote div at bottom</td>
+</tr>
+</tbody>
+</table>
+<h3 id="patterns">Patterns<a class="headerlink" href="#patterns" title="Permanent link">&para;</a></h3>
+<p>In version 3.0, a new, more flexible inline processor was added, <code>markdown.inlinepatterns.InlineProcessor</code>.   The
+original inline patterns, which inherit from <code>markdown.inlinepatterns.Pattern</code> or one of its children are still
+supported, though users are encouraged to migrate.</p>
+<h4 id="comparison-with-new-inlineprocessor">Comparison with new <code>InlineProcessor</code><a class="headerlink" href="#comparison-with-new-inlineprocessor" title="Permanent link">&para;</a></h4>
+<p>The new <code>InlineProcessor</code> provides two major enhancements to <code>Patterns</code>:</p>
+<ol>
+<li>
+<p>Inline Processors no longer need to match the entire block, so regular expressions no longer need to start with
+   <code>r'^(.*?)'</code> and end with <code>r'(.*?)%'</code>. This runs faster. The returned <a href="https://docs.python.org/3/library/re.html#match-objects">match object</a> will only contain what is
+   explicitly matched in the pattern, and extension pattern groups now start with <code>m.group(1)</code>.</p>
+</li>
+<li>
+<p>The <code>handleMatch</code> method now takes an additional input called <code>data</code>, which is the entire block under analysis,
+    not just what is matched with the specified pattern. The method now returns the element <em>and</em> the indexes relative
+    to <code>data</code> that the return element is replacing (usually <code>m.start(0)</code> and <code>m.end(0)</code>).  If the boundaries are
+    returned as <code>None</code>, it is assumed that the match did not take place, and nothing will be altered in <code>data</code>.</p>
+<p>This allows handling of more complex constructs than regular expressions can handle, e.g., matching nested
+brackets, and explicit control of the span &ldquo;consumed&rdquo; by the processor.</p>
+</li>
+</ol>
+<h4 id="inline-patterns">Inline Patterns<a class="headerlink" href="#inline-patterns" title="Permanent link">&para;</a></h4>
+<p>Inline Patterns can implement inline HTML element syntax for Markdown such as <code>*emphasis*</code> or
+<code>[links](http://example.com)</code>. Pattern objects should be instances of classes that inherit from
+<code>markdown.inlinepatterns.Pattern</code> or one of its children. Each pattern object uses a single regular expression and
+must have the following methods:</p>
+<ul>
+<li>
+<p><strong><code>getCompiledRegExp()</code></strong>:</p>
+<p>Returns a compiled regular expression.</p>
+</li>
+<li>
+<p><strong><code>handleMatch(m)</code></strong>:</p>
+<p>Accepts a match object and returns an ElementTree element of a plain Unicode string.</p>
+</li>
+</ul>
+<p>Inline Patterns can define the property <code>ANCESTOR_EXCLUDES</code> with is either a list or tuple of undesirable ancestors.
+The pattern will be skipped if it would cause the content to be a descendant of one of the listed tag names.</p>
+<p>Note that any regular expression returned by <code>getCompiledRegExp</code> must capture the whole block. Therefore, they should
+all start with <code>r'^(.*?)'</code> and end with <code>r'(.*?)!'</code>. When using the default <code>getCompiledRegExp()</code> method provided in
+the <code>Pattern</code> you can pass in a regular expression without that and <code>getCompiledRegExp</code> will wrap your expression for
+you and set the <code>re.DOTALL</code> and <code>re.UNICODE</code> flags. This means that the first group of your match will be <code>m.group(2)</code>
+as <code>m.group(1)</code> will match everything before the pattern.</p>
+<p>For an example, consider this simplified emphasis pattern:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.inlinepatterns</span> <span class="kn">import</span> <span class="n">Pattern</span>
+<span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">etree</span>
+
+<span class="k">class</span> <span class="nc">EmphasisPattern</span><span class="p">(</span><span class="n">Pattern</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">handleMatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="p">):</span>
+        <span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s1">&#39;em&#39;</span><span class="p">)</span>
+        <span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">el</span>
+</code></pre></div>
+
+<p>As discussed in <a href="#integrating_into_markdown">Integrating Your Code Into Markdown</a>, an instance of this class will need to be provided to
+Markdown. That instance would be created like so:</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># an oversimplified regex</span>
+<span class="n">MYPATTERN</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\*([^*]+)\*&#39;</span>
+<span class="c1"># pass in pattern and create instance</span>
+<span class="n">emphasis</span> <span class="o">=</span> <span class="n">EmphasisPattern</span><span class="p">(</span><span class="n">MYPATTERN</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="postprocessors">Postprocessors<a class="headerlink" href="#postprocessors" title="Permanent link">&para;</a></h3>
+<p>Postprocessors munge the document after the ElementTree has been serialized into a string. Postprocessors should be
+used to work with the text just before output.  Usually, they are used add back sections that were extracted in a
+preprocessor, fix up outgoing encodings, or wrap the whole document.</p>
+<p>Postprocessors inherit from <code>markdown.postprocessors.Postprocessor</code> and implement a <code>run</code> method which takes a single
+parameter <code>text</code>, the entire HTML document as a single Unicode string.  <code>run</code> should return a single Unicode string
+ready for output.  Note that preprocessors use a list of lines while postprocessors use a single multi-line string.</p>
+<h4 id="example_4">Example<a class="headerlink" href="#example_4" title="Permanent link">&para;</a></h4>
+<p>Here is a simple example that changes the output to one big page showing the raw html.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.postprocessors</span> <span class="kn">import</span> <span class="n">Postprocessor</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">class</span> <span class="nc">ShowActualHtmlPostprocesor</span><span class="p">(</span><span class="n">Postprocessor</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Wrap entire output in &lt;pre&gt; tags as a diagnostic. &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;&lt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;lt;&#39;</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&lt;/pre&gt;</span><span class="se">\n</span><span class="s1">&#39;</span>
+</code></pre></div>
+
+<h4 id="usages_4">Usages<a class="headerlink" href="#usages_4" title="Permanent link">&para;</a></h4>
+<p>Some postprocessors in the Markdown source tree include:</p>
+<table>
+<thead>
+<tr>
+<th>Class</th>
+<th>Kind</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/postprocessors.py"><code>raw_html</code></a></td>
+<td>built-in</td>
+<td>Restore raw html from <code>htmlStash</code>, stored by <code>HTMLBlockPreprocessor</code>, and code highlighters</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/postprocessors.py"><code>amp_substitute</code></a></td>
+<td>built-in</td>
+<td>Convert ampersand substitutes to <code>&amp;</code>; used in links</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/postprocessors.py"><code>unescape</code></a></td>
+<td>built-in</td>
+<td>Convert some escaped characters back from integers; used in links</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/footnotes.py"><code>FootnotePostProcessor</code></a></td>
+<td>extension</td>
+<td>Replace footnote placeholders with html entities; as set by other stages</td>
+</tr>
+</tbody>
+</table>
+<h2 id="working_with_et">Working with the ElementTree<a class="headerlink" href="#working_with_et" title="Permanent link">&para;</a></h2>
+<p>As mentioned, the Markdown parser converts a source document to an <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">ElementTree</a> object before
+serializing that back to Unicode text. Markdown has provided some helpers to ease that manipulation within the context
+of the Markdown module.</p>
+<p>First, import the ElementTree module:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">xml.etree.ElementTree</span> <span class="k">as</span> <span class="nn">etree</span>
+</code></pre></div>
+
+<p>Sometimes you may want text inserted into an element to be parsed by [Inline Patterns][]. In such a situation, simply
+insert the text as you normally would and the text will be automatically run through the Inline Patterns. However, if
+you do <em>not</em> want some text to be parsed by Inline Patterns, then insert the text as an <code>AtomicString</code>.</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.util</span> <span class="kn">import</span> <span class="n">AtomicString</span>
+<span class="n">some_element</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">AtomicString</span><span class="p">(</span><span class="n">some_text</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Here&rsquo;s a basic example which creates an HTML table (note that the contents of the second cell (<code>td2</code>) will be run
+through Inline Patterns latter):</p>
+<div class="codehilite"><pre><span></span><code><span class="n">table</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;table&quot;</span><span class="p">)</span>
+<span class="n">table</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;cellpadding&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">)</span>                      <span class="c1"># Set cellpadding to 2</span>
+<span class="n">tr</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">table</span><span class="p">,</span> <span class="s2">&quot;tr&quot;</span><span class="p">)</span>                 <span class="c1"># Add child tr to table</span>
+<span class="n">td1</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="s2">&quot;td&quot;</span><span class="p">)</span>                   <span class="c1"># Add child td1 to tr</span>
+<span class="n">td1</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">AtomicString</span><span class="p">(</span><span class="s2">&quot;Cell content&quot;</span><span class="p">)</span> <span class="c1"># Add plain text content</span>
+<span class="n">td2</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">SubElement</span><span class="p">(</span><span class="n">tr</span><span class="p">,</span> <span class="s2">&quot;td&quot;</span><span class="p">)</span>                   <span class="c1"># Add second td to tr</span>
+<span class="n">td2</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="s2">&quot;*text* with **inline** formatting.&quot;</span>    <span class="c1"># Add markup text</span>
+<span class="n">table</span><span class="o">.</span><span class="n">tail</span> <span class="o">=</span> <span class="s2">&quot;Text after table&quot;</span>                    <span class="c1"># Add text after table</span>
+</code></pre></div>
+
+<p>You can also manipulate an existing tree. Consider the following example which adds a <code>class</code> attribute to <code>&lt;a&gt;</code>
+elements:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">set_link_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">element</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">element</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">child</span><span class="o">.</span><span class="n">tag</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span>
+              <span class="n">child</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="s2">&quot;myclass&quot;</span><span class="p">)</span> <span class="c1">#set the class attribute</span>
+        <span class="n">set_link_class</span><span class="p">(</span><span class="n">child</span><span class="p">)</span> <span class="c1"># run recursively on children</span>
+</code></pre></div>
+
+<p>For more information about working with ElementTree see the <a href="https://docs.python.org/3/library/xml.etree.elementtree.html">ElementTree
+Documentation</a>.</p>
+<h2 id="working_with_raw_html">Working with Raw HTML<a class="headerlink" href="#working_with_raw_html" title="Permanent link">&para;</a></h2>
+<p>Occasionally an extension may need to call out to a third party library which returns a pre-made string
+of raw HTML that needs to be inserted into the document unmodified. Raw strings can be stashed for later
+retrieval using an <code>htmlStash</code> instance, rather than converting them into <code>ElementTree</code> objects. A raw string
+(which may or may not be raw HTML) passed to <code>self.md.htmlStash.store()</code> will be saved to the stash and a
+placeholder string will be returned which should be inserted into the tree instead. After the tree is
+serialized, a postprocessor will replace the placeholder with the raw string. This prevents subsequent
+processing steps from modifying the HTML data. For example,</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&lt;p&gt;This is some &lt;em&gt;raw&lt;/em&gt; HTML data&lt;/p&gt;&quot;</span>
+<span class="n">el</span> <span class="o">=</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">(</span><span class="s2">&quot;div&quot;</span><span class="p">)</span>
+<span class="n">el</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">md</span><span class="o">.</span><span class="n">htmlStash</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+</code></pre></div>
+
+<p>For the global <code>htmlStash</code> instance to be available from a processor, the <code>markdown.Markdown</code> instance must
+be passed to the processor from <a href="#extendmarkdown">extendMarkdown</a> and will be available as <code>self.md.htmlStash</code>.</p>
+<h2 id="integrating_into_markdown">Integrating Your Code Into Markdown<a class="headerlink" href="#integrating_into_markdown" title="Permanent link">&para;</a></h2>
+<p>Once you have the various pieces of your extension built, you need to tell Markdown about them and ensure that they
+are run in the proper sequence. Markdown accepts an <code>Extension</code> instance for each extension. Therefore, you will need
+to define a class that extends <code>markdown.extensions.Extension</code> and over-rides the <code>extendMarkdown</code> method. Within this
+class you will manage configuration options for your extension and attach the various processors and patterns to the
+Markdown instance.</p>
+<p>It is important to note that the order of the various processors and patterns matters. For example, if we replace
+<code>http://...</code> links with <code>&lt;a&gt;</code> elements, and <em>then</em> try to deal with  inline HTML, we will end up with a mess.
+Therefore, the various types of processors and patterns are stored within an instance of the <code>markdown.Markdown</code> class
+in a <a href="#registry">Registry</a>. Your <code>Extension</code> class will need to manipulate those registries appropriately. You may <code>register</code>
+instances of your processors and patterns with an appropriate priority, <code>deregister</code> built-in instances, or replace a
+built-in instance with your own.</p>
+<h3 id="extendmarkdown"><code>extendMarkdown</code><a class="headerlink" href="#extendmarkdown" title="Permanent link">&para;</a></h3>
+<p>The <code>extendMarkdown</code> method of a <code>markdown.extensions.Extension</code> class accepts one argument:</p>
+<ul>
+<li>
+<p><strong><code>md</code></strong>:</p>
+<p>A pointer to the instance of the <code>markdown.Markdown</code> class. You should use this to access the
+<a href="#registry">Registries</a> of processors and patterns. They are found under the following attributes:</p>
+<ul>
+<li><code>md.preprocessors</code></li>
+<li><code>md.inlinePatterns</code></li>
+<li><code>md.parser.blockprocessors</code></li>
+<li><code>md.treeprocessors</code></li>
+<li><code>md.postprocessors</code></li>
+</ul>
+<p>Some other things you may want to access on the <code>markdown.Markdown</code> instance are:</p>
+<ul>
+<li><code>md.htmlStash</code></li>
+<li><code>md.output_formats</code></li>
+<li><code>md.set_output_format()</code></li>
+<li><code>md.output_format</code></li>
+<li><code>md.serializer</code></li>
+<li><code>md.registerExtension()</code></li>
+<li><code>md.tab_length</code></li>
+<li><code>md.block_level_elements</code></li>
+<li><code>md.isBlockLevel()</code></li>
+</ul>
+</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>With access to the above items, theoretically you have the option to change anything through various
+<a href="https://en.wikipedia.org/wiki/Monkey_patch">monkey_patching</a> techniques. However, you should be aware that the various undocumented parts of Markdown may
+change without notice and your monkey_patches may break with a new release. Therefore, what you really should be
+doing is inserting processors and patterns into the Markdown pipeline. Consider yourself warned!</p>
+</div>
+<p>A simple example:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.extensions</span> <span class="kn">import</span> <span class="n">Extension</span>
+
+<span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+        <span class="c1"># Register instance of &#39;mypattern&#39; with a priority of 175</span>
+        <span class="n">md</span><span class="o">.</span><span class="n">inlinePatterns</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">MyPattern</span><span class="p">(</span><span class="n">md</span><span class="p">),</span> <span class="s1">&#39;mypattern&#39;</span><span class="p">,</span> <span class="mi">175</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="registerextension">registerExtension<a class="headerlink" href="#registerextension" title="Permanent link">&para;</a></h3>
+<p>Some extensions may need to have their state reset between multiple runs of the <code>markdown.Markdown</code> class. For
+example, consider the following use of the <a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/extensions/footnotes.py">Footnotes</a> extension:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;footnotes&#39;</span><span class="p">])</span>
+<span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_with_footnote</span><span class="p">)</span>
+<span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_without_footnote</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Without calling <code>reset</code>, the footnote definitions from the first document will be inserted into the second document as
+they are still stored within the class instance. Therefore the <code>Extension</code> class needs to define a <code>reset</code> method that
+will reset the state of the extension (i.e.: <code>self.footnotes = {}</code>). However, as many extensions do not have a need
+for <code>reset</code>, <code>reset</code> is only called on extensions that are registered.</p>
+<p>To register an extension, call <code>md.registerExtension</code> from within your <code>extendMarkdown</code> method:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">extendMarkdown</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">md</span><span class="p">):</span>
+    <span class="n">md</span><span class="o">.</span><span class="n">registerExtension</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+    <span class="c1"># insert processors and patterns here</span>
+</code></pre></div>
+
+<p>Then, each time <code>reset</code> is called on the <code>markdown.Markdown</code> instance, the <code>reset</code> method of each registered extension
+will be called as well. You should also note that <code>reset</code> will be called on each registered extension after it is
+initialized the first time. Keep that in mind when over-riding the extension&rsquo;s <code>reset</code> method.</p>
+<h3 id="configsettings">Configuration Settings<a class="headerlink" href="#configsettings" title="Permanent link">&para;</a></h3>
+<p>If an extension uses any parameters that the user may want to change, those parameters should be stored in
+<code>self.config</code> of your <code>markdown.extensions.Extension</code> class in the following format:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;option1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value1&#39;</span><span class="p">,</span> <span class="s1">&#39;description1&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;option2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value2&#39;</span><span class="p">,</span> <span class="s1">&#39;description2&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MyExtension</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+<p>When implemented this way the configuration parameters can be over-ridden at run time (thus the call to <code>super</code>). For
+example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(</span><span class="n">option1</span><span class="o">=</span><span class="s1">&#39;other value&#39;</span><span class="p">)])</span>
+</code></pre></div>
+
+<p>Note that if a keyword is passed in that is not already defined in <code>self.config</code>, then a <code>KeyError</code> is raised.</p>
+<p>The <code>markdown.extensions.Extension</code> class and its subclasses have the following methods available to assist in working
+with configuration settings:</p>
+<ul>
+<li>
+<p><strong><code>getConfig(key [, default])</code></strong>:</p>
+<p>Returns the stored value for the given <code>key</code> or <code>default</code> if the <code>key</code> does not exist. If not set, <code>default</code>
+returns an empty string.</p>
+</li>
+<li>
+<p><strong><code>getConfigs()</code></strong>:</p>
+<p>Returns a dict of all key/value pairs.</p>
+</li>
+<li>
+<p><strong><code>getConfigInfo()</code></strong>:</p>
+<p>Returns all configuration descriptions as a list of tuples.</p>
+</li>
+<li>
+<p><strong><code>setConfig(key, value)</code></strong>:</p>
+<p>Sets a configuration setting for <code>key</code> with the given <code>value</code>. If <code>key</code> is unknown, a <code>KeyError</code> is raised. If the
+previous value of <code>key</code> was a Boolean value, then <code>value</code> is converted to a Boolean value. If the previous value
+of <code>key</code> is <code>None</code>, then <code>value</code> is converted to a Boolean value except when it is <code>None</code>. No conversion takes
+place when the previous value of <code>key</code> is a string.</p>
+</li>
+<li>
+<p><strong><code>setConfigs(items)</code></strong>:</p>
+<p>Sets multiple configuration settings given a dict of key/value pairs.</p>
+</li>
+</ul>
+<h3 id="naming_an_extension">Naming an Extension<a class="headerlink" href="#naming_an_extension" title="Permanent link">&para;</a></h3>
+<p>As noted in the <a href="../../reference/">library reference</a> an instance of an extension can be passed directly to <code>markdown.Markdown</code>. In
+fact, this is the preferred way to use third-party extensions.</p>
+<p>For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">markdown</span>
+<span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtension</span>
+<span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">MyExtension</span><span class="p">(</span><span class="n">option</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">)])</span>
+</code></pre></div>
+
+<p>However, Markdown also accepts &ldquo;named&rdquo; third party extensions for those occasions when it is impractical to import an
+extension directly (from the command line or from within templates). A &ldquo;name&rdquo; can either be a registered <a href="#entry_point">entry
+point</a> or a string using Python&rsquo;s <a href="#dot_notation">dot notation</a>.</p>
+<h4 id="entry_point">Entry Point<a class="headerlink" href="#entry_point" title="Permanent link">&para;</a></h4>
+<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#dynamic-discovery-of-services-and-plugins">Entry points</a> are defined in a Python package&rsquo;s <code>setup.py</code> script. The script must use <a href="https://packaging.python.org/key_projects/#setuptools">setuptools</a> to support entry
+points. Python-Markdown extensions must be assigned to the <code>markdown.extensions</code> group. An entry point definition
+might look like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">setuptools</span> <span class="kn">import</span> <span class="n">setup</span>
+
+<span class="n">setup</span><span class="p">(</span>
+    <span class="c1"># ...</span>
+    <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+        <span class="s1">&#39;markdown.extensions&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;myextension = path.to.module:MyExtension&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div>
+
+<p>After a user installs your extension using the above script, they could then call the extension using the
+<code>myextension</code> string name like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;myextension&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+<p>Note that if two or more entry points within the same group are assigned the same name, Python-Markdown will only ever
+use the first one found and ignore all others. Therefore, be sure to give your extension a unique name.</p>
+<p>For more information on writing <code>setup.py</code> scripts, see the Python documentation on <a href="https://packaging.python.org/tutorials/distributing-packages/">Packaging and Distributing
+Projects</a>.</p>
+<h4 id="dot_notation">Dot Notation<a class="headerlink" href="#dot_notation" title="Permanent link">&para;</a></h4>
+<p>If an extension does not have a registered entry point, Python&rsquo;s dot notation may be used instead. The extension must
+be installed as a Python module on your PYTHONPATH. Generally, a class should be specified in the name. The class must
+be at the end of the name and be separated by a colon from the module.</p>
+<p>Therefore, if you were to import the class like this:</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">path.to.module</span> <span class="kn">import</span> <span class="n">MyExtension</span>
+</code></pre></div>
+
+<p>Then the extension can be loaded as follows:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;path.to.module:MyExtension&#39;</span><span class="p">])</span>
+</code></pre></div>
+
+<p>You do not need to do anything special to support this feature. As long as your extension class is able to be
+imported, a user can include it with the above syntax.</p>
+<p>The above two methods are especially useful if you need to implement a large number of extensions with more than one
+residing in a module. However, if you do not want to require that your users include the class name in their string,
+you must define only one extension per module and that module must contain a module-level function called
+<code>makeExtension</code> that accepts <code>**kwargs</code> and returns an extension instance.</p>
+<p>For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MyExtension</span><span class="p">(</span><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">)</span>
+    <span class="c1"># Define extension here...</span>
+
+<span class="k">def</span> <span class="nf">makeExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">MyExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+<p>When <code>markdown.Markdown</code> is passed the &ldquo;name&rdquo; of your extension as a dot notation string that does not include a class
+(for example <code>path.to.module</code>), it will import the module and call the <code>makeExtension</code> function to initiate your
+extension.</p>
+<h2 id="registries">Registries<a class="headerlink" href="#registries" title="Permanent link">&para;</a></h2>
+<p>The <code>markdown.util.Registry</code> class is a priority sorted registry which Markdown uses internally to determine the
+processing order of its various processors and patterns.</p>
+<p>A <code>Registry</code> instance provides two public methods to alter the data of the registry: <code>register</code> and <code>deregister</code>. Use
+<code>register</code> to add items and <code>deregister</code> to remove items. See each method for specifics.</p>
+<p>When registering an item, a &ldquo;name&rdquo; and a &ldquo;priority&rdquo; must be provided. All items are automatically sorted by the value
+of the &ldquo;priority&rdquo; parameter such that the item with the highest value will be processed first. The &ldquo;name&rdquo; is used to
+remove (<code>deregister</code>) and get items.</p>
+<p>A <code>Registry</code> instance is like a list (which maintains order) when reading data. You may iterate over the items, get an
+item and get a count (length) of all items. You may also check that the registry contains an item.</p>
+<p>When getting an item you may use either the index of the item or the string-based &ldquo;name&rdquo;. For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">registry</span> <span class="o">=</span> <span class="n">Registry</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">SomeItem</span><span class="p">(),</span> <span class="s1">&#39;itemname&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1"># Get the item by index</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Get the item by name</span>
+<span class="n">item</span> <span class="o">=</span> <span class="n">registry</span><span class="p">[</span><span class="s1">&#39;itemname&#39;</span><span class="p">]</span>
+</code></pre></div>
+
+<p>When checking that the registry contains an item, you may use either the string-based &ldquo;name&rdquo;, or a reference to the
+actual item. For example:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">someitem</span> <span class="o">=</span> <span class="n">SomeItem</span><span class="p">()</span>
+<span class="n">registry</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">someitem</span><span class="p">,</span> <span class="s1">&#39;itemname&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1"># Contains the name</span>
+<span class="k">assert</span> <span class="s1">&#39;itemname&#39;</span> <span class="ow">in</span> <span class="n">registry</span>
+<span class="c1"># Contains the item instance</span>
+<span class="k">assert</span> <span class="n">someitem</span> <span class="ow">in</span> <span class="n">registry</span>
+</code></pre></div>
+
+<p><code>markdown.util.Registry</code> has the following methods:</p>
+<h3 id="registry.register"><code>Registry.register(self, item, name, priority)</code><a class="headerlink" href="#registry.register" title="Permanent link">&para;</a></h3>
+<dl>
+<dd>
+<p>Add an item to the registry with the given name and priority.</p>
+<p>Arguments:</p>
+<ul>
+<li><code>item</code>: The item being registered.</li>
+<li><code>name</code>: A string used to reference the item.</li>
+<li><code>priority</code>: An integer or float used to sort against all items.</li>
+</ul>
+<p>If an item is registered with a &ldquo;name&rdquo; which already exists, the existing item is replaced with the new item.
+Be careful as the old item is lost with no way to recover it. The new item will be sorted according to its
+priority and will <strong>not</strong> retain the position of the old item.</p>
+</dd>
+</dl>
+<h3 id="registry.deregister"><code>Registry.deregister(self, name, strict=True)</code><a class="headerlink" href="#registry.deregister" title="Permanent link">&para;</a></h3>
+<dl>
+<dd>
+<p>Remove an item from the registry.</p>
+<p>Set <code>strict=False</code> to fail silently.</p>
+</dd>
+</dl>
+<h3 id="registry.get_index_for_name"><code>Registry.get_index_for_name(self, name)</code><a class="headerlink" href="#registry.get_index_for_name" title="Permanent link">&para;</a></h3>
+<dl>
+<dd>Return the index of the given <code>name</code>.</dd>
+</dl>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#writing-extensions-for-python-markdown">Writing Extensions for Python-Markdown</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#stages">Phases of processing</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#preprocessors">Preprocessors</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#example">Example</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usages">Usages</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#blockprocessors">Block Processors</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#blockparser">BlockParser</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#example_1">Example</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usages_1">Usages</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#treeprocessors">Tree processors</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#example_2">Example</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usages_2">Usages</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#inlineprocessors">Inline Processors</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#convenience-classes">Convenience Classes</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#example_3">Example</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usages_3">Usages</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#patterns">Patterns</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#comparison-with-new-inlineprocessor">Comparison with new InlineProcessor</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#inline-patterns">Inline Patterns</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#postprocessors">Postprocessors</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#example_4">Example</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#usages_4">Usages</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#working_with_et">Working with the ElementTree</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#working_with_raw_html">Working with Raw HTML</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#integrating_into_markdown">Integrating Your Code Into Markdown</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#extendmarkdown">extendMarkdown</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#registerextension">registerExtension</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#configsettings">Configuration Settings</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#naming_an_extension">Naming an Extension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#entry_point">Entry Point</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#dot_notation">Dot Notation</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#registries">Registries</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#registry.register">Registry.register</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#registry.deregister">Registry.deregister</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#registry.get_index_for_name">Registry.get_index_for_name</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../wikilinks/" title="previous page">WikiLinks</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../../test_tools/" title="next page">Test Tools</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/extensions/api.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../../test_tools/" title="Test Tools" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../wikilinks/" title="WikiLinks" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Extension API</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.659279+00:00
+        -->
+    </body>
+</html>

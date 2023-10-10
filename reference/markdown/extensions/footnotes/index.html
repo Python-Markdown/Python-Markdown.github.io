@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/reference/markdown/extensions/footnotes/">
+        <link rel="shortcut icon" href="../../../../favicon.ico">
+        <link rel="search" title="Search" href="../../../../search.html" />
+        <link rel="next" title="<code>legacy_attrs</code>" href="../legacy_attrs/" />
+        <link rel="prev" title="<code>fenced_code</code>" href="../fenced_code/" />
+        <title>footnotes &#8212; Python-Markdown 3.5 documentation</title>
+        <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../../../../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../../../../static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../legacy_attrs/" title="<code>legacy_attrs</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../fenced_code/" title="<code>fenced_code</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>footnotes</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><div class="doc doc-object doc-module">
+
+
+
+
+<h1 id="markdown.extensions.footnotes" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code>markdown.extensions.footnotes</code>
+
+
+
+<a href="#markdown.extensions.footnotes" class="headerlink" title="Permanent link">&para;</a></h1>
+
+  <div class="doc doc-contents first">
+  
+      <p>Adds footnote handling to Python-Markdown.</p>
+<p>See the <a href="https://Python-Markdown.github.io/extensions/footnotes">documentation</a>
+for details.</p>
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.footnotes.FootnoteExtension" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L38" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+
+  
+      <p>Footnote Extension.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.config" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L44-L65" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">config</span></code>
+  
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
+  </span>
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.config" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+    
+      <p>Default configuration options.</p>
+
+  <p>Defined Value:</p>
+  <div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;PLACE_MARKER&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;///Footnotes Go Here///&#39;</span><span class="p">,</span> <span class="s1">&#39;The text string that marks where the footnotes go&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;UNIQUE_IDS&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Avoid name collisions across multiple calls to `reset()`.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;BACKLINK_TEXT&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;&amp;#8617;&#39;</span><span class="p">,</span> <span class="s2">&quot;The text string that links from the footnote to the reader&#39;s place.&quot;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;SUPERSCRIPT_TEXT&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s2">&quot;The text string that links from the reader&#39;s place to the footnote.&quot;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;BACKLINK_TITLE&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;Jump back to footnote </span><span class="si">%d</span><span class="s1"> in the text&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;The text string used for the title HTML attribute of the backlink. &#39;</span>
+        <span class="s1">&#39;</span><span class="si">%d</span><span class="s1"> will be replaced by the footnote number.&#39;</span>
+    <span class="p">],</span>
+    <span class="s1">&#39;SEPARATOR&#39;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;Footnote separator.&#39;</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L76-L99" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">extendMarkdown</span><span class="p">(</span><span class="n">md</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Add pieces to Markdown.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.reset" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L101-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.reset" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Clear footnotes on reset, and prepare for distinct document.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.unique_ref" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L108-L127" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">unique_ref</span><span class="p">(</span><span class="n">reference</span><span class="p">,</span> <span class="n">found</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.unique_ref" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get a unique reference if there are duplicates.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.findFootnotesPlaceholder" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L129-L145" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">findFootnotesPlaceholder</span><span class="p">(</span><span class="n">root</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.findFootnotesPlaceholder" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return ElementTree Element that contains Footnote placeholder.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.setFootnote" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L147-L149" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">setFootnote</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.setFootnote" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Store a footnote for later retrieval.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.get_separator" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L151-L153" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">get_separator</span><span class="p">()</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.get_separator" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get the footnote separator.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.makeFootnoteId" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L155-L160" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">makeFootnoteId</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnoteId" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return footnote link id.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.makeFootnoteRefId" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L162-L167" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">makeFootnoteRefId</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">found</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnoteRefId" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return footnote back-link id.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteExtension.makeFootnotesDiv" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L169-L211" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteExtension</span><span class="o">.</span><span class="n">makeFootnotesDiv</span><span class="p">(</span><span class="n">root</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnotesDiv" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return <code>div</code> of footnotes as <code>etree</code> Element.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.footnotes.FootnoteBlockProcessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L214" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteBlockProcessor</span><span class="p">(</span><span class="n">footnotes</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteBlockProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+
+  
+      <p>Find all footnote references and store for later use.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteBlockProcessor.run" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L226-L260" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteBlockProcessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">blocks</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteBlockProcessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Find, set, and remove footnote definitions.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteBlockProcessor.detectTabbed" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L262-L289" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteBlockProcessor</span><span class="o">.</span><span class="n">detectTabbed</span><span class="p">(</span><span class="n">blocks</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteBlockProcessor.detectTabbed" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Find indented text and remove indent before further processing.</p>
+
+
+
+  <p>Returns:</p>
+  <ul>
+      <li class="field-body">
+            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>
+        –
+        <div class="doc-md-description">
+          <p>A list of blocks with indentation removed.</p>
+      </div>
+      </li>
+  </ul>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnoteBlockProcessor.detab" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L291-L300" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteBlockProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">block</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteBlockProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Remove one level of indent from a block.</p>
+<p>Preserve lazily indented blocks by only removing indent from indented lines.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.footnotes.FootnoteInlineProcessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L303" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteInlineProcessor</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">footnotes</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteInlineProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.inlinepatterns.InlineProcessor" href="../../inlinepatterns/#markdown.inlinepatterns.InlineProcessor">InlineProcessor</a></code></p>
+
+  
+      <p><code>InlineProcessor</code> for footnote markers in a document&rsquo;s body text.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.footnotes.FootnotePostTreeprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L326" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnotePostTreeprocessor</span><span class="p">(</span><span class="n">footnotes</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnotePostTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+
+  
+      <p>Amend footnote div with duplicates.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.add_duplicates" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L332-L350" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnotePostTreeprocessor</span><span class="o">.</span><span class="n">add_duplicates</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="n">duplicates</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.add_duplicates" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Adjust current <code>li</code> and add the duplicates: <code>fnref2</code>, <code>fnref3</code>, etc.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.get_num_duplicates" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L352-L356" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnotePostTreeprocessor</span><span class="o">.</span><span class="n">get_num_duplicates</span><span class="p">(</span><span class="n">li</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.get_num_duplicates" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Get the number of duplicate refs of the footnote.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.handle_duplicates" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L358-L365" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnotePostTreeprocessor</span><span class="o">.</span><span class="n">handle_duplicates</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.handle_duplicates" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Find duplicate footnotes and format and add the duplicates.</p>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.run" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L367-L376" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnotePostTreeprocessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">root</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Crawl the footnote div and add missing duplicate footnotes.</p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.footnotes.FootnoteTreeprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L379" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnoteTreeprocessor</span><span class="p">(</span><span class="n">footnotes</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnoteTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+
+  
+      <p>Build and append footnote div to end of document.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+
+<h2 id="markdown.extensions.footnotes.FootnotePostprocessor" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L402" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">FootnotePostprocessor</span><span class="p">(</span><span class="n">footnotes</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.FootnotePostprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+          <p class="doc doc-class-bases">
+            Bases: <code><a class="autorefs autorefs-internal" title="markdown.postprocessors.Postprocessor" href="../../postprocessors/#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
+
+  
+      <p>Replace placeholders with html entities.</p>
+
+
+  
+
+  <div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+
+
+<h2 id="markdown.extensions.footnotes.makeExtension" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\footnotes.py#L414-L416" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">footnotes</span><span class="o">.</span><span class="n">makeExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+
+
+<a href="#markdown.extensions.footnotes.makeExtension" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+  <div class="doc doc-contents ">
+  
+      <p>Return an instance of the <code>FootnoteExtension</code></p>
+
+  </div>
+
+</div>
+
+
+
+
+  </div>
+
+  </div>
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes">footnotes</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension">FootnoteExtension</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.config">config</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.extendMarkdown">extendMarkdown()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.reset">reset()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.unique_ref">unique_ref()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.findFootnotesPlaceholder">findFootnotesPlaceholder()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.setFootnote">setFootnote()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.get_separator">get_separator()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnoteId">makeFootnoteId()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnoteRefId">makeFootnoteRefId()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnotesDiv">makeFootnotesDiv()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteBlockProcessor">FootnoteBlockProcessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteBlockProcessor.run">run()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteBlockProcessor.detectTabbed">detectTabbed()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteBlockProcessor.detab">detab()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteInlineProcessor">FootnoteInlineProcessor</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor">FootnotePostTreeprocessor</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.add_duplicates">add_duplicates()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.get_num_duplicates">get_num_duplicates()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.handle_duplicates">handle_duplicates()</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.run">run()</a>
+    </li>
+        </ul>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteTreeprocessor">FootnoteTreeprocessor</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnotePostprocessor">FootnotePostprocessor</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.footnotes.makeExtension">makeExtension()</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../fenced_code/" title="previous page"><code>fenced_code</code></a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../legacy_attrs/" title="next page"><code>legacy_attrs</code></a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\footnotes.py">Edit on GitHub</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../../../../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../../../../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../legacy_attrs/" title="<code>legacy_attrs</code>" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../fenced_code/" title="<code>fenced_code</code>" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../../../../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            API Reference
+         &#187; </li>
+                
+        <li class="nav-item">
+            <a href="../../"><code>markdown</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="../"><code>extensions</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+        <li class="nav-item">
+            <a href="./"><code>footnotes</code></a>
+         &#187; </li>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        </div>
+        <script>var base_url = '../../../..';</script>
+
+        <!--
+        MkDocs version      : 1.5.2
+        Docs Build Date UTC : 2023-10-10 14:40:31.721731+00:00
+        -->
+    </body>
+</html>
