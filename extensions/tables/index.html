@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="WikiLinks" href="../wikilinks/" />
         <link rel="prev" title="Table of Contents" href="../toc/" />
-        <title>Tables &#8212; Python-Markdown 3.5 documentation</title>
+        <title>Tables &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -91,32 +91,32 @@
 <h2 id="syntax">Syntax<a class="headerlink" href="#syntax" title="Permanent link">&para;</a></h2>
 <p>Tables are defined using the syntax established in <a href="http://www.michelf.com/projects/php-markdown/extra/#table">PHP Markdown Extra</a>.</p>
 <p>Thus, the following text (taken from the above referenced PHP documentation):</p>
-<div class="codehilite"><pre><span></span><code>First Header  | Second Header
+<pre class="codehilite"><code class="language-md">First Header  | Second Header
 ------------- | -------------
 Content Cell  | Content Cell
 Content Cell  | Content Cell
-</code></pre></div>
+</code></pre>
 
 <p>will be rendered as:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">thead</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>First Header<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">th</span><span class="p">&gt;</span>Second Header<span class="p">&lt;/</span><span class="nt">th</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">thead</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">tbody</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Content Cell<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Content Cell<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Content Cell<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-      <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>Content Cell<span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
-    <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
-  <span class="p">&lt;/</span><span class="nt">tbody</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;First Header&lt;/th&gt;
+      &lt;th&gt;Second Header&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+      &lt;td&gt;Content Cell&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</code></pre>
 
 <div class="admonition seealso">
 <p class="admonition-title">See Also</p>
@@ -135,17 +135,17 @@ configuring extensions.</p>
 </li>
 </ul>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;tables&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['tables'])
+</code></pre>
 
 <h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h3>
 <p>For an example, let us suppose that alignment should be controlled by the legacy <code>align</code>
 attribute.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">markdown.extensions.tables</span> <span class="kn">import</span> <span class="n">TableExtension</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">html</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">,</span>
-<span class="gp">... </span>                <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="n">TableExtension</span><span class="p">(</span><span class="n">use_align_attribute</span><span class="o">=</span><span class="kc">True</span><span class="p">)]</span>
-<span class="gp">... </span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-pycon">&gt;&gt;&gt; from markdown.extensions.tables import TableExtension
+&gt;&gt;&gt; html = markdown.markdown(text,
+...                 extensions=[TableExtension(use_align_attribute=True)]
+... )
+</code></pre>
 
                     </div>
                 </div>
@@ -222,7 +222,7 @@ attribute.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -263,13 +263,13 @@ attribute.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.674897+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.368757+00:00
         -->
     </body>
 </html>

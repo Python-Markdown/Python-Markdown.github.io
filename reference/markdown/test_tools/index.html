@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>extensions</code>" href="../extensions/" />
         <link rel="prev" title="<code>htmlparser</code>" href="../htmlparser/" />
-        <title>test_tools &#8212; Python-Markdown 3.5 documentation</title>
+        <title>test_tools &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -87,7 +87,7 @@
 
 
 <h1 id="markdown.test_tools" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.test_tools</code>
 
 
@@ -112,13 +112,21 @@
 
 
 
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.test_tools.TestCase" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.test_tools.TestCase</code>
 
 
@@ -160,8 +168,8 @@ necessary.</p>
 
 
 <h3 id="markdown.test_tools.TestCase.default_kwargs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py#L58" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">test_tools</span><span class="o">.</span><span class="n">TestCase</span><span class="o">.</span><span class="n">default_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py#L58" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.test_tools.TestCase.default_kwargs: dict[str, Any]</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -176,8 +184,8 @@ necessary.</p>
       <p>Default options to pass to Markdown for each test.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">default_kwargs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">default_kwargs: dict[str, Any] = {}
+</code></pre>  </div>
 
 </div>
 
@@ -193,8 +201,8 @@ necessary.</p>
 
 
 <h3 id="markdown.test_tools.TestCase.assertMarkdownRenders" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py#L61-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">test_tools</span><span class="o">.</span><span class="n">TestCase</span><span class="o">.</span><span class="n">assertMarkdownRenders</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">expected</span><span class="p">,</span> <span class="n">expected_attrs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py#L61-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.test_tools.TestCase.assertMarkdownRenders(source, expected, expected_attrs=None, **kwargs)</code>
 
 
 <a href="#markdown.test_tools.TestCase.assertMarkdownRenders" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -225,8 +233,8 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 <h3 id="markdown.test_tools.TestCase.dedent" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py#L81-L88" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">test_tools</span><span class="o">.</span><span class="n">TestCase</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">text</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py#L81-L88" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.test_tools.TestCase.dedent(text)</code>
 
 
 <a href="#markdown.test_tools.TestCase.dedent" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -254,18 +262,14 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.test_tools.recursionlimit" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py#L91" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">test_tools</span><span class="o">.</span><span class="n">recursionlimit</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py#L91" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.test_tools.recursionlimit(limit)</code>
 
 
 <a href="#markdown.test_tools.recursionlimit" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -278,9 +282,9 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 <p>The testing framework, coverage, etc. may add an arbitrary number of levels to the depth. To maintain consistency
 in the tests, the current stack depth is determined when called, then added to the provided limit.</p>
 <p>Example usage:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">recursionlimit</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
-    <span class="c1"># test code here</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">with recursionlimit(20):
+    # test code here
+</code></pre>
 
 <p>See <a href="https://stackoverflow.com/a/50120316/866026">https://stackoverflow.com/a/50120316/866026</a>.</p>
 
@@ -310,7 +314,7 @@ in the tests, the current stack depth is determined when called, then added to t
 
 
 <h2 id="markdown.test_tools.Kwargs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py#L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py#L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.test_tools.Kwargs</code>
 
 
@@ -341,7 +345,7 @@ in the tests, the current stack depth is determined when called, then added to t
 
 
 <h2 id="markdown.test_tools.LegacyTestCase" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\test_tools.py#L196" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/test_tools.py#L196" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.test_tools.LegacyTestCase</code>
 
 
@@ -431,10 +435,6 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
 
 
 
-
-
-
-
   </div>
 
   </div>
@@ -501,7 +501,7 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\test_tools.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/test_tools.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -528,7 +528,7 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -566,13 +566,13 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.706139+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.384151+00:00
         -->
     </body>
 </html>

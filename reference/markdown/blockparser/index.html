@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>blockprocessors</code>" href="../blockprocessors/" />
         <link rel="prev" title="<code>preprocessors</code>" href="../preprocessors/" />
-        <title>blockparser &#8212; Python-Markdown 3.5 documentation</title>
+        <title>blockparser &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -87,7 +87,7 @@
 
 
 <h1 id="markdown.blockparser" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.blockparser</code>
 
 
@@ -117,13 +117,21 @@ as they need to alter how Markdown blocks are parsed.</p>
 
 
 
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.blockparser.State" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L40" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L41" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.blockparser.State</code>
 
 
@@ -166,8 +174,8 @@ defined below need be used.</p>
 
 
 <h3 id="markdown.blockparser.State.set" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L58-L60" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L59-L61" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockparser.State.set(state: Any)</code>
 
 
 <a href="#markdown.blockparser.State.set" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -193,8 +201,8 @@ defined below need be used.</p>
 
 
 <h3 id="markdown.blockparser.State.reset" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L62-L64" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L63-L65" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockparser.State.reset() -&gt; None</code>
 
 
 <a href="#markdown.blockparser.State.reset" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -220,8 +228,8 @@ defined below need be used.</p>
 
 
 <h3 id="markdown.blockparser.State.isstate" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L66-L71" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">State</span><span class="o">.</span><span class="n">isstate</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L67-L72" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockparser.State.isstate(state: Any) -&gt; bool</code>
 
 
 <a href="#markdown.blockparser.State.isstate" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -249,18 +257,14 @@ defined below need be used.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.blockparser.BlockParser" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L75" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockparser.BlockParser(md: Markdown)</code>
 
 
 <a href="#markdown.blockparser.BlockParser" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -337,8 +341,8 @@ looping through them and creating an <code>ElementTree</code> object.</p>
 
 
 <h3 id="markdown.blockparser.BlockParser.parseDocument" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L99-L117" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="o">.</span><span class="n">parseDocument</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">ElementTree</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L100-L118" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockparser.BlockParser.parseDocument(lines: Iterable[str]) -&gt; etree.ElementTree</code>
 
 
 <a href="#markdown.blockparser.BlockParser.parseDocument" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -358,7 +362,7 @@ as the parent. The <code>ElementTree</code> object is returned.</p>
   <ul>
       <li class="field-body">
         <b><code>lines</code></b>
-            (<code><a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+            (<code><a class="autorefs autorefs-external" title="typing.Iterable" href="https://docs.python.org/3/library/typing.html#typing.Iterable">Iterable</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
         –
         <div class="doc-md-description">
           <p>A list of lines (strings).</p>
@@ -395,8 +399,8 @@ as the parent. The <code>ElementTree</code> object is returned.</p>
 
 
 <h3 id="markdown.blockparser.BlockParser.parseChunk" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L119-L135" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="o">.</span><span class="n">parseChunk</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L120-L136" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockparser.BlockParser.parseChunk(parent: etree.Element, text: str) -&gt; None</code>
 
 
 <a href="#markdown.blockparser.BlockParser.parseChunk" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -450,8 +454,8 @@ Nothing is returned.</p>
 
 
 <h3 id="markdown.blockparser.BlockParser.parseBlocks" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockparser.py#L137-L159" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockparser</span><span class="o">.</span><span class="n">BlockParser</span><span class="o">.</span><span class="n">parseBlocks</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">blocks</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockparser.py#L138-L160" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockparser.BlockParser.parseBlocks(parent: etree.Element, blocks: list[str]) -&gt; None</code>
 
 
 <a href="#markdown.blockparser.BlockParser.parseBlocks" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -482,7 +486,7 @@ parse a nested block.</p>
       </li>
       <li class="field-body">
         <b><code>blocks</code></b>
-            (<code><a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
         –
         <div class="doc-md-description">
           <p>The blocks of text to parse.</p>
@@ -578,7 +582,7 @@ parse a nested block.</p>
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\blockparser.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/blockparser.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -605,7 +609,7 @@ parse a nested block.</p>
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -643,13 +647,13 @@ parse a nested block.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.690489+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.373639+00:00
         -->
     </body>
 </html>

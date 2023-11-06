@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>inlinepatterns</code>" href="../inlinepatterns/" />
         <link rel="prev" title="<code>blockprocessors</code>" href="../blockprocessors/" />
-        <title>treeprocessors &#8212; Python-Markdown 3.5 documentation</title>
+        <title>treeprocessors &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -87,7 +87,7 @@
 
 
 <h1 id="markdown.treeprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.treeprocessors</code>
 
 
@@ -119,14 +119,18 @@ references, or last minute adjustments.</p>
 
 
 
+
+
+
+
 <div class="doc doc-object doc-function">
 
 
 
 
 <h2 id="markdown.treeprocessors.build_treeprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L39-L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">build_treeprocessors</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">util</span><span class="o">.</span><span class="n">Registry</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L39-L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.treeprocessors.build_treeprocessors(md: Markdown, **kwargs: Any) -&gt; util.Registry[Treeprocessor]</code>
 
 
 <a href="#markdown.treeprocessors.build_treeprocessors" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -173,18 +177,14 @@ references, or last minute adjustments.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-function">
 
 
 
 
 <h2 id="markdown.treeprocessors.isString" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L48-L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">isString</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L48-L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.treeprocessors.isString(s: Any) -&gt; bool</code>
 
 
 <a href="#markdown.treeprocessors.isString" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -209,8 +209,8 @@ references, or last minute adjustments.</p>
 
 
 <h2 id="markdown.treeprocessors.Treeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L55" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">Treeprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L55" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.treeprocessors.Treeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -244,8 +244,8 @@ references, or last minute adjustments.</p>
 
 
 <h3 id="markdown.treeprocessors.Treeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L65-L72" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">Treeprocessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L65-L72" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.treeprocessors.Treeprocessor.run(root: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.treeprocessors.Treeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -282,8 +282,8 @@ modify the current tree and return <code>None</code>.</p>
 
 
 <h2 id="markdown.treeprocessors.InlineProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L75" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">InlineProcessor</span><span class="p">(</span><span class="n">md</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L75" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.treeprocessors.InlineProcessor(md)</code>
 
 
 <a href="#markdown.treeprocessors.InlineProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -314,8 +314,8 @@ modify the current tree and return <code>None</code>.</p>
 
 
 <h3 id="markdown.treeprocessors.InlineProcessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L332-L401" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">InlineProcessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">tree</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">ancestors</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L343-L412" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.treeprocessors.InlineProcessor.run(tree: etree.Element, ancestors: list[str] | None = None) -&gt; etree.Element</code>
 
 
 <a href="#markdown.treeprocessors.InlineProcessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -328,8 +328,8 @@ modify the current tree and return <code>None</code>.</p>
 patterns and append newly created Elements to tree.  To avoid further
 processing of string with inline patterns, instead of normal string,
 use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.AtomicString"><code>AtomicString</code></a>:</p>
-<div class="codehilite"><pre><span></span><code>node.text = markdown.util.AtomicString(&quot;This will not be processed.&quot;)
-</code></pre></div>
+<pre class="codehilite"><code>node.text = markdown.util.AtomicString(&quot;This will not be processed.&quot;)
+</code></pre>
 
 
 
@@ -345,7 +345,7 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
       </li>
       <li class="field-body">
         <b><code>ancestors</code></b>
-            (<code><a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>] | None</code>, default:
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>] | None</code>, default:
                 <code>None</code>
 )
         –
@@ -392,8 +392,8 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
 
 <h2 id="markdown.treeprocessors.PrettifyTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L404" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">PrettifyTreeprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L415" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.treeprocessors.PrettifyTreeprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.treeprocessors.PrettifyTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -424,8 +424,8 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
 
 <h3 id="markdown.treeprocessors.PrettifyTreeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L421-L440" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">PrettifyTreeprocessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L432-L451" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.treeprocessors.PrettifyTreeprocessor.run(root: etree.Element) -&gt; None</code>
 
 
 <a href="#markdown.treeprocessors.PrettifyTreeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -459,8 +459,8 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
 
 <h2 id="markdown.treeprocessors.UnescapeTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L443" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">UnescapeTreeprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L454" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.treeprocessors.UnescapeTreeprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.treeprocessors.UnescapeTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -491,8 +491,8 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
 
 <h3 id="markdown.treeprocessors.UnescapeTreeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\treeprocessors.py#L454-L465" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">treeprocessors</span><span class="o">.</span><span class="n">UnescapeTreeprocessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">root</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/treeprocessors.py#L465-L476" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.treeprocessors.UnescapeTreeprocessor.run(root)</code>
 
 
 <a href="#markdown.treeprocessors.UnescapeTreeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -602,7 +602,7 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\treeprocessors.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/treeprocessors.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -629,7 +629,7 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -667,13 +667,13 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.706139+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.385144+00:00
         -->
     </body>
 </html>

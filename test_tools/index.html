@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="<code>markdown</code>" href="../reference/markdown/" />
         <link rel="prev" title="Extension API" href="../extensions/api/" />
-        <title>Test Tools &#8212; Python-Markdown 3.5 documentation</title>
+        <title>Test Tools &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -96,29 +96,29 @@ test. The defaults can be overridden on individual tests.</dd>
 <code>unittest.TestCase</code>. In fact, <code>assertMarkdownRenders</code> tests could be mixed with
 other <code>unittest</code> style tests within the same test class.</p>
 <p>An example Markdown test might look like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.test_tools</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<pre class="codehilite"><code class="language-python">from markdown.test_tools import TestCase
 
-<span class="k">class</span> <span class="nc">TestHr</span><span class="p">(</span><span class="n">TestCase</span><span class="p">):</span>
-    <span class="k">def</span> <span class="nf">test_hr_before_paragraph</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">assertMarkdownRenders</span><span class="p">(</span>
-            <span class="c1"># The Markdown source text used as input</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
-                <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">                ***</span>
-<span class="sd">                An HR followed by a paragraph with no blank line.</span>
-<span class="sd">                &quot;&quot;&quot;</span>
-            <span class="p">),</span>
-            <span class="c1"># The expected HTML output</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span>
-                <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">                &lt;hr&gt;</span>
-<span class="sd">                &lt;p&gt;An HR followed by a paragraph with no blank line.&lt;/p&gt;</span>
-<span class="sd">                &quot;&quot;&quot;</span>
-            <span class="p">),</span>
-            <span class="c1"># Other keyword arguments to pass to `markdown.markdown`</span>
-            <span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;html&#39;</span>
-        <span class="p">)</span>
-</code></pre></div>
+class TestHr(TestCase):
+    def test_hr_before_paragraph(self):
+        self.assertMarkdownRenders(
+            # The Markdown source text used as input
+            self.dedent(
+                &quot;&quot;&quot;
+                ***
+                An HR followed by a paragraph with no blank line.
+                &quot;&quot;&quot;
+            ),
+            # The expected HTML output
+            self.dedent(
+                &quot;&quot;&quot;
+                &lt;hr&gt;
+                &lt;p&gt;An HR followed by a paragraph with no blank line.&lt;/p&gt;
+                &quot;&quot;&quot;
+            ),
+            # Other keyword arguments to pass to `markdown.markdown`
+            output_format='html'
+        )
+</code></pre>
 
 <h2 id="markdowntest_toolslegacytestcase"><code>markdown.test_tools.LegacyTestCase</code><a class="headerlink" href="#markdowntest_toolslegacytestcase" title="Permanent link">&para;</a></h2>
 <p>In the past Python-Markdown exclusively used file-based tests. Many of those
@@ -163,31 +163,31 @@ directory and create a separate unit test for each set of test files using the
 naming scheme: <code>test_filename</code>. One unit test will be run for each set of input
 and output files.</p>
 <p>The definition of an example set of tests might look like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">markdown.test_tools</span> <span class="kn">import</span> <span class="n">LegacyTestCase</span><span class="p">,</span> <span class="n">Kwargs</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<pre class="codehilite"><code class="language-python">from markdown.test_tools import LegacyTestCase, Kwargs
+import os
 
-<span class="c1"># Get location of this file and use to find text file dirs.</span>
-<span class="n">parent_test_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+# Get location of this file and use to find text file dirs.
+parent_test_dir = os.path.abspath(os.path.dirname(__file__))
 
 
-<span class="k">class</span> <span class="nc">TestFoo</span><span class="p">(</span><span class="n">LegacyTestCase</span><span class="p">):</span>
-    <span class="c1"># Define location of text file directory. In this case, the directory is</span>
-    <span class="c1"># named &quot;foo&quot; and is in the same parent directory as this file.</span>
-    <span class="n">location</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">parent_test_dir</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">)</span>
-    <span class="c1"># Define default keyword arguments. In this case, unless specified</span>
-    <span class="c1"># differently, all tests should use the output format &quot;html&quot;.</span>
-    <span class="n">default_kwargs</span> <span class="o">=</span> <span class="n">Kwargs</span><span class="p">(</span><span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;html&#39;</span><span class="p">)</span>
+class TestFoo(LegacyTestCase):
+    # Define location of text file directory. In this case, the directory is
+    # named &quot;foo&quot; and is in the same parent directory as this file.
+    location = os.path.join(parent_test_dir, 'foo')
+    # Define default keyword arguments. In this case, unless specified
+    # differently, all tests should use the output format &quot;html&quot;.
+    default_kwargs = Kwargs(output_format='html')
 
-    <span class="c1"># The &quot;xhtml&quot; test should override the output format and use &quot;xhtml&quot;.</span>
-    <span class="n">xhtml</span> <span class="o">=</span> <span class="n">Kwargs</span><span class="p">(</span><span class="n">output_format</span><span class="o">=</span><span class="s1">&#39;xhtml&#39;</span><span class="p">)</span>
+    # The &quot;xhtml&quot; test should override the output format and use &quot;xhtml&quot;.
+    xhtml = Kwargs(output_format='xhtml')
 
-    <span class="c1"># The &quot;toc&quot; test should use the &quot;toc&quot; extension with a custom permalink</span>
-    <span class="c1"># setting.</span>
-    <span class="n">toc</span> <span class="o">=</span> <span class="n">Kwargs</span><span class="p">(</span>
-        <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;markdown.extensions.toc&#39;</span><span class="p">],</span>
-        <span class="n">extension_configs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;markdown.extensions.toc&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;permalink&#39;</span><span class="p">:</span> <span class="s2">&quot;[link]&quot;</span><span class="p">}}</span>
-    <span class="p">)</span>
-</code></pre></div>
+    # The &quot;toc&quot; test should use the &quot;toc&quot; extension with a custom permalink
+    # setting.
+    toc = Kwargs(
+        extensions=['markdown.extensions.toc'],
+        extension_configs={'markdown.extensions.toc': {'permalink': &quot;[link]&quot;}}
+    )
+</code></pre>
 
 <p>Note that in the above example, the text file directory may contain many more
 text-based test files than <code>xhtml</code> (<code>xhtml.txt</code> and <code>xhtml.html</code>) and <code>toc</code>
@@ -200,8 +200,8 @@ which needed to be defined.</p>
 <code>unittest</code> methods of calling tests can be used. For example, to run all of
 Python-Markdown&rsquo;s tests, from the root of the git repository, run the following
 command:</p>
-<div class="codehilite"><pre><span></span><code>python -m unittest discover tests
-</code></pre></div>
+<pre class="codehilite"><code class="language-sh">python -m unittest discover tests
+</code></pre>
 
 <p>That simple command will search everything in the <code>tests</code> directory and it&rsquo;s
 sub-directories and run all <code>unittest</code> tests that it finds, including
@@ -283,7 +283,7 @@ rules apply.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -303,13 +303,13 @@ rules apply.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.643658+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.349133+00:00
         -->
     </body>
 </html>

@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>blockparser</code>" href="../blockparser/" />
         <link rel="prev" title="<code>markdown</code>" href="../" />
-        <title>preprocessors &#8212; Python-Markdown 3.5 documentation</title>
+        <title>preprocessors &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -87,7 +87,7 @@
 
 
 <h1 id="markdown.preprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/preprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.preprocessors</code>
 
 
@@ -115,14 +115,22 @@ processing that the parser may otherwise choke on.</p>
 
 
 
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
 
 
 
 
 <h2 id="markdown.preprocessors.build_preprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L37-L42" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">build_preprocessors</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">util</span><span class="o">.</span><span class="n">Registry</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/preprocessors.py#L37-L42" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.preprocessors.build_preprocessors(md: Markdown, **kwargs: Any) -&gt; util.Registry[Preprocessor]</code>
 
 
 <a href="#markdown.preprocessors.build_preprocessors" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -169,8 +177,8 @@ processing that the parser may otherwise choke on.</p>
 
 
 <h2 id="markdown.preprocessors.Preprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">Preprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/preprocessors.py#L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.preprocessors.Preprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.preprocessors.Preprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -205,8 +213,8 @@ either the same pointer or a pointer to a new list.</p>
 
 
 <h3 id="markdown.preprocessors.Preprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L56-L63" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">Preprocessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">lines</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/preprocessors.py#L56-L63" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.preprocessors.Preprocessor.run(lines: list[str]) -&gt; list[str]</code>
 
 
 <a href="#markdown.preprocessors.Preprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -236,18 +244,14 @@ the (possibly modified) list of lines.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.preprocessors.NormalizeWhitespace" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L66" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">NormalizeWhitespace</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/preprocessors.py#L66" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.preprocessors.NormalizeWhitespace(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.preprocessors.NormalizeWhitespace" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -280,18 +284,14 @@ the (possibly modified) list of lines.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.preprocessors.HtmlBlockPreprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\preprocessors.py#L78" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">preprocessors</span><span class="o">.</span><span class="n">HtmlBlockPreprocessor</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/preprocessors.py#L78" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.preprocessors.HtmlBlockPreprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.preprocessors.HtmlBlockPreprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -382,7 +382,7 @@ the (possibly modified) list of lines.</p>
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\preprocessors.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/preprocessors.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -409,7 +409,7 @@ the (possibly modified) list of lines.</p>
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -447,13 +447,13 @@ the (possibly modified) list of lines.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.706139+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.382427+00:00
         -->
     </body>
 </html>

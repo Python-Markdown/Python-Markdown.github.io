@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Admonition" href="../admonition/" />
         <link rel="prev" title="Extensions" href="../" />
-        <title>Abbreviations &#8212; Python-Markdown 3.5 documentation</title>
+        <title>Abbreviations &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -93,25 +93,25 @@ Specifically, any defined abbreviation is wrapped in  an <code>&lt;abbr&gt;</cod
 <p>Abbreviations are defined using the syntax established in
 <a href="http://www.michelf.com/projects/php-markdown/extra/#abbr">PHP Markdown Extra</a>.</p>
 <p>Thus, the following text (taken from the above referenced PHP documentation):</p>
-<div class="codehilite"><pre><span></span><code>The HTML specification
+<pre class="codehilite"><code class="language-md">The HTML specification
 is maintained by the W3C.
 
 *[HTML]: Hyper Text Markup Language
 *[W3C]:  World Wide Web Consortium
-</code></pre></div>
+</code></pre>
 
 <p>will be rendered as:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>The <span class="p">&lt;</span><span class="nt">abbr</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;Hyper Text Markup Language&quot;</span><span class="p">&gt;</span>HTML<span class="p">&lt;/</span><span class="nt">abbr</span><span class="p">&gt;</span> specification
-is maintained by the <span class="p">&lt;</span><span class="nt">abbr</span> <span class="na">title</span><span class="o">=</span><span class="s">&quot;World Wide Web Consortium&quot;</span><span class="p">&gt;</span>W3C<span class="p">&lt;/</span><span class="nt">abbr</span><span class="p">&gt;</span>.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-html">&lt;p&gt;The &lt;abbr title=&quot;Hyper Text Markup Language&quot;&gt;HTML&lt;/abbr&gt; specification
+is maintained by the &lt;abbr title=&quot;World Wide Web Consortium&quot;&gt;W3C&lt;/abbr&gt;.&lt;/p&gt;
+</code></pre>
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>abbr</code> as the name
 of the extension.</p>
 <p>This extension does not accept any special configuration options.</p>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abbr&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['abbr'])
+</code></pre>
 
                     </div>
                 </div>
@@ -182,7 +182,7 @@ of the extension.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -223,13 +223,13 @@ of the extension.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.659279+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.355757+00:00
         -->
     </body>
 </html>

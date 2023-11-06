@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Legacy Attributes" href="../legacy_attrs/" />
         <link rel="prev" title="Fenced Code Blocks" href="../fenced_code_blocks/" />
-        <title>Footnotes &#8212; Python-Markdown 3.5 documentation</title>
+        <title>Footnotes &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -95,11 +95,11 @@ Markdown community at large and almost exactly matches <a href="http://michelf.c
 implementation of footnotes. The only differences involve a few subtleties in
 the output.</p>
 <p>Example:</p>
-<div class="codehilite"><pre><span></span><code>Footnotes[^1] have a label[^@#$%] and the footnote&#39;s content.
+<pre class="codehilite"><code class="language-md">Footnotes[^1] have a label[^@#$%] and the footnote's content.
 
-[<span class="nl">^1</span>]: <span class="na">This is a footnote content.</span>
-[<span class="nl">^@#$%</span>]: <span class="na">A footnote on the label: &quot;@#$%&quot;.</span>
-</code></pre></div>
+[^1]: This is a footnote content.
+[^@#$%]: A footnote on the label: &quot;@#$%&quot;.
+</code></pre>
 
 <p>A footnote label must start with a caret <code>^</code> and may contain any inline text
 (including spaces) between a set of square brackets <code>[]</code>. Only the first
@@ -114,18 +114,18 @@ one tab).</p>
 <p>When working with multiple blocks, it may be helpful to start the content on a
 separate line from the label which defines the content. This way the entire block
 is indented consistently and any errors are more easily discernible by the author.</p>
-<div class="codehilite"><pre><span></span><code>[<span class="nl">^1</span>]:
-    <span class="na">The first paragraph of the definition.</span>
+<pre class="codehilite"><code class="language-md">[^1]:
+    The first paragraph of the definition.
 
     Paragraph two of the definition.
 
-<span class="k">    &gt; </span><span class="ge">A blockquote with</span>
-<span class="k">    &gt; </span><span class="ge">multiple lines.</span>
+    &gt; A blockquote with
+    &gt; multiple lines.
 
         a code block
 
     A final paragraph.
-</code></pre></div>
+</code></pre>
 
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>footnotes</code> as the
@@ -168,8 +168,8 @@ definitions are placed at the end of the resulting HTML document.</p>
 </li>
 </ul>
 <p>A trivial example:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">some_text</span><span class="p">,</span> <span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;footnotes&#39;</span><span class="p">])</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['footnotes'])
+</code></pre>
 
 <h2 id="resetting-instance-state">Resetting Instance State<a class="headerlink" href="#resetting-instance-state" title="Permanent link">&para;</a></h2>
 <p>Footnote definitions are stored within the  <code>markdown.Markdown</code> class instance between
@@ -185,11 +185,11 @@ document, and should have footnotes pertaining only to that page. By calling <co
 between runs, the footnote definitions from the first document will be cleared before
 the second document is rendered.</p>
 <p>An example of calling <code>reset</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">md</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="n">extensions</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;footnotes&#39;</span><span class="p">])</span>
-<span class="n">html1</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_with_footnote</span><span class="p">)</span>
-<span class="n">md</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<span class="n">html2</span> <span class="o">=</span> <span class="n">md</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">text_without_footnote</span><span class="p">)</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">md = markdown.Markdown(extensions=['footnotes'])
+html1 = md.convert(text_with_footnote)
+md.reset()
+html2 = md.convert(text_without_footnote)
+</code></pre>
 
                     </div>
                 </div>
@@ -264,7 +264,7 @@ the second document is rendered.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -305,13 +305,13 @@ the second document is rendered.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.674897+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.362368+00:00
         -->
     </body>
 </html>

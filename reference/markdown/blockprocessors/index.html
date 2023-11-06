@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>treeprocessors</code>" href="../treeprocessors/" />
         <link rel="prev" title="<code>blockparser</code>" href="../blockparser/" />
-        <title>blockprocessors &#8212; Python-Markdown 3.5 documentation</title>
+        <title>blockprocessors &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -87,7 +87,7 @@
 
 
 <h1 id="markdown.blockprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.blockprocessors</code>
 
 
@@ -116,14 +116,22 @@ layouts, tables, etc.</p>
 
 
 
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-function">
 
 
 
 
 <h2 id="markdown.blockprocessors.build_block_parser" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L42-L56" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">build_block_parser</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BlockParser</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L42-L56" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.build_block_parser(md: Markdown, **kwargs: Any) -&gt; BlockParser</code>
 
 
 <a href="#markdown.blockprocessors.build_block_parser" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -209,18 +217,14 @@ layouts, tables, etc.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.blockprocessors.BlockProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L59" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L59" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.BlockProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.BlockProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -276,8 +280,8 @@ test passes, the parser will call the processors <code>run</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.BlockProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -303,8 +307,8 @@ test passes, the parser will call the processors <code>run</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.BlockProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -330,8 +334,8 @@ test passes, the parser will call the processors <code>run</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.BlockProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -357,8 +361,8 @@ test passes, the parser will call the processors <code>run</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockProcessor.test" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L108-L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockProcessor</span><span class="o">.</span><span class="n">test</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">block</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L108-L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockProcessor.test(parent: etree.Element, block: str) -&gt; bool</code>
 
 
 <a href="#markdown.blockprocessors.BlockProcessor.test" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -390,7 +394,7 @@ depending on the parent of the block (i.e. inside a list), the parent
       </li>
       <li class="field-body">
         <b><code>block</code></b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]</code>)
+            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
         –
         <div class="doc-md-description">
           <p>A block of text from the source which has been split at blank lines.</p>
@@ -414,8 +418,8 @@ depending on the parent of the block (i.e. inside a list), the parent
 
 
 <h3 id="markdown.blockprocessors.BlockProcessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L126-L150" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockProcessor</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">blocks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L126-L150" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockProcessor.run(parent: etree.Element, blocks: list[str]) -&gt; bool | None</code>
 
 
 <a href="#markdown.blockprocessors.BlockProcessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -478,18 +482,14 @@ from the <code>test</code> method.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.blockprocessors.ListIndentProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L153" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L153" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.ListIndentProcessor(*args)</code>
 
 
 <a href="#markdown.blockprocessors.ListIndentProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -502,11 +502,11 @@ from the <code>test</code> method.</p>
   
       <p>Process children of list items.</p>
 <p>Example</p>
-<div class="codehilite"><pre><span></span><code>* a list item
+<pre class="codehilite"><code>* a list item
     process this part
 
     or this part
-</code></pre></div>
+</code></pre>
 
 
   
@@ -526,8 +526,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.ListIndentProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.ListIndentProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -553,8 +553,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.ListIndentProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.ListIndentProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -580,8 +580,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.ListIndentProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.ListIndentProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -606,8 +606,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.ListIndentProcessor.ITEM_TYPES" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L165" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="o">.</span><span class="n">ITEM_TYPES</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L165" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.ITEM_TYPES</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -622,8 +622,8 @@ from the <code>test</code> method.</p>
       <p>List of tags used for list items.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">ITEM_TYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;li&#39;</span><span class="p">]</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">ITEM_TYPES = ['li']
+</code></pre>  </div>
 
 </div>
 
@@ -638,8 +638,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.ListIndentProcessor.LIST_TYPES" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L167" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="o">.</span><span class="n">LIST_TYPES</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L167" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.LIST_TYPES</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -654,8 +654,8 @@ from the <code>test</code> method.</p>
       <p>Types of lists this processor can operate on.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">LIST_TYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ul&#39;</span><span class="p">,</span> <span class="s1">&#39;ol&#39;</span><span class="p">]</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">LIST_TYPES = ['ul', 'ol']
+</code></pre>  </div>
 
 </div>
 
@@ -671,8 +671,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.ListIndentProcessor.create_item" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L217-L220" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="o">.</span><span class="n">create_item</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">block</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L217-L220" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.create_item(parent: etree.Element, block: str) -&gt; None</code>
 
 
 <a href="#markdown.blockprocessors.ListIndentProcessor.create_item" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -698,8 +698,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.ListIndentProcessor.get_level" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L222-L248" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ListIndentProcessor</span><span class="o">.</span><span class="n">get_level</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">,</span> <span class="n">block</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L222-L248" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ListIndentProcessor.get_level(parent: etree.Element, block: str) -&gt; tuple[int, etree.Element]</code>
 
 
 <a href="#markdown.blockprocessors.ListIndentProcessor.get_level" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -733,8 +733,8 @@ from the <code>test</code> method.</p>
 
 
 <h2 id="markdown.blockprocessors.CodeBlockProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L251" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">CodeBlockProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L251" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.CodeBlockProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -765,8 +765,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.CodeBlockProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">CodeBlockProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.CodeBlockProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -792,8 +792,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.CodeBlockProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">CodeBlockProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.CodeBlockProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -819,8 +819,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.CodeBlockProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">CodeBlockProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.CodeBlockProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.CodeBlockProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -854,8 +854,8 @@ from the <code>test</code> method.</p>
 
 
 <h2 id="markdown.blockprocessors.BlockQuoteProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L284" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockQuoteProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L284" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.BlockQuoteProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -886,8 +886,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockQuoteProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockQuoteProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.BlockQuoteProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -913,8 +913,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockQuoteProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockQuoteProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.BlockQuoteProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -940,8 +940,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockQuoteProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockQuoteProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.BlockQuoteProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -967,8 +967,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.BlockQuoteProcessor.clean" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L316-L324" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">BlockQuoteProcessor</span><span class="o">.</span><span class="n">clean</span><span class="p">(</span><span class="n">line</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L316-L324" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.BlockQuoteProcessor.clean(line: str) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.BlockQuoteProcessor.clean" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1002,8 +1002,8 @@ from the <code>test</code> method.</p>
 
 
 <h2 id="markdown.blockprocessors.OListProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L327" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L327" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.OListProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.OListProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1034,8 +1034,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.OListProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.OListProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1061,8 +1061,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.OListProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.OListProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1088,8 +1088,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.OListProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.OListProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1114,8 +1114,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.TAG" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L330" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">TAG</span><span class="p">:</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L330" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.OListProcessor.TAG: str</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1130,8 +1130,8 @@ from the <code>test</code> method.</p>
       <p>The tag used for the the wrapping element.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">TAG</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ol&#39;</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">TAG: str = 'ol'
+</code></pre>  </div>
 
 </div>
 
@@ -1146,8 +1146,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.STARTSWITH" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L332" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">STARTSWITH</span><span class="p">:</span> <span class="nb">int</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L332" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.OListProcessor.STARTSWITH: str</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1163,8 +1163,8 @@ from the <code>test</code> method.</p>
 <code>3. Item</code>, then the <code>ol</code> tag will be assigned an HTML attribute of <code>starts="3"</code>. Default: <code>"1"</code>.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">STARTSWITH</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">STARTSWITH: str = '1'
+</code></pre>  </div>
 
 </div>
 
@@ -1179,8 +1179,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.LAZY_OL" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L337" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">LAZY_OL</span><span class="p">:</span> <span class="nb">bool</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L337" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.OListProcessor.LAZY_OL: bool</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1195,8 +1195,8 @@ from the <code>test</code> method.</p>
       <p>Ignore <code>STARTSWITH</code> if <code>True</code>.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">LAZY_OL</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">LAZY_OL: bool = True
+</code></pre>  </div>
 
 </div>
 
@@ -1211,8 +1211,8 @@ from the <code>test</code> method.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.SIBLING_TAGS" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L339" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">SIBLING_TAGS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L339" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.OListProcessor.SIBLING_TAGS: list[str]</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1228,8 +1228,8 @@ from the <code>test</code> method.</p>
 This is the list of types which can be mixed.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">SIBLING_TAGS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="s1">&#39;ul&#39;</span><span class="p">]</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">SIBLING_TAGS: list[str] = ['ol', 'ul']
+</code></pre>  </div>
 
 </div>
 
@@ -1245,8 +1245,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.OListProcessor.get_items" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L418-L442" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">OListProcessor</span><span class="o">.</span><span class="n">get_items</span><span class="p">(</span><span class="n">block</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L418-L442" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.OListProcessor.get_items(block: str) -&gt; list[str]</code>
 
 
 <a href="#markdown.blockprocessors.OListProcessor.get_items" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1280,8 +1280,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h2 id="markdown.blockprocessors.UListProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L445" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L445" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.UListProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.UListProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1312,8 +1312,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.UListProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.UListProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1339,8 +1339,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.UListProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.UListProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1366,8 +1366,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.UListProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.UListProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1392,8 +1392,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.STARTSWITH" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L332" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">STARTSWITH</span><span class="p">:</span> <span class="nb">int</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L332" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.UListProcessor.STARTSWITH: str</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1409,8 +1409,8 @@ This is the list of types which can be mixed.</p>
 <code>3. Item</code>, then the <code>ol</code> tag will be assigned an HTML attribute of <code>starts="3"</code>. Default: <code>"1"</code>.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">STARTSWITH</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="s1">&#39;1&#39;</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">STARTSWITH: str = '1'
+</code></pre>  </div>
 
 </div>
 
@@ -1425,8 +1425,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.LAZY_OL" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L337" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">LAZY_OL</span><span class="p">:</span> <span class="nb">bool</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L337" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.UListProcessor.LAZY_OL: bool</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1441,8 +1441,8 @@ This is the list of types which can be mixed.</p>
       <p>Ignore <code>STARTSWITH</code> if <code>True</code>.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">LAZY_OL</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">LAZY_OL: bool = True
+</code></pre>  </div>
 
 </div>
 
@@ -1457,8 +1457,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.SIBLING_TAGS" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L339" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">SIBLING_TAGS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L339" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.UListProcessor.SIBLING_TAGS: list[str]</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1474,8 +1474,8 @@ This is the list of types which can be mixed.</p>
 This is the list of types which can be mixed.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">SIBLING_TAGS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="s1">&#39;ul&#39;</span><span class="p">]</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">SIBLING_TAGS: list[str] = ['ol', 'ul']
+</code></pre>  </div>
 
 </div>
 
@@ -1491,8 +1491,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.get_items" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L418-L442" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">get_items</span><span class="p">(</span><span class="n">block</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L418-L442" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.UListProcessor.get_items(block: str) -&gt; list[str]</code>
 
 
 <a href="#markdown.blockprocessors.UListProcessor.get_items" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1517,8 +1517,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.UListProcessor.TAG" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L448" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">UListProcessor</span><span class="o">.</span><span class="n">TAG</span><span class="p">:</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L448" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.blockprocessors.UListProcessor.TAG: str</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -1533,8 +1533,8 @@ This is the list of types which can be mixed.</p>
       <p>The tag used for the the wrapping element.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">TAG</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;ul&#39;</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">TAG: str = 'ul'
+</code></pre>  </div>
 
 </div>
 
@@ -1558,8 +1558,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h2 id="markdown.blockprocessors.HashHeaderProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L457" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HashHeaderProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L457" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.HashHeaderProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1590,8 +1590,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.HashHeaderProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HashHeaderProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.HashHeaderProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1617,8 +1617,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.HashHeaderProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HashHeaderProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.HashHeaderProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1644,8 +1644,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.HashHeaderProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HashHeaderProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.HashHeaderProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.HashHeaderProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1679,8 +1679,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h2 id="markdown.blockprocessors.SetextHeaderProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L488" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">SetextHeaderProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L488" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.SetextHeaderProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1711,8 +1711,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.SetextHeaderProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">SetextHeaderProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.SetextHeaderProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1738,8 +1738,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.SetextHeaderProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">SetextHeaderProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.SetextHeaderProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1765,8 +1765,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.SetextHeaderProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">SetextHeaderProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.SetextHeaderProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.SetextHeaderProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1800,8 +1800,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h2 id="markdown.blockprocessors.HRProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L511" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HRProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L511" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.HRProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.HRProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1832,8 +1832,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.HRProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HRProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.HRProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.HRProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1859,8 +1859,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.HRProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HRProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.HRProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.HRProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1886,8 +1886,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.HRProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">HRProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.HRProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.HRProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1921,8 +1921,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h2 id="markdown.blockprocessors.EmptyBlockProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L545" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">EmptyBlockProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L545" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.EmptyBlockProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1953,8 +1953,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.EmptyBlockProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">EmptyBlockProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.EmptyBlockProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -1980,8 +1980,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.EmptyBlockProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">EmptyBlockProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.EmptyBlockProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2007,8 +2007,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.EmptyBlockProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">EmptyBlockProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.EmptyBlockProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.EmptyBlockProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2042,8 +2042,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h2 id="markdown.blockprocessors.ReferenceProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L572" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ReferenceProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L572" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.ReferenceProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.ReferenceProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -2074,8 +2074,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.ReferenceProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ReferenceProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ReferenceProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.ReferenceProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2101,8 +2101,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.ReferenceProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ReferenceProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ReferenceProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.ReferenceProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2128,8 +2128,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.ReferenceProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ReferenceProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ReferenceProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.ReferenceProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2163,8 +2163,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h2 id="markdown.blockprocessors.ParagraphProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L601" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ParagraphProcessor</span><span class="p">(</span><span class="n">parser</span><span class="p">:</span> <span class="n">BlockParser</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L601" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.blockprocessors.ParagraphProcessor(parser: BlockParser)</code>
 
 
 <a href="#markdown.blockprocessors.ParagraphProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -2195,8 +2195,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.ParagraphProcessor.lastChild" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ParagraphProcessor</span><span class="o">.</span><span class="n">lastChild</span><span class="p">(</span><span class="n">parent</span><span class="p">:</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">etree</span><span class="o">.</span><span class="n">Element</span> <span class="o">|</span> <span class="kc">None</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L78-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ParagraphProcessor.lastChild(parent: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.blockprocessors.ParagraphProcessor.lastChild" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2222,8 +2222,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.ParagraphProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ParagraphProcessor</span><span class="o">.</span><span class="n">detab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L85-L98" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ParagraphProcessor.detab(text: str, length: int | None = None) -&gt; tuple[str, str]</code>
 
 
 <a href="#markdown.blockprocessors.ParagraphProcessor.detab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2249,8 +2249,8 @@ This is the list of types which can be mixed.</p>
 
 
 <h3 id="markdown.blockprocessors.ParagraphProcessor.looseDetab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">blockprocessors</span><span class="o">.</span><span class="n">ParagraphProcessor</span><span class="o">.</span><span class="n">looseDetab</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/blockprocessors.py#L100-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.blockprocessors.ParagraphProcessor.looseDetab(text: str, level: int = 1) -&gt; str</code>
 
 
 <a href="#markdown.blockprocessors.ParagraphProcessor.looseDetab" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -2600,7 +2600,7 @@ This is the list of types which can be mixed.</p>
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\blockprocessors.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/blockprocessors.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -2627,7 +2627,7 @@ This is the list of types which can be mixed.</p>
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -2665,13 +2665,13 @@ This is the list of types which can be mixed.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.690489+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.374700+00:00
         -->
     </body>
 </html>

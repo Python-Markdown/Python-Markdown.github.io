@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>tables</code>" href="../tables/" />
         <link rel="prev" title="<code>sane_lists</code>" href="../sane_lists/" />
-        <title>smarty &#8212; Python-Markdown 3.5 documentation</title>
+        <title>smarty &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -108,7 +108,7 @@
 
 
 <h1 id="markdown.extensions.smarty" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\smarty.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/smarty.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.extensions.smarty</code>
 
 
@@ -140,14 +140,26 @@ for details.</p>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.extensions.smarty.SubstituteTextPattern" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\smarty.py#L157" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">smarty</span><span class="o">.</span><span class="n">SubstituteTextPattern</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">replace</span><span class="p">,</span> <span class="n">md</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/smarty.py#L157" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.extensions.smarty.SubstituteTextPattern(pattern, replace, md)</code>
 
 
 <a href="#markdown.extensions.smarty.SubstituteTextPattern" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -178,18 +190,14 @@ for details.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.extensions.smarty.SmartyExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\smarty.py#L174" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">smarty</span><span class="o">.</span><span class="n">SmartyExtension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/smarty.py#L174" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.extensions.smarty.SmartyExtension(**kwargs)</code>
 
 
 <a href="#markdown.extensions.smarty.SmartyExtension" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -219,8 +227,8 @@ for details.</p>
 
 
 <h3 id="markdown.extensions.smarty.SmartyExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\smarty.py#L177-L183" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">smarty</span><span class="o">.</span><span class="n">SmartyExtension</span><span class="o">.</span><span class="n">config</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/smarty.py#L177-L183" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.extensions.smarty.SmartyExtension.config</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
@@ -234,14 +242,14 @@ for details.</p>
       <p>Default configuration options.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;smart_quotes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Educate quotes&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;smart_angled_quotes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;Educate angled quotes&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;smart_dashes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Educate dashes&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;smart_ellipses&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Educate ellipses&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;substitutions&#39;</span><span class="p">:</span> <span class="p">[{},</span> <span class="s1">&#39;Overwrite default substitutions&#39;</span><span class="p">],</span>
-<span class="p">}</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">self.config = {
+    'smart_quotes': [True, 'Educate quotes'],
+    'smart_angled_quotes': [False, 'Educate angled quotes'],
+    'smart_dashes': [True, 'Educate dashes'],
+    'smart_ellipses': [True, 'Educate ellipses'],
+    'substitutions': [{}, 'Overwrite default substitutions'],
+}
+</code></pre>  </div>
 
 </div>
 
@@ -253,14 +261,6 @@ for details.</p>
   </div>
 
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -315,7 +315,7 @@ for details.</p>
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\smarty.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/extensions/smarty.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -342,7 +342,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -401,13 +401,13 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../../../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.737382+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.402756+00:00
         -->
     </body>
 </html>

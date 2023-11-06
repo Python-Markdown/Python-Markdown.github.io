@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="<code>preprocessors</code>" href="preprocessors/" />
         <link rel="prev" title="Test Tools" href="../../test_tools/" />
-        <title>markdown &#8212; Python-Markdown 3.5 documentation</title>
+        <title>markdown &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -84,7 +84,7 @@
 
 
 <h1 id="markdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown</code>
 
 
@@ -245,18 +245,14 @@ and class and/or provide extension support.</p>
 
 
 
-
-
-
-
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.Markdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L46" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L46" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.Markdown(**kwargs)</code>
 
 
 <a href="#markdown.Markdown" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -473,12 +469,11 @@ is used.</p>
 
 
 <h3 id="markdown.Markdown.output_formats" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L79-L82" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">output_formats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="n">Element</span><span class="p">]]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L79-L82" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.Markdown.output_formats: dict[str, Callable[[Element], str]]</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
-      <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
   </span>
 
 <a href="#markdown.Markdown.output_formats" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -490,11 +485,11 @@ is used.</p>
 callable which accepts an <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element"><code>Element</code></a> and returns a <code>str</code>.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">output_formats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">[</span><span class="n">Element</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;html&#39;</span><span class="p">:</span>   <span class="n">to_html_string</span><span class="p">,</span>
-    <span class="s1">&#39;xhtml&#39;</span><span class="p">:</span>  <span class="n">to_xhtml_string</span><span class="p">,</span>
-<span class="p">}</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">output_formats: ClassVar[dict[str, Callable[[Element], str]]] = {
+    'html':   to_html_string,
+    'xhtml':  to_xhtml_string,
+}
+</code></pre>  </div>
 
 </div>
 
@@ -509,8 +504,8 @@ callable which accepts an <a class="autorefs autorefs-external" href="https://do
 
 
 <h3 id="markdown.Markdown.ESCAPED_CHARS" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L111-L113" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">ESCAPED_CHARS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L111-L113" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.Markdown.ESCAPED_CHARS: list[str]</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
@@ -524,10 +519,10 @@ callable which accepts an <a class="autorefs autorefs-external" href="https://do
       <p>List of characters which get the backslash escape treatment.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="bp">self</span><span class="o">.</span><span class="n">ESCAPED_CHARS</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;`&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;!&#39;</span>
-<span class="p">]</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">self.ESCAPED_CHARS: list[str] = [
+    '\\', '`', '*', '_', '{', '}', '[', ']', '(', ')', '&gt;', '#', '+', '-', '.', '!'
+]
+</code></pre>  </div>
 
 </div>
 
@@ -543,8 +538,8 @@ callable which accepts an <a class="autorefs autorefs-external" href="https://do
 
 
 <h3 id="markdown.Markdown.build_parser" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L131-L157" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">build_parser</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Markdown</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L131-L157" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.build_parser() -&gt; Markdown</code>
 
 
 <a href="#markdown.Markdown.build_parser" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -585,8 +580,8 @@ combination of processors and patterns.</p>
 
 
 <h3 id="markdown.Markdown.registerExtensions" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L159-L189" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">registerExtensions</span><span class="p">(</span><span class="n">extensions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Extension</span> <span class="o">|</span> <span class="nb">str</span><span class="p">],</span> <span class="n">configs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">Markdown</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L159-L193" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.registerExtensions(extensions: Sequence[Extension | str], configs: Mapping[str, Mapping[str, Any]]) -&gt; Markdown</code>
 
 
 <a href="#markdown.Markdown.registerExtensions" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -638,8 +633,8 @@ returned instance  of <a class="autorefs autorefs-internal" href="extensions/#ma
 
 
 <h3 id="markdown.Markdown.build_extension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L191-L242" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">build_extension</span><span class="p">(</span><span class="n">ext_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">configs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Extension</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L195-L246" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.build_extension(ext_name: str, configs: Mapping[str, Any]) -&gt; Extension</code>
 
 
 <a href="#markdown.Markdown.build_extension" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -663,7 +658,7 @@ returned instance  of <a class="autorefs autorefs-internal" href="extensions/#ma
       </li>
       <li class="field-body">
         <b><code>configs</code></b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>)
+            (<code><a class="autorefs autorefs-external" title="typing.Mapping" href="https://docs.python.org/3/library/typing.html#typing.Mapping">Mapping</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>)
         –
         <div class="doc-md-description">
           <p>Configuration settings for extension.</p>
@@ -706,8 +701,8 @@ the <a class="autorefs autorefs-internal" href="extensions/#markdown.extensions.
 
 
 <h3 id="markdown.Markdown.registerExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L244-L257" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">registerExtension</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span> <span class="n">Extension</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markdown</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L248-L261" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.registerExtension(extension: Extension) -&gt; Markdown</code>
 
 
 <a href="#markdown.Markdown.registerExtension" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -750,8 +745,8 @@ resettable state, and so it should not be assumed that all extensions are &ldquo
 
 
 <h3 id="markdown.Markdown.reset" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L259-L273" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Markdown</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L263-L277" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.reset() -&gt; Markdown</code>
 
 
 <a href="#markdown.Markdown.reset" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -779,8 +774,8 @@ to <a class="autorefs autorefs-internal" href="#markdown.Markdown.convert"><code
 
 
 <h3 id="markdown.Markdown.set_output_format" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L275-L294" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">set_output_format</span><span class="p">(</span><span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markdown</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L279-L298" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.set_output_format(format: str) -&gt; Markdown</code>
 
 
 <a href="#markdown.Markdown.set_output_format" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -820,8 +815,8 @@ to <a class="autorefs autorefs-internal" href="#markdown.Markdown.convert"><code
 
 
 <h3 id="markdown.Markdown.is_block_level" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L298-L309" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">is_block_level</span><span class="p">(</span><span class="n">tag</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L302-L313" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.is_block_level(tag: Any) -&gt; bool</code>
 
 
 <a href="#markdown.Markdown.is_block_level" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -849,8 +844,8 @@ not a string always returns <code>False</code>.</p>
 
 
 <h3 id="markdown.Markdown.convert" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L311-L382" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L315-L386" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.convert(source: str) -&gt; str</code>
 
 
 <a href="#markdown.Markdown.convert" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -916,8 +911,8 @@ not a string always returns <code>False</code>.</p>
 
 
 <h3 id="markdown.Markdown.convertFile" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L384-L454" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">Markdown</span><span class="o">.</span><span class="n">convertFile</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">TextIO</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">TextIO</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markdown</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L388-L458" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.Markdown.convertFile(input: str | TextIO | None = None, output: str | TextIO | None = None, encoding: str | None = None) -&gt; Markdown</code>
 
 
 <a href="#markdown.Markdown.convertFile" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -997,8 +992,8 @@ Unicode-out.)</p>
 
 
 <h2 id="markdown.markdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L466-L485" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L470-L489" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.markdown(text: str, **kwargs: Any) -&gt; str</code>
 
 
 <a href="#markdown.markdown" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1068,8 +1063,8 @@ necessary extensions and runs the parser on the given text.</p>
 
 
 <h2 id="markdown.markdownFromFile" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\core.py#L488-L506" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">markdownFromFile</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/core.py#L492-L510" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.markdownFromFile(**kwargs: Any)</code>
 
 
 <a href="#markdown.markdownFromFile" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -1123,6 +1118,10 @@ and calls the <a class="autorefs autorefs-internal" href="#markdown.Markdown.con
   </div>
 
 </div>
+
+
+
+
 
 
 
@@ -1221,7 +1220,7 @@ and calls the <a class="autorefs autorefs-internal" href="#markdown.Markdown.con
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\__init__.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/__init__.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -1248,7 +1247,7 @@ and calls the <a class="autorefs autorefs-internal" href="#markdown.Markdown.con
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -1283,13 +1282,13 @@ and calls the <a class="autorefs autorefs-internal" href="#markdown.Markdown.con
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.690489+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.371743+00:00
         -->
     </body>
 </html>

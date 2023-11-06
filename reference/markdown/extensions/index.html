@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>abbr</code>" href="abbr/" />
         <link rel="prev" title="<code>test_tools</code>" href="../test_tools/" />
-        <title>extensions &#8212; Python-Markdown 3.5 documentation</title>
+        <title>extensions &#8212; Python-Markdown 3.5.1 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -105,7 +105,7 @@
 
 
 <h1 id="markdown.extensions" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
             <code>markdown.extensions</code>
 
 
@@ -202,14 +202,22 @@ options for their extension and attach the various processors and patterns which
 
 
 
+
+
+
+
+
+
+
+
 <div class="doc doc-object doc-class">
 
 
 
 
 <h2 id="markdown.extensions.Extension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-              <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+              <code class=" language-python">markdown.extensions.Extension(**kwargs)</code>
 
 
 <a href="#markdown.extensions.Extension" class="headerlink" title="Permanent link">&para;</a></h2>
@@ -237,8 +245,8 @@ options for their extension and attach the various processors and patterns which
 
 
 <h3 id="markdown.extensions.Extension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L40" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
-  <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="o">.</span><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L40" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <code class=" language-python">markdown.extensions.Extension.config: Mapping[str, list]</code>
   
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
@@ -252,17 +260,17 @@ options for their extension and attach the various processors and patterns which
     
       <p>Default configuration for an extension.</p>
 <p>This attribute is to be defined in a subclass and must be of the following format:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
+<pre class="codehilite"><code class="language-python">config = {
+    'key': ['value', 'description']
+}
+</code></pre>
 
 <p>Note that <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.setConfig"><code>setConfig</code></a> will raise a <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#KeyError"><code>KeyError</code></a>
 if a default is not set for each option.</p>
 
   <p>Defined Value:</p>
-  <div class="codehilite"><pre><span></span><code><span class="n">config</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">Any</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
-</code></pre></div>  </div>
+  <pre class="codehilite"><code class="language-python">config: Mapping[str, list] = {}
+</code></pre>  </div>
 
 </div>
 
@@ -278,8 +286,8 @@ if a default is not set for each option.</p>
 
 
 <h3 id="markdown.extensions.Extension.getConfig" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L60-L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="o">.</span><span class="n">getConfig</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L60-L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.extensions.Extension.getConfig(key: str, default: Any = '') -&gt; Any</code>
 
 
 <a href="#markdown.extensions.Extension.getConfig" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -342,8 +350,8 @@ if a default is not set for each option.</p>
 
 
 <h3 id="markdown.extensions.Extension.getConfigs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L76-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="o">.</span><span class="n">getConfigs</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L76-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.extensions.Extension.getConfigs() -&gt; dict[str, Any]</code>
 
 
 <a href="#markdown.extensions.Extension.getConfigs" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -382,8 +390,8 @@ if a default is not set for each option.</p>
 
 
 <h3 id="markdown.extensions.Extension.getConfigInfo" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L85-L92" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="o">.</span><span class="n">getConfigInfo</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L85-L92" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.extensions.Extension.getConfigInfo() -&gt; list[tuple[str, str]]</code>
 
 
 <a href="#markdown.extensions.Extension.getConfigInfo" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -422,8 +430,8 @@ if a default is not set for each option.</p>
 
 
 <h3 id="markdown.extensions.Extension.setConfig" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L94-L113" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="o">.</span><span class="n">setConfig</span><span class="p">(</span><span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L94-L113" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.extensions.Extension.setConfig(key: str, value: Any) -&gt; None</code>
 
 
 <a href="#markdown.extensions.Extension.setConfig" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -487,8 +495,8 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
 
 
 <h3 id="markdown.extensions.Extension.setConfigs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L115-L130" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="o">.</span><span class="n">setConfigs</span><span class="p">(</span><span class="n">items</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]])</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L115-L130" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.extensions.Extension.setConfigs(items: Mapping[str, Any] | Sequence[tuple[str, Any]])</code>
 
 
 <a href="#markdown.extensions.Extension.setConfigs" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -505,7 +513,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
   <ul>
       <li class="field-body">
         <b><code>items</code></b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>] | <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]]</code>)
+            (<code><a class="autorefs autorefs-external" title="typing.Mapping" href="https://docs.python.org/3/library/typing.html#typing.Mapping">Mapping</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>] | <a class="autorefs autorefs-external" title="typing.Sequence" href="https://docs.python.org/3/library/typing.html#typing.Sequence">Sequence</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]]</code>)
         –
         <div class="doc-md-description">
           <p>Collection of configuration options.</p>
@@ -542,8 +550,8 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
 
 
 <h3 id="markdown.extensions.Extension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5/markdown\extensions\__init__.py#L132-L145" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-            <code class=" language-python"><span class="n">markdown</span><span class="o">.</span><span class="n">extensions</span><span class="o">.</span><span class="n">Extension</span><span class="o">.</span><span class="n">extendMarkdown</span><span class="p">(</span><span class="n">md</span><span class="p">:</span> <span class="n">Markdown</span><span class="p">)</span></code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.5.1/markdown/extensions/__init__.py#L132-L145" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+            <code class=" language-python">markdown.extensions.Extension.extendMarkdown(md: Markdown) -&gt; None</code>
 
 
 <a href="#markdown.extensions.Extension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
@@ -580,14 +588,6 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
   </div>
 
 </div>
-
-
-
-
-
-
-
-
 
 
 
@@ -662,7 +662,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
                 <h3>This Page</h3>
                 <ul class="this-page-menu">
                     <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/..\markdown\extensions\__init__.py">Edit on GitHub</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/markdown/extensions/__init__.py">Edit on GitHub</a></li>
                 </ul>
             </div>
 
@@ -689,7 +689,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.5 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.5.1 documentation</a> &#187;
             </li>
                     
                     
@@ -745,13 +745,13 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.2.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
         </div>
         <script>var base_url = '../../..';</script>
 
         <!--
-        MkDocs version      : 1.5.2
-        Docs Build Date UTC : 2023-10-10 14:40:31.706139+00:00
+        MkDocs version      : 1.5.3
+        Docs Build Date UTC : 2023-11-06 03:08:46.387369+00:00
         -->
     </body>
 </html>
