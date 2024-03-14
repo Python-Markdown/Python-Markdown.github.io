@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Authors" href="../authors/" />
         <link rel="prev" title="Contributing to Python-Markdown" href="../contributing/" />
-        <title>Changelog &#8212; Python-Markdown 3.5.2 documentation</title>
+        <title>Changelog &#8212; Python-Markdown 3.6 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.5.2 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.6 documentation</a> &#187;
             </li>
                     
                     
@@ -67,10 +67,38 @@
 <p>All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>. See the <a href="../contributing/">Contributing Guide</a> for details.</p>
-<h2 id="unreleased">[unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
+<h2 id="36-2024-03-14">[3.6] &ndash; 2024-03-14<a class="headerlink" href="#36-2024-03-14" title="Permanent link">&para;</a></h2>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<h4 id="refactor-toc-sanitation">Refactor TOC Sanitation<a class="headerlink" href="#refactor-toc-sanitation" title="Permanent link">&para;</a></h4>
+<ul>
+<li>All postprocessors are now run on heading content.</li>
+<li>Footnote references are now stripped from heading content. Fixes <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/660" title="GitHub Issue Python-Markdown/markdown #660">#660</a>.</li>
+<li>A more robust <code>striptags</code> is provided to convert headings to plain text.
+  Unlike, the <code>markupsafe</code> implementation, HTML entities are not unescaped.</li>
+<li>The plain text <code>name</code>, rich <code>html</code>, and unescaped raw <code>data-toc-label</code> are
+  saved to <code>toc_tokens</code>, allowing users to access the full rich text content of
+  the headings directly from <code>toc_tokens</code>.</li>
+<li>The value of <code>data-toc-label</code> is sanitized separate from heading content
+  before being written to <code>name</code>. This fixes a bug which allowed markup through
+  in certain circumstances. To access the raw unsanitized data, retrieve the
+  value from <code>token['data-toc-label']</code> directly.</li>
+<li>An <code>html.unescape</code> call is made just prior to calling <code>slugify</code> so that
+  <code>slugify</code> only operates on Unicode characters. Note that <code>html.unescape</code> is
+  not run on <code>name</code>, <code>html</code>, or <code>data-toc-label</code>.</li>
+<li>The functions <code>get_name</code> and <code>stashedHTML2text</code> defined in the <code>toc</code> extension
+  are both <strong>deprecated</strong>. Instead, third party extensions should use some
+  combination of the new functions <code>run_postprocessors</code>, <code>render_inner_html</code> and
+  <code>striptags</code>.</li>
+</ul>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Include <code>scripts/*.py</code> in the generated source tarballs (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1430" title="GitHub Issue Python-Markdown/markdown #1430">#1430</a>).</li>
+<li>Ensure lines after heading in loose list are properly detabbed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1443" title="GitHub Issue Python-Markdown/markdown #1443">#1443</a>).</li>
+<li>Give smarty tree processor higher priority than toc (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1440" title="GitHub Issue Python-Markdown/markdown #1440">#1440</a>).</li>
+<li>Permit carets (<code>^</code>) and square brackets (<code>]</code>) but explicitly exclude
+  backslashes (<code>\</code>) from abbreviations (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1444" title="GitHub Issue Python-Markdown/markdown #1444">#1444</a>).</li>
+<li>In attribute lists (<code>attr_list</code>, <code>fenced_code</code>), quoted attribute values are
+  now allowed to contain curly braces (<code>}</code>) (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1414" title="GitHub Issue Python-Markdown/markdown #1414">#1414</a>).</li>
 </ul>
 <h2 id="352-2024-01-10">[3.5.2] &ndash; 2024-01-10<a class="headerlink" href="#352-2024-01-10" title="Permanent link">&para;</a></h2>
 <h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
@@ -100,7 +128,7 @@ link anchors generated with <code>permalink</code>. Setting <code>permalink_lead
 will cause the links to be inserted at the start of the header, before any other
 header content. The default behavior for <code>permalink</code> is to append permanent
 links to the header, placing them after all other header content.</p>
-<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Add support for cPython version 3.12 (and PyPy 3.10) and drop support for
   Python version 3.7 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1357" title="GitHub Issue Python-Markdown/markdown #1357">#1357</a>).</li>
@@ -141,7 +169,7 @@ links to the header, placing them after all other header content.</p>
 <li>Fix an import issue with <code>importlib.util</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1274" title="GitHub Issue Python-Markdown/markdown #1274">#1274</a>).</li>
 </ul>
 <h2 id="34-2022-07-15">[3.4] &ndash; 2022-07-15<a class="headerlink" href="#34-2022-07-15" title="Permanent link">&para;</a></h2>
-<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <h4 id="the-tables-extension-now-uses-a-style-attribute-instead-of-an-align-attribute-for-alignment">The <code>tables</code> extension now uses a <code>style</code> attribute instead of an <code>align</code> attribute for alignment.<a class="headerlink" href="#the-tables-extension-now-uses-a-style-attribute-instead-of-an-align-attribute-for-alignment" title="Permanent link">&para;</a></h4>
 <p>The <a href="https://www.w3.org/TR/html4/present/graphics.html#h-15.1.2">HTML4 spec</a>
 specifically deprecates the use of the <code>align</code> attribute and it does not appear
@@ -336,7 +364,7 @@ code block&rsquo;s language in the output.</p>
 <li>Ensure consistent class handling by <code>fenced_code</code> and <code>codehilite</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1032" title="GitHub Issue Python-Markdown/markdown #1032">#1032</a>).</li>
 </ul>
 <h2 id="33-2020-10-06">[3.3] &ndash; 2020-10-06<a class="headerlink" href="#33-2020-10-06" title="Permanent link">&para;</a></h2>
-<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
 <h4 id="the-prefix-language-is-now-prepended-to-all-language-classes-by-default-on-code-blocks">The prefix <code>language-</code> is now prepended to all language classes by default on code blocks.<a class="headerlink" href="#the-prefix-language-is-now-prepended-to-all-language-classes-by-default-on-code-blocks" title="Permanent link">&para;</a></h4>
 <p>The <a href="https://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5
 spec</a>
@@ -457,7 +485,7 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
   escapes HTML special characters (<code>&lt;</code>, <code>&gt;</code>, and <code>&amp;</code>).</li>
 </ul>
 <h2 id="32-2020-02-07">[3.2] &ndash; 2020-02-07<a class="headerlink" href="#32-2020-02-07" title="Permanent link">&para;</a></h2>
-<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
 <h4 id="drop-support-for-python-27">Drop support for Python 2.7<a class="headerlink" href="#drop-support-for-python-27" title="Permanent link">&para;</a></h4>
 <p>Python 2.7 reaches end-of-life on 2020-01-01 and Python-Markdown 3.2 has dropped
 support for it. Please upgrade to Python 3, or use Python-Markdown 3.1.</p>
@@ -548,7 +576,7 @@ release.</p>
   it (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/825" title="GitHub Issue Python-Markdown/markdown #825">#825</a>).</li>
 </ul>
 <h2 id="31-2019-03-25">[3.1] &ndash; 2019-03-25<a class="headerlink" href="#31-2019-03-25" title="Permanent link">&para;</a></h2>
-<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
 <h4 id="markdownversion-and-markdownversion_info-deprecated"><code>markdown.version</code> and <code>markdown.version_info</code> deprecated<a class="headerlink" href="#markdownversion-and-markdownversion_info-deprecated" title="Permanent link">&para;</a></h4>
 <p>Historically, version numbers were acquired via the attributes
 <code>markdown.version</code> and <code>markdown.version_info</code>. As of 3.0, a more standardized
@@ -594,7 +622,7 @@ a future release the legacy attributes will be removed.</p>
 <li>Added support for hexadecimal HTML entities (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/712" title="GitHub Issue Python-Markdown/markdown #712">#712</a>).</li>
 </ul>
 <h2 id="30-2018-09-21">[3.0] &ndash; 2018-09-21<a class="headerlink" href="#30-2018-09-21" title="Permanent link">&para;</a></h2>
-<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
 <h4 id="enable_attributes-keyword-deprecated"><code>enable_attributes</code> keyword deprecated<a class="headerlink" href="#enable_attributes-keyword-deprecated" title="Permanent link">&para;</a></h4>
 <p>The <code>enable_attributes</code> keyword is deprecated in version 3.0 and will be
 ignored. Previously the keyword was <code>True</code> by default and enabled an
@@ -792,99 +820,99 @@ handle nested brackets and logic that is too much for regular expression.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#unreleased">[unreleased]</a>
+        <a class="reference internal" href="#36-2024-03-14">[3.6] &ndash; 2024-03-14</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#352-2024-01-10">[3.5.2] -- 2024-01-10</a>
+        <a class="reference internal" href="#352-2024-01-10">[3.5.2] &ndash; 2024-01-10</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#351-2023-10-31">[3.5.1] -- 2023-10-31</a>
+        <a class="reference internal" href="#351-2023-10-31">[3.5.1] &ndash; 2023-10-31</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#35-2023-10-06">[3.5] -- 2023-10-06</a>
+        <a class="reference internal" href="#35-2023-10-06">[3.5] &ndash; 2023-10-06</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#344-2023-07-25">[3.4.4] -- 2023-07-25</a>
+        <a class="reference internal" href="#344-2023-07-25">[3.4.4] &ndash; 2023-07-25</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#343-2023-03-23">[3.4.3] -- 2023-03-23</a>
+        <a class="reference internal" href="#343-2023-03-23">[3.4.3] &ndash; 2023-03-23</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#342-2023-03-22">[3.4.2] -- 2023-03-22</a>
+        <a class="reference internal" href="#342-2023-03-22">[3.4.2] &ndash; 2023-03-22</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#341-2022-07-15">[3.4.1] -- 2022-07-15</a>
+        <a class="reference internal" href="#341-2022-07-15">[3.4.1] &ndash; 2022-07-15</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#34-2022-07-15">[3.4] -- 2022-07-15</a>
+        <a class="reference internal" href="#34-2022-07-15">[3.4] &ndash; 2022-07-15</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#337-2022-05-05">[3.3.7] -- 2022-05-05</a>
+        <a class="reference internal" href="#337-2022-05-05">[3.3.7] &ndash; 2022-05-05</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#336-2021-11-17">[3.3.6] -- 2021-11-17</a>
+        <a class="reference internal" href="#336-2021-11-17">[3.3.6] &ndash; 2021-11-17</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#335-2021-11-16">[3.3.5] -- 2021-11-16</a>
+        <a class="reference internal" href="#335-2021-11-16">[3.3.5] &ndash; 2021-11-16</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#334-2021-02-24">[3.3.4] -- 2021-02-24</a>
+        <a class="reference internal" href="#334-2021-02-24">[3.3.4] &ndash; 2021-02-24</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#333-2020-10-25">[3.3.3] -- 2020-10-25</a>
+        <a class="reference internal" href="#333-2020-10-25">[3.3.3] &ndash; 2020-10-25</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#332-2020-10-19">[3.3.2] -- 2020-10-19</a>
+        <a class="reference internal" href="#332-2020-10-19">[3.3.2] &ndash; 2020-10-19</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#331-2020-10-12">[3.3.1] -- 2020-10-12</a>
+        <a class="reference internal" href="#331-2020-10-12">[3.3.1] &ndash; 2020-10-12</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#33-2020-10-06">[3.3] -- 2020-10-06</a>
+        <a class="reference internal" href="#33-2020-10-06">[3.3] &ndash; 2020-10-06</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#322-2020-05-08">[3.2.2] -- 2020-05-08</a>
+        <a class="reference internal" href="#322-2020-05-08">[3.2.2] &ndash; 2020-05-08</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#321-2020-02-12">[3.2.1] -- 2020-02-12</a>
+        <a class="reference internal" href="#321-2020-02-12">[3.2.1] &ndash; 2020-02-12</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#32-2020-02-07">[3.2] -- 2020-02-07</a>
+        <a class="reference internal" href="#32-2020-02-07">[3.2] &ndash; 2020-02-07</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#311-2019-05-20">[3.1.1] -- 2019-05-20</a>
+        <a class="reference internal" href="#311-2019-05-20">[3.1.1] &ndash; 2019-05-20</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#31-2019-03-25">[3.1] -- 2019-03-25</a>
+        <a class="reference internal" href="#31-2019-03-25">[3.1] &ndash; 2019-03-25</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#301-2018-09-28">[3.0.1] -- 2018-09-28</a>
+        <a class="reference internal" href="#301-2018-09-28">[3.0.1] &ndash; 2018-09-28</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#30-2018-09-21">[3.0] -- 2018-09-21</a>
+        <a class="reference internal" href="#30-2018-09-21">[3.0] &ndash; 2018-09-21</a>
     </li>
             
     <li>
@@ -944,7 +972,7 @@ handle nested brackets and logic that is too much for regular expression.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.5.2 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.6 documentation</a> &#187;
             </li>
                     
                     
@@ -971,7 +999,7 @@ handle nested brackets and logic that is too much for regular expression.</p>
 
         <!--
         MkDocs version      : 1.5.3
-        Docs Build Date UTC : 2024-01-22 14:54:37.498367+00:00
+        Docs Build Date UTC : 2024-03-14 15:37:38.653333+00:00
         -->
     </body>
 </html>

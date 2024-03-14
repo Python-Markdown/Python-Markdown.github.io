@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Tables" href="../tables/" />
         <link rel="prev" title="SmartyPants" href="../smarty/" />
-        <title>Table of Contents &#8212; Python-Markdown 3.5.2 documentation</title>
+        <title>Table of Contents &#8212; Python-Markdown 3.6 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5.2 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.6 documentation</a> &#187;
             </li>
                     
                     
@@ -144,6 +144,8 @@ the following object at <code>md.toc_tokens</code>:</p>
         'level': 1,
         'id': 'header-1',
         'name': 'Header 1',
+        'html': 'Header 1',
+        'data-toc-label': '',
         'children': [
             {'level': 2, 'id': 'header-2', 'name': 'Header 2', 'children':[]}
         ]
@@ -154,6 +156,10 @@ the following object at <code>md.toc_tokens</code>:</p>
 <p>Note that the <code>level</code> refers to the <code>hn</code> level. In other words, <code>&lt;h1&gt;</code> is level
 <code>1</code> and <code>&lt;h2&gt;</code> is level <code>2</code>, etc. Be aware that improperly nested levels in the
 input may result in odd nesting of the output.</p>
+<p><code>name</code> is the sanitized value which would also be used as a label for the HTML
+version of the Table of Contents. <code>html</code> contains the fully rendered HTML
+content of the heading and has not been sanitized in any way. This may be used
+with your own custom sanitation to create custom table of contents.</p>
 <h3 id="custom-labels">Custom Labels<a class="headerlink" href="#custom-labels" title="Permanent link">&para;</a></h3>
 <p>In most cases, the text label in the Table of Contents should match the text of
 the header. However, occasionally that is not desirable. In that case, if this
@@ -187,6 +193,9 @@ the HTML header element. Also note that the ID was manually defined in the
 attribute list to provide a cleaner URL when linking to the header. If the ID is
 not manually defined, it is always derived from the text of the header, never
 from the <code>data-toc-label</code> attribute.</p>
+<p>The value of the <code>data-toc-label</code> attribute is sanitized and stripped of any HTML
+tags. However, <code>toc_tokens</code> will contain the raw content under
+<code>data-toc-label</code>.</p>
 <h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
 <p>See <a href="../">Extensions</a> for general extension usage. Use <code>toc</code> as the name
 of the extension.</p>
@@ -383,7 +392,7 @@ have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.5.2 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.6 documentation</a> &#187;
             </li>
                     
                     
@@ -431,7 +440,7 @@ have to set <code>toc_depth</code> to <code>"4-6"</code>.</p>
 
         <!--
         MkDocs version      : 1.5.3
-        Docs Build Date UTC : 2024-01-22 14:54:37.580196+00:00
+        Docs Build Date UTC : 2024-03-14 15:37:38.736668+00:00
         -->
     </body>
 </html>
