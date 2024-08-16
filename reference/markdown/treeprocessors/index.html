@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>inlinepatterns</code>" href="../inlinepatterns/" />
         <link rel="prev" title="<code>blockprocessors</code>" href="../blockprocessors/" />
-        <title>treeprocessors &#8212; Python-Markdown 3.6 documentation</title>
+        <title>treeprocessors &#8212; Python-Markdown 3.7 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -86,20 +86,20 @@
 
 
 <h1 id="markdown.treeprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <code>markdown.treeprocessors</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.treeprocessors</code>
 
 
 
 <a href="#markdown.treeprocessors" class="headerlink" title="Permanent link">&para;</a></h1>
 
-  <div class="doc doc-contents first">
-  
+    <div class="doc doc-contents first">
+
       <p>Tree processors manipulate the tree created by block processors. They can even create an entirely
 new <code>ElementTree</code> object. This is an excellent place for creating summaries, adding collected
 references, or last minute adjustments.</p>
 
-  
+
 
   <div class="doc doc-children">
 
@@ -119,23 +119,23 @@ references, or last minute adjustments.</p>
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h2 id="markdown.treeprocessors.build_treeprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L39-L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <code class=" language-python">markdown.treeprocessors.build_treeprocessors(md: Markdown, **kwargs: Any) -&gt; util.Registry[Treeprocessor]</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L39-L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.treeprocessors.build_treeprocessors(md: Markdown, **kwargs: Any) -&gt; util.Registry[Treeprocessor]</code>
 
 
 <a href="#markdown.treeprocessors.build_treeprocessors" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Build the default  <code>treeprocessors</code> for Markdown.</p>
       <p>Return a <a class="autorefs autorefs-internal" href="../util/#markdown.util.Registry"><code>Registry</code></a> instance which contains the following collection of classes with their assigned names and priorities.</p>
 <table>
@@ -165,65 +165,67 @@ references, or last minute adjustments.</p>
 </tbody>
 </table>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h2 id="markdown.treeprocessors.isString" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L48-L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>          <code class=" language-python">markdown.treeprocessors.isString(s: object) -&gt; bool</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L48-L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.treeprocessors.isString(s: object) -&gt; bool</code>
 
 
 <a href="#markdown.treeprocessors.isString" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Return <code>True</code> if object is a string but not an  <a class="autorefs autorefs-internal" href="../util/#markdown.util.AtomicString"><code>AtomicString</code></a>.</p>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
+  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.treeprocessors.Treeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L55" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code class=" language-python">markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L55" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.treeprocessors.Treeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
-          <p class="doc doc-class-bases">
-            Bases: <code><a class="autorefs autorefs-internal" title="markdown.util.Processor" href="../util/#markdown.util.Processor">Processor</a></code></p>
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="markdown.util.Processor" href="../util/#markdown.util.Processor">Processor</a></code></p>
 
-  
+
       <p><code>Treeprocessor</code>s are run on the <code>ElementTree</code> object before serialization.</p>
 <p>Each <code>Treeprocessor</code> implements a <code>run</code> method that takes a pointer to an
 <code>Element</code> and modifies it as necessary.</p>
 <p><code>Treeprocessors</code> must extend <code>markdown.Treeprocessor</code>.</p>
 
 
-  
+
 
   <div class="doc doc-children">
 
@@ -231,29 +233,29 @@ references, or last minute adjustments.</p>
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.treeprocessors.Treeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L65-L72" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.treeprocessors.Treeprocessor.run(root: etree.Element) -&gt; etree.Element | None</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L65-L72" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.treeprocessors.Treeprocessor.run(root: etree.Element) -&gt; etree.Element | None</code>
 
 
 <a href="#markdown.treeprocessors.Treeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Subclasses of <code>Treeprocessor</code> should implement a <code>run</code> method, which
 takes a root <code>Element</code>. This method can return another <code>Element</code>
 object, and the existing root <code>Element</code> will be replaced, or it can
 modify the current tree and return <code>None</code>.</p>
 
-  </div>
+    </div>
 
 </div>
 
@@ -262,37 +264,38 @@ modify the current tree and return <code>None</code>.</p>
 
   </div>
 
-  </div>
-
+    </div>
 
 </div>
 
 
 
 
+  
 
+  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.treeprocessors.InlineProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L75" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code class=" language-python">markdown.treeprocessors.InlineProcessor(md: Markdown)</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L75" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.treeprocessors.InlineProcessor(md: Markdown)</code>
 
 
 <a href="#markdown.treeprocessors.InlineProcessor" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
-          <p class="doc doc-class-bases">
-            Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
 
-  
+
       <p>A <code>Treeprocessor</code> that traverses a tree, applying inline patterns.</p>
 
 
-  
+
 
   <div class="doc doc-children">
 
@@ -300,23 +303,23 @@ modify the current tree and return <code>None</code>.</p>
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.treeprocessors.InlineProcessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L343-L412" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.treeprocessors.InlineProcessor.run(tree: etree.Element, ancestors: list[str] | None = None) -&gt; etree.Element</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L343-L412" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.treeprocessors.InlineProcessor.run(tree: etree.Element, ancestors: list[str] | None = None) -&gt; etree.Element</code>
 
 
 <a href="#markdown.treeprocessors.InlineProcessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Apply inline patterns to a parsed Markdown tree.</p>
 <p>Iterate over <code>Element</code>, find elements with inline tag, apply inline
 patterns and append newly created Elements to tree.  To avoid further
@@ -326,82 +329,81 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 </code></pre>
 
 
-
-  <p>Parameters:</p>
-  <ul>
-      <li class="field-body">
-        <b><code>tree</code></b>
-            (<code><span title="xml.Element">Element</span></code>)
-        –
-        <div class="doc-md-description">
-          <p><code>Element</code> object, representing Markdown tree.</p>
-        </div>
-      </li>
-      <li class="field-body">
-        <b><code>ancestors</code></b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>] | None</code>, default:
-                <code>None</code>
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>tree</code></b>
+              (<code><a class="autorefs autorefs-external" title="xml.etree.ElementTree.Element" href="https://docs.python.org/3/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element">Element</a></code>)
+          –
+          <div class="doc-md-description">
+            <p><code>Element</code> object, representing Markdown tree.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>ancestors</code></b>
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>] | None</code>, default:
+                  <code>None</code>
 )
-        –
-        <div class="doc-md-description">
-          <p>List of parent tag names that precede the tree node (if needed).</p>
-        </div>
-      </li>
-  </ul>
+          –
+          <div class="doc-md-description">
+            <p>List of parent tag names that precede the tree node (if needed).</p>
+          </div>
+        </li>
+    </ul>
 
 
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" title="xml.etree.ElementTree.Element" href="https://docs.python.org/3/library/xml.etree.elementtree.html#xml.etree.ElementTree.Element">Element</a></code>
+          –
+          <div class="doc-md-description">
+            <p>An element tree object with applied inline patterns.</p>
+          </div>
+        </li>
+    </ul>
 
-  <p>Returns:</p>
-  <ul>
-      <li class="field-body">
-            <code><span title="xml.Element">Element</span></code>
-        –
-        <div class="doc-md-description">
-          <p>An element tree object with applied inline patterns.</p>
-      </div>
-      </li>
-  </ul>
-
-  </div>
-
-</div>
-
-
-
-
-  </div>
-
-  </div>
-
+    </div>
 
 </div>
 
 
 
 
+  </div>
 
+    </div>
+
+</div>
+
+
+
+
+  
+
+  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.treeprocessors.PrettifyTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L415" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code class=" language-python">markdown.treeprocessors.PrettifyTreeprocessor(md: Markdown | None = None)</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L415" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.treeprocessors.PrettifyTreeprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.treeprocessors.PrettifyTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
-          <p class="doc doc-class-bases">
-            Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
 
-  
+
       <p>Add line breaks to the html document.</p>
 
 
-  
+
 
   <div class="doc doc-children">
 
@@ -409,26 +411,26 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.treeprocessors.PrettifyTreeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L432-L451" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.treeprocessors.PrettifyTreeprocessor.run(root: etree.Element) -&gt; None</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L432-L451" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.treeprocessors.PrettifyTreeprocessor.run(root: etree.Element) -&gt; None</code>
 
 
 <a href="#markdown.treeprocessors.PrettifyTreeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Add line breaks to <code>Element</code> object and its children.</p>
 
-  </div>
+    </div>
 
 </div>
 
@@ -437,37 +439,38 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
   </div>
 
-  </div>
-
+    </div>
 
 </div>
 
 
 
 
+  
 
+  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.treeprocessors.UnescapeTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L454" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code class=" language-python">markdown.treeprocessors.UnescapeTreeprocessor(md: Markdown | None = None)</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L454" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.treeprocessors.UnescapeTreeprocessor(md: Markdown | None = None)</code>
 
 
 <a href="#markdown.treeprocessors.UnescapeTreeprocessor" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
-          <p class="doc doc-class-bases">
-            Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
 
-  
+
       <p>Restore escaped chars</p>
 
 
-  
+
 
   <div class="doc doc-children">
 
@@ -475,26 +478,26 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.treeprocessors.UnescapeTreeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/treeprocessors.py#L465-L476" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.treeprocessors.UnescapeTreeprocessor.run(root: etree.Element) -&gt; None</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/treeprocessors.py#L465-L476" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.treeprocessors.UnescapeTreeprocessor.run(root: etree.Element) -&gt; None</code>
 
 
 <a href="#markdown.treeprocessors.UnescapeTreeprocessor.run" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Loop over all elements and unescape all text.</p>
 
-  </div>
+    </div>
 
 </div>
 
@@ -503,8 +506,7 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
   </div>
 
-  </div>
-
+    </div>
 
 </div>
 
@@ -513,7 +515,7 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
 
   </div>
 
-  </div>
+    </div>
 
 </div>
 
@@ -630,7 +632,7 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -668,14 +670,14 @@ use subclass <a class="autorefs autorefs-internal" href="../util/#markdown.util.
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
         </div>
         <script>var base_url = '../../..';</script>
         <script src="../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.5.3
-        Docs Build Date UTC : 2024-03-19 15:05:58.738544+00:00
+        MkDocs version      : 1.6.0
+        Docs Build Date UTC : 2024-08-16 15:55:07.922609+00:00
         -->
     </body>
 </html>

@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>abbr</code>" href="abbr/" />
         <link rel="prev" title="<code>test_tools</code>" href="../test_tools/" />
-        <title>extensions &#8212; Python-Markdown 3.6 documentation</title>
+        <title>extensions &#8212; Python-Markdown 3.7 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -104,22 +104,22 @@
 
 
 <h1 id="markdown.extensions" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <code>markdown.extensions</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions</code>
 
 
 
 <a href="#markdown.extensions" class="headerlink" title="Permanent link">&para;</a></h1>
 
-  <div class="doc doc-contents first">
-  
+    <div class="doc doc-contents first">
+
       <p>Markdown accepts an <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension"><code>Extension</code></a> instance for each extension. Therefore, each extension
 must to define a class that extends <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension"><code>Extension</code></a> and over-rides the
 <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.extendMarkdown"><code>extendMarkdown</code></a> method. Within this class one can manage configuration
 options for their extension and attach the various processors and patterns which make up an extension to the
 <a class="autorefs autorefs-internal" href="../#markdown.Markdown"><code>Markdown</code></a> instance.</p>
 
-  
+
 
   <div class="doc doc-children">
 
@@ -207,27 +207,29 @@ options for their extension and attach the various processors and patterns which
 
 
 
+  
 
+  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.Extension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code class=" language-python">markdown.extensions.Extension(**kwargs)</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.Extension(**kwargs)</code>
 
 
 <a href="#markdown.extensions.Extension" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
+    <div class="doc doc-contents ">
 
-  
+
       <p>Base class for extensions to subclass.</p>
 
 
-  
+
 
   <div class="doc doc-children">
 
@@ -235,16 +237,18 @@ options for their extension and attach the various processors and patterns which
 
 
 
+  
 
+  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.Extension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L40" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L40" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.Extension.config: Mapping[str, list]</code>
-  
+
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-class-attribute"><code>class-attribute</code></small>
       <small class="doc doc-label doc-label-instance-attribute"><code>instance-attribute</code></small>
@@ -253,8 +257,8 @@ options for their extension and attach the various processors and patterns which
 <a href="#markdown.extensions.Extension.config" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-    
+    <div class="doc doc-contents ">
+  
       <p>Default configuration for an extension.</p>
 <p>This attribute is to be defined in a subclass and must be of the following format:</p>
 <pre class="codehilite"><code class="language-python">config = {
@@ -267,317 +271,298 @@ if a default is not set for each option.</p>
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">config: Mapping[str, list] = {}
-</code></pre>  </div>
+</code></pre>    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.extensions.Extension.getConfig" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L60-L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.extensions.Extension.getConfig(key: str, default: Any = '') -&gt; Any</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L60-L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.getConfig(key: str, default: Any = '') -&gt; Any</code>
 
 
 <a href="#markdown.extensions.Extension.getConfig" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Return a single configuration option value.</p>
 
 
-
-  <p>Parameters:</p>
-  <ul>
-      <li class="field-body">
-        <b><code>key</code></b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
-        –
-        <div class="doc-md-description">
-          <p>The configuration option name.</p>
-        </div>
-      </li>
-      <li class="field-body">
-        <b><code>default</code></b>
-            (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>, default:
-                <code>&#39;&#39;</code>
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>key</code></b>
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The configuration option name.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>default</code></b>
+              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>, default:
+                  <code>&#39;&#39;</code>
 )
-        –
-        <div class="doc-md-description">
-          <p>Default value to return if key is not set.</p>
-        </div>
-      </li>
-  </ul>
+          –
+          <div class="doc-md-description">
+            <p>Default value to return if key is not set.</p>
+          </div>
+        </li>
+    </ul>
 
 
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>
+          –
+          <div class="doc-md-description">
+            <p>Value of stored configuration option.</p>
+          </div>
+        </li>
+    </ul>
 
-  <p>Returns:</p>
-  <ul>
-      <li class="field-body">
-            <code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>
-        –
-        <div class="doc-md-description">
-          <p>Value of stored configuration option.</p>
-      </div>
-      </li>
-  </ul>
-
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.extensions.Extension.getConfigs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L76-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.extensions.Extension.getConfigs() -&gt; dict[str, Any]</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L76-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.getConfigs() -&gt; dict[str, Any]</code>
 
 
 <a href="#markdown.extensions.Extension.getConfigs" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Return all configuration options.</p>
 
 
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>
+          –
+          <div class="doc-md-description">
+            <p>All configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
-  <p>Returns:</p>
-  <ul>
-      <li class="field-body">
-            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>
-        –
-        <div class="doc-md-description">
-          <p>All configuration options.</p>
-      </div>
-      </li>
-  </ul>
-
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.extensions.Extension.getConfigInfo" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L85-L92" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.extensions.Extension.getConfigInfo() -&gt; list[tuple[str, str]]</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L85-L92" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.getConfigInfo() -&gt; list[tuple[str, str]]</code>
 
 
 <a href="#markdown.extensions.Extension.getConfigInfo" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Return descriptions of all configuration options.</p>
 
 
+<p><span class="doc-section-title">Returns:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]]</code>
+          –
+          <div class="doc-md-description">
+            <p>All descriptions of configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
-  <p>Returns:</p>
-  <ul>
-      <li class="field-body">
-            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>]]</code>
-        –
-        <div class="doc-md-description">
-          <p>All descriptions of configuration options.</p>
-      </div>
-      </li>
-  </ul>
-
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.extensions.Extension.setConfig" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L94-L113" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.extensions.Extension.setConfig(key: str, value: Any) -&gt; None</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L94-L113" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.setConfig(key: str, value: Any) -&gt; None</code>
 
 
 <a href="#markdown.extensions.Extension.setConfig" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Set a configuration option.</p>
 <p>If the corresponding default value set in <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.config"><code>config</code></a>
 is a <code>bool</code> value or <code>None</code>, then <code>value</code> is passed through
 <a class="autorefs autorefs-internal" href="../util/#markdown.util.parseBoolValue"><code>parseBoolValue</code></a> before being stored.</p>
 
 
-
-  <p>Parameters:</p>
-  <ul>
-      <li class="field-body">
-        <b><code>key</code></b>
-            (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
-        –
-        <div class="doc-md-description">
-          <p>Name of configuration option to set.</p>
-        </div>
-      </li>
-      <li class="field-body">
-        <b><code>value</code></b>
-            (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
-        –
-        <div class="doc-md-description">
-          <p>Value to assign to option.</p>
-        </div>
-      </li>
-  </ul>
-
-
-
-  <p>Raises:</p>
-  <ul>
-      <li class="field-body">
-            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a></code>
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>key</code></b>
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
           –
-        <div class="doc-md-description">
-          <p>If <code>key</code> is not known.</p>
-        </div>
-      </li>
-  </ul>
+          <div class="doc-md-description">
+            <p>Name of configuration option to set.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code>value</code></b>
+              (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>Value to assign to option.</p>
+          </div>
+        </li>
+    </ul>
 
-  </div>
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>If <code>key</code> is not known.</p>
+          </div>
+        </li>
+    </ul>
+
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.extensions.Extension.setConfigs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L115-L130" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.extensions.Extension.setConfigs(items: Mapping[str, Any] | Iterable[tuple[str, Any]]) -&gt; None</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L115-L130" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.setConfigs(items: Mapping[str, Any] | Iterable[tuple[str, Any]]) -&gt; None</code>
 
 
 <a href="#markdown.extensions.Extension.setConfigs" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Loop through a collection of configuration options, passing each to
 <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.setConfig"><code>setConfig</code></a>.</p>
 
 
-
-  <p>Parameters:</p>
-  <ul>
-      <li class="field-body">
-        <b><code>items</code></b>
-            (<code><a class="autorefs autorefs-external" title="typing.Mapping" href="https://docs.python.org/3/library/typing.html#typing.Mapping">Mapping</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>] | <a class="autorefs autorefs-external" title="typing.Iterable" href="https://docs.python.org/3/library/typing.html#typing.Iterable">Iterable</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]]</code>)
-        –
-        <div class="doc-md-description">
-          <p>Collection of configuration options.</p>
-        </div>
-      </li>
-  </ul>
-
-
-
-  <p>Raises:</p>
-  <ul>
-      <li class="field-body">
-            <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a></code>
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>items</code></b>
+              (<code><a class="autorefs autorefs-external" title="typing.Mapping" href="https://docs.python.org/3/library/typing.html#typing.Mapping">Mapping</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>] | <a class="autorefs autorefs-external" title="typing.Iterable" href="https://docs.python.org/3/library/typing.html#typing.Iterable">Iterable</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]]</code>)
           –
-        <div class="doc-md-description">
-          <p>for any unknown key.</p>
-        </div>
-      </li>
-  </ul>
+          <div class="doc-md-description">
+            <p>Collection of configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
-  </div>
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+              <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#KeyError">KeyError</a></code>
+            –
+          <div class="doc-md-description">
+            <p>for any unknown key.</p>
+          </div>
+        </li>
+    </ul>
+
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.extensions.Extension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/extensions/__init__.py#L132-L145" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.extensions.Extension.extendMarkdown(md: Markdown) -&gt; None</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L132-L145" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.extendMarkdown(md: Markdown) -&gt; None</code>
 
 
 <a href="#markdown.extensions.Extension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Add the various processors and patterns to the Markdown Instance.</p>
 <p>This method must be overridden by every extension.</p>
 
 
+<p><span class="doc-section-title">Parameters:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code>md</code></b>
+              (<code><a class="autorefs autorefs-internal" title="markdown.Markdown" href="../#markdown.Markdown">Markdown</a></code>)
+          –
+          <div class="doc-md-description">
+            <p>The Markdown instance.</p>
+          </div>
+        </li>
+    </ul>
 
-  <p>Parameters:</p>
-  <ul>
-      <li class="field-body">
-        <b><code>md</code></b>
-            (<code><a class="autorefs autorefs-internal" title="markdown.Markdown" href="../#markdown.Markdown">Markdown</a></code>)
-        –
-        <div class="doc-md-description">
-          <p>The Markdown instance.</p>
-        </div>
-      </li>
-  </ul>
-
-  </div>
-
-</div>
-
-
-
-
-  </div>
-
-  </div>
-
+    </div>
 
 </div>
 
@@ -586,7 +571,16 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
 
   </div>
 
+    </div>
+
+</div>
+
+
+
+
   </div>
+
+    </div>
 
 </div>
 
@@ -689,7 +683,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -745,14 +739,14 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
         </div>
         <script>var base_url = '../../..';</script>
         <script src="../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.5.3
-        Docs Build Date UTC : 2024-03-19 15:05:58.747040+00:00
+        MkDocs version      : 1.6.0
+        Docs Build Date UTC : 2024-08-16 15:55:07.931634+00:00
         -->
     </body>
 </html>

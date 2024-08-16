@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>test_tools</code>" href="../test_tools/" />
         <link rel="prev" title="<code>util</code>" href="../util/" />
-        <title>htmlparser &#8212; Python-Markdown 3.6 documentation</title>
+        <title>htmlparser &#8212; Python-Markdown 3.7 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -86,20 +86,20 @@
 
 
 <h1 id="markdown.htmlparser" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>          <code>markdown.htmlparser</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.htmlparser</code>
 
 
 
 <a href="#markdown.htmlparser" class="headerlink" title="Permanent link">&para;</a></h1>
 
-  <div class="doc doc-contents first">
-  
+    <div class="doc doc-contents first">
+
       <p>This module imports a copy of <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/html.parser.html#html.parser.HTMLParser"><code>html.parser.HTMLParser</code></a> and modifies it heavily through monkey-patches.
 A copy is imported rather than the module being directly imported as this ensures that the user can import
 and  use the unmodified library for their own needs.</p>
 
-  
+
 
   <div class="doc doc-children">
 
@@ -111,32 +111,34 @@ and  use the unmodified library for their own needs.</p>
 
 
 
+  
 
+  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.htmlparser.HTMLExtractor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code class=" language-python">markdown.htmlparser.HTMLExtractor(md: Markdown, *args, **kwargs)</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.htmlparser.HTMLExtractor(md: Markdown, *args, **kwargs)</code>
 
 
 <a href="#markdown.htmlparser.HTMLExtractor" class="headerlink" title="Permanent link">&para;</a></h2>
 
 
-  <div class="doc doc-contents ">
-          <p class="doc doc-class-bases">
-            Bases: <code><span title="markdown.htmlparser.htmlparser.HTMLParser">HTMLParser</span></code></p>
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="markdown.htmlparser.htmlparser.HTMLParser">HTMLParser</span></code></p>
 
-  
+
       <p>Extract raw HTML from text.</p>
 <p>The raw HTML is stored in the <a class="autorefs autorefs-internal" href="../util/#markdown.util.HtmlStash"><code>htmlStash</code></a> of the
 <a class="autorefs autorefs-internal" href="../#markdown.Markdown"><code>Markdown</code></a> instance passed to <code>md</code> and the remaining text
 is stored in <code>cleandoc</code> as a list of strings.</p>
 
 
-  
+
 
   <div class="doc doc-children">
 
@@ -144,68 +146,70 @@ is stored in <code>cleandoc</code> as a list of strings.</p>
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.htmlparser.HTMLExtractor.reset" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L96-L105" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.htmlparser.HTMLExtractor.reset()</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L96-L105" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.htmlparser.HTMLExtractor.reset()</code>
 
 
 <a href="#markdown.htmlparser.HTMLExtractor.reset" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Reset this instance.  Loses all unprocessed data.</p>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.htmlparser.HTMLExtractor.close" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L107-L120" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.htmlparser.HTMLExtractor.close()</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L107-L120" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.htmlparser.HTMLExtractor.close()</code>
 
 
 <a href="#markdown.htmlparser.HTMLExtractor.close" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Handle any buffered data.</p>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
+  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.htmlparser.HTMLExtractor.line_offset" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L123-L133" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L123-L133" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.htmlparser.HTMLExtractor.line_offset: int</code>
-  
+
   <span class="doc doc-labels">
       <small class="doc doc-label doc-label-property"><code>property</code></small>
   </span>
@@ -213,117 +217,117 @@ is stored in <code>cleandoc</code> as a list of strings.</p>
 <a href="#markdown.htmlparser.HTMLExtractor.line_offset" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-    
+    <div class="doc doc-contents ">
+  
       <p>Returns char index in <code>self.rawdata</code> for the start of the current line.</p>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.htmlparser.HTMLExtractor.at_line_start" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L135-L146" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.htmlparser.HTMLExtractor.at_line_start() -&gt; bool</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L135-L146" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.htmlparser.HTMLExtractor.at_line_start() -&gt; bool</code>
 
 
 <a href="#markdown.htmlparser.HTMLExtractor.at_line_start" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Returns True if current position is at start of line.</p>
 <p>Allows for up to three blank spaces at start of line.</p>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.htmlparser.HTMLExtractor.get_endtag_text" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L148-L161" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.htmlparser.HTMLExtractor.get_endtag_text(tag: str) -&gt; str</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L148-L161" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.htmlparser.HTMLExtractor.get_endtag_text(tag: str) -&gt; str</code>
 
 
 <a href="#markdown.htmlparser.HTMLExtractor.get_endtag_text" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Returns the text of the end tag.</p>
 <p>If it fails to extract the actual text from the raw data, it builds a closing tag with <code>tag</code>.</p>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.htmlparser.HTMLExtractor.handle_empty_tag" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L219-L240" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.htmlparser.HTMLExtractor.handle_empty_tag(data: str, is_block: bool)</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L219-L240" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.htmlparser.HTMLExtractor.handle_empty_tag(data: str, is_block: bool)</code>
 
 
 <a href="#markdown.htmlparser.HTMLExtractor.handle_empty_tag" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Handle empty tags (<code>&lt;data&gt;</code>).</p>
 
-  </div>
+    </div>
 
 </div>
 
 
 
 
+  
 
-
+  
 
 <div class="doc doc-object doc-function">
 
 
-
 <h3 id="markdown.htmlparser.HTMLExtractor.get_starttag_text" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.6/markdown/htmlparser.py#L295-L297" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
-  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>          <code class=" language-python">markdown.htmlparser.HTMLExtractor.get_starttag_text() -&gt; str</code>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/htmlparser.py#L295-L297" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.htmlparser.HTMLExtractor.get_starttag_text() -&gt; str</code>
 
 
 <a href="#markdown.htmlparser.HTMLExtractor.get_starttag_text" class="headerlink" title="Permanent link">&para;</a></h3>
 
 
-  <div class="doc doc-contents ">
-  
+    <div class="doc doc-contents ">
+
       <p>Return full source of start tag: <code>&lt;...&gt;</code>.</p>
 
-  </div>
+    </div>
 
 </div>
 
@@ -332,8 +336,7 @@ is stored in <code>cleandoc</code> as a list of strings.</p>
 
   </div>
 
-  </div>
-
+    </div>
 
 </div>
 
@@ -342,7 +345,7 @@ is stored in <code>cleandoc</code> as a list of strings.</p>
 
   </div>
 
-  </div>
+    </div>
 
 </div>
 
@@ -445,7 +448,7 @@ is stored in <code>cleandoc</code> as a list of strings.</p>
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -483,14 +486,14 @@ is stored in <code>cleandoc</code> as a list of strings.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
         </div>
         <script>var base_url = '../../..';</script>
         <script src="../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.5.3
-        Docs Build Date UTC : 2024-03-19 15:05:58.690896+00:00
+        MkDocs version      : 1.6.0
+        Docs Build Date UTC : 2024-08-16 15:55:07.874635+00:00
         -->
     </body>
 </html>

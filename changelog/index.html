@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Authors" href="../authors/" />
         <link rel="prev" title="Contributing to Python-Markdown" href="../contributing/" />
-        <title>Changelog &#8212; Python-Markdown 3.6 documentation</title>
+        <title>Changelog &#8212; Python-Markdown 3.7 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -67,13 +67,31 @@
 <p>All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
 and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>. See the <a href="../contributing/">Contributing Guide</a> for details.</p>
-<h2 id="unreleased">[unreleased]<a class="headerlink" href="#unreleased" title="Permanent link">&para;</a></h2>
+<h2 id="37-2024-08-16">[3.7] &ndash; 2024-08-16<a class="headerlink" href="#37-2024-08-16" title="Permanent link">&para;</a></h2>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<h4 id="refactor-abbr-extension">Refactor <code>abbr</code> Extension<a class="headerlink" href="#refactor-abbr-extension" title="Permanent link">&para;</a></h4>
+<p>A new <code>AbbrTreeprocessor</code> has been introduced, which replaces the now deprecated
+<code>AbbrInlineProcessor</code>. Abbreviation processing now happens after Attribute Lists,
+avoiding a conflict between the two extensions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1460" title="GitHub Issue Python-Markdown/markdown #1460">#1460</a>).</p>
+<p>The <code>AbbrPreprocessor</code> class has been renamed to <code>AbbrBlockprocessor</code>, which
+better reflects what it is. <code>AbbrPreprocessor</code> has been deprecated.</p>
+<p>A call to <code>Markdown.reset()</code> now clears all previously defined abbreviations.</p>
+<p>Abbreviations are now sorted by length before executing <code>AbbrTreeprocessor</code>
+to ensure that multi-word abbreviations are implemented even if an abbreviation
+exists for one of those component words. (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1465" title="GitHub Issue Python-Markdown/markdown #1465">#1465</a>)</p>
+<p>Abbreviations without a definition are now ignored. This avoids applying
+abbr tags to text without a title value.</p>
+<p>Added an optional <code>glossary</code> configuration option to the abbreviations extension.
+This provides a simple and efficient way to apply a dictionary of abbreviations
+to every page.</p>
+<p>Abbreviations can now be disabled by setting their definition to <code>""</code> or <code>''</code>.
+This can be useful when using the <code>glossary</code> option.</p>
 <h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Fixed links to source code on GitHub from the documentation (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1453" title="GitHub Issue Python-Markdown/markdown #1453">#1453</a>).</li>
 </ul>
 <h2 id="36-2024-03-14">[3.6] &ndash; 2024-03-14<a class="headerlink" href="#36-2024-03-14" title="Permanent link">&para;</a></h2>
-<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
 <h4 id="refactor-toc-sanitation">Refactor TOC Sanitation<a class="headerlink" href="#refactor-toc-sanitation" title="Permanent link">&para;</a></h4>
 <ul>
 <li>All postprocessors are now run on heading content.</li>
@@ -133,7 +151,7 @@ link anchors generated with <code>permalink</code>. Setting <code>permalink_lead
 will cause the links to be inserted at the start of the header, before any other
 header content. The default behavior for <code>permalink</code> is to append permanent
 links to the header, placing them after all other header content.</p>
-<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Add support for cPython version 3.12 (and PyPy 3.10) and drop support for
   Python version 3.7 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1357" title="GitHub Issue Python-Markdown/markdown #1357">#1357</a>).</li>
@@ -174,7 +192,7 @@ links to the header, placing them after all other header content.</p>
 <li>Fix an import issue with <code>importlib.util</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1274" title="GitHub Issue Python-Markdown/markdown #1274">#1274</a>).</li>
 </ul>
 <h2 id="34-2022-07-15">[3.4] &ndash; 2022-07-15<a class="headerlink" href="#34-2022-07-15" title="Permanent link">&para;</a></h2>
-<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
 <h4 id="the-tables-extension-now-uses-a-style-attribute-instead-of-an-align-attribute-for-alignment">The <code>tables</code> extension now uses a <code>style</code> attribute instead of an <code>align</code> attribute for alignment.<a class="headerlink" href="#the-tables-extension-now-uses-a-style-attribute-instead-of-an-align-attribute-for-alignment" title="Permanent link">&para;</a></h4>
 <p>The <a href="https://www.w3.org/TR/html4/present/graphics.html#h-15.1.2">HTML4 spec</a>
 specifically deprecates the use of the <code>align</code> attribute and it does not appear
@@ -369,7 +387,7 @@ code block&rsquo;s language in the output.</p>
 <li>Ensure consistent class handling by <code>fenced_code</code> and <code>codehilite</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1032" title="GitHub Issue Python-Markdown/markdown #1032">#1032</a>).</li>
 </ul>
 <h2 id="33-2020-10-06">[3.3] &ndash; 2020-10-06<a class="headerlink" href="#33-2020-10-06" title="Permanent link">&para;</a></h2>
-<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
 <h4 id="the-prefix-language-is-now-prepended-to-all-language-classes-by-default-on-code-blocks">The prefix <code>language-</code> is now prepended to all language classes by default on code blocks.<a class="headerlink" href="#the-prefix-language-is-now-prepended-to-all-language-classes-by-default-on-code-blocks" title="Permanent link">&para;</a></h4>
 <p>The <a href="https://www.w3.org/TR/html5/text-level-semantics.html#the-code-element">HTML5
 spec</a>
@@ -490,7 +508,7 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
   escapes HTML special characters (<code>&lt;</code>, <code>&gt;</code>, and <code>&amp;</code>).</li>
 </ul>
 <h2 id="32-2020-02-07">[3.2] &ndash; 2020-02-07<a class="headerlink" href="#32-2020-02-07" title="Permanent link">&para;</a></h2>
-<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
 <h4 id="drop-support-for-python-27">Drop support for Python 2.7<a class="headerlink" href="#drop-support-for-python-27" title="Permanent link">&para;</a></h4>
 <p>Python 2.7 reaches end-of-life on 2020-01-01 and Python-Markdown 3.2 has dropped
 support for it. Please upgrade to Python 3, or use Python-Markdown 3.1.</p>
@@ -581,7 +599,7 @@ release.</p>
   it (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/825" title="GitHub Issue Python-Markdown/markdown #825">#825</a>).</li>
 </ul>
 <h2 id="31-2019-03-25">[3.1] &ndash; 2019-03-25<a class="headerlink" href="#31-2019-03-25" title="Permanent link">&para;</a></h2>
-<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
 <h4 id="markdownversion-and-markdownversion_info-deprecated"><code>markdown.version</code> and <code>markdown.version_info</code> deprecated<a class="headerlink" href="#markdownversion-and-markdownversion_info-deprecated" title="Permanent link">&para;</a></h4>
 <p>Historically, version numbers were acquired via the attributes
 <code>markdown.version</code> and <code>markdown.version_info</code>. As of 3.0, a more standardized
@@ -627,7 +645,7 @@ a future release the legacy attributes will be removed.</p>
 <li>Added support for hexadecimal HTML entities (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/712" title="GitHub Issue Python-Markdown/markdown #712">#712</a>).</li>
 </ul>
 <h2 id="30-2018-09-21">[3.0] &ndash; 2018-09-21<a class="headerlink" href="#30-2018-09-21" title="Permanent link">&para;</a></h2>
-<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
+<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
 <h4 id="enable_attributes-keyword-deprecated"><code>enable_attributes</code> keyword deprecated<a class="headerlink" href="#enable_attributes-keyword-deprecated" title="Permanent link">&para;</a></h4>
 <p>The <code>enable_attributes</code> keyword is deprecated in version 3.0 and will be
 ignored. Previously the keyword was <code>True</code> by default and enabled an
@@ -825,7 +843,7 @@ handle nested brackets and logic that is too much for regular expression.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#unreleased">[unreleased]</a>
+        <a class="reference internal" href="#37-2024-08-16">[3.7] &ndash; 2024-08-16</a>
     </li>
             
     <li>
@@ -981,7 +999,7 @@ handle nested brackets and logic that is too much for regular expression.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.6 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.7 documentation</a> &#187;
             </li>
                     
                     
@@ -1001,14 +1019,14 @@ handle nested brackets and logic that is too much for regular expression.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.5.3.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
         </div>
         <script>var base_url = '..';</script>
         <script src="../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.5.3
-        Docs Build Date UTC : 2024-03-19 15:05:58.579080+00:00
+        MkDocs version      : 1.6.0
+        Docs Build Date UTC : 2024-08-16 15:55:07.755370+00:00
         -->
     </body>
 </html>
