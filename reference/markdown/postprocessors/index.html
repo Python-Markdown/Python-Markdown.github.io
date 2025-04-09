@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>serializers</code>" href="../serializers/" />
         <link rel="prev" title="<code>inlinepatterns</code>" href="../inlinepatterns/" />
-        <title>postprocessors &#8212; Python-Markdown 3.7 documentation</title>
+        <title>postprocessors &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -86,7 +86,7 @@
 
 
 <h1 id="markdown.postprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.postprocessors</code>
 
 
@@ -95,10 +95,75 @@
 
     <div class="doc doc-contents first">
 
-      <p>Post-processors run on the text of the entire document after is has been serialized into a string.
+        <p>Post-processors run on the text of the entire document after is has been serialized into a string.
 Postprocessors should be used to work with the text just before output. Usually, they are used add
 back sections that were extracted in a preprocessor, fix up outgoing encodings, or wrap the whole
 document.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.Postprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.Postprocessor">Postprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Postprocessors are run after the ElementTree it converted back into text.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.RawHtmlPostprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.RawHtmlPostprocessor">RawHtmlPostprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Restore raw html to the document.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.AndSubstitutePostprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.AndSubstitutePostprocessor">AndSubstitutePostprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Restore valid entities</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.UnescapePostprocessor(md: Markdown | None = None)
+
+
+  
+      deprecated
+  " href="#markdown.postprocessors.UnescapePostprocessor">UnescapePostprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Restore escaped chars.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Functions:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.postprocessors.build_postprocessors(md: Markdown, **kwargs: Any) -> util.Registry[Postprocessor]" href="#markdown.postprocessors.build_postprocessors">build_postprocessors</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Build the default postprocessors for Markdown.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -116,15 +181,13 @@ document.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h2 id="markdown.postprocessors.build_postprocessors" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L40-L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L39-L44" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.postprocessors.build_postprocessors(md: Markdown, **kwargs: Any) -&gt; util.Registry[Postprocessor]</code>
 
 
@@ -133,8 +196,9 @@ document.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Build the default postprocessors for Markdown.</p>
-      <p>Return a <a class="autorefs autorefs-internal" href="../util/#markdown.util.Registry"><code>Registry</code></a> instance which contains the following collection of classes with their assigned names and priorities.</p>
+        <p>Build the default postprocessors for Markdown.</p>
+        <p>Return a <a class="autorefs autorefs-internal" title="‹›
+                markdown.util.Registry()" href="../util/#markdown.util.Registry"><code>Registry</code></a> instance which contains the following collection of classes with their assigned names and priorities.</p>
 <table>
 <thead>
 <tr>
@@ -145,17 +209,20 @@ document.</p>
 </thead>
 <tbody>
 <tr>
-<td><a class="autorefs autorefs-internal" href="#markdown.postprocessors.RawHtmlPostprocessor"><code>RawHtmlPostprocessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.RawHtmlPostprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.RawHtmlPostprocessor"><code>RawHtmlPostprocessor</code></a></td>
 <td><code>raw_html</code></td>
 <td style="text-align: center;"><code>30</code></td>
 </tr>
 <tr>
-<td><a class="autorefs autorefs-internal" href="#markdown.postprocessors.AndSubstitutePostprocessor"><code>AndSubstitutePostprocessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.AndSubstitutePostprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.AndSubstitutePostprocessor"><code>AndSubstitutePostprocessor</code></a></td>
 <td><code>amp_substitute</code></td>
 <td style="text-align: center;"><code>20</code></td>
 </tr>
 </tbody>
 </table>
+
 
     </div>
 
@@ -164,16 +231,14 @@ document.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.postprocessors.Postprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L48" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L47" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.postprocessors.Postprocessor(md: Markdown | None = None)</code>
 
 
@@ -182,13 +247,37 @@ document.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.util.Processor" href="../util/#markdown.util.Processor">Processor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.util.Processor(md: Markdown | None = None)" href="../util/#markdown.util.Processor">Processor</a></code></p>
 
 
-      <p>Postprocessors are run after the ElementTree it converted back into text.</p>
+        <p>Postprocessors are run after the ElementTree it converted back into text.</p>
 <p>Each Postprocessor implements a <code>run</code> method that takes a pointer to a
 text string, modifies it as necessary and returns a text string.</p>
 <p>Postprocessors must extend <code>Postprocessor</code>.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.postprocessors.Postprocessor.run(text: str) -> str" href="#markdown.postprocessors.Postprocessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Subclasses of <code>Postprocessor</code> should implement a <code>run</code> method, which</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -199,15 +288,13 @@ text string, modifies it as necessary and returns a text string.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.postprocessors.Postprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L59-L66" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L58-L65" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.postprocessors.Postprocessor.run(text: str) -&gt; str</code>
 
 
@@ -216,9 +303,10 @@ text string, modifies it as necessary and returns a text string.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Subclasses of <code>Postprocessor</code> should implement a <code>run</code> method, which
+        <p>Subclasses of <code>Postprocessor</code> should implement a <code>run</code> method, which
 takes the html document as a single text string and returns a
 (possibly modified) string.</p>
+
 
     </div>
 
@@ -236,16 +324,14 @@ takes the html document as a single text string and returns a
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.postprocessors.RawHtmlPostprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L69" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L68" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.postprocessors.RawHtmlPostprocessor(md: Markdown | None = None)</code>
 
 
@@ -254,10 +340,50 @@ takes the html document as a single text string and returns a
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.postprocessors.Postprocessor" href="#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.Postprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
 
 
-      <p>Restore raw html to the document.</p>
+        <p>Restore raw html to the document.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.postprocessors.RawHtmlPostprocessor.run(text: str) -> str" href="#markdown.postprocessors.RawHtmlPostprocessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Iterate over html stash and restore html.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.postprocessors.RawHtmlPostprocessor.isblocklevel(html: str) -> bool" href="#markdown.postprocessors.RawHtmlPostprocessor.isblocklevel">isblocklevel</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Check is block of HTML is block-level.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.postprocessors.RawHtmlPostprocessor.stash_to_string(text: str) -> str" href="#markdown.postprocessors.RawHtmlPostprocessor.stash_to_string">stash_to_string</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Convert a stashed object to a string.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -268,15 +394,13 @@ takes the html document as a single text string and returns a
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.postprocessors.RawHtmlPostprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L74-L105" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L73-L93" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.postprocessors.RawHtmlPostprocessor.run(text: str) -&gt; str</code>
 
 
@@ -285,7 +409,8 @@ takes the html document as a single text string and returns a
 
     <div class="doc doc-contents ">
 
-      <p>Iterate over html stash and restore html.</p>
+        <p>Iterate over html stash and restore html.</p>
+
 
     </div>
 
@@ -294,15 +419,13 @@ takes the html document as a single text string and returns a
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.postprocessors.RawHtmlPostprocessor.isblocklevel" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L107-L115" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L95-L103" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.postprocessors.RawHtmlPostprocessor.isblocklevel(html: str) -&gt; bool</code>
 
 
@@ -311,7 +434,8 @@ takes the html document as a single text string and returns a
 
     <div class="doc doc-contents ">
 
-      <p>Check is block of HTML is block-level.</p>
+        <p>Check is block of HTML is block-level.</p>
+
 
     </div>
 
@@ -320,15 +444,13 @@ takes the html document as a single text string and returns a
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.postprocessors.RawHtmlPostprocessor.stash_to_string" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L117-L119" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L105-L107" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.postprocessors.RawHtmlPostprocessor.stash_to_string(text: str) -&gt; str</code>
 
 
@@ -337,7 +459,8 @@ takes the html document as a single text string and returns a
 
     <div class="doc doc-contents ">
 
-      <p>Convert a stashed object to a string.</p>
+        <p>Convert a stashed object to a string.</p>
+
 
     </div>
 
@@ -355,16 +478,14 @@ takes the html document as a single text string and returns a
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.postprocessors.AndSubstitutePostprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L122" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L110" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.postprocessors.AndSubstitutePostprocessor(md: Markdown | None = None)</code>
 
 
@@ -373,10 +494,21 @@ takes the html document as a single text string and returns a
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.postprocessors.Postprocessor" href="#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.Postprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
 
 
-      <p>Restore valid entities</p>
+        <p>Restore valid entities</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -396,16 +528,14 @@ takes the html document as a single text string and returns a
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.postprocessors.UnescapePostprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/postprocessors.py#L130" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/postprocessors.py#L118" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.postprocessors.UnescapePostprocessor(md: Markdown | None = None)</code>
 
 
@@ -418,14 +548,26 @@ takes the html document as a single text string and returns a
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.postprocessors.Postprocessor" href="#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.Postprocessor(md: Markdown | None = None)" href="#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
 
 
 
 <div class="admonition warning">
   <p class="admonition-title">Deprecated</p>
-  <p>This class is deprecated and will be removed in the future; use <a class="autorefs autorefs-internal" href="../treeprocessors/#markdown.treeprocessors.UnescapeTreeprocessor"><code>UnescapeTreeprocessor</code></a> instead.</p>
-</div>      <p>Restore escaped chars.</p>
+  <p>This class is deprecated and will be removed in the future; use <a class="autorefs autorefs-internal" title="‹›
+                markdown.treeprocessors.UnescapeTreeprocessor(md: Markdown | None = None)" href="../treeprocessors/#markdown.treeprocessors.UnescapeTreeprocessor"><code>UnescapeTreeprocessor</code></a> instead.</p>
+</div>        <p>Restore escaped chars.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -556,7 +698,7 @@ takes the html document as a single text string and returns a
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -594,14 +736,14 @@ takes the html document as a single text string and returns a
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../..';</script>
         <script src="../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.913258+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.589349+00:00
         -->
     </body>
 </html>

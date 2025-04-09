@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>legacy_attrs</code>" href="../legacy_attrs/" />
         <link rel="prev" title="<code>fenced_code</code>" href="../fenced_code/" />
-        <title>footnotes &#8212; Python-Markdown 3.7 documentation</title>
+        <title>footnotes &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.footnotes" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.footnotes</code>
 
 
@@ -116,9 +116,85 @@
 
     <div class="doc doc-contents first">
 
-      <p>Adds footnote handling to Python-Markdown.</p>
+        <p>Adds footnote handling to Python-Markdown.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/footnotes">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.footnotes.FootnoteExtension(**kwargs)" href="#markdown.extensions.footnotes.FootnoteExtension">FootnoteExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Footnote Extension.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.footnotes.FootnoteBlockProcessor(footnotes: FootnoteExtension)" href="#markdown.extensions.footnotes.FootnoteBlockProcessor">FootnoteBlockProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Find all footnote references and store for later use.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.footnotes.FootnoteInlineProcessor(pattern: str, footnotes: FootnoteExtension)" href="#markdown.extensions.footnotes.FootnoteInlineProcessor">FootnoteInlineProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p><code>InlineProcessor</code> for footnote markers in a document&rsquo;s body text.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.footnotes.FootnotePostTreeprocessor(footnotes: FootnoteExtension)" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor">FootnotePostTreeprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Amend footnote div with duplicates.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.footnotes.FootnoteTreeprocessor(footnotes: FootnoteExtension)" href="#markdown.extensions.footnotes.FootnoteTreeprocessor">FootnoteTreeprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Build and append footnote div to end of document.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.footnotes.FootnotePostprocessor(footnotes: FootnoteExtension)" href="#markdown.extensions.footnotes.FootnotePostprocessor">FootnotePostprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Replace placeholders with html entities.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Functions:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.makeExtension(**kwargs)" href="#markdown.extensions.footnotes.makeExtension">makeExtension</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return an instance of the <code>FootnoteExtension</code></p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -152,16 +228,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.footnotes.FootnoteExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L38" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L38" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension(**kwargs)</code>
 
 
@@ -170,10 +244,115 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Footnote Extension.</p>
+        <p>Footnote Extension.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.extendMarkdown(md)" href="#markdown.extensions.footnotes.FootnoteExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Add pieces to Markdown.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.reset() -> None" href="#markdown.extensions.footnotes.FootnoteExtension.reset">reset</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Clear footnotes on reset, and prepare for distinct document.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.unique_ref(reference: str, found: bool = False) -> str" href="#markdown.extensions.footnotes.FootnoteExtension.unique_ref">unique_ref</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Get a unique reference if there are duplicates.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.findFootnotesPlaceholder(root: etree.Element) -> tuple[etree.Element, etree.Element, bool] | None" href="#markdown.extensions.footnotes.FootnoteExtension.findFootnotesPlaceholder">findFootnotesPlaceholder</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return ElementTree Element that contains Footnote placeholder.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.setFootnote(id: str, text: str) -> None" href="#markdown.extensions.footnotes.FootnoteExtension.setFootnote">setFootnote</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Store a footnote for later retrieval.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.get_separator() -> str" href="#markdown.extensions.footnotes.FootnoteExtension.get_separator">get_separator</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Get the footnote separator.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.makeFootnoteId(id: str) -> str" href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnoteId">makeFootnoteId</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return footnote link id.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.makeFootnoteRefId(id: str, found: bool = False) -> str" href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnoteRefId">makeFootnoteRefId</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return footnote back-link id.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteExtension.makeFootnotesDiv(root: etree.Element) -> etree.Element | None" href="#markdown.extensions.footnotes.FootnoteExtension.makeFootnotesDiv">makeFootnotesDiv</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return <code>div</code> of footnotes as <code>etree</code> Element.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.footnotes.FootnoteExtension.config
+
+  
+      instance-attribute
+  " href="#markdown.extensions.footnotes.FootnoteExtension.config">config</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Default configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -184,16 +363,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L44-L65" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L44-L65" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.config</code>
 
   <span class="doc doc-labels">
@@ -205,7 +382,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Default configuration options.</p>
+        <p>Default configuration options.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">self.config = {
@@ -237,15 +415,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L76-L99" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L76-L99" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.extendMarkdown(md)</code>
 
 
@@ -254,7 +430,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Add pieces to Markdown.</p>
+        <p>Add pieces to Markdown.</p>
+
 
     </div>
 
@@ -263,15 +440,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.reset" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L101-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L101-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.reset() -&gt; None</code>
 
 
@@ -280,7 +455,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Clear footnotes on reset, and prepare for distinct document.</p>
+        <p>Clear footnotes on reset, and prepare for distinct document.</p>
+
 
     </div>
 
@@ -289,15 +465,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.unique_ref" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L108-L127" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L108-L127" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.unique_ref(reference: str, found: bool = False) -&gt; str</code>
 
 
@@ -306,7 +480,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Get a unique reference if there are duplicates.</p>
+        <p>Get a unique reference if there are duplicates.</p>
+
 
     </div>
 
@@ -315,15 +490,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.findFootnotesPlaceholder" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L129-L147" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L129-L147" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.findFootnotesPlaceholder(root: etree.Element) -&gt; tuple[etree.Element, etree.Element, bool] | None</code>
 
 
@@ -332,7 +505,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return ElementTree Element that contains Footnote placeholder.</p>
+        <p>Return ElementTree Element that contains Footnote placeholder.</p>
+
 
     </div>
 
@@ -341,15 +515,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.setFootnote" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L149-L151" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L149-L151" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.setFootnote(id: str, text: str) -&gt; None</code>
 
 
@@ -358,7 +530,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Store a footnote for later retrieval.</p>
+        <p>Store a footnote for later retrieval.</p>
+
 
     </div>
 
@@ -367,15 +540,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.get_separator" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L153-L155" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L153-L155" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.get_separator() -&gt; str</code>
 
 
@@ -384,7 +555,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Get the footnote separator.</p>
+        <p>Get the footnote separator.</p>
+
 
     </div>
 
@@ -393,15 +565,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.makeFootnoteId" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L157-L162" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L157-L162" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.makeFootnoteId(id: str) -&gt; str</code>
 
 
@@ -410,7 +580,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return footnote link id.</p>
+        <p>Return footnote link id.</p>
+
 
     </div>
 
@@ -419,15 +590,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.makeFootnoteRefId" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L164-L169" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L164-L169" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.makeFootnoteRefId(id: str, found: bool = False) -&gt; str</code>
 
 
@@ -436,7 +605,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return footnote back-link id.</p>
+        <p>Return footnote back-link id.</p>
+
 
     </div>
 
@@ -445,15 +615,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteExtension.makeFootnotesDiv" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L171-L213" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L171-L213" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteExtension.makeFootnotesDiv(root: etree.Element) -&gt; etree.Element | None</code>
 
 
@@ -462,7 +630,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return <code>div</code> of footnotes as <code>etree</code> Element.</p>
+        <p>Return <code>div</code> of footnotes as <code>etree</code> Element.</p>
+
 
     </div>
 
@@ -480,16 +649,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.footnotes.FootnoteBlockProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L216" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L216" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.footnotes.FootnoteBlockProcessor(footnotes: FootnoteExtension)</code>
 
 
@@ -498,10 +665,50 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.BlockProcessor(parser: BlockParser)" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
 
 
-      <p>Find all footnote references and store for later use.</p>
+        <p>Find all footnote references and store for later use.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteBlockProcessor.run(parent: etree.Element, blocks: list[str]) -> bool" href="#markdown.extensions.footnotes.FootnoteBlockProcessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Find, set, and remove footnote definitions.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteBlockProcessor.detectTabbed(blocks: list[str]) -> list[str]" href="#markdown.extensions.footnotes.FootnoteBlockProcessor.detectTabbed">detectTabbed</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Find indented text and remove indent before further processing.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnoteBlockProcessor.detab(block: str) -> str" href="#markdown.extensions.footnotes.FootnoteBlockProcessor.detab">detab</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Remove one level of indent from a block.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -512,15 +719,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteBlockProcessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L228-L262" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L228-L262" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteBlockProcessor.run(parent: etree.Element, blocks: list[str]) -&gt; bool</code>
 
 
@@ -529,7 +734,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Find, set, and remove footnote definitions.</p>
+        <p>Find, set, and remove footnote definitions.</p>
+
 
     </div>
 
@@ -538,15 +744,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteBlockProcessor.detectTabbed" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L264-L291" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L264-L291" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteBlockProcessor.detectTabbed(blocks: list[str]) -&gt; list[str]</code>
 
 
@@ -555,7 +759,7 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Find indented text and remove indent before further processing.</p>
+        <p>Find indented text and remove indent before further processing.</p>
 
 
 <p><span class="doc-section-title">Returns:</span></p>
@@ -569,6 +773,7 @@ for details.</p>
         </li>
     </ul>
 
+
     </div>
 
 </div>
@@ -576,15 +781,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnoteBlockProcessor.detab" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L293-L302" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L293-L302" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnoteBlockProcessor.detab(block: str) -&gt; str</code>
 
 
@@ -593,8 +796,9 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Remove one level of indent from a block.</p>
+        <p>Remove one level of indent from a block.</p>
 <p>Preserve lazily indented blocks by only removing indent from indented lines.</p>
+
 
     </div>
 
@@ -612,16 +816,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.footnotes.FootnoteInlineProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L305" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L305" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.footnotes.FootnoteInlineProcessor(pattern: str, footnotes: FootnoteExtension)</code>
 
 
@@ -630,10 +832,21 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.inlinepatterns.InlineProcessor" href="../../inlinepatterns/#markdown.inlinepatterns.InlineProcessor">InlineProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.inlinepatterns.InlineProcessor(pattern: str, md: Markdown | None = None)" href="../../inlinepatterns/#markdown.inlinepatterns.InlineProcessor">InlineProcessor</a></code></p>
 
 
-      <p><code>InlineProcessor</code> for footnote markers in a document&rsquo;s body text.</p>
+        <p><code>InlineProcessor</code> for footnote markers in a document&rsquo;s body text.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -653,16 +866,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.footnotes.FootnotePostTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L328" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L328" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.footnotes.FootnotePostTreeprocessor(footnotes: FootnoteExtension)</code>
 
 
@@ -671,10 +882,58 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
 
 
-      <p>Amend footnote div with duplicates.</p>
+        <p>Amend footnote div with duplicates.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnotePostTreeprocessor.add_duplicates(li: etree.Element, duplicates: int) -> None" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.add_duplicates">add_duplicates</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Adjust current <code>li</code> and add the duplicates: <code>fnref2</code>, <code>fnref3</code>, etc.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnotePostTreeprocessor.get_num_duplicates(li: etree.Element) -> int" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.get_num_duplicates">get_num_duplicates</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Get the number of duplicate refs of the footnote.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnotePostTreeprocessor.handle_duplicates(parent: etree.Element) -> None" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.handle_duplicates">handle_duplicates</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Find duplicate footnotes and format and add the duplicates.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes.FootnotePostTreeprocessor.run(root: etree.Element) -> None" href="#markdown.extensions.footnotes.FootnotePostTreeprocessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Crawl the footnote div and add missing duplicate footnotes.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -685,15 +944,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.add_duplicates" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L334-L352" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L334-L352" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnotePostTreeprocessor.add_duplicates(li: etree.Element, duplicates: int) -&gt; None</code>
 
 
@@ -702,7 +959,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Adjust current <code>li</code> and add the duplicates: <code>fnref2</code>, <code>fnref3</code>, etc.</p>
+        <p>Adjust current <code>li</code> and add the duplicates: <code>fnref2</code>, <code>fnref3</code>, etc.</p>
+
 
     </div>
 
@@ -711,15 +969,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.get_num_duplicates" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L354-L358" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L354-L358" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnotePostTreeprocessor.get_num_duplicates(li: etree.Element) -&gt; int</code>
 
 
@@ -728,7 +984,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Get the number of duplicate refs of the footnote.</p>
+        <p>Get the number of duplicate refs of the footnote.</p>
+
 
     </div>
 
@@ -737,15 +994,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.handle_duplicates" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L360-L367" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L360-L367" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnotePostTreeprocessor.handle_duplicates(parent: etree.Element) -&gt; None</code>
 
 
@@ -754,7 +1009,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Find duplicate footnotes and format and add the duplicates.</p>
+        <p>Find duplicate footnotes and format and add the duplicates.</p>
+
 
     </div>
 
@@ -763,15 +1019,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.footnotes.FootnotePostTreeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L369-L378" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L369-L378" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.footnotes.FootnotePostTreeprocessor.run(root: etree.Element) -&gt; None</code>
 
 
@@ -780,7 +1034,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Crawl the footnote div and add missing duplicate footnotes.</p>
+        <p>Crawl the footnote div and add missing duplicate footnotes.</p>
+
 
     </div>
 
@@ -798,16 +1053,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.footnotes.FootnoteTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L381" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L381" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.footnotes.FootnoteTreeprocessor(footnotes: FootnoteExtension)</code>
 
 
@@ -816,10 +1069,21 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
 
 
-      <p>Build and append footnote div to end of document.</p>
+        <p>Build and append footnote div to end of document.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -839,16 +1103,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.footnotes.FootnotePostprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L404" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L404" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.footnotes.FootnotePostprocessor(footnotes: FootnoteExtension)</code>
 
 
@@ -857,10 +1119,21 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.postprocessors.Postprocessor" href="../../postprocessors/#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.Postprocessor(md: Markdown | None = None)" href="../../postprocessors/#markdown.postprocessors.Postprocessor">Postprocessor</a></code></p>
 
 
-      <p>Replace placeholders with html entities.</p>
+        <p>Replace placeholders with html entities.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -880,15 +1153,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h2 id="markdown.extensions.footnotes.makeExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/footnotes.py#L416-L418" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/footnotes.py#L416-L418" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.extensions.footnotes.makeExtension(**kwargs)</code>
 
 
@@ -897,7 +1168,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return an instance of the <code>FootnoteExtension</code></p>
+        <p>Return an instance of the <code>FootnoteExtension</code></p>
+
 
     </div>
 
@@ -929,7 +1201,7 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.config">config</a>
+        <a class="reference internal" href="#markdown.extensions.footnotes.FootnoteExtension.config">markdown.extensions.footnotes.FootnoteExtension.config</a>
     </li>
             
     <li>
@@ -1079,7 +1351,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -1138,14 +1410,14 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.951494+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.631067+00:00
         -->
     </body>
 </html>

@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>fenced_code</code>" href="../fenced_code/" />
         <link rel="prev" title="<code>def_list</code>" href="../def_list/" />
-        <title>extra &#8212; Python-Markdown 3.7 documentation</title>
+        <title>extra &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.extra" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/extra.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/extra.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.extra</code>
 
 
@@ -116,7 +116,7 @@
 
     <div class="doc doc-contents first">
 
-      <p>A compilation of various Python-Markdown extensions that imitates
+        <p>A compilation of various Python-Markdown extensions that imitates
 <a href="http://michelf.com/projects/php-markdown/extra/">PHP Markdown Extra</a>.</p>
 <p>Note that each of the individual extensions still need to be available
 on your <code>PYTHONPATH</code>. This extension simply wraps them all up as a
@@ -136,6 +136,46 @@ for details.</p>
 
 
 
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.extra.ExtraExtension(**kwargs)" href="#markdown.extensions.extra.ExtraExtension">ExtraExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add various extensions to Markdown class.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.extra.extensions
+
+  
+      module-attribute
+  " href="#markdown.extensions.extra.extensions">extensions</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>The list of included extensions.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
   <div class="doc doc-children">
 
 
@@ -146,16 +186,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h2 id="markdown.extensions.extra.extensions" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/extra.py#L41-L49" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/extra.py#L41-L49" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.extra.extensions</code>
 
   <span class="doc doc-labels">
@@ -167,7 +205,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>The list of included extensions.</p>
+        <p>The list of included extensions.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">extensions = [
@@ -186,16 +225,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.extra.ExtraExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/extra.py#L53" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/extra.py#L53" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.extra.ExtraExtension(**kwargs)</code>
 
 
@@ -204,10 +241,34 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Add various extensions to Markdown class.</p>
+        <p>Add various extensions to Markdown class.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.extra.ExtraExtension.extendMarkdown(md)" href="#markdown.extensions.extra.ExtraExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Register extension instances.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -218,15 +279,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.extra.ExtraExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/extra.py#L60-L62" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/extra.py#L60-L62" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.extra.ExtraExtension.extendMarkdown(md)</code>
 
 
@@ -235,7 +294,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Register extension instances.</p>
+        <p>Register extension instances.</p>
+
 
     </div>
 
@@ -272,7 +332,7 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.extra.extensions">extensions</a>
+        <a class="reference internal" href="#markdown.extensions.extra.extensions">markdown.extensions.extra.extensions</a>
     </li>
             
     <li>
@@ -338,7 +398,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -397,14 +457,14 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.947750+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.627275+00:00
         -->
     </body>
 </html>

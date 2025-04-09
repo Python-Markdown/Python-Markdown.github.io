@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>meta</code>" href="../meta/" />
         <link rel="prev" title="<code>legacy_em</code>" href="../legacy_em/" />
-        <title>md_in_html &#8212; Python-Markdown 3.7 documentation</title>
+        <title>md_in_html &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.md_in_html" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.md_in_html</code>
 
 
@@ -116,10 +116,65 @@
 
     <div class="doc doc-contents first">
 
-      <p>An implementation of <a href="http://michelf.com/projects/php-markdown/extra/">PHP Markdown Extra</a>&rsquo;s
-parsing of Markdown syntax in raw HTML.</p>
+        <p>Parse Markdown syntax within raw HTML.
+Based on the implementation in <a href="http://michelf.com/projects/php-markdown/extra/">PHP Markdown Extra</a>.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/raw_html">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.md_in_html.HTMLExtractorExtra(md: Markdown, *args, **kwargs)" href="#markdown.extensions.md_in_html.HTMLExtractorExtra">HTMLExtractorExtra</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Override <code>HTMLExtractor</code> and create <code>etree</code> <code>Elements</code> for any elements which should have content parsed as</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.md_in_html.HtmlBlockPreprocessor(md: Markdown | None = None)" href="#markdown.extensions.md_in_html.HtmlBlockPreprocessor">HtmlBlockPreprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Remove html blocks from the text and store them for later retrieval.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.md_in_html.MarkdownInHtmlProcessor(parser: BlockParser)" href="#markdown.extensions.md_in_html.MarkdownInHtmlProcessor">MarkdownInHtmlProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Process Markdown Inside HTML Blocks which have been stored in the <code>HtmlStash</code>.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor(md: Markdown | None = None)" href="#markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor">MarkdownInHTMLPostprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.md_in_html.MarkdownInHtmlExtension(**kwargs)" href="#markdown.extensions.md_in_html.MarkdownInHtmlExtension">MarkdownInHtmlExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add Markdown parsing in HTML to Markdown class.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -157,16 +212,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.md_in_html.HTMLExtractorExtra" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.md_in_html.HTMLExtractorExtra(md: Markdown, *args, **kwargs)</code>
 
 
@@ -175,11 +228,59 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.htmlparser.HTMLExtractor" href="../../htmlparser/#markdown.htmlparser.HTMLExtractor">HTMLExtractor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.htmlparser.HTMLExtractor(md: Markdown, *args, **kwargs)" href="../../htmlparser/#markdown.htmlparser.HTMLExtractor">HTMLExtractor</a></code></p>
 
 
-      <p>Override <code>HTMLExtractor</code> and create <code>etree</code> <code>Elements</code> for any elements which should have content parsed as
+        <p>Override <code>HTMLExtractor</code> and create <code>etree</code> <code>Elements</code> for any elements which should have content parsed as
 Markdown.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html.HTMLExtractorExtra.reset()" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.reset">reset</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Reset this instance.  Loses all unprocessed data.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html.HTMLExtractorExtra.close()" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.close">close</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Handle any buffered data.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html.HTMLExtractorExtra.get_element() -> etree.Element" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.get_element">get_element</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return element from <code>treebuilder</code> and reset <code>treebuilder</code> for later use.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html.HTMLExtractorExtra.get_state(tag, attrs: Mapping[str, str]) -> Literal['block', 'span', 'off', None]" href="#markdown.extensions.md_in_html.HTMLExtractorExtra.get_state">get_state</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return state from tag and <code>markdown</code> attribute. One of &lsquo;block&rsquo;, &lsquo;span&rsquo;, or &lsquo;off&rsquo;.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -190,15 +291,13 @@ Markdown.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.reset" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L59-L64" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L59-L65" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.md_in_html.HTMLExtractorExtra.reset()</code>
 
 
@@ -207,7 +306,8 @@ Markdown.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Reset this instance.  Loses all unprocessed data.</p>
+        <p>Reset this instance.  Loses all unprocessed data.</p>
+
 
     </div>
 
@@ -216,15 +316,13 @@ Markdown.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.close" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L66-L72" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L67-L73" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.md_in_html.HTMLExtractorExtra.close()</code>
 
 
@@ -233,7 +331,8 @@ Markdown.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Handle any buffered data.</p>
+        <p>Handle any buffered data.</p>
+
 
     </div>
 
@@ -242,15 +341,13 @@ Markdown.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.get_element" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L74-L78" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L75-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.md_in_html.HTMLExtractorExtra.get_element() -&gt; etree.Element</code>
 
 
@@ -259,7 +356,8 @@ Markdown.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return element from <code>treebuilder</code> and reset <code>treebuilder</code> for later use.</p>
+        <p>Return element from <code>treebuilder</code> and reset <code>treebuilder</code> for later use.</p>
+
 
     </div>
 
@@ -268,15 +366,13 @@ Markdown.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.md_in_html.HTMLExtractorExtra.get_state" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L80-L99" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L81-L100" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.md_in_html.HTMLExtractorExtra.get_state(tag, attrs: Mapping[str, str]) -&gt; Literal['block', 'span', 'off', None]</code>
 
 
@@ -285,7 +381,8 @@ Markdown.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return state from tag and <code>markdown</code> attribute. One of &lsquo;block&rsquo;, &lsquo;span&rsquo;, or &lsquo;off&rsquo;.</p>
+        <p>Return state from tag and <code>markdown</code> attribute. One of &lsquo;block&rsquo;, &lsquo;span&rsquo;, or &lsquo;off&rsquo;.</p>
+
 
     </div>
 
@@ -303,16 +400,14 @@ Markdown.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.md_in_html.HtmlBlockPreprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L243" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L292" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.md_in_html.HtmlBlockPreprocessor(md: Markdown | None = None)</code>
 
 
@@ -321,10 +416,21 @@ Markdown.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.preprocessors.Preprocessor" href="../../preprocessors/#markdown.preprocessors.Preprocessor">Preprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.preprocessors.Preprocessor(md: Markdown | None = None)" href="../../preprocessors/#markdown.preprocessors.Preprocessor">Preprocessor</a></code></p>
 
 
-      <p>Remove html blocks from the text and store them for later retrieval.</p>
+        <p>Remove html blocks from the text and store them for later retrieval.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -344,16 +450,14 @@ Markdown.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.md_in_html.MarkdownInHtmlProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L254" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L303" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.md_in_html.MarkdownInHtmlProcessor(parser: BlockParser)</code>
 
 
@@ -362,10 +466,34 @@ Markdown.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.BlockProcessor(parser: BlockParser)" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
 
 
-      <p>Process Markdown Inside HTML Blocks which have been stored in the <code>HtmlStash</code>.</p>
+        <p>Process Markdown Inside HTML Blocks which have been stored in the <code>HtmlStash</code>.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html.MarkdownInHtmlProcessor.parse_element_content(element: etree.Element) -> None" href="#markdown.extensions.md_in_html.MarkdownInHtmlProcessor.parse_element_content">parse_element_content</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Recursively parse the text content of an <code>etree</code> Element as Markdown.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -376,15 +504,13 @@ Markdown.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.md_in_html.MarkdownInHtmlProcessor.parse_element_content" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L261-L329" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L310-L381" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.md_in_html.MarkdownInHtmlProcessor.parse_element_content(element: etree.Element) -&gt; None</code>
 
 
@@ -393,10 +519,11 @@ Markdown.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Recursively parse the text content of an <code>etree</code> Element as Markdown.</p>
+        <p>Recursively parse the text content of an <code>etree</code> Element as Markdown.</p>
 <p>Any block level elements generated from the Markdown will be inserted as children of the element in place
 of the text content. All <code>markdown</code> attributes are removed. For any elements in which Markdown parsing has
 been disabled, the text content of it and its children are wrapped in an <code>AtomicString</code>.</p>
+
 
     </div>
 
@@ -414,16 +541,14 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L350" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L402" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor(md: Markdown | None = None)</code>
 
 
@@ -432,7 +557,31 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.postprocessors.RawHtmlPostprocessor" href="../../postprocessors/#markdown.postprocessors.RawHtmlPostprocessor">RawHtmlPostprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.postprocessors.RawHtmlPostprocessor(md: Markdown | None = None)" href="../../postprocessors/#markdown.postprocessors.RawHtmlPostprocessor">RawHtmlPostprocessor</a></code></p>
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor.stash_to_string(text: str | etree.Element) -> str" href="#markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor.stash_to_string">stash_to_string</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Override default to handle any <code>etree</code> elements still in the stash.</p>
+            </div>
+          </li>
+    </ul>
+
 
 
 
@@ -444,15 +593,13 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor.stash_to_string" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L351-L356" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L403-L408" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.md_in_html.MarkdownInHTMLPostprocessor.stash_to_string(text: str | etree.Element) -&gt; str</code>
 
 
@@ -461,7 +608,8 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
     <div class="doc doc-contents ">
 
-      <p>Override default to handle any <code>etree</code> elements still in the stash.</p>
+        <p>Override default to handle any <code>etree</code> elements still in the stash.</p>
+
 
     </div>
 
@@ -479,16 +627,14 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.md_in_html.MarkdownInHtmlExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L359" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L411" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.md_in_html.MarkdownInHtmlExtension(**kwargs)</code>
 
 
@@ -497,10 +643,34 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Add Markdown parsing in HTML to Markdown class.</p>
+        <p>Add Markdown parsing in HTML to Markdown class.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html.MarkdownInHtmlExtension.extendMarkdown(md)" href="#markdown.extensions.md_in_html.MarkdownInHtmlExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Register extension instances.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -511,15 +681,13 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.md_in_html.MarkdownInHtmlExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/md_in_html.py#L362-L372" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/md_in_html.py#L414-L424" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.md_in_html.MarkdownInHtmlExtension.extendMarkdown(md)</code>
 
 
@@ -528,7 +696,8 @@ been disabled, the text content of it and its children are wrapped in an <code>A
 
     <div class="doc doc-contents ">
 
-      <p>Register extension instances.</p>
+        <p>Register extension instances.</p>
+
 
     </div>
 
@@ -673,7 +842,7 @@ been disabled, the text content of it and its children are wrapped in an <code>A
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -732,14 +901,14 @@ been disabled, the text content of it and its children are wrapped in an <code>A
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.959800+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.639942+00:00
         -->
     </body>
 </html>

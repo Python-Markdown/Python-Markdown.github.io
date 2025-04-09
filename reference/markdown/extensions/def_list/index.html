@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>extra</code>" href="../extra/" />
         <link rel="prev" title="<code>codehilite</code>" href="../codehilite/" />
-        <title>def_list &#8212; Python-Markdown 3.7 documentation</title>
+        <title>def_list &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.def_list" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.def_list</code>
 
 
@@ -116,9 +116,48 @@
 
     <div class="doc doc-contents first">
 
-      <p>Adds parsing of Definition Lists to Python-Markdown.</p>
+        <p>Adds parsing of Definition Lists to Python-Markdown.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/definition_lists">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.def_list.DefListProcessor(parser: BlockParser)" href="#markdown.extensions.def_list.DefListProcessor">DefListProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Process Definition Lists.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.def_list.DefListIndentProcessor(*args)" href="#markdown.extensions.def_list.DefListIndentProcessor">DefListIndentProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Process indented children of definition list items.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.def_list.DefListExtension(**kwargs)" href="#markdown.extensions.def_list.DefListExtension">DefListExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add definition lists to Markdown.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -140,16 +179,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.def_list.DefListProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py#L30" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py#L30" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.def_list.DefListProcessor(parser: BlockParser)</code>
 
 
@@ -158,10 +195,21 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.BlockProcessor(parser: BlockParser)" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
 
 
-      <p>Process Definition Lists.</p>
+        <p>Process Definition Lists.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -181,16 +229,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.def_list.DefListIndentProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py#L93" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py#L93" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.def_list.DefListIndentProcessor(*args)</code>
 
 
@@ -199,10 +245,65 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.ListIndentProcessor" href="../../blockprocessors/#markdown.blockprocessors.ListIndentProcessor">ListIndentProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.ListIndentProcessor(*args)" href="../../blockprocessors/#markdown.blockprocessors.ListIndentProcessor">ListIndentProcessor</a></code></p>
 
 
-      <p>Process indented children of definition list items.</p>
+        <p>Process indented children of definition list items.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.def_list.DefListIndentProcessor.create_item(parent: etree.Element, block: str) -> None" href="#markdown.extensions.def_list.DefListIndentProcessor.create_item">create_item</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Create a new <code>dd</code> or <code>li</code> (depending on parent) and parse the block with it as the parent.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.def_list.DefListIndentProcessor.ITEM_TYPES
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.extensions.def_list.DefListIndentProcessor.ITEM_TYPES">ITEM_TYPES</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Include <code>dd</code> in list item types.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.def_list.DefListIndentProcessor.LIST_TYPES
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.extensions.def_list.DefListIndentProcessor.LIST_TYPES">LIST_TYPES</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Include <code>dl</code> is list types.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -213,16 +314,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.def_list.DefListIndentProcessor.ITEM_TYPES" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py#L97" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py#L97" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.def_list.DefListIndentProcessor.ITEM_TYPES</code>
 
   <span class="doc doc-labels">
@@ -235,7 +334,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Include <code>dd</code> in list item types.</p>
+        <p>Include <code>dd</code> in list item types.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">ITEM_TYPES = ['dd', 'li']
@@ -246,16 +346,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.def_list.DefListIndentProcessor.LIST_TYPES" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py#L99" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py#L99" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.def_list.DefListIndentProcessor.LIST_TYPES</code>
 
   <span class="doc doc-labels">
@@ -268,7 +366,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Include <code>dl</code> is list types.</p>
+        <p>Include <code>dl</code> is list types.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">LIST_TYPES = ['dl', 'ol', 'ul']
@@ -279,15 +378,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.def_list.DefListIndentProcessor.create_item" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py#L102-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py#L102-L106" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.def_list.DefListIndentProcessor.create_item(parent: etree.Element, block: str) -&gt; None</code>
 
 
@@ -296,7 +393,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Create a new <code>dd</code> or <code>li</code> (depending on parent) and parse the block with it as the parent.</p>
+        <p>Create a new <code>dd</code> or <code>li</code> (depending on parent) and parse the block with it as the parent.</p>
+
 
     </div>
 
@@ -314,16 +412,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.def_list.DefListExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py#L109" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py#L109" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.def_list.DefListExtension(**kwargs)</code>
 
 
@@ -332,10 +428,34 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Add definition lists to Markdown.</p>
+        <p>Add definition lists to Markdown.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.def_list.DefListExtension.extendMarkdown(md)" href="#markdown.extensions.def_list.DefListExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Add an instance of <code>DefListProcessor</code> to <code>BlockParser</code>.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -346,15 +466,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.def_list.DefListExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/def_list.py#L112-L115" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/def_list.py#L112-L115" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.def_list.DefListExtension.extendMarkdown(md)</code>
 
 
@@ -363,7 +481,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Add an instance of <code>DefListProcessor</code> to <code>BlockParser</code>.</p>
+        <p>Add an instance of <code>DefListProcessor</code> to <code>BlockParser</code>.</p>
+
 
     </div>
 
@@ -408,11 +527,11 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.def_list.DefListIndentProcessor.ITEM_TYPES">ITEM_TYPES</a>
+        <a class="reference internal" href="#markdown.extensions.def_list.DefListIndentProcessor.ITEM_TYPES">markdown.extensions.def_list.DefListIndentProcessor.ITEM_TYPES</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.def_list.DefListIndentProcessor.LIST_TYPES">LIST_TYPES</a>
+        <a class="reference internal" href="#markdown.extensions.def_list.DefListIndentProcessor.LIST_TYPES">markdown.extensions.def_list.DefListIndentProcessor.LIST_TYPES</a>
     </li>
             
     <li>
@@ -484,7 +603,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -543,14 +662,14 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.945467+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.624792+00:00
         -->
     </body>
 </html>

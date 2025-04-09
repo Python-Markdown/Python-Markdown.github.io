@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>abbr</code>" href="abbr/" />
         <link rel="prev" title="<code>test_tools</code>" href="../test_tools/" />
-        <title>extensions &#8212; Python-Markdown 3.7 documentation</title>
+        <title>extensions &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -104,7 +104,7 @@
 
 
 <h1 id="markdown.extensions" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions</code>
 
 
@@ -113,11 +113,187 @@
 
     <div class="doc doc-contents first">
 
-      <p>Markdown accepts an <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension"><code>Extension</code></a> instance for each extension. Therefore, each extension
-must to define a class that extends <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension"><code>Extension</code></a> and over-rides the
-<a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.extendMarkdown"><code>extendMarkdown</code></a> method. Within this class one can manage configuration
+        <p>Markdown accepts an <a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="#markdown.extensions.Extension"><code>Extension</code></a> instance for each extension. Therefore, each extension
+must to define a class that extends <a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="#markdown.extensions.Extension"><code>Extension</code></a> and over-rides the
+<a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.extendMarkdown(md: Markdown) -> None" href="#markdown.extensions.Extension.extendMarkdown"><code>extendMarkdown</code></a> method. Within this class one can manage configuration
 options for their extension and attach the various processors and patterns which make up an extension to the
-<a class="autorefs autorefs-internal" href="../#markdown.Markdown"><code>Markdown</code></a> instance.</p>
+<a class="autorefs autorefs-internal" title="‹›
+                markdown.Markdown(**kwargs)" href="../#markdown.Markdown"><code>Markdown</code></a> instance.</p>
+
+
+
+
+
+
+<p><span class="doc-section-title">Modules:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr" href="abbr/#markdown.extensions.abbr">abbr</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>This extension adds abbreviation handling to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.admonition" href="admonition/#markdown.extensions.admonition">admonition</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Adds rST-style admonitions to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.attr_list" href="attr_list/#markdown.extensions.attr_list">attr_list</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Adds attribute list syntax to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.codehilite" href="codehilite/#markdown.extensions.codehilite">codehilite</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Adds code/syntax highlighting to standard Python-Markdown code blocks.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.def_list" href="def_list/#markdown.extensions.def_list">def_list</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Adds parsing of Definition Lists to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.extra" href="extra/#markdown.extensions.extra">extra</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>A compilation of various Python-Markdown extensions that imitates</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.fenced_code" href="fenced_code/#markdown.extensions.fenced_code">fenced_code</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>This extension adds Fenced Code Blocks to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.footnotes" href="footnotes/#markdown.extensions.footnotes">footnotes</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Adds footnote handling to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.legacy_attrs" href="legacy_attrs/#markdown.extensions.legacy_attrs">legacy_attrs</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>An extension to Python Markdown which implements legacy attributes.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.legacy_em" href="legacy_em/#markdown.extensions.legacy_em">legacy_em</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>This extension provides legacy behavior for <em>connected_words</em>.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.md_in_html" href="md_in_html/#markdown.extensions.md_in_html">md_in_html</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Parse Markdown syntax within raw HTML.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.meta" href="meta/#markdown.extensions.meta">meta</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>This extension adds Meta Data handling to markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.nl2br" href="nl2br/#markdown.extensions.nl2br">nl2br</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>A Python-Markdown extension to treat newlines as hard breaks.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.sane_lists" href="sane_lists/#markdown.extensions.sane_lists">sane_lists</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Modify the behavior of Lists in Python-Markdown to act in a sane manor.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.smarty" href="smarty/#markdown.extensions.smarty">smarty</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Convert ASCII dashes, quotes and ellipses to their HTML entity equivalents.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.tables" href="tables/#markdown.extensions.tables">tables</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Adds parsing of tables to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.toc" href="toc/#markdown.extensions.toc">toc</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add table of contents support to Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.wikilinks" href="wikilinks/#markdown.extensions.wikilinks">wikilinks</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Converts <code>[[WikiLinks]]</code> to relative links.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="#markdown.extensions.Extension">Extension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Base class for extensions to subclass.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -137,86 +313,12 @@ options for their extension and attach the various processors and patterns which
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-  
-
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.Extension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.Extension(**kwargs)</code>
 
 
@@ -226,7 +328,89 @@ options for their extension and attach the various processors and patterns which
     <div class="doc doc-contents ">
 
 
-      <p>Base class for extensions to subclass.</p>
+        <p>Base class for extensions to subclass.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.getConfig(key: str, default: Any = '') -> Any" href="#markdown.extensions.Extension.getConfig">getConfig</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return a single configuration option value.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.getConfigs() -> dict[str, Any]" href="#markdown.extensions.Extension.getConfigs">getConfigs</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return all configuration options.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.getConfigInfo() -> list[tuple[str, str]]" href="#markdown.extensions.Extension.getConfigInfo">getConfigInfo</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return descriptions of all configuration options.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.setConfig(key: str, value: Any) -> None" href="#markdown.extensions.Extension.setConfig">setConfig</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Set a configuration option.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.setConfigs(items: Mapping[str, Any] | Iterable[tuple[str, Any]]) -> None" href="#markdown.extensions.Extension.setConfigs">setConfigs</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Loop through a collection of configuration options, passing each to</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.extendMarkdown(md: Markdown) -> None" href="#markdown.extensions.Extension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Add the various processors and patterns to the Markdown Instance.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.Extension.config: Mapping[str, list]
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.extensions.Extension.config">config</a></code></b>
+              (<code><a class="autorefs autorefs-external" title="typing.Mapping" href="https://docs.python.org/3/library/typing.html#typing.Mapping">Mapping</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#list">list</a>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>Default configuration for an extension.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -237,16 +421,14 @@ options for their extension and attach the various processors and patterns which
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.Extension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L40" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L40" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.Extension.config: Mapping[str, list]</code>
 
   <span class="doc doc-labels">
@@ -259,15 +441,17 @@ options for their extension and attach the various processors and patterns which
 
     <div class="doc doc-contents ">
   
-      <p>Default configuration for an extension.</p>
+        <p>Default configuration for an extension.</p>
 <p>This attribute is to be defined in a subclass and must be of the following format:</p>
 <pre class="codehilite"><code class="language-python">config = {
     'key': ['value', 'description']
 }
 </code></pre>
 
-<p>Note that <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.setConfig"><code>setConfig</code></a> will raise a <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#KeyError"><code>KeyError</code></a>
+<p>Note that <a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.setConfig(key: str, value: Any) -> None" href="#markdown.extensions.Extension.setConfig"><code>setConfig</code></a> will raise a <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/exceptions.html#KeyError"><code>KeyError</code></a>
 if a default is not set for each option.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">config: Mapping[str, list] = {}
@@ -278,15 +462,13 @@ if a default is not set for each option.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.Extension.getConfig" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L60-L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L60-L74" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.getConfig(key: str, default: Any = '') -&gt; Any</code>
 
 
@@ -295,13 +477,13 @@ if a default is not set for each option.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return a single configuration option value.</p>
+        <p>Return a single configuration option value.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-          <b><code>key</code></b>
+            <b><code>key</code></b>
               (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
           –
           <div class="doc-md-description">
@@ -309,7 +491,7 @@ if a default is not set for each option.</p>
           </div>
         </li>
         <li class="doc-section-item field-body">
-          <b><code>default</code></b>
+            <b><code>default</code></b>
               (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>, default:
                   <code>&#39;&#39;</code>
 )
@@ -332,6 +514,7 @@ if a default is not set for each option.</p>
         </li>
     </ul>
 
+
     </div>
 
 </div>
@@ -339,15 +522,13 @@ if a default is not set for each option.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.Extension.getConfigs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L76-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L76-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.getConfigs() -&gt; dict[str, Any]</code>
 
 
@@ -356,7 +537,7 @@ if a default is not set for each option.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return all configuration options.</p>
+        <p>Return all configuration options.</p>
 
 
 <p><span class="doc-section-title">Returns:</span></p>
@@ -370,6 +551,7 @@ if a default is not set for each option.</p>
         </li>
     </ul>
 
+
     </div>
 
 </div>
@@ -377,15 +559,13 @@ if a default is not set for each option.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.Extension.getConfigInfo" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L85-L92" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L85-L92" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.getConfigInfo() -&gt; list[tuple[str, str]]</code>
 
 
@@ -394,7 +574,7 @@ if a default is not set for each option.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return descriptions of all configuration options.</p>
+        <p>Return descriptions of all configuration options.</p>
 
 
 <p><span class="doc-section-title">Returns:</span></p>
@@ -408,6 +588,7 @@ if a default is not set for each option.</p>
         </li>
     </ul>
 
+
     </div>
 
 </div>
@@ -415,15 +596,13 @@ if a default is not set for each option.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.Extension.setConfig" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L94-L113" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L94-L113" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.setConfig(key: str, value: Any) -&gt; None</code>
 
 
@@ -432,16 +611,23 @@ if a default is not set for each option.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Set a configuration option.</p>
-<p>If the corresponding default value set in <a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.config"><code>config</code></a>
+        <p>Set a configuration option.</p>
+<p>If the corresponding default value set in <a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.Extension.config: Mapping[str, list]
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.extensions.Extension.config"><code>config</code></a>
 is a <code>bool</code> value or <code>None</code>, then <code>value</code> is passed through
-<a class="autorefs autorefs-internal" href="../util/#markdown.util.parseBoolValue"><code>parseBoolValue</code></a> before being stored.</p>
+<a class="autorefs autorefs-internal" title="‹›
+              markdown.util.parseBoolValue(value: str | None, fail_on_errors: bool = True, preserve_none: bool = False) -> bool | None" href="../util/#markdown.util.parseBoolValue"><code>parseBoolValue</code></a> before being stored.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-          <b><code>key</code></b>
+            <b><code>key</code></b>
               (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
           –
           <div class="doc-md-description">
@@ -449,7 +635,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
           </div>
         </li>
         <li class="doc-section-item field-body">
-          <b><code>value</code></b>
+            <b><code>value</code></b>
               (<code><a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a></code>)
           –
           <div class="doc-md-description">
@@ -470,6 +656,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
         </li>
     </ul>
 
+
     </div>
 
 </div>
@@ -477,15 +664,13 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.Extension.setConfigs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L115-L130" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L115-L130" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.setConfigs(items: Mapping[str, Any] | Iterable[tuple[str, Any]]) -&gt; None</code>
 
 
@@ -494,14 +679,15 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
 
     <div class="doc doc-contents ">
 
-      <p>Loop through a collection of configuration options, passing each to
-<a class="autorefs autorefs-internal" href="#markdown.extensions.Extension.setConfig"><code>setConfig</code></a>.</p>
+        <p>Loop through a collection of configuration options, passing each to
+<a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.Extension.setConfig(key: str, value: Any) -> None" href="#markdown.extensions.Extension.setConfig"><code>setConfig</code></a>.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-          <b><code>items</code></b>
+            <b><code>items</code></b>
               (<code><a class="autorefs autorefs-external" title="typing.Mapping" href="https://docs.python.org/3/library/typing.html#typing.Mapping">Mapping</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>] | <a class="autorefs autorefs-external" title="typing.Iterable" href="https://docs.python.org/3/library/typing.html#typing.Iterable">Iterable</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#tuple">tuple</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]]</code>)
           –
           <div class="doc-md-description">
@@ -522,6 +708,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
         </li>
     </ul>
 
+
     </div>
 
 </div>
@@ -529,15 +716,13 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.Extension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/__init__.py#L132-L145" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/__init__.py#L132-L145" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.Extension.extendMarkdown(md: Markdown) -&gt; None</code>
 
 
@@ -546,21 +731,23 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
 
     <div class="doc doc-contents ">
 
-      <p>Add the various processors and patterns to the Markdown Instance.</p>
+        <p>Add the various processors and patterns to the Markdown Instance.</p>
 <p>This method must be overridden by every extension.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
     <ul>
         <li class="doc-section-item field-body">
-          <b><code>md</code></b>
-              (<code><a class="autorefs autorefs-internal" title="markdown.Markdown" href="../#markdown.Markdown">Markdown</a></code>)
+            <b><code>md</code></b>
+              (<code><a class="autorefs autorefs-internal" title="‹›
+                markdown.Markdown(**kwargs)" href="../#markdown.Markdown">Markdown</a></code>)
           –
           <div class="doc-md-description">
             <p>The Markdown instance.</p>
           </div>
         </li>
     </ul>
+
 
     </div>
 
@@ -574,6 +761,78 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
     </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -601,7 +860,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.Extension.config">config</a>
+        <a class="reference internal" href="#markdown.extensions.Extension.config">markdown.extensions.Extension.config</a>
     </li>
             
     <li>
@@ -683,7 +942,7 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -739,14 +998,14 @@ is a <code>bool</code> value or <code>None</code>, then <code>value</code> is pa
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../..';</script>
         <script src="../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.931634+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.608897+00:00
         -->
     </body>
 </html>

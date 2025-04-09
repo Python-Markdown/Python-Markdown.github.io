@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>footnotes</code>" href="../footnotes/" />
         <link rel="prev" title="<code>extra</code>" href="../extra/" />
-        <title>fenced_code &#8212; Python-Markdown 3.7 documentation</title>
+        <title>fenced_code &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.fenced_code" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/fenced_code.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/fenced_code.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.fenced_code</code>
 
 
@@ -116,9 +116,40 @@
 
     <div class="doc doc-contents first">
 
-      <p>This extension adds Fenced Code Blocks to Python-Markdown.</p>
+        <p>This extension adds Fenced Code Blocks to Python-Markdown.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/fenced_code_blocks">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.fenced_code.FencedCodeExtension(**kwargs)" href="#markdown.extensions.fenced_code.FencedCodeExtension">FencedCodeExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.fenced_code.FencedBlockPreprocessor(md: Markdown, config: dict[str, Any])" href="#markdown.extensions.fenced_code.FencedBlockPreprocessor">FencedBlockPreprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Find and extract fenced code blocks.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -164,16 +195,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.fenced_code.FencedCodeExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/fenced_code.py#L38" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/fenced_code.py#L38" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.fenced_code.FencedCodeExtension(**kwargs)</code>
 
 
@@ -182,8 +211,49 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.fenced_code.FencedCodeExtension.extendMarkdown(md)" href="#markdown.extensions.fenced_code.FencedCodeExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Add <code>FencedBlockPreprocessor</code> to the Markdown instance.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.fenced_code.FencedCodeExtension.config
+
+  
+      instance-attribute
+  " href="#markdown.extensions.fenced_code.FencedCodeExtension.config">config</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Default configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -194,16 +264,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.fenced_code.FencedCodeExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/fenced_code.py#L40-L42" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/fenced_code.py#L40-L42" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.fenced_code.FencedCodeExtension.config</code>
 
   <span class="doc doc-labels">
@@ -215,7 +283,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Default configuration options.</p>
+        <p>Default configuration options.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">self.config = {
@@ -228,15 +297,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.fenced_code.FencedCodeExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/fenced_code.py#L46-L50" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/fenced_code.py#L46-L50" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.fenced_code.FencedCodeExtension.extendMarkdown(md)</code>
 
 
@@ -245,7 +312,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Add <code>FencedBlockPreprocessor</code> to the Markdown instance.</p>
+        <p>Add <code>FencedBlockPreprocessor</code> to the Markdown instance.</p>
+
 
     </div>
 
@@ -263,16 +331,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.fenced_code.FencedBlockPreprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/fenced_code.py#L53" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/fenced_code.py#L53" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.fenced_code.FencedBlockPreprocessor(md: Markdown, config: dict[str, Any])</code>
 
 
@@ -281,10 +347,42 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.preprocessors.Preprocessor" href="../../preprocessors/#markdown.preprocessors.Preprocessor">Preprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.preprocessors.Preprocessor(md: Markdown | None = None)" href="../../preprocessors/#markdown.preprocessors.Preprocessor">Preprocessor</a></code></p>
 
 
-      <p>Find and extract fenced code blocks.</p>
+        <p>Find and extract fenced code blocks.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.fenced_code.FencedBlockPreprocessor.run(lines: list[str]) -> list[str]" href="#markdown.extensions.fenced_code.FencedBlockPreprocessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Match and store Fenced Code Blocks in the <code>HtmlStash</code>.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.fenced_code.FencedBlockPreprocessor.handle_attrs(attrs: Iterable[tuple[str, str]]) -> tuple[str, list[str], dict[str, Any]]" href="#markdown.extensions.fenced_code.FencedBlockPreprocessor.handle_attrs">handle_attrs</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return tuple: <code>(id, [list, of, classes], {configs})</code></p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -295,15 +393,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.fenced_code.FencedBlockPreprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/fenced_code.py#L83-L163" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/fenced_code.py#L83-L163" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.fenced_code.FencedBlockPreprocessor.run(lines: list[str]) -&gt; list[str]</code>
 
 
@@ -312,7 +408,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Match and store Fenced Code Blocks in the <code>HtmlStash</code>.</p>
+        <p>Match and store Fenced Code Blocks in the <code>HtmlStash</code>.</p>
+
 
     </div>
 
@@ -321,15 +418,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.fenced_code.FencedBlockPreprocessor.handle_attrs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/fenced_code.py#L165-L181" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/fenced_code.py#L165-L181" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.fenced_code.FencedBlockPreprocessor.handle_attrs(attrs: Iterable[tuple[str, str]]) -&gt; tuple[str, list[str], dict[str, Any]]</code>
 
 
@@ -338,7 +433,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Return tuple: <code>(id, [list, of, classes], {configs})</code></p>
+        <p>Return tuple: <code>(id, [list, of, classes], {configs})</code></p>
+
 
     </div>
 
@@ -379,7 +475,7 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.fenced_code.FencedCodeExtension.config">config</a>
+        <a class="reference internal" href="#markdown.extensions.fenced_code.FencedCodeExtension.config">markdown.extensions.fenced_code.FencedCodeExtension.config</a>
     </li>
             
     <li>
@@ -455,7 +551,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -514,14 +610,14 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.949480+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.628945+00:00
         -->
     </body>
 </html>

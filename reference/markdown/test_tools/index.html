@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>extensions</code>" href="../extensions/" />
         <link rel="prev" title="<code>htmlparser</code>" href="../htmlparser/" />
-        <title>test_tools &#8212; Python-Markdown 3.7 documentation</title>
+        <title>test_tools &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -86,7 +86,7 @@
 
 
 <h1 id="markdown.test_tools" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/test_tools.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/test_tools.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.test_tools</code>
 
 
@@ -95,7 +95,46 @@
 
     <div class="doc doc-contents first">
 
-      <p>A collection of tools for testing the Markdown code base and extensions.</p>
+        <p>A collection of tools for testing the Markdown code base and extensions.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.test_tools.TestCase" href="#markdown.test_tools.TestCase">TestCase</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass with helpers for testing Markdown output.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.test_tools.Kwargs" href="#markdown.test_tools.Kwargs">Kwargs</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>A <code>dict</code> like class for holding keyword arguments.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.test_tools.LegacyTestCase" href="#markdown.test_tools.LegacyTestCase">LegacyTestCase</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass for running Markdown&rsquo;s legacy file-based tests.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -117,16 +156,14 @@
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.test_tools.TestCase" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/test_tools.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/test_tools.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>markdown.test_tools.TestCase</code>
 
 
@@ -139,7 +176,7 @@
               Bases: <code><a class="autorefs autorefs-external" title="unittest.TestCase" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase">TestCase</a></code></p>
 
 
-      <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass with helpers for testing Markdown output.</p>
+        <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass with helpers for testing Markdown output.</p>
 <p>Define <code>default_kwargs</code> as a <code>dict</code> of keywords to pass to Markdown for each
 test. The defaults can be overridden on individual tests.</p>
 <p>The <code>assertMarkdownRenders</code> method accepts the source text, the expected
@@ -154,22 +191,70 @@ necessary.</p>
 
 
 
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.test_tools.TestCase.assertMarkdownRenders(source, expected, expected_attrs=None, **kwargs)" href="#markdown.test_tools.TestCase.assertMarkdownRenders">assertMarkdownRenders</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Test that source Markdown text renders to expected output with given keywords.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.test_tools.TestCase.dedent(text)" href="#markdown.test_tools.TestCase.dedent">dedent</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Dedent text.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.test_tools.TestCase.default_kwargs: dict[str, Any]
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.test_tools.TestCase.default_kwargs">default_kwargs</a></code></b>
+              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>)
+          –
+          <div class="doc-md-description">
+            <p>Default options to pass to Markdown for each test.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
   <div class="doc doc-children">
 
 
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.test_tools.TestCase.default_kwargs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/test_tools.py#L58" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/test_tools.py#L58" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.test_tools.TestCase.default_kwargs: dict[str, Any]</code>
 
   <span class="doc doc-labels">
@@ -182,7 +267,8 @@ necessary.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Default options to pass to Markdown for each test.</p>
+        <p>Default options to pass to Markdown for each test.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">default_kwargs: dict[str, Any] = {}
@@ -193,15 +279,13 @@ necessary.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.test_tools.TestCase.assertMarkdownRenders" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/test_tools.py#L61-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/test_tools.py#L61-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.test_tools.TestCase.assertMarkdownRenders(source, expected, expected_attrs=None, **kwargs)</code>
 
 
@@ -210,12 +294,13 @@ necessary.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Test that source Markdown text renders to expected output with given keywords.</p>
+        <p>Test that source Markdown text renders to expected output with given keywords.</p>
 <p><code>expected_attrs</code> accepts a <code>dict</code>. Each key should be the name of an attribute
 on the <code>Markdown</code> instance and the value should be the expected value after
 the source text is parsed by Markdown. After the expected output is tested,
 the expected value for each attribute is compared against the actual
 attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual</code>.</p>
+
 
     </div>
 
@@ -224,15 +309,13 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.test_tools.TestCase.dedent" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/test_tools.py#L81-L88" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/test_tools.py#L81-L88" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.test_tools.TestCase.dedent(text)</code>
 
 
@@ -241,7 +324,8 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
     <div class="doc doc-contents ">
 
-      <p>Dedent text.</p>
+        <p>Dedent text.</p>
+
 
     </div>
 
@@ -263,16 +347,14 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.test_tools.Kwargs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/test_tools.py#L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/test_tools.py#L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>markdown.test_tools.Kwargs</code>
 
 
@@ -285,7 +367,17 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
               Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code></p>
 
 
-      <p>A <code>dict</code> like class for holding keyword arguments.</p>
+        <p>A <code>dict</code> like class for holding keyword arguments.</p>
+
+
+
+
+
+
+
+
+
+
 
 
     </div>
@@ -295,16 +387,14 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.test_tools.LegacyTestCase" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/test_tools.py#L196" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/test_tools.py#L196" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>markdown.test_tools.LegacyTestCase</code>
 
 
@@ -317,7 +407,7 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
               Bases: <code><a class="autorefs autorefs-external" title="unittest.TestCase" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase">TestCase</a></code></p>
 
 
-      <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass for running Markdown&rsquo;s legacy file-based tests.</p>
+        <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass for running Markdown&rsquo;s legacy file-based tests.</p>
 <p>A subclass should define various properties which point to a directory of
 text-based test files and define various behaviors/defaults for those tests.
 The following properties are supported:</p>
@@ -368,14 +458,15 @@ without an extension.</p>
         </li>
         <li class="doc-section-item field-body">
           <b><code><span title="markdown.test_tools.LegacyTestCase.default_kwargs">default_kwargs</span></code></b>
-              (<code><a class="autorefs autorefs-internal" title="markdown.test_tools.Kwargs" href="#markdown.test_tools.Kwargs">Kwargs</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>)
+              (<code><a class="autorefs autorefs-internal" title="‹›
+              markdown.test_tools.Kwargs" href="#markdown.test_tools.Kwargs">Kwargs</a>[<a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a>, <a class="autorefs autorefs-external" title="typing.Any" href="https://docs.python.org/3/library/typing.html#typing.Any">Any</a>]</code>)
           –
           <div class="doc-md-description">
             <p>The default set of keyword arguments for all test files in the directory.</p>
           </div>
         </li>
     </ul>
-      <p>In addition, properties can be defined for each individual set of test files within
+        <p>In addition, properties can be defined for each individual set of test files within
 the directory. The property should be given the name of the file without the file
 extension. Any spaces and dashes in the filename should be replaced with
 underscores. The value of the property should be a <code>Kwargs</code> instance which
@@ -384,6 +475,16 @@ test file. The keyword arguments will &ldquo;update&rdquo; the <code>default_kwa
 <p>When the class instance is created, it will walk the given directory and create
 a separate <code>Unitttest</code> for each set of test files using the naming scheme:
 <code>test_filename</code>. One <code>Unittest</code> will be run for each set of input and output files.</p>
+
+
+
+
+
+
+
+
+
+
 
 
     </div>
@@ -416,7 +517,7 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.test_tools.TestCase.default_kwargs">default_kwargs</a>
+        <a class="reference internal" href="#markdown.test_tools.TestCase.default_kwargs">markdown.test_tools.TestCase.default_kwargs</a>
     </li>
             
     <li>
@@ -490,7 +591,7 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -528,14 +629,14 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../..';</script>
         <script src="../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.919568+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.595707+00:00
         -->
     </body>
 </html>

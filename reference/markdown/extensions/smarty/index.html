@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>tables</code>" href="../tables/" />
         <link rel="prev" title="<code>sane_lists</code>" href="../sane_lists/" />
-        <title>smarty &#8212; Python-Markdown 3.7 documentation</title>
+        <title>smarty &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.smarty" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/smarty.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/smarty.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.smarty</code>
 
 
@@ -116,10 +116,40 @@
 
     <div class="doc doc-contents first">
 
-      <p>Adds conversion of ASCII dashes, quotes and ellipses to their HTML
-entity equivalents.</p>
+        <p>Convert ASCII dashes, quotes and ellipses to their HTML entity equivalents.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/smarty">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.smarty.SubstituteTextPattern(pattern: str, replace: Sequence[int | str | etree.Element], md: Markdown)" href="#markdown.extensions.smarty.SubstituteTextPattern">SubstituteTextPattern</a></code></b>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.smarty.SmartyExtension(**kwargs)" href="#markdown.extensions.smarty.SmartyExtension">SmartyExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add Smarty to Markdown.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -157,16 +187,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.smarty.SubstituteTextPattern" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/smarty.py#L163" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/smarty.py#L164" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.smarty.SubstituteTextPattern(pattern: str, replace: Sequence[int | str | etree.Element], md: Markdown)</code>
 
 
@@ -175,7 +203,18 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.inlinepatterns.HtmlInlineProcessor" href="../../inlinepatterns/#markdown.inlinepatterns.HtmlInlineProcessor">HtmlInlineProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.inlinepatterns.HtmlInlineProcessor(pattern: str, md: Markdown | None = None)" href="../../inlinepatterns/#markdown.inlinepatterns.HtmlInlineProcessor">HtmlInlineProcessor</a></code></p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -196,16 +235,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.smarty.SmartyExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/smarty.py#L180" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/smarty.py#L181" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.smarty.SmartyExtension(**kwargs)</code>
 
 
@@ -214,10 +251,38 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Add Smarty to Markdown.</p>
+        <p>Add Smarty to Markdown.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.smarty.SmartyExtension.config
+
+  
+      instance-attribute
+  " href="#markdown.extensions.smarty.SmartyExtension.config">config</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Default configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -228,16 +293,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.smarty.SmartyExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/smarty.py#L183-L189" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/smarty.py#L184-L190" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.smarty.SmartyExtension.config</code>
 
   <span class="doc doc-labels">
@@ -249,7 +312,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Default configuration options.</p>
+        <p>Default configuration options.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">self.config = {
@@ -302,7 +366,7 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.smarty.SmartyExtension.config">config</a>
+        <a class="reference internal" href="#markdown.extensions.smarty.SmartyExtension.config">markdown.extensions.smarty.SmartyExtension.config</a>
     </li>
         </ul>
     </li>
@@ -360,7 +424,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -419,14 +483,14 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.967890+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.648815+00:00
         -->
     </body>
 </html>

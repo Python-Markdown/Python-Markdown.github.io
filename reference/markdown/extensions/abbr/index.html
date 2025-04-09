@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>admonition</code>" href="../admonition/" />
         <link rel="prev" title="<code>extensions</code>" href="../" />
-        <title>abbr &#8212; Python-Markdown 3.7 documentation</title>
+        <title>abbr &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.abbr" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.abbr</code>
 
 
@@ -116,9 +116,61 @@
 
     <div class="doc doc-contents first">
 
-      <p>This extension adds abbreviation handling to Python-Markdown.</p>
+        <p>This extension adds abbreviation handling to Python-Markdown.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/abbreviations">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.abbr.AbbrExtension(**kwargs)" href="#markdown.extensions.abbr.AbbrExtension">AbbrExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Abbreviation Extension for Python-Markdown.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.abbr.AbbrTreeprocessor(md: Markdown | None = None, abbrs: dict | None = None)" href="#markdown.extensions.abbr.AbbrTreeprocessor">AbbrTreeprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Replace abbreviation text with <code>&lt;abbr&gt;</code> elements.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.abbr.AbbrBlockprocessor(parser: BlockParser, abbrs: dict)" href="#markdown.extensions.abbr.AbbrBlockprocessor">AbbrBlockprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Parse text for abbreviation references.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.abbr.AbbrInlineProcessor(pattern: str, title: str)
+
+
+  
+      deprecated
+  " href="#markdown.extensions.abbr.AbbrInlineProcessor">AbbrInlineProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Abbreviation inline pattern.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -156,16 +208,18 @@ for details.</p>
 
 
 
-  
 
-  
+
+
+
+
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.abbr.AbbrExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.abbr.AbbrExtension(**kwargs)</code>
 
 
@@ -174,10 +228,75 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Abbreviation Extension for Python-Markdown.</p>
+        <p>Abbreviation Extension for Python-Markdown.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrExtension.reset()" href="#markdown.extensions.abbr.AbbrExtension.reset">reset</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Clear all previously defined abbreviations.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrExtension.reset_glossary()" href="#markdown.extensions.abbr.AbbrExtension.reset_glossary">reset_glossary</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Clear all abbreviations from the glossary.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrExtension.load_glossary(dictionary: dict[str, str])" href="#markdown.extensions.abbr.AbbrExtension.load_glossary">load_glossary</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Adds <code>dictionary</code> to our glossary. Any abbreviations that already exist will be overwritten.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrExtension.extendMarkdown(md)" href="#markdown.extensions.abbr.AbbrExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Insert <code>AbbrTreeprocessor</code> and <code>AbbrBlockprocessor</code>.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.abbr.AbbrExtension.config
+
+  
+      instance-attribute
+  " href="#markdown.extensions.abbr.AbbrExtension.config">config</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Default configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -188,16 +307,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.abbr.AbbrExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L44-L50" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L44-L50" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.abbr.AbbrExtension.config</code>
 
   <span class="doc doc-labels">
@@ -209,7 +326,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Default configuration options.</p>
+        <p>Default configuration options.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">self.config = {
@@ -226,15 +344,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.abbr.AbbrExtension.reset" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L56-L60" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L56-L60" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrExtension.reset()</code>
 
 
@@ -243,7 +359,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Clear all previously defined abbreviations.</p>
+        <p>Clear all previously defined abbreviations.</p>
+
 
     </div>
 
@@ -252,15 +369,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.abbr.AbbrExtension.reset_glossary" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L62-L64" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L62-L64" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrExtension.reset_glossary()</code>
 
 
@@ -269,7 +384,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Clear all abbreviations from the glossary.</p>
+        <p>Clear all abbreviations from the glossary.</p>
+
 
     </div>
 
@@ -278,15 +394,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.abbr.AbbrExtension.load_glossary" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L66-L69" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L66-L69" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrExtension.load_glossary(dictionary: dict[str, str])</code>
 
 
@@ -295,7 +409,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Adds <code>dictionary</code> to our glossary. Any abbreviations that already exist will be overwritten.</p>
+        <p>Adds <code>dictionary</code> to our glossary. Any abbreviations that already exist will be overwritten.</p>
+
 
     </div>
 
@@ -304,15 +419,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.abbr.AbbrExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L71-L78" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L71-L78" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrExtension.extendMarkdown(md)</code>
 
 
@@ -321,7 +434,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Insert <code>AbbrTreeprocessor</code> and <code>AbbrBlockprocessor</code>.</p>
+        <p>Insert <code>AbbrTreeprocessor</code> and <code>AbbrBlockprocessor</code>.</p>
+
 
     </div>
 
@@ -339,16 +453,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.abbr.AbbrTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L81" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L81" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.abbr.AbbrTreeprocessor(md: Markdown | None = None, abbrs: dict | None = None)</code>
 
 
@@ -357,10 +469,50 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
 
 
-      <p>Replace abbreviation text with <code>&lt;abbr&gt;</code> elements.</p>
+        <p>Replace abbreviation text with <code>&lt;abbr&gt;</code> elements.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrTreeprocessor.create_element(title: str, text: str, tail: str) -> etree.Element" href="#markdown.extensions.abbr.AbbrTreeprocessor.create_element">create_element</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Create an <code>abbr</code> element.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrTreeprocessor.iter_element(el: etree.Element, parent: etree.Element | None = None) -> None" href="#markdown.extensions.abbr.AbbrTreeprocessor.iter_element">iter_element</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Recursively iterate over elements, run regex on text and wrap matches in <code>abbr</code> tags.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrTreeprocessor.run(root: etree.Element) -> etree.Element | None" href="#markdown.extensions.abbr.AbbrTreeprocessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Step through tree to find known abbreviations.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -371,15 +523,38 @@ for details.</p>
 
 
 
-  
 
-  
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="markdown.extensions.abbr.AbbrTreeprocessor.create_element" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L89-L94" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrTreeprocessor.create_element(title: str, text: str, tail: str) -&gt; etree.Element</code>
+
+
+<a href="#markdown.extensions.abbr.AbbrTreeprocessor.create_element" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create an <code>abbr</code> element.</p>
+
+
+    </div>
+
+</div>
+
+
+
+
+
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.abbr.AbbrTreeprocessor.iter_element" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L89-L111" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L96-L116" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrTreeprocessor.iter_element(el: etree.Element, parent: etree.Element | None = None) -&gt; None</code>
 
 
@@ -388,7 +563,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Recursively iterate over elements, run regex on text and wrap matches in <code>abbr</code> tags.</p>
+        <p>Recursively iterate over elements, run regex on text and wrap matches in <code>abbr</code> tags.</p>
+
 
     </div>
 
@@ -397,15 +573,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.abbr.AbbrTreeprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L113-L123" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L118-L128" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrTreeprocessor.run(root: etree.Element) -&gt; etree.Element | None</code>
 
 
@@ -414,7 +588,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Step through tree to find known abbreviations.</p>
+        <p>Step through tree to find known abbreviations.</p>
+
 
     </div>
 
@@ -432,16 +607,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.abbr.AbbrBlockprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L126" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L131" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.abbr.AbbrBlockprocessor(parser: BlockParser, abbrs: dict)</code>
 
 
@@ -450,10 +623,34 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.BlockProcessor(parser: BlockParser)" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
 
 
-      <p>Parse text for abbreviation references.</p>
+        <p>Parse text for abbreviation references.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.abbr.AbbrBlockprocessor.run(parent: etree.Element, blocks: list[str]) -> bool" href="#markdown.extensions.abbr.AbbrBlockprocessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Find and remove all abbreviation references from the text.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -464,15 +661,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.abbr.AbbrBlockprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L138-L163" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L143-L168" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.abbr.AbbrBlockprocessor.run(parent: etree.Element, blocks: list[str]) -&gt; bool</code>
 
 
@@ -481,8 +676,9 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Find and remove all abbreviation references from the text.
+        <p>Find and remove all abbreviation references from the text.
 Each reference is added to the abbreviation collection.</p>
+
 
     </div>
 
@@ -500,16 +696,14 @@ Each reference is added to the abbreviation collection.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.abbr.AbbrInlineProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/abbr.py#L169" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/abbr.py#L174" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.abbr.AbbrInlineProcessor(pattern: str, title: str)</code>
 
 
@@ -522,14 +716,25 @@ Each reference is added to the abbreviation collection.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.inlinepatterns.InlineProcessor" href="../../inlinepatterns/#markdown.inlinepatterns.InlineProcessor">InlineProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.inlinepatterns.InlineProcessor(pattern: str, md: Markdown | None = None)" href="../../inlinepatterns/#markdown.inlinepatterns.InlineProcessor">InlineProcessor</a></code></p>
 
 
 
 <div class="admonition warning">
   <p class="admonition-title">Deprecated</p>
   <p>This class will be removed in the future; use <code>AbbrTreeprocessor</code> instead.</p>
-</div>      <p>Abbreviation inline pattern.</p>
+</div>        <p>Abbreviation inline pattern.</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -572,7 +777,7 @@ Each reference is added to the abbreviation collection.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.abbr.AbbrExtension.config">config</a>
+        <a class="reference internal" href="#markdown.extensions.abbr.AbbrExtension.config">markdown.extensions.abbr.AbbrExtension.config</a>
     </li>
             
     <li>
@@ -596,6 +801,10 @@ Each reference is added to the abbreviation collection.</p>
     <li>
         <a class="reference internal" href="#markdown.extensions.abbr.AbbrTreeprocessor">AbbrTreeprocessor</a>
         <ul>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.abbr.AbbrTreeprocessor.create_element">create_element</a>
+    </li>
             
     <li>
         <a class="reference internal" href="#markdown.extensions.abbr.AbbrTreeprocessor.iter_element">iter_element</a>
@@ -674,7 +883,7 @@ Each reference is added to the abbreviation collection.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -733,14 +942,14 @@ Each reference is added to the abbreviation collection.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.935259+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.613528+00:00
         -->
     </body>
 </html>

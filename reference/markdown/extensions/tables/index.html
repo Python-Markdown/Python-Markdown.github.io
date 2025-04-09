@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>toc</code>" href="../toc/" />
         <link rel="prev" title="<code>smarty</code>" href="../smarty/" />
-        <title>tables &#8212; Python-Markdown 3.7 documentation</title>
+        <title>tables &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.tables" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/tables.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/tables.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.tables</code>
 
 
@@ -116,9 +116,40 @@
 
     <div class="doc doc-contents first">
 
-      <p>Added parsing of tables to Python-Markdown.</p>
+        <p>Adds parsing of tables to Python-Markdown.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/tables">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.tables.TableProcessor(parser: blockparser.BlockParser, config: dict[str, Any])" href="#markdown.extensions.tables.TableProcessor">TableProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Process Tables.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.tables.TableExtension(**kwargs)" href="#markdown.extensions.tables.TableExtension">TableExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add tables to Markdown.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -140,16 +171,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.tables.TableProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/tables.py#L38" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/tables.py#L38" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.tables.TableProcessor(parser: blockparser.BlockParser, config: dict[str, Any])</code>
 
 
@@ -158,10 +187,42 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.BlockProcessor" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.BlockProcessor(parser: BlockParser)" href="../../blockprocessors/#markdown.blockprocessors.BlockProcessor">BlockProcessor</a></code></p>
 
 
-      <p>Process Tables.</p>
+        <p>Process Tables.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.tables.TableProcessor.test(parent: etree.Element, block: str) -> bool" href="#markdown.extensions.tables.TableProcessor.test">test</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Ensure first two rows (column header and separator row) are valid table rows.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.tables.TableProcessor.run(parent: etree.Element, blocks: list[str]) -> None" href="#markdown.extensions.tables.TableProcessor.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Parse a table block and build table.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -172,15 +233,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.tables.TableProcessor.test" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/tables.py#L51-L85" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/tables.py#L51-L85" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.tables.TableProcessor.test(parent: etree.Element, block: str) -&gt; bool</code>
 
 
@@ -189,8 +248,9 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Ensure first two rows (column header and separator row) are valid table rows.</p>
+        <p>Ensure first two rows (column header and separator row) are valid table rows.</p>
 <p>Keep border check and separator row do avoid repeating the work.</p>
+
 
     </div>
 
@@ -199,15 +259,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.tables.TableProcessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/tables.py#L87-L116" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/tables.py#L87-L116" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.tables.TableProcessor.run(parent: etree.Element, blocks: list[str]) -&gt; None</code>
 
 
@@ -216,7 +274,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Parse a table block and build table.</p>
+        <p>Parse a table block and build table.</p>
+
 
     </div>
 
@@ -234,16 +293,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.tables.TableExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/tables.py#L228" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/tables.py#L228" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.tables.TableExtension(**kwargs)</code>
 
 
@@ -252,10 +309,51 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Add tables to Markdown.</p>
+        <p>Add tables to Markdown.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.tables.TableExtension.extendMarkdown(md)" href="#markdown.extensions.tables.TableExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Add an instance of <code>TableProcessor</code> to <code>BlockParser</code>.</p>
+            </div>
+          </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.tables.TableExtension.config
+
+  
+      instance-attribute
+  " href="#markdown.extensions.tables.TableExtension.config">config</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Default configuration options.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -266,16 +364,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.tables.TableExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/tables.py#L232-L234" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/tables.py#L232-L234" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.tables.TableExtension.config</code>
 
   <span class="doc doc-labels">
@@ -287,7 +383,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Default configuration options.</p>
+        <p>Default configuration options.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">self.config = {
@@ -300,15 +397,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.tables.TableExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/tables.py#L239-L244" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/tables.py#L239-L244" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.tables.TableExtension.extendMarkdown(md)</code>
 
 
@@ -317,7 +412,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Add an instance of <code>TableProcessor</code> to <code>BlockParser</code>.</p>
+        <p>Add an instance of <code>TableProcessor</code> to <code>BlockParser</code>.</p>
+
 
     </div>
 
@@ -372,7 +468,7 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.tables.TableExtension.config">config</a>
+        <a class="reference internal" href="#markdown.extensions.tables.TableExtension.config">markdown.extensions.tables.TableExtension.config</a>
     </li>
             
     <li>
@@ -434,7 +530,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -493,14 +589,14 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.969553+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.650394+00:00
         -->
     </body>
 </html>

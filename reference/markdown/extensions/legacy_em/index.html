@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>md_in_html</code>" href="../md_in_html/" />
         <link rel="prev" title="<code>legacy_attrs</code>" href="../legacy_attrs/" />
-        <title>legacy_em &#8212; Python-Markdown 3.7 documentation</title>
+        <title>legacy_em &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.legacy_em" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_em.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_em.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.legacy_em</code>
 
 
@@ -116,7 +116,51 @@
 
     <div class="doc doc-contents first">
 
-      <p>This extension provides legacy behavior for <em>connected_words</em>.</p>
+        <p>This extension provides legacy behavior for <em>connected_words</em>.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.legacy_em.LegacyUnderscoreProcessor(pattern: str, md: Markdown | None = None)" href="#markdown.extensions.legacy_em.LegacyUnderscoreProcessor">LegacyUnderscoreProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Emphasis processor for handling strong and em matches inside underscores.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.legacy_em.LegacyEmExtension(**kwargs)" href="#markdown.extensions.legacy_em.LegacyEmExtension">LegacyEmExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add legacy_em extension to Markdown class.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Functions:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.legacy_em.makeExtension(**kwargs)" href="#markdown.extensions.legacy_em.makeExtension">makeExtension</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Return an instance of the <code>LegacyEmExtension</code></p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -146,16 +190,14 @@
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.legacy_em.LegacyUnderscoreProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_em.py#L30" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_em.py#L30" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.legacy_em.LegacyUnderscoreProcessor(pattern: str, md: Markdown | None = None)</code>
 
 
@@ -164,35 +206,21 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.inlinepatterns.UnderscoreProcessor" href="../../inlinepatterns/#markdown.inlinepatterns.UnderscoreProcessor">UnderscoreProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.inlinepatterns.UnderscoreProcessor(pattern: str, md: Markdown | None = None)" href="../../inlinepatterns/#markdown.inlinepatterns.UnderscoreProcessor">UnderscoreProcessor</a></code></p>
 
 
-      <p>Emphasis processor for handling strong and em matches inside underscores.</p>
+        <p>Emphasis processor for handling strong and em matches inside underscores.</p>
 
 
 
-<p><span class="doc-section-title">Parameters:</span></p>
-    <ul>
-        <li class="doc-section-item field-body">
-          <b><code>pattern</code></b>
-              (<code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#str">str</a></code>)
-          –
-          <div class="doc-md-description">
-            <p>A regular expression that matches a pattern.</p>
-          </div>
-        </li>
-        <li class="doc-section-item field-body">
-          <b><code>md</code></b>
-              (<code><a class="autorefs autorefs-internal" title="markdown.Markdown" href="../../#markdown.Markdown">Markdown</a> | None</code>, default:
-                  <code>None</code>
-)
-          –
-          <div class="doc-md-description">
-            <p>An optional pointer to the instance of <code>markdown.Markdown</code> and is available as
-<code>self.md</code> on the class instance.</p>
-          </div>
-        </li>
-    </ul>
+
+
+
+
+
+
+
 
 
 
@@ -212,16 +240,14 @@
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.legacy_em.LegacyEmExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_em.py#L42" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_em.py#L42" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.legacy_em.LegacyEmExtension(**kwargs)</code>
 
 
@@ -230,10 +256,34 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Add legacy_em extension to Markdown class.</p>
+        <p>Add legacy_em extension to Markdown class.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown(md)" href="#markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Modify inline patterns.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -244,15 +294,13 @@
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_em.py#L45-L47" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_em.py#L45-L47" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown(md)</code>
 
 
@@ -261,7 +309,8 @@
 
     <div class="doc doc-contents ">
 
-      <p>Modify inline patterns.</p>
+        <p>Modify inline patterns.</p>
+
 
     </div>
 
@@ -279,15 +328,13 @@
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h2 id="markdown.extensions.legacy_em.makeExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_em.py#L50-L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_em.py#L50-L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.extensions.legacy_em.makeExtension(**kwargs)</code>
 
 
@@ -296,7 +343,8 @@
 
     <div class="doc doc-contents ">
 
-      <p>Return an instance of the <code>LegacyEmExtension</code></p>
+        <p>Return an instance of the <code>LegacyEmExtension</code></p>
+
 
     </div>
 
@@ -394,7 +442,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -453,14 +501,14 @@
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.957751+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.638267+00:00
         -->
     </body>
 </html>

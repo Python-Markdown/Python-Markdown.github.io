@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>smarty</code>" href="../smarty/" />
         <link rel="prev" title="<code>nl2br</code>" href="../nl2br/" />
-        <title>sane_lists &#8212; Python-Markdown 3.7 documentation</title>
+        <title>sane_lists &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.sane_lists" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.sane_lists</code>
 
 
@@ -116,9 +116,48 @@
 
     <div class="doc doc-contents first">
 
-      <p>Modify the behavior of Lists in Python-Markdown to act in a sane manor.</p>
+        <p>Modify the behavior of Lists in Python-Markdown to act in a sane manor.</p>
 <p>See <a href="https://Python-Markdown.github.io/extensions/sane_lists">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.sane_lists.SaneOListProcessor(parser: blockparser.BlockParser)" href="#markdown.extensions.sane_lists.SaneOListProcessor">SaneOListProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Override <code>SIBLING_TAGS</code> to not include <code>ul</code> and set <code>LAZY_OL</code> to <code>False</code>.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.sane_lists.SaneUListProcessor(parser: blockparser.BlockParser)" href="#markdown.extensions.sane_lists.SaneUListProcessor">SaneUListProcessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Override <code>SIBLING_TAGS</code> to not include <code>ol</code>.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.sane_lists.SaneListExtension(**kwargs)" href="#markdown.extensions.sane_lists.SaneListExtension">SaneListExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Add sane lists to Markdown.</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
 
 
 
@@ -144,16 +183,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.sane_lists.SaneOListProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py#L33" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py#L33" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.sane_lists.SaneOListProcessor(parser: blockparser.BlockParser)</code>
 
 
@@ -162,10 +199,52 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.OListProcessor" href="../../blockprocessors/#markdown.blockprocessors.OListProcessor">OListProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.OListProcessor(parser: BlockParser)" href="../../blockprocessors/#markdown.blockprocessors.OListProcessor">OListProcessor</a></code></p>
 
 
-      <p>Override <code>SIBLING_TAGS</code> to not include <code>ul</code> and set <code>LAZY_OL</code> to <code>False</code>.</p>
+        <p>Override <code>SIBLING_TAGS</code> to not include <code>ul</code> and set <code>LAZY_OL</code> to <code>False</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS">SIBLING_TAGS</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Exclude <code>ul</code> from list of siblings.</p>
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL">LAZY_OL</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Disable lazy list behavior.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -176,16 +255,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py#L36" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py#L36" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS</code>
 
   <span class="doc doc-labels">
@@ -198,7 +275,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Exclude <code>ul</code> from list of siblings.</p>
+        <p>Exclude <code>ul</code> from list of siblings.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">SIBLING_TAGS = ['ol']
@@ -209,16 +287,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py#L38" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py#L38" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL</code>
 
   <span class="doc doc-labels">
@@ -231,7 +307,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Disable lazy list behavior.</p>
+        <p>Disable lazy list behavior.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">LAZY_OL = False
@@ -251,16 +328,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.sane_lists.SaneUListProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py#L47" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py#L47" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.sane_lists.SaneUListProcessor(parser: blockparser.BlockParser)</code>
 
 
@@ -269,10 +344,39 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.blockprocessors.UListProcessor" href="../../blockprocessors/#markdown.blockprocessors.UListProcessor">UListProcessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.blockprocessors.UListProcessor(parser: BlockParser)" href="../../blockprocessors/#markdown.blockprocessors.UListProcessor">UListProcessor</a></code></p>
 
 
-      <p>Override <code>SIBLING_TAGS</code> to not include <code>ol</code>.</p>
+        <p>Override <code>SIBLING_TAGS</code> to not include <code>ol</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+  markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS
+
+  
+      class-attribute
+      instance-attribute
+  " href="#markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS">SIBLING_TAGS</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Exclude <code>ol</code> from list of siblings.</p>
+          </div>
+        </li>
+    </ul>
 
 
 
@@ -283,16 +387,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-attribute">
 
 
 
 <h3 id="markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py#L50" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py#L50" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS</code>
 
   <span class="doc doc-labels">
@@ -305,7 +407,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
   
-      <p>Exclude <code>ol</code> from list of siblings.</p>
+        <p>Exclude <code>ol</code> from list of siblings.</p>
+
 
   <p>Defined Value:</p>
   <pre class="codehilite"><code class="language-python">SIBLING_TAGS = ['ul']
@@ -325,16 +428,14 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.sane_lists.SaneListExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py#L59" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py#L59" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.sane_lists.SaneListExtension(**kwargs)</code>
 
 
@@ -343,10 +444,34 @@ for details.</p>
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Add sane lists to Markdown.</p>
+        <p>Add sane lists to Markdown.</p>
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.sane_lists.SaneListExtension.extendMarkdown(md)" href="#markdown.extensions.sane_lists.SaneListExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Override existing Processors.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -357,15 +482,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.sane_lists.SaneListExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/sane_lists.py#L62-L65" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/sane_lists.py#L62-L65" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.sane_lists.SaneListExtension.extendMarkdown(md)</code>
 
 
@@ -374,7 +497,8 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Override existing Processors.</p>
+        <p>Override existing Processors.</p>
+
 
     </div>
 
@@ -415,11 +539,11 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS">SIBLING_TAGS</a>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS">markdown.extensions.sane_lists.SaneOListProcessor.SIBLING_TAGS</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL">LAZY_OL</a>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL">markdown.extensions.sane_lists.SaneOListProcessor.LAZY_OL</a>
     </li>
         </ul>
     </li>
@@ -429,7 +553,7 @@ for details.</p>
         <ul>
             
     <li>
-        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS">SIBLING_TAGS</a>
+        <a class="reference internal" href="#markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS">markdown.extensions.sane_lists.SaneUListProcessor.SIBLING_TAGS</a>
     </li>
         </ul>
     </li>
@@ -497,7 +621,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -556,14 +680,14 @@ for details.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.965557+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.646261+00:00
         -->
     </body>
 </html>

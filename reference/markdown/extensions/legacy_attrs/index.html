@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>legacy_em</code>" href="../legacy_em/" />
         <link rel="prev" title="<code>footnotes</code>" href="../footnotes/" />
-        <title>legacy_attrs &#8212; Python-Markdown 3.7 documentation</title>
+        <title>legacy_attrs &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.legacy_attrs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_attrs.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_attrs.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.legacy_attrs</code>
 
 
@@ -116,7 +116,7 @@
 
     <div class="doc doc-contents first">
 
-      <p>An extension to Python Markdown which implements legacy attributes.</p>
+        <p>An extension to Python Markdown which implements legacy attributes.</p>
 <p>Prior to Python-Markdown version 3.0, the Markdown class had an <code>enable_attributes</code>
 keyword which was on by default and provided for attributes to be defined for elements
 using the format <code>{@key=value}</code>. This extension is provided as a replacement for
@@ -126,6 +126,37 @@ years. This extension can be used to continue to render those documents correctl
 
 
 
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.legacy_attrs.LegacyAttrs(md: Markdown | None = None)" href="#markdown.extensions.legacy_attrs.LegacyAttrs">LegacyAttrs</a></code></b>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.legacy_attrs.LegacyAttrExtension(**kwargs)" href="#markdown.extensions.legacy_attrs.LegacyAttrExtension">LegacyAttrExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+    </ul>
+
+
+
+
+
+
+
   <div class="doc doc-children">
 
 
@@ -144,16 +175,14 @@ years. This extension can be used to continue to render those documents correctl
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.legacy_attrs.LegacyAttrs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_attrs.py#L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_attrs.py#L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.legacy_attrs.LegacyAttrs(md: Markdown | None = None)</code>
 
 
@@ -162,7 +191,39 @@ years. This extension can be used to continue to render those documents correctl
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.legacy_attrs.LegacyAttrs.run(doc: etree.Element) -> None" href="#markdown.extensions.legacy_attrs.LegacyAttrs.run">run</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Find and set values of attributes ({<a class="gh-link gh-mention" href="https://github.com/key" title="GitHub User: @key">@key</a>=value}).</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.legacy_attrs.LegacyAttrs.handleAttributes(el: etree.Element, txt: str) -> str" href="#markdown.extensions.legacy_attrs.LegacyAttrs.handleAttributes">handleAttributes</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Set attributes and return text without definitions.</p>
+            </div>
+          </li>
+    </ul>
+
 
 
 
@@ -174,15 +235,13 @@ years. This extension can be used to continue to render those documents correctl
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.legacy_attrs.LegacyAttrs.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_attrs.py#L46-L55" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_attrs.py#L46-L55" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.legacy_attrs.LegacyAttrs.run(doc: etree.Element) -&gt; None</code>
 
 
@@ -191,7 +250,8 @@ years. This extension can be used to continue to render those documents correctl
 
     <div class="doc doc-contents ">
 
-      <p>Find and set values of attributes ({<a class="gh-link gh-mention" href="https://github.com/key" title="GitHub User: @key">@key</a>=value}).</p>
+        <p>Find and set values of attributes ({<a class="gh-link gh-mention" href="https://github.com/key" title="GitHub User: @key">@key</a>=value}).</p>
+
 
     </div>
 
@@ -200,15 +260,13 @@ years. This extension can be used to continue to render those documents correctl
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.legacy_attrs.LegacyAttrs.handleAttributes" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_attrs.py#L57-L61" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_attrs.py#L57-L61" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.legacy_attrs.LegacyAttrs.handleAttributes(el: etree.Element, txt: str) -&gt; str</code>
 
 
@@ -217,7 +275,8 @@ years. This extension can be used to continue to render those documents correctl
 
     <div class="doc doc-contents ">
 
-      <p>Set attributes and return text without definitions.</p>
+        <p>Set attributes and return text without definitions.</p>
+
 
     </div>
 
@@ -235,16 +294,14 @@ years. This extension can be used to continue to render those documents correctl
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.legacy_attrs.LegacyAttrExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_attrs.py#L64" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_attrs.py#L64" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.legacy_attrs.LegacyAttrExtension(**kwargs)</code>
 
 
@@ -253,7 +310,31 @@ years. This extension can be used to continue to render those documents correctl
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.legacy_attrs.LegacyAttrExtension.extendMarkdown(md)" href="#markdown.extensions.legacy_attrs.LegacyAttrExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Add <code>LegacyAttrs</code> to Markdown instance.</p>
+            </div>
+          </li>
+    </ul>
+
 
 
 
@@ -265,15 +346,13 @@ years. This extension can be used to continue to render those documents correctl
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.legacy_attrs.LegacyAttrExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/legacy_attrs.py#L65-L67" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/legacy_attrs.py#L65-L67" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.legacy_attrs.LegacyAttrExtension.extendMarkdown(md)</code>
 
 
@@ -282,7 +361,8 @@ years. This extension can be used to continue to render those documents correctl
 
     <div class="doc doc-contents ">
 
-      <p>Add <code>LegacyAttrs</code> to Markdown instance.</p>
+        <p>Add <code>LegacyAttrs</code> to Markdown instance.</p>
+
 
     </div>
 
@@ -395,7 +475,7 @@ years. This extension can be used to continue to render those documents correctl
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -454,14 +534,14 @@ years. This extension can be used to continue to render those documents correctl
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.955839+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.636355+00:00
         -->
     </body>
 </html>

@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>codehilite</code>" href="../codehilite/" />
         <link rel="prev" title="<code>admonition</code>" href="../admonition/" />
-        <title>attr_list &#8212; Python-Markdown 3.7 documentation</title>
+        <title>attr_list &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -107,7 +107,7 @@
 
 
 <h1 id="markdown.extensions.attr_list" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/attr_list.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/attr_list.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.attr_list</code>
 
 
@@ -116,11 +116,64 @@
 
     <div class="doc doc-contents first">
 
-      <p>Adds attribute list syntax. Inspired by
+        <p>Adds attribute list syntax to Python-Markdown.
+Inspired by
 <a href="http://maruku.rubyforge.org/proposal.html#attribute_lists">Maruku</a>&rsquo;s
 feature of the same name.</p>
 <p>See the <a href="https://Python-Markdown.github.io/extensions/attr_list">documentation</a>
 for details.</p>
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Classes:</span></p>
+    <ul>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.attr_list.AttrListTreeprocessor(md: Markdown | None = None)" href="#markdown.extensions.attr_list.AttrListTreeprocessor">AttrListTreeprocessor</a></code></b>
+          –
+          <div class="doc-md-description">
+            
+          </div>
+        </li>
+        <li class="doc-section-item field-body">
+          <b><code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.attr_list.AttrListExtension(**kwargs)" href="#markdown.extensions.attr_list.AttrListExtension">AttrListExtension</a></code></b>
+          –
+          <div class="doc-md-description">
+            <p>Attribute List extension for Python-Markdown</p>
+          </div>
+        </li>
+    </ul>
+
+
+
+
+<p><span class="doc-section-title">Functions:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.attr_list.get_attrs_and_remainder(attrs_string: str) -> tuple[list[tuple[str, str]], str]" href="#markdown.extensions.attr_list.get_attrs_and_remainder">get_attrs_and_remainder</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Parse attribute list and return a list of attribute tuples.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.attr_list.get_attrs(str: str) -> list[tuple[str, str]]" href="#markdown.extensions.attr_list.get_attrs">get_attrs</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Soft-deprecated. Prefer <code>get_attrs_and_remainder</code>.</p>
+            </div>
+          </li>
+    </ul>
+
+
 
 
 
@@ -138,15 +191,13 @@ for details.</p>
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h2 id="markdown.extensions.attr_list.get_attrs_and_remainder" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/attr_list.py#L68-L78" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/attr_list.py#L69-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.extensions.attr_list.get_attrs_and_remainder(attrs_string: str) -&gt; tuple[list[tuple[str, str]], str]</code>
 
 
@@ -155,9 +206,10 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-      <p>Parse attribute list and return a list of attribute tuples.</p>
+        <p>Parse attribute list and return a list of attribute tuples.</p>
 <p>Additionally, return any text that remained after a curly brace. In typical cases, its presence
 should mean that the input does not match the intended attribute list syntax.</p>
+
 
     </div>
 
@@ -166,15 +218,13 @@ should mean that the input does not match the intended attribute list syntax.</p
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h2 id="markdown.extensions.attr_list.get_attrs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/attr_list.py#L81-L83" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/attr_list.py#L82-L84" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.extensions.attr_list.get_attrs(str: str) -&gt; list[tuple[str, str]]</code>
 
 
@@ -183,7 +233,8 @@ should mean that the input does not match the intended attribute list syntax.</p
 
     <div class="doc doc-contents ">
 
-      <p>Soft-deprecated. Prefer <code>get_attrs_and_remainder</code>.</p>
+        <p>Soft-deprecated. Prefer <code>get_attrs_and_remainder</code>.</p>
+
 
     </div>
 
@@ -192,16 +243,14 @@ should mean that the input does not match the intended attribute list syntax.</p
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.attr_list.AttrListTreeprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/attr_list.py#L90" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/attr_list.py#L91" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.attr_list.AttrListTreeprocessor(md: Markdown | None = None)</code>
 
 
@@ -210,7 +259,39 @@ should mean that the input does not match the intended attribute list syntax.</p
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.treeprocessors.Treeprocessor" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.treeprocessors.Treeprocessor(md: Markdown | None = None)" href="../../treeprocessors/#markdown.treeprocessors.Treeprocessor">Treeprocessor</a></code></p>
+
+
+
+
+
+
+
+
+
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.attr_list.AttrListTreeprocessor.assign_attrs(elem: Element, attrs_string: str, *, strict: bool = False) -> str" href="#markdown.extensions.attr_list.AttrListTreeprocessor.assign_attrs">assign_attrs</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Assign <code>attrs</code> to element.</p>
+            </div>
+          </li>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.attr_list.AttrListTreeprocessor.sanitize_name(name: str) -> str" href="#markdown.extensions.attr_list.AttrListTreeprocessor.sanitize_name">sanitize_name</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Sanitize name as &lsquo;an XML Name, minus the <code>:</code>.&rsquo;</p>
+            </div>
+          </li>
+    </ul>
+
 
 
 
@@ -222,15 +303,13 @@ should mean that the input does not match the intended attribute list syntax.</p
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.attr_list.AttrListTreeprocessor.assign_attrs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/attr_list.py#L162-L185" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/attr_list.py#L163-L186" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.attr_list.AttrListTreeprocessor.assign_attrs(elem: Element, attrs_string: str, *, strict: bool = False) -&gt; str</code>
 
 
@@ -239,9 +318,10 @@ should mean that the input does not match the intended attribute list syntax.</p
 
     <div class="doc doc-contents ">
 
-      <p>Assign <code>attrs</code> to element.</p>
+        <p>Assign <code>attrs</code> to element.</p>
 <p>If the <code>attrs_string</code> has an extra closing curly brace, the remaining text is returned.</p>
 <p>The <code>strict</code> argument controls whether to still assign <code>attrs</code> if there is a remaining <code>}</code>.</p>
+
 
     </div>
 
@@ -250,15 +330,13 @@ should mean that the input does not match the intended attribute list syntax.</p
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-function">
 
 
 <h3 id="markdown.extensions.attr_list.AttrListTreeprocessor.sanitize_name" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/attr_list.py#L187-L192" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/attr_list.py#L188-L193" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.attr_list.AttrListTreeprocessor.sanitize_name(name: str) -&gt; str</code>
 
 
@@ -267,8 +345,9 @@ should mean that the input does not match the intended attribute list syntax.</p
 
     <div class="doc doc-contents ">
 
-      <p>Sanitize name as &lsquo;an XML Name, minus the <code>:</code>.&rsquo;
+        <p>Sanitize name as &lsquo;an XML Name, minus the <code>:</code>.&rsquo;
 See <a href="https://www.w3.org/TR/REC-xml-names/#NT-NCName">https://www.w3.org/TR/REC-xml-names/#NT-NCName</a>.</p>
+
 
     </div>
 
@@ -286,16 +365,14 @@ See <a href="https://www.w3.org/TR/REC-xml-names/#NT-NCName">https://www.w3.org/
 
 
 
-  
 
-  
 
 <div class="doc doc-object doc-class">
 
 
 
 <h2 id="markdown.extensions.attr_list.AttrListExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.7/markdown/extensions/attr_list.py#L195" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.8/markdown/extensions/attr_list.py#L196" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.attr_list.AttrListExtension(**kwargs)</code>
 
 
@@ -304,10 +381,21 @@ See <a href="https://www.w3.org/TR/REC-xml-names/#NT-NCName">https://www.w3.org/
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" title="markdown.extensions.Extension" href="../#markdown.extensions.Extension">Extension</a></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
-      <p>Attribute List extension for Python-Markdown</p>
+        <p>Attribute List extension for Python-Markdown</p>
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -424,7 +512,7 @@ See <a href="https://www.w3.org/TR/REC-xml-names/#NT-NCName">https://www.w3.org/
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -483,14 +571,14 @@ See <a href="https://www.w3.org/TR/REC-xml-names/#NT-NCName">https://www.w3.org/
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../../../..';</script>
         <script src="../../../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.939816+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.618685+00:00
         -->
     </body>
 </html>

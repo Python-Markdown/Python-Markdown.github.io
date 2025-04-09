@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Test Tools" href="../../test_tools/" />
         <link rel="prev" title="WikiLinks" href="../wikilinks/" />
-        <title>Extension API &#8212; Python-Markdown 3.7 documentation</title>
+        <title>Extension API &#8212; Python-Markdown 3.8 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -352,7 +352,7 @@ nodes on matches.</p>
 </table>
 <h3 id="inlineprocessors">Inline Processors<a class="headerlink" href="#inlineprocessors" title="Permanent link">&para;</a></h3>
 <p>Inline processors, previously called inline patterns, are used to add formatting, such as <code>**emphasis**</code>, by replacing
-a matched pattern with a new element tree node. It is an excellent for adding new syntax for inline tags.  Inline
+a matched pattern with a new element tree node. It is an excellent place for adding new syntax for inline tags.  Inline
 processor code is often quite short.</p>
 <p>Inline processors inherit from <code>InlineProcessor</code>, are initialized, and implement <code>handleMatch</code>:</p>
 <ul>
@@ -372,7 +372,7 @@ processor code is often quite short.</p>
 <li><code>data</code> is a single, multi-line, Unicode string containing the entire block of text around the pattern.  A block
   is text set apart by blank lines.</li>
 <li>Returns either <code>(None, None, None)</code>, indicating the provided match was rejected or <code>(el, start, end)</code>, if the
-  match was successfully processed.  On success, <code>el</code> is the element being added the tree, <code>start</code> and <code>end</code> are
+  match was successfully processed.  On success, <code>el</code> is the element being added to the tree, <code>start</code> and <code>end</code> are
   indexes in <code>data</code> that were &ldquo;consumed&rdquo; by the pattern.  The &ldquo;consumed&rdquo; span will be replaced by a placeholder.
   The same inline processor may be called several times on the same block.</li>
 </ul>
@@ -381,7 +381,7 @@ processor code is often quite short.</p>
 <p>Inline Processors can define the property <code>ANCESTOR_EXCLUDES</code> which is either a list or tuple of undesirable ancestors.
 The processor will be skipped if it would cause the content to be a descendant of one of the listed tag names.</p>
 <h5 id="convenience-classes">Convenience Classes<a class="headerlink" href="#convenience-classes" title="Permanent link">&para;</a></h5>
-<p>Convenience subclasses of <code>InlineProcessor</code> are provide for common operations:</p>
+<p>Convenience subclasses of <code>InlineProcessor</code> are provided for common operations:</p>
 <ul>
 <li><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/inlinepatterns.py"><code>SimpleTextInlineProcessor</code></a> returns the text of <code>group(1)</code> of the match.</li>
 <li><a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/inlinepatterns.py"><code>SubstituteTagInlineProcessor</code></a> is initialized as <code>SubstituteTagInlineProcessor(pattern, tag)</code>. It returns a
@@ -556,7 +556,7 @@ emphasis = EmphasisPattern(MYPATTERN)
 
 <h3 id="postprocessors">Postprocessors<a class="headerlink" href="#postprocessors" title="Permanent link">&para;</a></h3>
 <p>Postprocessors munge the document after the ElementTree has been serialized into a string. Postprocessors should be
-used to work with the text just before output.  Usually, they are used add back sections that were extracted in a
+used to work with the text just before output.  Usually, they are used to add back sections that were extracted in a
 preprocessor, fix up outgoing encodings, or wrap the whole document.</p>
 <p>Postprocessors inherit from <code>markdown.postprocessors.Postprocessor</code> and implement a <code>run</code> method which takes a single
 parameter <code>text</code>, the entire HTML document as a single Unicode string.  <code>run</code> should return a single Unicode string
@@ -613,7 +613,7 @@ of the Markdown module.</p>
 <pre class="codehilite"><code class="language-python">import xml.etree.ElementTree as etree
 </code></pre>
 
-<p>Sometimes you may want text inserted into an element to be parsed by [Inline Patterns][]. In such a situation, simply
+<p>Sometimes you may want text inserted into an element to be parsed by <a href="#inline-patterns">Inline Patterns</a>. In such a situation, simply
 insert the text as you normally would and the text will be automatically run through the Inline Patterns. However, if
 you do <em>not</em> want some text to be parsed by Inline Patterns, then insert the text as an <code>AtomicString</code>.</p>
 <pre class="codehilite"><code class="language-python">from markdown.util import AtomicString
@@ -661,7 +661,7 @@ be passed to the processor from <a href="#extendmarkdown">extendMarkdown</a> and
 <h2 id="integrating_into_markdown">Integrating Your Code Into Markdown<a class="headerlink" href="#integrating_into_markdown" title="Permanent link">&para;</a></h2>
 <p>Once you have the various pieces of your extension built, you need to tell Markdown about them and ensure that they
 are run in the proper sequence. Markdown accepts an <code>Extension</code> instance for each extension. Therefore, you will need
-to define a class that extends <code>markdown.extensions.Extension</code> and over-rides the <code>extendMarkdown</code> method. Within this
+to define a class that extends <code>markdown.extensions.Extension</code> and overrides the <code>extendMarkdown</code> method. Within this
 class you will manage configuration options for your extension and attach the various processors and patterns to the
 Markdown instance.</p>
 <p>It is important to note that the order of the various processors and patterns matters. For example, if we replace
@@ -748,7 +748,7 @@ initialized the first time. Keep that in mind when over-riding the extension&rsq
         super(MyExtension, self).__init__(**kwargs)
 </code></pre>
 
-<p>When implemented this way the configuration parameters can be over-ridden at run time (thus the call to <code>super</code>). For
+<p>When implemented this way the configuration parameters can be overridden at run time (thus the call to <code>super</code>). For
 example:</p>
 <pre class="codehilite"><code class="language-python">markdown.Markdown(extensions=[MyExtension(option1='other value')])
 </code></pre>
@@ -846,7 +846,7 @@ def makeExtension(**kwargs):
 <p>When <code>markdown.Markdown</code> is passed the &ldquo;name&rdquo; of your extension as a dot notation string that does not include a class
 (for example <code>path.to.module</code>), it will import the module and call the <code>makeExtension</code> function to initiate your
 extension.</p>
-<h2 id="registries">Registries<a class="headerlink" href="#registries" title="Permanent link">&para;</a></h2>
+<h2 id="registry">Registries<a class="headerlink" href="#registry" title="Permanent link">&para;</a></h2>
 <p>The <code>markdown.util.Registry</code> class is a priority sorted registry which Markdown uses internally to determine the
 processing order of its various processors and patterns.</p>
 <p>A <code>Registry</code> instance provides two public methods to alter the data of the registry: <code>register</code> and <code>deregister</code>. Use
@@ -1054,7 +1054,7 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
     </li>
             
     <li>
-        <a class="reference internal" href="#registries">Registries</a>
+        <a class="reference internal" href="#registry">Registries</a>
         <ul>
             
     <li>
@@ -1124,7 +1124,7 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.7 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.8 documentation</a> &#187;
             </li>
                     
                     
@@ -1144,14 +1144,14 @@ priority and will <strong>not</strong> retain the position of the old item.</p>
         </ul>
     </div>
         <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.0.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
         </div>
         <script>var base_url = '../..';</script>
         <script src="../../search/main.js"></script>
 
         <!--
-        MkDocs version      : 1.6.0
-        Docs Build Date UTC : 2024-08-16 15:55:07.804797+00:00
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2025-04-09 17:38:32.473914+00:00
         -->
     </body>
 </html>
