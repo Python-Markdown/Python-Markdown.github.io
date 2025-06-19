@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Changelog" href="../changelog/" />
         <link rel="prev" title="<code>wikilinks</code>" href="../reference/markdown/extensions/wikilinks/" />
-        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.8.1 documentation</title>
+        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.8.2 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.8.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.8.2 documentation</a> &#187;
             </li>
                     
                     
@@ -82,7 +82,7 @@ third-party extensions.</p>
 <ul>
 <li>Branch <code>master</code> should generally be stable and release-ready at all times.</li>
 <li>Version branches should be used for bug-fixes back-ported to the most recent
-  PATCH release.</li>
+  MICRO release.</li>
 <li>No other branches should be created. Any other branches which exist are
   preserved for historical reasons only.</li>
 </ul>
@@ -262,8 +262,8 @@ previously released version, unless it is editing an error in the notes for
 that version, or is otherwise expressly deemed appropriate by the project
 maintainers.</p>
 <p>The current changelog should only document the changes for one MAJOR release and
-its various MINOR and PATCH releases (see <a href="#versions">Versions</a> for an
-explanation of MAJOR, MINOR, and PATCH releases). Older versions from previous
+its various MINOR and MICRO releases (see <a href="#versions">Versions</a> for an
+explanation of MAJOR, MINOR, and MICRO releases). Older versions from previous
 series of releases can be found in the archive at <code>docs/change_log/</code> and may
 follow a different format. Note that the archived changelogs are not in the site
 navigation and are only linked from the <a href="../changelog/#previous-releases">Previous
@@ -385,19 +385,19 @@ Understanding those tools will often help in understanding why a test may be
 failing.</p>
 </div>
 <h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h2>
-<p>Python-Markdown follows <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a> and uses the
-<code>MAJOR.MINOR.PATCH[.dev#|a#|b#|rc#]</code> format for identifying releases. The status
-of the <code>master</code> branch should always be identified in the <code>__version_info__</code>
-tuple defined in <a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/__meta__.py#L29"><code>markdown/__meta__.py</code></a>. The contents of
-that tuple will automatically be converted into a normalized version which
-conforms to <a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a>. Each time the version is changed, the continuous
-integration server will run a test to ensure that the current version is in a
-valid normalized format.</p>
+<p>Python-Markdown follows the <a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">Python Version Specification</a> (originally defined
+in <a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a>) and uses the <code>MAJOR.MINOR.MICRO[.dev#|a#|b#|rc#]</code> format for
+identifying releases. The status of the <code>master</code> branch should always be
+identified in the <code>__version_info__</code> tuple defined in<a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/__meta__.py#L31"><code>markdown/__meta__.py</code></a>. The contents of that tuple will automatically be
+converted into a normalized version string which conforms to the
+<a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">Python Version Specification</a>. Each time the version is changed, the
+continuous integration server will run a test to ensure that the current
+version is in a valid normalized format.</p>
 <h3 id="version-status">Version Status<a class="headerlink" href="#version-status" title="Permanent link">&para;</a></h3>
 <p>A MAJOR version is in development status when the MINOR version is <code>0</code>, the
-PATCH version is <code>0</code>, and the version includes a <code>dev</code> segment.</p>
+MICRO version is <code>0</code>, and the version includes a <code>dev</code> segment.</p>
 <p>A MINOR version is in development status when the MINOR version is not <code>0</code>, the
-PATCH version is <code>0</code>, and the version includes a <code>dev</code> segment.</p>
+MICRO version is <code>0</code>, and the version includes a <code>dev</code> segment.</p>
 <p>At all other times, the code is considered stable and release-ready.</p>
 <p>MAJOR and MINOR releases may or may not get pre-releases (alpha, beta, release
 candidate, etc.) at the discretion of the project maintainers.</p>
@@ -407,7 +407,7 @@ so long as all tests pass, including one or more new tests which would have
 failed prior to the change.</p>
 <p>New features and backward incompatible changes may only be merged to the
 <code>master</code> branch when the MAJOR and/or MINOR version is in development status
-pursuant to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+pursuant to the <a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">Python Version Specification</a>.</p>
 <p>A separate commit to the <code>master</code> branch should be made to bump up the MAJOR
 and/or MINOR version and set development status. Only then will any pull
 requests implementing new features or backward incompatible changes be accepted.</p>
@@ -418,7 +418,7 @@ request back-porting the fix made against that branch. The version branch should
 be named with the most recently released MINOR version. For example, if the
 <code>master</code> branch is at <code>3.1.dev0</code> and the most recent MINOR release was <code>3.0.4</code>,
 then the version branch would be named <code>3.0</code> and any releases from that branch
-would increment the PATCH version only (<code>3.0.5</code>, <code>3.0.6</code>&hellip;).</p>
+would increment the MICRO version only (<code>3.0.5</code>, <code>3.0.6</code>&hellip;).</p>
 <h2 id="release-process">Release Process<a class="headerlink" href="#release-process" title="Permanent link">&para;</a></h2>
 <p>When a new release is being prepared, the release manager should follow the
 following steps:</p>
@@ -432,31 +432,44 @@ following steps:</p>
    version of the new release.</p>
 </li>
 <li>
-<p>Update the version defined in <a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/__meta__.py#L29"><code>markdown/__meta__.py</code></a>.</p>
+<p>Update the version defined in <a href="https://github.com/Python-Markdown/markdown/blob/master/markdown/__meta__.py#L31"><code>markdown/__meta__.py</code></a>.</p>
 </li>
 <li>
-<p>Build a local copy of the documentation, browse through the pages and
+<p>Build a local copy of the documentation and browse through the pages to
    confirm that no obvious issues exist with the documentation.</p>
 </li>
 <li>
-<p>Create a pull request with a commit message in the following format:</p>
+<p>Create a pull request labeled <code class="label release">release</code> with a commit
+   message in the following format:</p>
 <pre class="codehilite"><code>Bump version to X.X.X
 </code></pre>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For the checks to run properly the <code class="label release">release</code> label
+must be set on GitHub before creating the pull request. If the label
+is added to the pull request later, additional changes will need to
+be pushed to the pull request for the checks to acknowledge the
+label.The relevant check verifies that the version defined in the
+code matches the latest version in the changelog and that the
+changelog no longer lists an <code>unreleased</code> entry. This check is
+necessary to ensure deployment will not fail later. </p>
+</div>
 </li>
 <li>
 <p>After all checks have passed, merge the pull request.</p>
 </li>
 <li>
-<p>Create a git tag with the new version as the tag name and push to the
-   <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> repository. The new tag should trigger a GitHub
-   workflow which will automatically deploy the release to PyPI and update the
-   documentation.</p>
+<p>Create a git tag with the new version as the tag name (in the format X.X.X
+   with no prefixes or suffixes) and push to the <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> 
+   repository. The new tag should trigger a GitHub workflow which will
+   automatically deploy the release to PyPI and update the documentation.</p>
 <p>In the event that the deployment fails, the following steps can be taken to
 deploy manually:</p>
 <ul>
 <li>
-<p>Deploy the release to <a href="https://pypi.org/project/Markdown/">PyPI</a> with the command <code>make deploy</code>.</p>
+<p>Deploy the release to <a href="https://pypi.org/project/Markdown/">PyPI</a> with the command <code>make deploy</code> (a valid
+  authentication token will need to be provided).</p>
 </li>
 <li>
 <p>Deploy an update to the documentation using <a href="https://www.mkdocs.org/">MkDocs</a>. The following example
@@ -473,7 +486,7 @@ mkdocs gh-deploy --config-file ../markdown/mkdocs.yml --remote-branch master
 </li>
 </ol>
 <h2 id="issue-and-pull-request-labels">Issue and Pull Request Labels<a class="headerlink" href="#issue-and-pull-request-labels" title="Permanent link">&para;</a></h2>
-<p>Below are the labels used to track and manages issues and pull requests. The
+<p>Below are the labels used to track and manage issues and pull requests. The
 labels are loosely grouped by their purpose, but it is not necessary for every
 issue to have a label from every group, and an issue may have more than one
 label from the same group.</p>
@@ -605,6 +618,9 @@ label from the same group.</p>
 </tr>
 </tbody>
 </table>
+<p>One additional label exists named <code class="label release">release</code>. This label should only be
+assigned to pull requests which bump the version. See the <a href="#release-process">Release Process</a>
+for details.</p>
 <style type="text/css">
     /* GitHub Label Styles */
 
@@ -613,42 +629,47 @@ label from the same group.</p>
         font-weight: 600;
         line-height: 15px;
         display: inline-block;
-        padding: 4px 6px;
+        padding: 0 8px;
+        margin: 4px 0;
+        border-radius: 999px;
     }
     code.bug {
-        background-color: #c45b46;
+        background-color: #c45b46 !important;
     }
     code.feature {
-        background-color: #7b17d8;
+        background-color: #7b17d8 !important;
         color: #ffffff;
     }
     code.support {
-        background-color: #efbe62;
+        background-color: #efbe62 !important;
     }
     code.process {
-        background-color: #eec9ff;
+        background-color: #eec9ff !important;
     }
     code.core {
-        background-color: #0b02e1;
+        background-color: #0b02e1 !important;
         color: #ffffff;
     }
     code.extension {
-        background-color: #709ad8;
+        background-color: #709ad8 !important;
     }
     code.docs {
-        background-color: #b2ffeb;
+        background-color: #b2ffeb !important;
     }
     code.approved {
-        background-color: #beed6d;
+        background-color: #beed6d !important;
     }
     code.low {
-        background-color: #dddddd;
+        background-color: #dddddd !important;
     }
     code.pending {
-        background-color: #f0f49a;
+        background-color: #f0f49a !important;
     }
     code.rejected {
-        background-color: #f7c7be;
+        background-color: #f7c7be !important;
+    }
+    code.release {
+        background-color: #d4c5f9 !important;
     }
 </style>
 
@@ -813,7 +834,7 @@ label from the same group.</p>
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.8.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.8.2 documentation</a> &#187;
             </li>
                     
                     
@@ -840,7 +861,7 @@ label from the same group.</p>
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2025-06-18 14:50:40.148209+00:00
+        Docs Build Date UTC : 2025-06-19 17:12:41.749884+00:00
         -->
     </body>
 </html>
