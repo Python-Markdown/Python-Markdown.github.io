@@ -95,24 +95,30 @@ Markdown community at large and almost exactly matches <a href="http://michelf.c
 implementation of footnotes. The only differences involve a few subtleties in
 the output.</p>
 <p>Example:</p>
-<pre class="codehilite"><code class="language-md">Footnotes[^1] have a label[^@#$%] and the footnote's content.
+<pre class="codehilite"><code class="language-md">Footnotes have a name, a reference[^1], and a definition[^word].
 
-[^1]: This is a footnote content.
-[^@#$%]: A footnote on the label: &quot;@#$%&quot;.
+[^1]: This is a footnote definition.
+[^word]: A footnote with the name &quot;word&quot;.
 </code></pre>
 
-<p>A footnote label must start with a caret <code>^</code> and may contain any inline text
-(including spaces) between a set of square brackets <code>[]</code>. Only the first
-caret has any special meaning.</p>
-<p>A footnote content must start with the label followed by a colon and at least
-one space. The label used to define the content must exactly match the label used
-in the body (including capitalization and white space). The content would then
-follow the label either on the same line or on the next line. The content may
-contain multiple lines, paragraphs, code blocks, blockquotes and most any other
-markdown syntax. The additional lines must be indented one level (four spaces or
-one tab).</p>
-<p>When working with multiple blocks, it may be helpful to start the content on a
-separate line from the label which defines the content. This way the entire block
+<p>A <strong>footnote name</strong> is a string that uniquely identifies a footnote within the
+document. It may contain any character which is valid for an HTML id attribute
+(including spaces). Examples: <code>1</code> in <code>[^1]</code>, <code>word</code> in <code>[^word]</code>,
+and <code>@#$%</code> in <code>[^@#$%]</code>.</p>
+<p>A <strong>footnote reference</strong> is a link within the text body to a footnote definition.
+A footnote reference contains the footnote name prefixed by a caret <code>^</code> and enclosed
+in square brackets <code>[]</code>. Examples: <code>[^1]</code> and <code>[^@#$%]</code>. In the output, footnote
+references are replaced by a superscript number that links to the footnote definition.</p>
+<p>A <strong>footnote definition</strong> must start with the corresponding footnote reference
+followed by a colon and at least one space. The reference must exactly match
+the reference used in the body (including capitalization and white space).
+The content of the definition would then follow either on the same line
+(<code>[^1]: This is a footnote definition.</code>) or on the next line.
+Footnote definitions may contain multiple lines, paragraphs, code blocks,
+blockquotes and most any other markdown syntax. The additional lines must be
+indented one level (four spaces or one tab).</p>
+<p>When working with multiple blocks, it may be helpful to start the definition on a
+separate line from the reference which defines the content. This way the entire block
 is indented consistently and any errors are more easily discernible by the author.</p>
 <pre class="codehilite"><code class="language-md">[^1]:
     The first paragraph of the definition.
@@ -166,6 +172,15 @@ definitions are placed at the end of the resulting HTML document.</p>
 <p><strong><code>SEPARATOR</code></strong>:
     The text string used to set the footnote separator. Defaults to <code>:</code>.</p>
 </li>
+<li>
+<p><strong><code>USE_DEFINITION_ORDER</code></strong>:
+    Whether to order footnotes by the occurrence of footnote definitions
+    in the document. Defaults to <code>False</code>.</p>
+<p>Introduced in version 3.9.0, this option allows footnotes to be ordered
+by the occurrence of their definitions in the document, rather than by the
+order of their references in the text. This was the behavior of
+previous versions of the extension.</p>
+</li>
 </ul>
 <p>A trivial example:</p>
 <pre class="codehilite"><code class="language-python">markdown.markdown(some_text, extensions=['footnotes'])
@@ -174,7 +189,7 @@ definitions are placed at the end of the resulting HTML document.</p>
 <h2 id="resetting-instance-state">Resetting Instance State<a class="headerlink" href="#resetting-instance-state" title="Permanent link">&para;</a></h2>
 <p>Footnote definitions are stored within the  <code>markdown.Markdown</code> class instance between
 multiple runs of the class.  This allows footnotes from all runs to be included in
-output, with  links and references that are unique, even though the class has been
+output, with links and references that are unique, even though the class has been
 called multiple times.</p>
 <p>However, if needed, the definitions can be cleared between runs by calling <code>reset</code>.</p>
 <p>For instance, the home page of a blog might include the content from multiple documents.
@@ -320,7 +335,7 @@ html2 = md.convert(text_without_footnote)
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2025-06-19 17:22:30.079834+00:00
+        Docs Build Date UTC : 2025-09-04 20:00:21.962073+00:00
         -->
     </body>
 </html>
