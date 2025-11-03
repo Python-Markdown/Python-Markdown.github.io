@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../search.html" />
         <link rel="next" title="Legacy Attributes" href="../legacy_attrs/" />
         <link rel="prev" title="Fenced Code Blocks" href="../fenced_code_blocks/" />
-        <title>Footnotes &#8212; Python-Markdown 3.9 documentation</title>
+        <title>Footnotes &#8212; Python-Markdown 3.10 documentation</title>
         <link rel="stylesheet" href="../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.9 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.10 documentation</a> &#187;
             </li>
                     
                     
@@ -174,12 +174,11 @@ definitions are placed at the end of the resulting HTML document.</p>
 </li>
 <li>
 <p><strong><code>USE_DEFINITION_ORDER</code></strong>:
-    Whether to order footnotes by the occurrence of footnote definitions
-    in the document. Defaults to <code>False</code>.</p>
-<p>Introduced in version 3.9.0, this option allows footnotes to be ordered
-by the occurrence of their definitions in the document, rather than by the
-order of their references in the text. This was the behavior of
-previous versions of the extension.</p>
+    Order footnotes by definition order (<code>True</code>) or by document order (<code>False</code>).
+    Defaults to <code>True</code>.</p>
+<p>The default behavior matches the behavior prior to this option being added. 
+Disabling this option (setting to <code>False</code>) is experimental and results may not
+be consistent.</p>
 </li>
 </ul>
 <p>A trivial example:</p>
@@ -287,7 +286,7 @@ html2 = md.convert(text_without_footnote)
             <li><img src="../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../..">Python-Markdown 3.9 documentation</a> &#187;
+                <a href="../..">Python-Markdown 3.10 documentation</a> &#187;
             </li>
                     
                     
@@ -335,7 +334,7 @@ html2 = md.convert(text_without_footnote)
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2025-09-04 20:25:22.163994+00:00
+        Docs Build Date UTC : 2025-11-03 19:51:10.479802+00:00
         -->
     </body>
 </html>
