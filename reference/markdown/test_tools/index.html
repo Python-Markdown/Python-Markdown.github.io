@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../search.html" />
         <link rel="next" title="<code>extensions</code>" href="../extensions/" />
         <link rel="prev" title="<code>htmlparser</code>" href="../htmlparser/" />
-        <title>test_tools &#8212; Python-Markdown 3.10 documentation</title>
+        <title>test_tools &#8212; Python-Markdown 3.10.1 documentation</title>
         <link rel="stylesheet" href="../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.10 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.10.1 documentation</a> &#187;
             </li>
                     
                     
@@ -86,7 +86,7 @@
 
 
 <h1 id="markdown.test_tools" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10/markdown/test_tools.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.test_tools</code>
 
 
@@ -140,7 +140,7 @@
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -165,7 +165,7 @@
 
 
 <h2 id="markdown.test_tools.TestCase" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10/markdown/test_tools.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>markdown.test_tools.TestCase</code>
 
 
@@ -176,6 +176,7 @@
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-external" title="unittest.TestCase" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase">TestCase</a></code></p>
+
 
 
         <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass with helpers for testing Markdown output.</p>
@@ -245,7 +246,7 @@ necessary.</p>
 
 
 
-  <div class="doc doc-children">
+<div class="doc doc-children">
 
 
 
@@ -258,7 +259,7 @@ necessary.</p>
 
 
 <h3 id="markdown.test_tools.TestCase.default_kwargs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10/markdown/test_tools.py#L58" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py#L58" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.test_tools.TestCase.default_kwargs: dict[str, Any]</code>
 
   <span class="doc doc-labels">
@@ -289,7 +290,7 @@ necessary.</p>
 
 
 <h3 id="markdown.test_tools.TestCase.assertMarkdownRenders" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10/markdown/test_tools.py#L61-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py#L61-L79" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.test_tools.TestCase.assertMarkdownRenders(source, expected, expected_attrs=None, **kwargs)</code>
 
 
@@ -319,7 +320,7 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 <h3 id="markdown.test_tools.TestCase.dedent" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10/markdown/test_tools.py#L81-L88" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py#L81-L88" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.test_tools.TestCase.dedent(text)</code>
 
 
@@ -349,6 +350,60 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="markdown.test_tools.recursionlimit" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py#L91" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.test_tools.recursionlimit(limit)</code>
+
+
+<a href="#markdown.test_tools.recursionlimit" class="headerlink" title="Permanent link">&para;</a></h2>
+
+
+    <div class="doc doc-contents ">
+
+
+
+        <p>A context manager which temporarily modifies the Python recursion limit.</p>
+<p>The testing framework, coverage, etc. may add an arbitrary number of levels to the depth. To maintain consistency
+in the tests, the current stack depth is determined when called, then added to the provided limit.</p>
+<p>Example usage:</p>
+<pre class="codehilite"><code class="language-python">with recursionlimit(20):
+    # test code here
+</code></pre>
+
+<p>See <a href="https://stackoverflow.com/a/50120316/866026">https://stackoverflow.com/a/50120316/866026</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
 
 
 
@@ -358,7 +413,7 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 <h2 id="markdown.test_tools.Kwargs" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10/markdown/test_tools.py#L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py#L124" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>markdown.test_tools.Kwargs</code>
 
 
@@ -369,6 +424,7 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-external" href="https://docs.python.org/3/library/stdtypes.html#dict">dict</a></code></p>
+
 
 
         <p>A <code>dict</code> like class for holding keyword arguments.</p>
@@ -400,7 +456,7 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
 
 
 <h2 id="markdown.test_tools.LegacyTestCase" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10/markdown/test_tools.py#L196" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.1/markdown/test_tools.py#L196" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>            <code>markdown.test_tools.LegacyTestCase</code>
 
 
@@ -411,6 +467,7 @@ attribute of the <code>Markdown</code> instance using <code>TestCase.assertEqual
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-external" title="unittest.TestCase" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase">TestCase</a></code></p>
+
 
 
         <p>A <a class="autorefs autorefs-external" href="https://docs.python.org/3/library/unittest.html#unittest.TestCase"><code>unittest.TestCase</code></a> subclass for running Markdown&rsquo;s legacy file-based tests.</p>
@@ -539,6 +596,10 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
     </li>
             
     <li>
+        <a class="reference internal" href="#markdown.test_tools.recursionlimit">recursionlimit</a>
+    </li>
+            
+    <li>
         <a class="reference internal" href="#markdown.test_tools.Kwargs">Kwargs</a>
     </li>
             
@@ -599,7 +660,7 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
             <li><img src="../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../..">Python-Markdown 3.10 documentation</a> &#187;
+                <a href="../../..">Python-Markdown 3.10.1 documentation</a> &#187;
             </li>
                     
                     
@@ -644,7 +705,7 @@ a separate <code>Unitttest</code> for each set of test files using the naming sc
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2025-11-03 19:51:10.589943+00:00
+        Docs Build Date UTC : 2026-01-21 18:09:21.272992+00:00
         -->
     </body>
 </html>
