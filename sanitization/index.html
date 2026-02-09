@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        
+        <meta name="author" content="The Python-Markdown Project">
+        <link rel="canonical" href="https://Python-Markdown.github.io/sanitization/">
+        <link rel="shortcut icon" href="../favicon.ico">
+        <link rel="search" title="Search" href="../search.html" />
+        <link rel="next" title="Extensions" href="../extensions/" />
+        <link rel="prev" title="Command Line" href="../cli/" />
+        <title>Sanitization and Security &#8212; Python-Markdown 3.10.2 documentation</title>
+        <link rel="stylesheet" href="../static/nature.css" type="text/css" />
+        <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
+        <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
+        <link rel="stylesheet" href="../custom.css" type="text/css" />
+        <link rel="stylesheet" href="../mkdocstrings.css" type="text/css" />
+        <script type="text/javascript" src="../static/jquery.js"></script>
+        <script type="text/javascript" src="../static/underscore.js"></script> 
+    </head>
+
+    <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../extensions/" title="Extensions" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../cli/" title="Command Line" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="..">Python-Markdown 3.10.2 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Sanitization and Security</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+
+        <div class="document">
+            <div class="documentwrapper">
+                <div class="bodywrapper">
+                    <div class="body" role="main"><h1 id="sanitizing-html-output">Sanitizing HTML Output<a class="headerlink" href="#sanitizing-html-output" title="Permanent link">&para;</a></h1>
+<p>The Python-Markdown library does <strong><em>not</em></strong> sanitize its HTML output. If you
+are processing Markdown input from an untrusted source, it is your
+responsibility to ensure that it is properly sanitized. See <em><a href="https://michelf.ca/blog/2010/markdown-and-xss/">Markdown and
+XSS</a></em> for an overview of some of the dangers and <em><a href="https://github.com/ChALkeR/notes/blob/master/Improper-markup-sanitization.md">Improper markup sanitization
+in popular software</a></em> for notes on best practices to ensure HTML is properly
+sanitized. With those concerns in mind, some recommendations are provided
+below to ensure that any input from an untrusted source is properly
+sanitized.</p>
+<p>That said, if you fully trust the source of your input, you may choose to do
+nothing. Conversely, you may find solutions other than those suggested here.
+However, you do so at your own risk.</p>
+<h2 id="using-justhtml">Using <code>JustHTML</code><a class="headerlink" href="#using-justhtml" title="Permanent link">&para;</a></h2>
+<p><a href="https://emilstenstrom.github.io/justhtml/"><code>JustHTML</code></a> is recommended as a sanitizer on the output of <code>markdown.markdown</code>
+or <code>Markdown.convert</code>. When you pass HTML output through <code>JustHTML</code>, it is
+sanitized by default according to a strict <a href="https://emilstenstrom.github.io/justhtml/html-cleaning.html#default-sanitization-policy">allow list policy</a>. The policy
+can be <a href="https://emilstenstrom.github.io/justhtml/html-cleaning.html#use-a-custom-sanitization-policy">customized</a> if necessary.</p>
+<pre class="codehilite"><code class="language-python">import markdown
+from justhtml import JustHTML
+
+html =  markdown.markdown(text)
+safe_html = JustHTML(html, fragment=True).to_html()
+</code></pre>
+
+<h2 id="using-nh3-or-bleach">Using <code>nh3</code> or <code>bleach</code><a class="headerlink" href="#using-nh3-or-bleach" title="Permanent link">&para;</a></h2>
+<p>If you cannot use <code>JustHTML</code> for some reason, some alternatives include <a href="https://nh3.readthedocs.io/en/latest/"><code>nh3</code></a> or
+<a href="http://bleach.readthedocs.org/en/latest/"><code>bleach</code></a><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. However, be aware that these libraries will not be sufficient
+in themselves and will require customization. Some useful lists of allowed
+tags and attributes can be found in the <a href="https://github.com/yourcelf/bleach-allowlist"><code>bleach-allowlist</code></a> library, which should work with both <code>nh3</code> and <code>bleach</code> as <code>nh3</code>
+mirrors <code>bleach</code>&rsquo;s API.</p>
+<pre class="codehilite"><code class="language-python">import markdown
+import bleach
+from bleach_allowlist import markdown_tags, markdown_attrs
+
+html =  markdown.markdown(text)
+safe_html = bleach.clean(html, markdown_tags, markdown_attrs)
+</code></pre>
+
+<h2 id="sanitizing-on-the-command-line">Sanitizing on the Command Line<a class="headerlink" href="#sanitizing-on-the-command-line" title="Permanent link">&para;</a></h2>
+<p>Both Python-Markdown and <code>JustHTML</code> provide command line interfaces which read
+from <code>STDIN</code> and write to <code>STDOUT</code>. Therefore, they can be used together to
+ensure that the output from untrusted input is properly sanitized.</p>
+<pre class="codehilite"><code class="language-sh">echo &quot;Some **Markdown** text.&quot; | python -m markdown | justhtml - --fragment &gt; safe_output.html
+</code></pre>
+
+<p>For more information on <code>JustHTML</code>&rsquo;s Command Line Interface, see the
+<a href="https://emilstenstrom.github.io/justhtml/cli.html">documentation</a>. Use the <code>--help</code> option for a list of all available
+options and arguments to the <code>markdown</code> command.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>The <a href="http://bleach.readthedocs.org/en/latest/"><code>bleach</code></a> project has been <a href="https://github.com/mozilla/bleach/issues/698">deprecated</a>. 
+However, it may be the only option for some users as <code>nh3</code> is a set of Python bindings to a Rust library.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+                    </div>
+                </div>
+            </div>
+    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <h3><a href="index.html">Table Of Contents</a></h3>
+            <ul>
+                
+    <li>
+        <a class="reference internal" href="#sanitizing-html-output">Sanitizing HTML Output</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#using-justhtml">Using JustHTML</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#using-nh3-or-bleach">Using nh3 or bleach</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#sanitizing-on-the-command-line">Sanitizing on the Command Line</a>
+    </li>
+        </ul>
+    </li>
+            </ul>
+            
+            <h4>Previous topic</h4>
+            <p class="topless">
+                <a href="../cli/" title="previous page">Command Line</a>
+            </p>
+
+            
+            <h4>Next topic</h4>
+            <p class="topless">
+                <a href="../extensions/" title="next page">Extensions</a>
+            </p>
+
+            <div role="note" aria-label="source link">
+                <h3>This Page</h3>
+                <ul class="this-page-menu">
+                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
+                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/sanitization.md">Edit on GitHub</a></li>
+                </ul>
+            </div>
+            <div id="searchbox" style="display: none" role="search">
+                <h3>Quick search</h3>
+                <form class="search" action="../search.html" method="get">
+                    <div><input type="text" name="q" placeholder="Search docs" /></div>
+                    <div><input type="submit" value="Go" /></div>
+                </form>
+            </div>
+            <script type="text/javascript">$('#searchbox').show(0);</script>
+
+        </div>
+    </div>
+
+            <div class="clearer"></div>
+        </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+        <h3>Navigation</h3>
+        <ul>
+                <li class="right" style="margin-right: 10px">
+                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
+                </li>
+            <li class="right" style="margin-right: 10px">
+                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
+            </li>
+            <li class="right">
+                <a href="../extensions/" title="Extensions" accesskey="N">next</a> |
+            </li>
+            <li class="right">
+                <a href="../cli/" title="Command Line" accesskey="P">previous</a> |
+            </li>
+            <li><img src="../py.png"
+            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
+            <li class="nav-item nav-item-0">
+                <a href="..">Python-Markdown 3.10.2 documentation</a> &#187;
+            </li>
+                    
+                    
+                    
+                    
+                    
+        <li class="nav-item">
+            <a href="./">Sanitization and Security</a>
+         &#187; </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+        </ul>
+    </div>
+        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
+        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
+        </div>
+        <script>var base_url = '..';</script>
+        <script src="../search/main.js"></script>
+
+        <!--
+        MkDocs version      : 1.6.1
+        Docs Build Date UTC : 2026-02-09 14:57:21.329442+00:00
+        -->
+    </body>
+</html>

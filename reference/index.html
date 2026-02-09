@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../search.html" />
         <link rel="next" title="Command Line" href="../cli/" />
         <link rel="prev" title="Installation" href="../install/" />
-        <title>Library Reference &#8212; Python-Markdown 3.10.1 documentation</title>
+        <title>Library Reference &#8212; Python-Markdown 3.10.2 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.10.2 documentation</a> &#187;
             </li>
                     
                     
@@ -48,6 +48,7 @@
         <li class="nav-item">
             <a href="./">Library Reference</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -81,7 +82,14 @@ to process multiple documents, it may be advantageous to create a single
 instance of the <code>markdown.Markdown</code> class and pass multiple documents through
 it. If you do use a single instance though, make sure to call the <code>reset</code>
 method appropriately (<a href="#convert">see below</a>).</p>
-<h3 id="markdown">markdown.markdown(text [, **kwargs])<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
+<h3 id="markdown"><code>markdown.markdown(text [, **kwargs])</code><a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Python-Markdown library does <strong><em>not</em></strong> sanitize its HTML output. If
+you are processing Markdown input from an untrusted source, it is your
+responsibility to ensure that it is properly sanitized. For more
+information see <a href="../sanitization/">Sanitizing HTML Output</a>.</p>
+</div>
 <p>The following options are available on the <code>markdown.markdown</code> function:</p>
 <dl>
 <dt><strong id="text">text</strong></dt>
@@ -222,6 +230,15 @@ specifying configuration settings for that extension.</p>
 </dd>
 </dl>
 <h3 id="markdownFromFile"><code>markdown.markdownFromFile (**kwargs)</code><a class="headerlink" href="#markdownFromFile" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Python-Markdown library does <strong><em>not</em></strong> sanitize its HTML output. As
+<code>markdown.markdownFromFile</code> writes directly to the file system, there is
+no easy way to sanitize the output from Python code. Therefore, it is
+recommended that the <code>markdown.markdownFromFile</code> function not be used on
+input from an untrusted source. For more information see <a href="../sanitization/">Sanitizing HTML
+Output</a>.</p>
+</div>
 <p>With a few exceptions, <code>markdown.markdownFromFile</code> accepts the same options as
 <code>markdown.markdown</code>. It does <strong>not</strong> accept a <code>text</code> (or Unicode) string.
 Instead, it accepts the following required options:</p>
@@ -260,7 +277,7 @@ to handle your encoding/decoding needs.</p>
 </div>
 </dd>
 </dl>
-<h3 id="Markdown">markdown.Markdown([**kwargs])<a class="headerlink" href="#Markdown" title="Permanent link">&para;</a></h3>
+<h3 id="Markdown"><code>markdown.Markdown([**kwargs])</code><a class="headerlink" href="#Markdown" title="Permanent link">&para;</a></h3>
 <p>The same options are available when initializing the <code>markdown.Markdown</code> class
 as on the <a href="#markdown"><code>markdown.markdown</code></a> function, except that the class does
 <strong>not</strong> accept a source text string on initialization. Rather, the source text
@@ -271,7 +288,14 @@ string must be passed to one of two instance methods.</p>
 the thread they were created in. A single instance should not be accessed
 from multiple threads.</p>
 </div>
-<h4 id="convert">Markdown.convert(source)<a class="headerlink" href="#convert" title="Permanent link">&para;</a></h4>
+<h4 id="convert"><code>Markdown.convert(source)</code><a class="headerlink" href="#convert" title="Permanent link">&para;</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Python-Markdown library does <strong><em>not</em></strong> sanitize its HTML output. If
+you are processing Markdown input from an untrusted source, it is your
+responsibility to ensure that it is properly sanitized. For more
+information see <a href="../sanitization/">Sanitizing HTML Output</a>.</p>
+</div>
 <p>The <code>source</code> text must meet the same requirements as the <a href="#text"><code>text</code></a>
 argument of the <a href="#markdown"><code>markdown.markdown</code></a> function.</p>
 <p>You should also use this method if you want to process multiple strings
@@ -292,7 +316,16 @@ html2 = md.convert(text2)
 <pre class="codehilite"><code class="language-python">html3 = md.reset().convert(text3)
 </code></pre>
 
-<h4 id="convertFile">Markdown.convertFile(**kwargs)<a class="headerlink" href="#convertFile" title="Permanent link">&para;</a></h4>
+<h4 id="convertFile"><code>Markdown.convertFile(**kwargs)</code><a class="headerlink" href="#convertFile" title="Permanent link">&para;</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Python-Markdown library does <strong><em>not</em></strong> sanitize its HTML output. As
+<code>Markdown.convertFile</code> writes directly to the file system, there is no
+easy way to sanitize the output from Python code. Therefore, it is
+recommended that the <code>Markdown.convertFile</code> method not be used on input
+from an untrusted source.  For more information see <a href="../sanitization/">Sanitizing HTML
+Output</a>.</p>
+</div>
 <p>The arguments of this method are identical to the arguments of the same
 name on the <code>markdown.markdownFromFile</code> function (<a href="#input"><code>input</code></a>,
 <a href="#output"><code>output</code></a>, and <a href="#encoding"><code>encoding</code></a>). As with the
@@ -398,7 +431,7 @@ each document. State may need to be <code>reset</code> between each call to
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.10.2 documentation</a> &#187;
             </li>
                     
                     
@@ -406,6 +439,7 @@ each document. State may need to be <code>reset</code> between each call to
         <li class="nav-item">
             <a href="./">Library Reference</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -425,7 +459,7 @@ each document. State may need to be <code>reset</code> between each call to
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-01-21 18:09:21.119384+00:00
+        Docs Build Date UTC : 2026-02-09 14:57:21.326060+00:00
         -->
     </body>
 </html>

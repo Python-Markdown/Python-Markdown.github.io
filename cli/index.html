@@ -9,9 +9,9 @@
         <link rel="canonical" href="https://Python-Markdown.github.io/cli/">
         <link rel="shortcut icon" href="../favicon.ico">
         <link rel="search" title="Search" href="../search.html" />
-        <link rel="next" title="Extensions" href="../extensions/" />
+        <link rel="next" title="Sanitization and Security" href="../sanitization/" />
         <link rel="prev" title="Library Reference" href="../reference/" />
-        <title>Command Line &#8212; Python-Markdown 3.10.1 documentation</title>
+        <title>Command Line &#8212; Python-Markdown 3.10.2 documentation</title>
         <link rel="stylesheet" href="../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
@@ -32,7 +32,7 @@
                 <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../extensions/" title="Extensions" accesskey="N">next</a> |
+                <a href="../sanitization/" title="Sanitization and Security" accesskey="N">next</a> |
             </li>
             <li class="right">
                 <a href="../reference/" title="Library Reference" accesskey="P">previous</a> |
@@ -40,7 +40,7 @@
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.10.2 documentation</a> &#187;
             </li>
                     
                     
@@ -49,6 +49,7 @@
         <li class="nav-item">
             <a href="./">Command Line</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -71,6 +72,7 @@ Python-Markdown&rsquo;s various extensions.</p>
 <p>Generally, you will want to have the Markdown library fully installed on your
 system to run the command line script. See the
 <a href="../install/">Installation instructions</a> for details.</p>
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
 <p>Python-Markdown&rsquo;s command line script takes advantage of Python&rsquo;s <code>-m</code> flag.
 Therefore, assuming the python executable is on your system path, use the
 following format:</p>
@@ -82,80 +84,50 @@ following format:</p>
 <pre class="codehilite"><code class="language-bash">python -m markdown input_file.txt
 </code></pre>
 
-<p>Piping input and output (on <code>STDIN</code> and <code>STDOUT</code>) is fully supported as well.
+<p>Use the <code>--help</code> option for a list of all available options and arguments:</p>
+<pre class="codehilite"><code class="language-bash">python -m markdown --help
+</code></pre>
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The Python-Markdown library does <strong><em>not</em></strong> sanitize its HTML output. If
+you are processing Markdown input from an untrusted source, it is your
+responsibility to ensure that it is properly sanitized. For more
+information see <a href="../sanitization/">Sanitizing HTML Output</a>.</p>
+</div>
+<h2 id="piping-input-and-output">Piping Input and Output<a class="headerlink" href="#piping-input-and-output" title="Permanent link">&para;</a></h2>
+<p>Piping input and output (on <code>STDIN</code> and <code>STDOUT</code>) is fully supported.
 For example:</p>
 <pre class="codehilite"><code class="language-bash">echo &quot;Some **Markdown** text.&quot; | python -m markdown &gt; output.html
 </code></pre>
 
-<p>Use the <code>--help</code> option for a list all available options and arguments:</p>
-<pre class="codehilite"><code class="language-bash">python -m markdown --help
+<p>The above command would generate a file named <code>output.html</code> with the following content:</p>
+<pre class="codehilite"><code class="language-html">&lt;p&gt;Some &lt;strong&gt;Markdown&lt;/strong&gt; Text.&lt;/p&gt;
 </code></pre>
 
-<p>If you don&rsquo;t want to call the python executable directly (using the <code>-m</code> flag),
-follow the instructions below to use a wrapper script:</p>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">&para;</a></h2>
-<p>Upon installation, the <code>markdown_py</code> script will have been copied to
-your Python &ldquo;Scripts&rdquo; directory. Different systems require different methods to
-ensure that any files in the Python &ldquo;Scripts&rdquo; directory are on your system
-path.</p>
-<ul>
-<li>
-<p><strong>Windows</strong>:</p>
-<p>Assuming a default install of Python on Windows, your &ldquo;Scripts&rdquo; directory
-is most likely something like <code>C:\\Python37\Scripts</code>. Verify the location
-of your &ldquo;Scripts&rdquo; directory and add it to you system path.</p>
-<p>Calling <code>markdown_py</code> from the command line will call the wrapper batch
-file <code>markdown_py.bat</code> in the <code>"Scripts"</code> directory created during install.</p>
-</li>
-<li>
-<p><strong>*nix</strong> (Linux, OSX, BSD, Unix, etc.):</p>
-<p>As each *nix distribution is different and we can&rsquo;t possibly document all
-of them here, we&rsquo;ll provide a few helpful pointers:</p>
-<ul>
-<li>
-<p>Some systems will automatically install the script on your path. Try it
-  and see if it works. Just run <code>markdown_py</code> from the command line.</p>
-</li>
-<li>
-<p>Other systems may maintain a separate &ldquo;Scripts&rdquo; (&ldquo;bin&rdquo;) directory which
-  you need to add to your path. Find it (check with your distribution) and
-  either add it to your path or make a symbolic link to it from your path.</p>
-</li>
-<li>
-<p>If you are sure <code>markdown_py</code> is on your path, but it still is not being
-  found, check the permissions of the file and make sure it is executable.</p>
-</li>
-</ul>
-<p>As an alternative, you could just <code>cd</code> into the directory which contains
-the source distribution, and run it from there. However, remember that your
-markdown text files will not likely be in that directory, so it is much
-more convenient to have <code>markdown_py</code> on your path.</p>
-</li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Python-Markdown uses <code>"markdown_py"</code> as a script name because the Perl
-implementation has already taken the more obvious name &ldquo;markdown&rdquo;.
-Additionally, the default Python configuration on some systems would cause a
-script named <code>"markdown.py"</code> to fail by importing itself rather than the
-markdown library. Therefore, the script has been named <code>"markdown_py"</code> as a
-compromise. If you prefer a different name for the script on your system, it
-is suggested that you create a symbolic link to <code>markdown_py</code> with your
-preferred name.</p>
-</div>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>To use <code>markdown_py</code> from the command line, run it as</p>
-<pre class="codehilite"><code class="language-bash">markdown_py input_file.txt
+<p>As Python-Markdown only ever outputs HTML fragments (no <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>,
+and <code>&lt;body&gt;</code> tags), it is generally expected that the command line interface
+will always be used to pipe output to a templating engine. In the event that
+no additional content is needed and the output only needs to be wrapped in
+otherwise empty <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags, 
+<a href="https://emilstenstrom.github.io/justhtml/">JustHTML</a> can do that with with
+a single command:</p>
+<pre class="codehilite"><code class="language-bash">echo &quot;Some **Markdown** text.&quot; | python -m markdown | justhtml - --fragment &gt; output.html
 </code></pre>
 
-<p>or</p>
-<pre class="codehilite"><code class="language-bash">markdown_py input_file.txt &gt; output_file.html
+<p>The above command would generate a file named <code>output.html</code> with the following content:</p>
+<pre class="codehilite"><code class="language-html">&lt;html&gt;
+  &lt;head&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Some &lt;strong&gt;Markdown&lt;/strong&gt; Text.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
 
-<p>For a complete list of options, run</p>
-<pre class="codehilite"><code class="language-bash">markdown_py --help
-</code></pre>
-
+<p>If you don&rsquo;t need or want JustHTML&rsquo;s HTML sanitation, you can disable it with the
+<code>--unsafe</code> flag, although that is not recommended. See JustHTML&rsquo;s 
+<a href="https://emilstenstrom.github.io/justhtml/cli.html">Command Line Interface</a>
+documentation for details.</p>
 <h2 id="using-extensions">Using Extensions<a class="headerlink" href="#using-extensions" title="Permanent link">&para;</a></h2>
 <p>To load a Python-Markdown extension from the command line use the <code>-x</code>
 (or <code>--extension</code>) option. The extension module must be on your <code>PYTHONPATH</code>
@@ -209,6 +181,71 @@ reference to a function), one has to use a YAML configuration file.</p>
 <p>The <code>--extension_configs</code> option will only support YAML configuration files if
 <a href="https://pyyaml.org/">PyYAML</a> is installed on your system. JSON should work with no additional
 dependencies. The format of your configuration file is automatically detected.</p>
+<h2 id="using-the-markdown_py-command">Using the <code>markdown_py</code> Command<a class="headerlink" href="#using-the-markdown_py-command" title="Permanent link">&para;</a></h2>
+<p>If you don&rsquo;t want to call the python executable directly (using the <code>-m</code> flag),
+follow the instructions below to use a wrapper script:</p>
+<h3 id="setup-markdown_py">Setup <code>markdown_py</code><a class="headerlink" href="#setup-markdown_py" title="Permanent link">&para;</a></h3>
+<p>Upon installation, the <code>markdown_py</code> script will have been copied to
+your Python &ldquo;Scripts&rdquo; directory. Different systems require different methods to
+ensure that any files in the Python &ldquo;Scripts&rdquo; directory are on your system
+path.</p>
+<ul>
+<li>
+<p><strong>Windows</strong>:</p>
+<p>Assuming a default install of Python on Windows, your &ldquo;Scripts&rdquo; directory
+is most likely something like <code>C:\\Python37\Scripts</code>. Verify the location
+of your &ldquo;Scripts&rdquo; directory and add it to you system path.</p>
+<p>Calling <code>markdown_py</code> from the command line will call the wrapper batch
+file <code>markdown_py.bat</code> in the <code>"Scripts"</code> directory created during install.</p>
+</li>
+<li>
+<p><strong>*nix</strong> (Linux, OSX, BSD, Unix, etc.):</p>
+<p>As each *nix distribution is different and we can&rsquo;t possibly document all
+of them here, we&rsquo;ll provide a few helpful pointers:</p>
+<ul>
+<li>
+<p>Some systems will automatically install the script on your path. Try it
+  and see if it works. Just run <code>markdown_py</code> from the command line.</p>
+</li>
+<li>
+<p>Other systems may maintain a separate &ldquo;Scripts&rdquo; (&ldquo;bin&rdquo;) directory which
+  you need to add to your path. Find it (check with your distribution) and
+  either add it to your path or make a symbolic link to it from your path.</p>
+</li>
+<li>
+<p>If you are sure <code>markdown_py</code> is on your path, but it still is not being
+  found, check the permissions of the file and make sure it is executable.</p>
+</li>
+</ul>
+<p>As an alternative, you could just <code>cd</code> into the directory which contains
+the source distribution, and run it from there. However, remember that your
+markdown text files will not likely be in that directory, so it is much
+more convenient to have <code>markdown_py</code> on your path.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Python-Markdown uses <code>"markdown_py"</code> as a script name because the Perl
+implementation has already taken the more obvious name &ldquo;markdown&rdquo;.
+Additionally, the default Python configuration on some systems would cause a
+script named <code>"markdown.py"</code> to fail by importing itself rather than the
+markdown library. Therefore, the script has been named <code>"markdown_py"</code> as a
+compromise. If you prefer a different name for the script on your system, it
+is suggested that you create a symbolic link to <code>markdown_py</code> with your
+preferred name.</p>
+</div>
+<h3 id="using-markdown_py">Using <code>markdown_py</code><a class="headerlink" href="#using-markdown_py" title="Permanent link">&para;</a></h3>
+<p>To use <code>markdown_py</code> from the command line, run it as</p>
+<pre class="codehilite"><code class="language-bash">markdown_py input_file.txt
+</code></pre>
+
+<p>or</p>
+<pre class="codehilite"><code class="language-bash">markdown_py input_file.txt &gt; output_file.html
+</code></pre>
+
+<p>For a complete list of options, run</p>
+<pre class="codehilite"><code class="language-bash">markdown_py --help
+</code></pre>
 
                     </div>
                 </div>
@@ -223,15 +260,29 @@ dependencies. The format of your configuration file is automatically detected.</
         <ul>
             
     <li>
-        <a class="reference internal" href="#setup">Setup</a>
+        <a class="reference internal" href="#basic-usage">Basic Usage</a>
     </li>
             
     <li>
-        <a class="reference internal" href="#usage">Usage</a>
+        <a class="reference internal" href="#piping-input-and-output">Piping Input and Output</a>
     </li>
             
     <li>
         <a class="reference internal" href="#using-extensions">Using Extensions</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#using-the-markdown_py-command">Using the markdown_py Command</a>
+        <ul>
+            
+    <li>
+        <a class="reference internal" href="#setup-markdown_py">Setup markdown_py</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#using-markdown_py">Using markdown_py</a>
+    </li>
+        </ul>
     </li>
         </ul>
     </li>
@@ -245,7 +296,7 @@ dependencies. The format of your configuration file is automatically detected.</
             
             <h4>Next topic</h4>
             <p class="topless">
-                <a href="../extensions/" title="next page">Extensions</a>
+                <a href="../sanitization/" title="next page">Sanitization and Security</a>
             </p>
 
             <div role="note" aria-label="source link">
@@ -279,7 +330,7 @@ dependencies. The format of your configuration file is automatically detected.</
                 <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
             </li>
             <li class="right">
-                <a href="../extensions/" title="Extensions" accesskey="N">next</a> |
+                <a href="../sanitization/" title="Sanitization and Security" accesskey="N">next</a> |
             </li>
             <li class="right">
                 <a href="../reference/" title="Library Reference" accesskey="P">previous</a> |
@@ -287,7 +338,7 @@ dependencies. The format of your configuration file is automatically detected.</
             <li><img src="../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.1 documentation</a> &#187;
+                <a href="..">Python-Markdown 3.10.2 documentation</a> &#187;
             </li>
                     
                     
@@ -296,6 +347,7 @@ dependencies. The format of your configuration file is automatically detected.</
         <li class="nav-item">
             <a href="./">Command Line</a>
          &#187; </li>
+                    
                     
                     
                     
@@ -314,7 +366,7 @@ dependencies. The format of your configuration file is automatically detected.</
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-01-21 18:09:21.110076+00:00
+        Docs Build Date UTC : 2026-02-09 14:57:21.316079+00:00
         -->
     </body>
 </html>
