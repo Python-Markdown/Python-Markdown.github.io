@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="Contributing to Python-Markdown" href="../../../../contributing/" />
         <link rel="prev" title="<code>toc</code>" href="../toc/" />
-        <title>wikilinks &#8212; Python-Markdown 3.10.2 documentation</title>
+        <title>wikilinks &#8212; Python-Markdown 3.10.3 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -108,7 +108,7 @@
 
 
 <h1 id="markdown.extensions.wikilinks" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/wikilinks.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/wikilinks.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.wikilinks</code>
 
 
@@ -189,7 +189,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.wikilinks.build_url" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/wikilinks.py#L31-L34" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/wikilinks.py#L31-L34" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.extensions.wikilinks.build_url(label: str, base: str, end: str) -&gt; str</code>
 
 
@@ -215,7 +215,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.wikilinks.WikiLinkExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/wikilinks.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/wikilinks.py#L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.wikilinks.WikiLinkExtension(**kwargs)</code>
 
 
@@ -240,6 +240,19 @@ for details.</p>
 
 
 
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.wikilinks.WikiLinkExtension.extendMarkdown(md)" href="#markdown.extensions.wikilinks.WikiLinkExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Register the processor.</p>
+            </div>
+          </li>
+    </ul>
 
 
 
@@ -276,7 +289,7 @@ for details.</p>
 
 
 <h3 id="markdown.extensions.wikilinks.WikiLinkExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/wikilinks.py#L41-L46" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/wikilinks.py#L41-L46" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.wikilinks.WikiLinkExtension.config</code>
 
   <span class="doc doc-labels">
@@ -305,6 +318,51 @@ for details.</p>
 
 
 
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="markdown.extensions.wikilinks.WikiLinkExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/wikilinks.py#L50-L65" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.wikilinks.WikiLinkExtension.extendMarkdown(md)</code>
+
+
+<a href="#markdown.extensions.wikilinks.WikiLinkExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Register the processor.</p>
+<table>
+<thead>
+<tr>
+<th>Class Instance</th>
+<th>Registry</th>
+<th>Name</th>
+<th style="text-align: center;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.wikilinks.WikiLinksInlineProcessor(pattern: str, config: dict[str, Any])" href="#markdown.extensions.wikilinks.WikiLinksInlineProcessor"><code>WikiLinksInlineProcessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+              markdown.inlinepatterns.build_inlinepatterns(md: Markdown, **kwargs: Any) -> util.Registry[InlineProcessor]" href="../../inlinepatterns/#markdown.inlinepatterns.build_inlinepatterns"><code>inlinepatterns</code></a></td>
+<td><code>wikilink</code></td>
+<td style="text-align: center;"><code>75</code></td>
+</tr>
+</tbody>
+</table>
+
+
+    </div>
+
+</div>
+
+
+
+
   </div>
 
     </div>
@@ -321,7 +379,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.wikilinks.WikiLinksInlineProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/wikilinks.py#L60" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/wikilinks.py#L68" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.wikilinks.WikiLinksInlineProcessor(pattern: str, config: dict[str, Any])</code>
 
 
@@ -396,6 +454,10 @@ for details.</p>
     <li>
         <a class="reference internal" href="#markdown.extensions.wikilinks.WikiLinkExtension.config">config</a>
     </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.wikilinks.WikiLinkExtension.extendMarkdown">extendMarkdown</a>
+    </li>
         </ul>
     </li>
             
@@ -456,7 +518,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -523,7 +585,7 @@ for details.</p>
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-02-09 14:57:21.583130+00:00
+        Docs Build Date UTC : 2026-07-30 19:05:35.795202+00:00
         -->
     </body>
 </html>

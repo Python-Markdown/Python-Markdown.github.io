@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>md_in_html</code>" href="../md_in_html/" />
         <link rel="prev" title="<code>legacy_attrs</code>" href="../legacy_attrs/" />
-        <title>legacy_em &#8212; Python-Markdown 3.10.2 documentation</title>
+        <title>legacy_em &#8212; Python-Markdown 3.10.3 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -108,7 +108,7 @@
 
 
 <h1 id="markdown.extensions.legacy_em" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/legacy_em.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/legacy_em.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.legacy_em</code>
 
 
@@ -200,7 +200,7 @@
 
 
 <h2 id="markdown.extensions.legacy_em.LegacyUnderscoreProcessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/legacy_em.py#L30" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/legacy_em.py#L30" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.legacy_em.LegacyUnderscoreProcessor(pattern: str, md: Markdown | None = None)</code>
 
 
@@ -253,7 +253,7 @@
 
 
 <h2 id="markdown.extensions.legacy_em.LegacyEmExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/legacy_em.py#L42" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/legacy_em.py#L42" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.legacy_em.LegacyEmExtension(**kwargs)</code>
 
 
@@ -287,7 +287,7 @@
               markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown(md)" href="#markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown">extendMarkdown</a></code></b>
             –
             <div class="doc-md-description">
-              <p>Modify inline patterns.</p>
+              <p>Register the processor.</p>
             </div>
           </li>
     </ul>
@@ -309,7 +309,7 @@
 
 
 <h3 id="markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/legacy_em.py#L45-L47" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/legacy_em.py#L45-L54" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.legacy_em.LegacyEmExtension.extendMarkdown(md)</code>
 
 
@@ -318,7 +318,27 @@
 
     <div class="doc doc-contents ">
 
-        <p>Modify inline patterns.</p>
+        <p>Register the processor.</p>
+<table>
+<thead>
+<tr>
+<th>Class Instance</th>
+<th>Registry</th>
+<th>Name</th>
+<th style="text-align: center;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.legacy_em.LegacyUnderscoreProcessor(pattern: str, md: Markdown | None = None)" href="#markdown.extensions.legacy_em.LegacyUnderscoreProcessor"><code>LegacyUnderscoreProcessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+              markdown.inlinepatterns.build_inlinepatterns(md: Markdown, **kwargs: Any) -> util.Registry[InlineProcessor]" href="../../inlinepatterns/#markdown.inlinepatterns.build_inlinepatterns"><code>inlinepatterns</code></a></td>
+<td><code>em_strong2</code></td>
+<td style="text-align: center;"><code>50</code></td>
+</tr>
+</tbody>
+</table>
 
 
     </div>
@@ -343,7 +363,7 @@
 
 
 <h2 id="markdown.extensions.legacy_em.makeExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/legacy_em.py#L50-L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/legacy_em.py#L57-L59" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code>            <code class=" language-python">markdown.extensions.legacy_em.makeExtension(**kwargs)</code>
 
 
@@ -451,7 +471,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -518,7 +538,7 @@
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-02-09 14:57:21.536819+00:00
+        Docs Build Date UTC : 2026-07-30 19:05:35.778592+00:00
         -->
     </body>
 </html>

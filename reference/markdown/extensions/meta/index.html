@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>nl2br</code>" href="../nl2br/" />
         <link rel="prev" title="<code>md_in_html</code>" href="../md_in_html/" />
-        <title>meta &#8212; Python-Markdown 3.10.2 documentation</title>
+        <title>meta &#8212; Python-Markdown 3.10.3 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -108,7 +108,7 @@
 
 
 <h1 id="markdown.extensions.meta" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/meta.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/meta.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.meta</code>
 
 
@@ -177,7 +177,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.meta.MetaExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/meta.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/meta.py#L39" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.meta.MetaExtension(**kwargs)</code>
 
 
@@ -211,7 +211,7 @@ for details.</p>
               markdown.extensions.meta.MetaExtension.extendMarkdown(md)" href="#markdown.extensions.meta.MetaExtension.extendMarkdown">extendMarkdown</a></code></b>
             –
             <div class="doc-md-description">
-              <p>Add <code>MetaPreprocessor</code> to Markdown instance.</p>
+              <p>Register the processor.</p>
             </div>
           </li>
     </ul>
@@ -233,7 +233,7 @@ for details.</p>
 
 
 <h3 id="markdown.extensions.meta.MetaExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/meta.py#L42-L46" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/meta.py#L42-L53" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.meta.MetaExtension.extendMarkdown(md)</code>
 
 
@@ -242,7 +242,27 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Add <code>MetaPreprocessor</code> to Markdown instance.</p>
+        <p>Register the processor.</p>
+<table>
+<thead>
+<tr>
+<th>Class Instance</th>
+<th>Registry</th>
+<th>Name</th>
+<th style="text-align: center;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.extensions.meta.MetaPreprocessor(md: Markdown | None = None)" href="#markdown.extensions.meta.MetaPreprocessor"><code>MetaPreprocessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+              markdown.preprocessors.build_preprocessors(md: Markdown, **kwargs: Any) -> util.Registry[Preprocessor]" href="../../preprocessors/#markdown.preprocessors.build_preprocessors"><code>preprocessors</code></a></td>
+<td><code>meta</code></td>
+<td style="text-align: center;"><code>27</code></td>
+</tr>
+</tbody>
+</table>
 
 
     </div>
@@ -268,7 +288,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.meta.MetaPreprocessor" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/meta.py#L52" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/meta.py#L59" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.meta.MetaPreprocessor(md: Markdown | None = None)</code>
 
 
@@ -324,7 +344,7 @@ for details.</p>
 
 
 <h3 id="markdown.extensions.meta.MetaPreprocessor.run" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/meta.py#L55-L82" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/meta.py#L62-L89" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.meta.MetaPreprocessor.run(lines: list[str]) -&gt; list[str]</code>
 
 
@@ -443,7 +463,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -510,7 +530,7 @@ for details.</p>
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-02-09 14:57:21.542513+00:00
+        Docs Build Date UTC : 2026-07-30 19:05:35.782855+00:00
         -->
     </body>
 </html>

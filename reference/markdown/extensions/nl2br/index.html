@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>sane_lists</code>" href="../sane_lists/" />
         <link rel="prev" title="<code>meta</code>" href="../meta/" />
-        <title>nl2br &#8212; Python-Markdown 3.10.2 documentation</title>
+        <title>nl2br &#8212; Python-Markdown 3.10.3 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -108,7 +108,7 @@
 
 
 <h1 id="markdown.extensions.nl2br" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/nl2br.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/nl2br.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.nl2br</code>
 
 
@@ -138,7 +138,7 @@ for details.</p>
                 markdown.extensions.nl2br.Nl2BrExtension(**kwargs)" href="#markdown.extensions.nl2br.Nl2BrExtension">Nl2BrExtension</a></code></b>
           –
           <div class="doc-md-description">
-            
+            <p>Newline-to-break extension for Python-Markdown.</p>
           </div>
         </li>
     </ul>
@@ -170,7 +170,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.nl2br.Nl2BrExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/nl2br.py#L32" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/nl2br.py#L32" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.nl2br.Nl2BrExtension(**kwargs)</code>
 
 
@@ -183,6 +183,8 @@ for details.</p>
                 markdown.extensions.Extension(**kwargs)" href="../#markdown.extensions.Extension">Extension</a></code></p>
 
 
+
+        <p>Newline-to-break extension for Python-Markdown.</p>
 
 
 
@@ -202,7 +204,7 @@ for details.</p>
               markdown.extensions.nl2br.Nl2BrExtension.extendMarkdown(md)" href="#markdown.extensions.nl2br.Nl2BrExtension.extendMarkdown">extendMarkdown</a></code></b>
             –
             <div class="doc-md-description">
-              <p>Add a <code>SubstituteTagInlineProcessor</code> to Markdown.</p>
+              <p>Register the processor.</p>
             </div>
           </li>
     </ul>
@@ -224,7 +226,7 @@ for details.</p>
 
 
 <h3 id="markdown.extensions.nl2br.Nl2BrExtension.extendMarkdown" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/nl2br.py#L34-L37" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/nl2br.py#L35-L45" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.nl2br.Nl2BrExtension.extendMarkdown(md)</code>
 
 
@@ -233,7 +235,27 @@ for details.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Add a <code>SubstituteTagInlineProcessor</code> to Markdown.</p>
+        <p>Register the processor.</p>
+<table>
+<thead>
+<tr>
+<th>Class Instance</th>
+<th>Registry</th>
+<th>Name</th>
+<th style="text-align: center;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.inlinepatterns.SubstituteTagInlineProcessor(pattern: str, tag: str)" href="../../inlinepatterns/#markdown.inlinepatterns.SubstituteTagInlineProcessor"><code>SubstituteTagInlineProcessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+              markdown.inlinepatterns.build_inlinepatterns(md: Markdown, **kwargs: Any) -> util.Registry[InlineProcessor]" href="../../inlinepatterns/#markdown.inlinepatterns.build_inlinepatterns"><code>inlinepatterns</code></a></td>
+<td><code>nl</code></td>
+<td style="text-align: center;"><code>5</code></td>
+</tr>
+</tbody>
+</table>
 
 
     </div>
@@ -333,7 +355,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -400,7 +422,7 @@ for details.</p>
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-02-09 14:57:21.544489+00:00
+        Docs Build Date UTC : 2026-07-30 19:05:35.784678+00:00
         -->
     </body>
 </html>

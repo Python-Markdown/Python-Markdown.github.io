@@ -11,7 +11,7 @@
         <link rel="search" title="Search" href="../../../../search.html" />
         <link rel="next" title="<code>tables</code>" href="../tables/" />
         <link rel="prev" title="<code>sane_lists</code>" href="../sane_lists/" />
-        <title>smarty &#8212; Python-Markdown 3.10.2 documentation</title>
+        <title>smarty &#8212; Python-Markdown 3.10.3 documentation</title>
         <link rel="stylesheet" href="../../../../static/nature.css" type="text/css" />
         <link rel="stylesheet" href="../../../../static/pygments.css" type="text/css" />
         <link rel="stylesheet" href="../../../../assets/_mkdocstrings.css" type="text/css" />
@@ -40,7 +40,7 @@
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -108,7 +108,7 @@
 
 
 <h1 id="markdown.extensions.smarty" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/smarty.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/smarty.py" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-module"></code>            <code>markdown.extensions.smarty</code>
 
 
@@ -197,7 +197,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.smarty.SubstituteTextPattern" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/smarty.py#L164" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/smarty.py#L164" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.smarty.SubstituteTextPattern(pattern: str, replace: Sequence[int | str | etree.Element], md: Markdown)</code>
 
 
@@ -248,7 +248,7 @@ for details.</p>
 
 
 <h2 id="markdown.extensions.smarty.SmartyExtension" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/smarty.py#L181" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/smarty.py#L181" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
   <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code>              <code class=" language-python">markdown.extensions.smarty.SmartyExtension(**kwargs)</code>
 
 
@@ -273,6 +273,19 @@ for details.</p>
 
 
 
+
+
+<p><span class="doc-section-title">Methods:</span></p>
+    <ul>
+          <li class="doc-section-item field-body">
+            <b><code><a class="autorefs autorefs-internal" title="‹›
+              markdown.extensions.smarty.SmartyExtension.extendMarkdown(md)" href="#markdown.extensions.smarty.SmartyExtension.extendMarkdown">extendMarkdown</a></code></b>
+            –
+            <div class="doc-md-description">
+              <p>Register the processors.</p>
+            </div>
+          </li>
+    </ul>
 
 
 
@@ -309,7 +322,7 @@ for details.</p>
 
 
 <h3 id="markdown.extensions.smarty.SmartyExtension.config" class="doc doc-heading">
-  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.2/markdown/extensions/smarty.py#L184-L190" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/smarty.py#L184-L190" title='View source code on GitHub'>&lsaquo;&rsaquo;</a>
 <code class="doc-symbol doc-symbol-heading doc-symbol-attribute"></code>  <code class=" language-python">markdown.extensions.smarty.SmartyExtension.config</code>
 
   <span class="doc doc-labels">
@@ -333,6 +346,63 @@ for details.</p>
     'substitutions': [{}, 'Overwrite default substitutions'],
 }
 </code></pre>    </div>
+
+</div>
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="markdown.extensions.smarty.SmartyExtension.extendMarkdown" class="doc doc-heading">
+  <a class="doc-source-link" href="https://github.com/Python-Markdown/markdown/tree/3.10.3/markdown/extensions/smarty.py#L259-L291" title="View source code on GitHub.">&lsaquo;&rsaquo;</a>
+  <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code>            <code class=" language-python">markdown.extensions.smarty.SmartyExtension.extendMarkdown(md)</code>
+
+
+<a href="#markdown.extensions.smarty.SmartyExtension.extendMarkdown" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Register the processors.</p>
+<table>
+<thead>
+<tr>
+<th>Class Instance</th>
+<th>Registry</th>
+<th>Name</th>
+<th style="text-align: center;">Priority</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.treeprocessors.InlineProcessor(md: Markdown)" href="../../treeprocessors/#markdown.treeprocessors.InlineProcessor"><code>markdown.treeprocessors.InlineProcessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+              markdown.treeprocessors.build_treeprocessors(md: Markdown, **kwargs: Any) -> util.Registry[Treeprocessor]" href="../../treeprocessors/#markdown.treeprocessors.build_treeprocessors"><code>treeprocessors</code></a></td>
+<td><code>smarty</code></td>
+<td style="text-align: center;"><code>6</code></td>
+</tr>
+<tr>
+<td><a class="autorefs autorefs-internal" title="‹›
+                markdown.inlinepatterns.HtmlInlineProcessor(pattern: str, md: Markdown | None = None)" href="../../inlinepatterns/#markdown.inlinepatterns.HtmlInlineProcessor"><code>markdown.inlinepatterns.HtmlInlineProcessor</code></a></td>
+<td><a class="autorefs autorefs-internal" title="‹›
+              markdown.inlinepatterns.build_inlinepatterns(md: Markdown, **kwargs: Any) -> util.Registry[InlineProcessor]" href="../../inlinepatterns/#markdown.inlinepatterns.build_inlinepatterns"><code>inlinepatterns</code></a></td>
+<td><code>html</code></td>
+<td style="text-align: center;"><code>90</code></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>HtmlInlineProcessor</code> , above, is only used if the <code>smart_angled_quotes</code> option is enabled.</p>
+<p>The <code>InlineProcessor</code>, above, is a separate instance from the <code>InlineProcessor</code> used for
+standard inline parsing. It contains a collection of inline patterns dependent upon the
+various configuration options.</p>
+
+
+    </div>
 
 </div>
 
@@ -376,6 +446,10 @@ for details.</p>
             
     <li>
         <a class="reference internal" href="#markdown.extensions.smarty.SmartyExtension.config">config</a>
+    </li>
+            
+    <li>
+        <a class="reference internal" href="#markdown.extensions.smarty.SmartyExtension.extendMarkdown">extendMarkdown</a>
     </li>
         </ul>
     </li>
@@ -433,7 +507,7 @@ for details.</p>
             <li><img src="../../../../py.png"
             alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
             <li class="nav-item nav-item-0">
-                <a href="../../../..">Python-Markdown 3.10.2 documentation</a> &#187;
+                <a href="../../../..">Python-Markdown 3.10.3 documentation</a> &#187;
             </li>
                     
                     
@@ -500,7 +574,7 @@ for details.</p>
 
         <!--
         MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-02-09 14:57:21.548903+00:00
+        Docs Build Date UTC : 2026-07-30 19:05:35.788067+00:00
         -->
     </body>
 </html>
