@@ -1,104 +1,4859 @@
-<!DOCTYPE html>
 
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-        
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python implementation of John Gruber's Markdown.">
+      
+      
         <meta name="author" content="The Python-Markdown Project">
+      
+      
         <link rel="canonical" href="https://Python-Markdown.github.io/changelog/">
-        <link rel="shortcut icon" href="../favicon.ico">
-        <link rel="search" title="Search" href="../search.html" />
-        <link rel="next" title="Authors" href="../authors/" />
-        <link rel="prev" title="Contributing to Python-Markdown" href="../contributing/" />
-        <title>Changelog &#8212; Python-Markdown 3.10.3 documentation</title>
-        <link rel="stylesheet" href="../static/nature.css" type="text/css" />
-        <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
-        <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
-        <link rel="stylesheet" href="../custom.css" type="text/css" />
-        <link rel="stylesheet" href="../mkdocstrings.css" type="text/css" />
-        <script type="text/javascript" src="../static/jquery.js"></script>
-        <script type="text/javascript" src="../static/underscore.js"></script> 
-    </head>
+      
+      
+        <link rel="prev" href="../contributing/">
+      
+      
+        <link rel="next" href="../authors/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/pyMd_icon2.ico">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Changelog - Python-Markdown</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
 
-    <body>
-    <div class="related" role="navigation" aria-label="related navigation">
-        <h3>Navigation</h3>
-        <ul>
-                <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
-                </li>
-            <li class="right" style="margin-right: 10px">
-                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
-            </li>
-            <li class="right">
-                <a href="../authors/" title="Authors" accesskey="N">next</a> |
-            </li>
-            <li class="right">
-                <a href="../contributing/" title="Contributing to Python-Markdown" accesskey="P">previous</a> |
-            </li>
-            <li><img src="../py.png"
-            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
-            <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.3 documentation</a> &#187;
-            </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        <li class="nav-item">
-            <a href="./">Changelog</a>
-         &#187; </li>
-                    
-        </ul>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-markdown-changelog" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="document">
-            <div class="documentwrapper">
-                <div class="bodywrapper">
-                    <div class="body" role="main"><h1 id="python-markdown-changelog">Python-Markdown Changelog<a class="headerlink" href="#python-markdown-changelog" title="Permanent link">&para;</a></h1>
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Python-Markdown" class="md-header__button md-logo" aria-label="Python-Markdown" data-md-component="logo">
+      
+  <img src="../assets/images/pyMd_icon2.png" alt="Python-Markdown">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python-Markdown
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Changelog
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/Python-Markdown/markdown" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Python-Markdown/markdown
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./.." class="md-tabs__link">
+        
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../install/" class="md-tabs__link">
+          
+  
+  Usage
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../extensions/api/" class="md-tabs__link">
+          
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../contributing/" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Python-Markdown" class="md-nav__button md-logo" aria-label="Python-Markdown" data-md-component="logo">
+      
+  <img src="../assets/images/pyMd_icon2.png" alt="Python-Markdown">
+
+    </a>
+    Python-Markdown
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Python-Markdown/markdown" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Python-Markdown/markdown
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Usage
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Usage
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Library Reference
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Command Line
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sanitization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sanitization and Security
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../extensions/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Extensions
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Extensions
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/abbreviations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Abbreviations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/admonition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Admonition
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/attr_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Attribute Lists
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/code_hilite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  CodeHilite
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/definition_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Definition Lists
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Extra
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/fenced_code_blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fenced Code Blocks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/footnotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Footnotes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/legacy_attrs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Legacy Attributes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/legacy_em/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Legacy Emphasis
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/meta_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Meta-Data
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/nl2br/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  New Line to Break
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/md_in_html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Markdown in HTML
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/sane_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sane Lists
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/smarty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SmartyPants
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Table of Contents
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tables
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/wikilinks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  WikiLinks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Development
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Development
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Extension API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Test Tools
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  API Reference
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.preprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;preprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.blockparser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;blockparser</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.blockprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;blockprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.treeprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;treeprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.inlinepatterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;inlinepatterns</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.postprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;postprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.serializers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;serializers</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.util/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;util</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.htmlparser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;htmlparser</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.test_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;test_tools</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.abbr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;abbr</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.admonition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;admonition</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.attr_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;attr_list</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.codehilite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;codehilite</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.def_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;def_list</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;extra</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.fenced_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;fenced_code</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.footnotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;footnotes</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.legacy_attrs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;legacy_attrs</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.legacy_em/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;legacy_em</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.md_in_html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;md_in_html</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;meta</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.nl2br/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;nl2br</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.sane_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;sane_lists</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.smarty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;smarty</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;tables</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;toc</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.wikilinks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;wikilinks</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  About
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Contributing to Python-Markdown
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Changelog
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Changelog
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3110-2026-09-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.11.0] - 2026-09-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.11.0] - 2026-09-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3103-2026-07-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.3] - 2026-07-30
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.3] - 2026-07-30">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3102-2026-02-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.2] - 2026-02-09
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.2] - 2026-02-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3101-2026-01-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.1] - 2026-01-21
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.1] - 2026-01-21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3100-2025-11-03" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.0] - 2025-11-03
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.0] - 2025-11-03">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#390-2025-09-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.9.0] - 2025-09-04
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.9.0] - 2025-09-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#382-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.8.2] - 2025-06-19
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.8.2] - 2025-06-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#381-2025-06-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.8.1] - 2025-06-18
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.8.1] - 2025-06-18">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#380-2025-04-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.8.0] - 2025-04-09
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.8.0] - 2025-04-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#370-2024-08-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.7.0] - 2024-08-16
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.7.0] - 2024-08-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#360-2024-03-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.6.0] - 2024-03-14
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.6.0] - 2024-03-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#352-2024-01-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.5.2] - 2024-01-10
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.5.2] - 2024-01-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#351-2023-10-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.5.1] - 2023-10-31
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.5.1] - 2023-10-31">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#350-2023-10-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.5.0] - 2023-10-06
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.5.0] - 2023-10-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#344-2023-07-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.4] - 2023-07-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.4] - 2023-07-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#343-2023-03-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.3] - 2023-03-23
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.3] - 2023-03-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#342-2023-03-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.2] - 2023-03-22
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.2] - 2023-03-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#341-2022-07-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.1] - 2022-07-15
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.1] - 2022-07-15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#340-2022-07-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.0] - 2022-07-15
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.0] - 2022-07-15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#337-2022-05-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.7] - 2022-05-05
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.7] - 2022-05-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#336-2021-11-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.6] - 2021-11-17
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.6] - 2021-11-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#335-2021-11-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.5] - 2021-11-16
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.5] - 2021-11-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#334-2021-02-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.4] - 2021-02-24
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.4] - 2021-02-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#333-2020-10-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.3] - 2020-10-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.3] - 2020-10-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#332-2020-10-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.2] - 2020-10-19
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.2] - 2020-10-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#331-2020-10-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.1] - 2020-10-12
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.1] - 2020-10-12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#330-2020-10-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.0] - 2020-10-06
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.0] - 2020-10-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#322-2020-05-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.2.2] - 2020-05-08
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.2.2] - 2020-05-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#321-2020-02-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.2.1] - 2020-02-12
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.2.1] - 2020-02-12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#320-2020-02-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.2.0] - 2020-02-07
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.2.0] - 2020-02-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-2019-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.1.1] - 2019-05-20
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.1.1] - 2019-05-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310-2019-03-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.1.0] - 2019-03-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.1.0] - 2019-03-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#301-2018-09-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.0.1] - 2018-09-28
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.0.1] - 2018-09-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#300-2018-09-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.0.0] - 2018-09-21
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.0.0] - 2018-09-21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Authors
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#3110-2026-09-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.11.0] - 2026-09-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.11.0] - 2026-09-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3103-2026-07-30" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.3] - 2026-07-30
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.3] - 2026-07-30">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3102-2026-02-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.2] - 2026-02-09
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.2] - 2026-02-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3101-2026-01-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.1] - 2026-01-21
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.1] - 2026-01-21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3100-2025-11-03" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.10.0] - 2025-11-03
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.10.0] - 2025-11-03">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#390-2025-09-04" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.9.0] - 2025-09-04
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.9.0] - 2025-09-04">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#382-2025-06-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.8.2] - 2025-06-19
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.8.2] - 2025-06-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#381-2025-06-18" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.8.1] - 2025-06-18
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.8.1] - 2025-06-18">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#380-2025-04-09" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.8.0] - 2025-04-09
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.8.0] - 2025-04-09">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#370-2024-08-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.7.0] - 2024-08-16
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.7.0] - 2024-08-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#360-2024-03-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.6.0] - 2024-03-14
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.6.0] - 2024-03-14">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#352-2024-01-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.5.2] - 2024-01-10
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.5.2] - 2024-01-10">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#351-2023-10-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.5.1] - 2023-10-31
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.5.1] - 2023-10-31">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#350-2023-10-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.5.0] - 2023-10-06
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.5.0] - 2023-10-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#added" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changed_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#344-2023-07-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.4] - 2023-07-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.4] - 2023-07-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#343-2023-03-23" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.3] - 2023-03-23
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.3] - 2023-03-23">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#342-2023-03-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.2] - 2023-03-22
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.2] - 2023-03-22">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#341-2022-07-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.1] - 2022-07-15
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.1] - 2022-07-15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#340-2022-07-15" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.4.0] - 2022-07-15
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.4.0] - 2022-07-15">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#337-2022-05-05" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.7] - 2022-05-05
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.7] - 2022-05-05">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#336-2021-11-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.6] - 2021-11-17
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.6] - 2021-11-17">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#335-2021-11-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.5] - 2021-11-16
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.5] - 2021-11-16">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#334-2021-02-24" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.4] - 2021-02-24
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.4] - 2021-02-24">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#333-2020-10-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.3] - 2020-10-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.3] - 2020-10-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#332-2020-10-19" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.2] - 2020-10-19
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.2] - 2020-10-19">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#331-2020-10-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.1] - 2020-10-12
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.1] - 2020-10-12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#330-2020-10-06" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.3.0] - 2020-10-06
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.3.0] - 2020-10-06">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#322-2020-05-08" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.2.2] - 2020-05-08
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.2.2] - 2020-05-08">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#321-2020-02-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.2.1] - 2020-02-12
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.2.1] - 2020-02-12">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#320-2020-02-07" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.2.0] - 2020-02-07
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.2.0] - 2020-02-07">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#311-2019-05-20" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.1.1] - 2019-05-20
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.1.1] - 2019-05-20">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#310-2019-03-25" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.1.0] - 2019-03-25
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.1.0] - 2019-03-25">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fixed_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#301-2018-09-28" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.0.1] - 2018-09-28
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.0.1] - 2018-09-28">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fixed_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Fixed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#300-2018-09-21" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        [3.0.0] - 2018-09-21
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="[3.0.0] - 2018-09-21">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#changed_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changed
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#added_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Added
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="../contributing/" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="python-markdown-changelog">Python-Markdown Changelog<a class="headerlink" href="#python-markdown-changelog" title="Permanent link">§</a></h1>
 <p>All notable changes to this project will be documented in this file.</p>
 <p>The format is based on <a href="https://keepachangelog.com/en/1.1.0/">Keep a Changelog</a>,
 and this project adheres to the
 <a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">Python Version Specification</a>.
 See the <a href="../contributing/">Contributing Guide</a> for details.</p>
-<h2 id="3103-2026-07-30">[3.10.3] - 2026-07-30<a class="headerlink" href="#3103-2026-07-30" title="Permanent link">&para;</a></h2>
-<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">&para;</a></h3>
+<h2 id="3110-2026-09-25">[3.11.0] - 2026-09-25<a class="headerlink" href="#3110-2026-09-25" title="Permanent link">§</a></h2>
+<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">§</a></h3>
+<ul>
+<li>Inline processors now resume searching after the previous match, improving
+  performance for repeated inline patterns (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1619" title="GitHub Issue Python-Markdown/markdown #1619">#1619</a>).</li>
+<li>Officially support Python 3.15 and drop support for Python 3.10</li>
+<li>Walk backtick runs in <code>BacktickInlineProcessor</code> without a regex (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1620" title="GitHub Issue Python-Markdown/markdown #1620">#1620</a>).</li>
+<li>Switch static site generator for documentation from MkDocs to Zensical
+  (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1627" title="GitHub Issue Python-Markdown/markdown #1627">#1627</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1635" title="GitHub Issue Python-Markdown/markdown #1635">#1635</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1637" title="GitHub Issue Python-Markdown/markdown #1637">#1637</a>, and <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1638" title="GitHub Issue Python-Markdown/markdown #1638">#1638</a>).</li>
+</ul>
+<h3 id="fixed">Fixed<a class="headerlink" href="#fixed" title="Permanent link">§</a></h3>
+<ul>
+<li>Ensure removing Abbreviations does not raise an error (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1634" title="GitHub Issue Python-Markdown/markdown #1634">#1634</a>).</li>
+<li>Fix an issue with excessive backtracking when matching inline code blocks (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1617" title="GitHub Issue Python-Markdown/markdown #1617">#1617</a>).</li>
+<li><code>md_in_html</code> now honors tags added to <code>Markdown.block_level_elements</code> after
+  the extension is loaded (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1246" title="GitHub Issue Python-Markdown/markdown #1246">#1246</a>).</li>
+<li>Fix quadratic-time regex backtracking in <code>ReferenceProcessor</code> when a link
+  reference definition has no URL, e.g. a line consisting only of <code>[id]:</code>
+  followed by many trailing spaces (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/798" title="GitHub Issue Python-Markdown/markdown #798">#798</a>).</li>
+<li>Document <code>attr_list</code> usage for <code>def_list</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1123" title="GitHub Issue Python-Markdown/markdown #1123">#1123</a>).</li>
+</ul>
+<h2 id="3103-2026-07-30">[3.10.3] - 2026-07-30<a class="headerlink" href="#3103-2026-07-30" title="Permanent link">§</a></h2>
+<h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix <code>SetextHeaderProcessor</code> regex to prevent mixed <code>=</code> and <code>-</code> chars in setext-style headers (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1606" title="GitHub Issue Python-Markdown/markdown #1606">#1606</a>).</li>
 <li>Add AI Policy to Contributing Guide.</li>
 <li>Officially document all included extensions as being in maintenance mode.</li>
 <li>Link the Extension API documentation to the API Reference (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1612" title="GitHub Issue Python-Markdown/markdown #1612">#1612</a>).</li>
 </ul>
-<h2 id="3102-2026-02-09">[3.10.2] - 2026-02-09<a class="headerlink" href="#3102-2026-02-09" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_1">Fixed<a class="headerlink" href="#fixed_1" title="Permanent link">&para;</a></h3>
+<h2 id="3102-2026-02-09">[3.10.2] - 2026-02-09<a class="headerlink" href="#3102-2026-02-09" title="Permanent link">§</a></h2>
+<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix a regression related to comment handling (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1590" title="GitHub Issue Python-Markdown/markdown #1590">#1590</a>).</li>
 <li>More reliable fix for <code>&lt;/</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1593" title="GitHub Issue Python-Markdown/markdown #1593">#1593</a>).</li>
 </ul>
-<h2 id="3101-2026-01-21">[3.10.1] - 2026-01-21<a class="headerlink" href="#3101-2026-01-21" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_2">Fixed<a class="headerlink" href="#fixed_2" title="Permanent link">&para;</a></h3>
+<h2 id="3101-2026-01-21">[3.10.1] - 2026-01-21<a class="headerlink" href="#3101-2026-01-21" title="Permanent link">§</a></h2>
+<h3 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">§</a></h3>
 <ul>
 <li>Ensure nested elements inside inline comments are properly unescaped (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1571" title="GitHub Issue Python-Markdown/markdown #1571">#1571</a>).</li>
 <li>Make the docs build successfully with mkdocstrings-python 2.0 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1575" title="GitHub Issue Python-Markdown/markdown #1575">#1575</a>).</li>
 <li>Fix infinite loop when multiple bogus or unclosed HTML comments appear in input (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1578" title="GitHub Issue Python-Markdown/markdown #1578">#1578</a>).</li>
 <li>Fix another infinite loop when handling bad comments (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1586" title="GitHub Issue Python-Markdown/markdown #1586">#1586</a>).</li>
 </ul>
-<h2 id="3100-2025-11-03">[3.10.0] - 2025-11-03<a class="headerlink" href="#3100-2025-11-03" title="Permanent link">&para;</a></h2>
-<h3 id="changed">Changed<a class="headerlink" href="#changed" title="Permanent link">&para;</a></h3>
+<h2 id="3100-2025-11-03">[3.10.0] - 2025-11-03<a class="headerlink" href="#3100-2025-11-03" title="Permanent link">§</a></h2>
+<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">§</a></h3>
 <ul>
 <li>Officially support Python 3.14 and PyPy 3.11 and drop support for Python 3.9
   and PyPy 3.9.</li>
 </ul>
-<h3 id="fixed_3">Fixed<a class="headerlink" href="#fixed_3" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix an HTML comment parsing case in some Python versions that can cause an
   infinite loop (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1554" title="GitHub Issue Python-Markdown/markdown #1554">#1554</a>).</li>
@@ -106,43 +4861,43 @@ See the <a href="../contributing/">Contributing Guide</a> for details.</p>
   behavior introduced in 3.9.0 is experimental and results are inconsistent.
   It should not have been made the default behavior (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1561" title="GitHub Issue Python-Markdown/markdown #1561">#1561</a>).</li>
 </ul>
-<h2 id="390-2025-09-04">[3.9.0] - 2025-09-04<a class="headerlink" href="#390-2025-09-04" title="Permanent link">&para;</a></h2>
-<h3 id="changed_1">Changed<a class="headerlink" href="#changed_1" title="Permanent link">&para;</a></h3>
+<h2 id="390-2025-09-04">[3.9.0] - 2025-09-04<a class="headerlink" href="#390-2025-09-04" title="Permanent link">§</a></h2>
+<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">§</a></h3>
 <ul>
 <li>Footnotes are now ordered by the occurrence of their references in the
   document. A new configuration option for the footnotes extension,
   <code>USE_DEFINITION_ORDER</code>, has been added to support restoring the previous
   behavior of ordering footnotes by the occurrence of definitions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1367" title="GitHub Issue Python-Markdown/markdown #1367">#1367</a>).</li>
 </ul>
-<h3 id="fixed_4">Fixed<a class="headerlink" href="#fixed_4" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">§</a></h3>
 <ul>
 <li>Ensure inline processing iterates through elements in document order (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1546" title="GitHub Issue Python-Markdown/markdown #1546">#1546</a>).</li>
 <li>Fix handling of incomplete HTML tags in code spans in Python 3.14 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1547" title="GitHub Issue Python-Markdown/markdown #1547">#1547</a>).</li>
 </ul>
-<h2 id="382-2025-06-19">[3.8.2] - 2025-06-19<a class="headerlink" href="#382-2025-06-19" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_5">Fixed<a class="headerlink" href="#fixed_5" title="Permanent link">&para;</a></h3>
+<h2 id="382-2025-06-19">[3.8.2] - 2025-06-19<a class="headerlink" href="#382-2025-06-19" title="Permanent link">§</a></h2>
+<h3 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix <code>codecs</code> deprecation in Python 3.14 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1537" title="GitHub Issue Python-Markdown/markdown #1537">#1537</a>).</li>
 <li>Fix issue with unclosed comment parsing in Python 3.14 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1537" title="GitHub Issue Python-Markdown/markdown #1537">#1537</a>).</li>
 <li>Fix issue with unclosed declarations in Python 3.14 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1537" title="GitHub Issue Python-Markdown/markdown #1537">#1537</a>).</li>
 <li>Fix issue with unclosed HTML tag <code>&lt;foo</code> and Python 3.14 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1537" title="GitHub Issue Python-Markdown/markdown #1537">#1537</a>).</li>
 </ul>
-<h2 id="381-2025-06-18">[3.8.1] - 2025-06-18<a class="headerlink" href="#381-2025-06-18" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_6">Fixed<a class="headerlink" href="#fixed_6" title="Permanent link">&para;</a></h3>
+<h2 id="381-2025-06-18">[3.8.1] - 2025-06-18<a class="headerlink" href="#381-2025-06-18" title="Permanent link">§</a></h2>
+<h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">§</a></h3>
 <ul>
 <li>Ensure incomplete markup declaration in raw HTML doesn&rsquo;t crash parser (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1534" title="GitHub Issue Python-Markdown/markdown #1534">#1534</a>).</li>
 <li>Fixed dropped content in <code>md_in_html</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1526" title="GitHub Issue Python-Markdown/markdown #1526">#1526</a>).</li>
 <li>Fixed HTML handling corner case that prevented some content from not being rendered (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1528" title="GitHub Issue Python-Markdown/markdown #1528">#1528</a>).</li>
 </ul>
-<h2 id="380-2025-04-09">[3.8.0] - 2025-04-09<a class="headerlink" href="#380-2025-04-09" title="Permanent link">&para;</a></h2>
-<h3 id="changed_2">Changed<a class="headerlink" href="#changed_2" title="Permanent link">&para;</a></h3>
+<h2 id="380-2025-04-09">[3.8.0] - 2025-04-09<a class="headerlink" href="#380-2025-04-09" title="Permanent link">§</a></h2>
+<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">§</a></h3>
 <ul>
 <li>DRY fix in <code>abbr</code> extension by introducing method <code>create_element</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1483" title="GitHub Issue Python-Markdown/markdown #1483">#1483</a>).</li>
 <li>Clean up test directory by removing some redundant tests and port
   non-redundant cases to the newer test framework.</li>
 <li>Improved performance of the raw HTML post-processor (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1510" title="GitHub Issue Python-Markdown/markdown #1510">#1510</a>).</li>
 </ul>
-<h3 id="fixed_7">Fixed<a class="headerlink" href="#fixed_7" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">§</a></h3>
 <ul>
 <li>Backslash Unescape IDs set via <code>attr_list</code> on <code>toc</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1493" title="GitHub Issue Python-Markdown/markdown #1493">#1493</a>).</li>
 <li>Ensure <code>md_in_html</code> processes content inside &ldquo;markdown&rdquo; blocks as they are
@@ -155,8 +4910,8 @@ See the <a href="../contributing/">Contributing Guide</a> for details.</p>
   perceived abbreviations in these strings (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1512" title="GitHub Issue Python-Markdown/markdown #1512">#1512</a>).</li>
 <li>Ensure <code>smarty</code> extension correctly renders nested closing quotes (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1514" title="GitHub Issue Python-Markdown/markdown #1514">#1514</a>).</li>
 </ul>
-<h2 id="370-2024-08-16">[3.7.0] - 2024-08-16<a class="headerlink" href="#370-2024-08-16" title="Permanent link">&para;</a></h2>
-<h3 id="changed_3">Changed<a class="headerlink" href="#changed_3" title="Permanent link">&para;</a></h3>
+<h2 id="370-2024-08-16">[3.7.0] - 2024-08-16<a class="headerlink" href="#370-2024-08-16" title="Permanent link">§</a></h2>
+<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>Refactor <code>abbr</code> Extension</p>
@@ -178,12 +4933,12 @@ to every page.</p>
 This can be useful when using the <code>glossary</code> option.</p>
 </li>
 </ul>
-<h3 id="fixed_8">Fixed<a class="headerlink" href="#fixed_8" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_9">Fixed<a class="headerlink" href="#fixed_9" title="Permanent link">§</a></h3>
 <ul>
 <li>Fixed links to source code on GitHub from the documentation (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1453" title="GitHub Issue Python-Markdown/markdown #1453">#1453</a>).</li>
 </ul>
-<h2 id="360-2024-03-14">[3.6.0] - 2024-03-14<a class="headerlink" href="#360-2024-03-14" title="Permanent link">&para;</a></h2>
-<h3 id="changed_4">Changed<a class="headerlink" href="#changed_4" title="Permanent link">&para;</a></h3>
+<h2 id="360-2024-03-14">[3.6.0] - 2024-03-14<a class="headerlink" href="#360-2024-03-14" title="Permanent link">§</a></h2>
+<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>Refactor TOC Sanitation</p>
@@ -209,7 +4964,7 @@ This can be useful when using the <code>glossary</code> option.</p>
 </ul>
 </li>
 </ul>
-<h3 id="fixed_9">Fixed<a class="headerlink" href="#fixed_9" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_10">Fixed<a class="headerlink" href="#fixed_10" title="Permanent link">§</a></h3>
 <ul>
 <li>Include <code>scripts/*.py</code> in the generated source tarballs (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1430" title="GitHub Issue Python-Markdown/markdown #1430">#1430</a>).</li>
 <li>Ensure lines after heading in loose list are properly detabbed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1443" title="GitHub Issue Python-Markdown/markdown #1443">#1443</a>).</li>
@@ -219,8 +4974,8 @@ This can be useful when using the <code>glossary</code> option.</p>
 <li>In attribute lists (<code>attr_list</code>, <code>fenced_code</code>), quoted attribute values are
   now allowed to contain curly braces (<code>}</code>) (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1414" title="GitHub Issue Python-Markdown/markdown #1414">#1414</a>).</li>
 </ul>
-<h2 id="352-2024-01-10">[3.5.2] - 2024-01-10<a class="headerlink" href="#352-2024-01-10" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_10">Fixed<a class="headerlink" href="#fixed_10" title="Permanent link">&para;</a></h3>
+<h2 id="352-2024-01-10">[3.5.2] - 2024-01-10<a class="headerlink" href="#352-2024-01-10" title="Permanent link">§</a></h2>
+<h3 id="fixed_11">Fixed<a class="headerlink" href="#fixed_11" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix type annotations for <code>convertFile</code> - it accepts only bytes-based buffers.
   Also remove legacy checks from Python 2 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1400" title="GitHub Issue Python-Markdown/markdown #1400">#1400</a>)</li>
@@ -232,15 +4987,15 @@ This can be useful when using the <code>glossary</code> option.</p>
 <li>Improve and expand type annotations in the code base (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1401" title="GitHub Issue Python-Markdown/markdown #1401">#1401</a>).</li>
 <li>Fix handling of bogus comments (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1425" title="GitHub Issue Python-Markdown/markdown #1425">#1425</a>).</li>
 </ul>
-<h2 id="351-2023-10-31">[3.5.1] - 2023-10-31<a class="headerlink" href="#351-2023-10-31" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_11">Fixed<a class="headerlink" href="#fixed_11" title="Permanent link">&para;</a></h3>
+<h2 id="351-2023-10-31">[3.5.1] - 2023-10-31<a class="headerlink" href="#351-2023-10-31" title="Permanent link">§</a></h2>
+<h3 id="fixed_12">Fixed<a class="headerlink" href="#fixed_12" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix a performance problem with HTML extraction where large HTML input could
   trigger quadratic line counting behavior (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1392" title="GitHub Issue Python-Markdown/markdown #1392">#1392</a>).</li>
 <li>Improve and expand type annotations in the code base (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1394" title="GitHub Issue Python-Markdown/markdown #1394">#1394</a>).</li>
 </ul>
-<h2 id="350-2023-10-06">[3.5.0] - 2023-10-06<a class="headerlink" href="#350-2023-10-06" title="Permanent link">&para;</a></h2>
-<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">&para;</a></h3>
+<h2 id="350-2023-10-06">[3.5.0] - 2023-10-06<a class="headerlink" href="#350-2023-10-06" title="Permanent link">§</a></h2>
+<h3 id="added">Added<a class="headerlink" href="#added" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>Add <code>permalink_leading</code> configuration option to the toc extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1339" title="GitHub Issue Python-Markdown/markdown #1339">#1339</a>)</p>
@@ -251,7 +5006,7 @@ header content. The default behavior for <code>permalink</code> is to append per
 links to the header, placing them after all other header content.</p>
 </li>
 </ul>
-<h3 id="changed_5">Changed<a class="headerlink" href="#changed_5" title="Permanent link">&para;</a></h3>
+<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">§</a></h3>
 <ul>
 <li>Add support for cPython version 3.12 (and PyPy 3.10) and drop support for
   Python version 3.7 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1357" title="GitHub Issue Python-Markdown/markdown #1357">#1357</a>).</li>
@@ -261,38 +5016,38 @@ links to the header, placing them after all other header content.</p>
 <li>Add API documentation of the code base which is generated by
   <a href="https://mkdocstrings.github.io/">mkdocstrings</a> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1220" title="GitHub Issue Python-Markdown/markdown #1220">#1220</a>).</li>
 </ul>
-<h3 id="fixed_12">Fixed<a class="headerlink" href="#fixed_12" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_13">Fixed<a class="headerlink" href="#fixed_13" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix a corner case in admonitions where if an indented code block was provided
   as the first block, the output would be malformed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1329" title="GitHub Issue Python-Markdown/markdown #1329">#1329</a>).</li>
 </ul>
-<h2 id="344-2023-07-25">[3.4.4] - 2023-07-25<a class="headerlink" href="#344-2023-07-25" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_13">Fixed<a class="headerlink" href="#fixed_13" title="Permanent link">&para;</a></h3>
+<h2 id="344-2023-07-25">[3.4.4] - 2023-07-25<a class="headerlink" href="#344-2023-07-25" title="Permanent link">§</a></h2>
+<h3 id="fixed_14">Fixed<a class="headerlink" href="#fixed_14" title="Permanent link">§</a></h3>
 <ul>
 <li>Add a special case for initial <code>'s</code> to smarty extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1305" title="GitHub Issue Python-Markdown/markdown #1305">#1305</a>).</li>
 <li>Unescape any backslash escaped inline raw HTML (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1358" title="GitHub Issue Python-Markdown/markdown #1358">#1358</a>).</li>
 <li>Unescape backslash escaped TOC token names (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1360" title="GitHub Issue Python-Markdown/markdown #1360">#1360</a>).</li>
 </ul>
-<h2 id="343-2023-03-23">[3.4.3] - 2023-03-23<a class="headerlink" href="#343-2023-03-23" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_14">Fixed<a class="headerlink" href="#fixed_14" title="Permanent link">&para;</a></h3>
+<h2 id="343-2023-03-23">[3.4.3] - 2023-03-23<a class="headerlink" href="#343-2023-03-23" title="Permanent link">§</a></h2>
+<h3 id="fixed_15">Fixed<a class="headerlink" href="#fixed_15" title="Permanent link">§</a></h3>
 <ul>
 <li>Restore console script (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1327" title="GitHub Issue Python-Markdown/markdown #1327">#1327</a>).</li>
 </ul>
-<h2 id="342-2023-03-22">[3.4.2] - 2023-03-22<a class="headerlink" href="#342-2023-03-22" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_15">Fixed<a class="headerlink" href="#fixed_15" title="Permanent link">&para;</a></h3>
+<h2 id="342-2023-03-22">[3.4.2] - 2023-03-22<a class="headerlink" href="#342-2023-03-22" title="Permanent link">§</a></h2>
+<h3 id="fixed_16">Fixed<a class="headerlink" href="#fixed_16" title="Permanent link">§</a></h3>
 <ul>
 <li>Officially support Python 3.11.</li>
 <li>Improve standalone * and _ parsing (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1300" title="GitHub Issue Python-Markdown/markdown #1300">#1300</a>).</li>
 <li>Consider <code>&lt;html&gt;</code> HTML tag a block-level element (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1309" title="GitHub Issue Python-Markdown/markdown #1309">#1309</a>).</li>
 <li>Switch from <code>setup.py</code> to <code>pyproject.toml</code>.</li>
 </ul>
-<h2 id="341-2022-07-15">[3.4.1] - 2022-07-15<a class="headerlink" href="#341-2022-07-15" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_16">Fixed<a class="headerlink" href="#fixed_16" title="Permanent link">&para;</a></h3>
+<h2 id="341-2022-07-15">[3.4.1] - 2022-07-15<a class="headerlink" href="#341-2022-07-15" title="Permanent link">§</a></h2>
+<h3 id="fixed_17">Fixed<a class="headerlink" href="#fixed_17" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix an import issue with <code>importlib.util</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1274" title="GitHub Issue Python-Markdown/markdown #1274">#1274</a>).</li>
 </ul>
-<h2 id="340-2022-07-15">[3.4.0] - 2022-07-15<a class="headerlink" href="#340-2022-07-15" title="Permanent link">&para;</a></h2>
-<h3 id="changed_6">Changed<a class="headerlink" href="#changed_6" title="Permanent link">&para;</a></h3>
+<h2 id="340-2022-07-15">[3.4.0] - 2022-07-15<a class="headerlink" href="#340-2022-07-15" title="Permanent link">§</a></h2>
+<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>The <code>tables</code> extension now uses a <code>style</code> attribute instead of an <code>align</code> attribute for alignment.</p>
@@ -306,11 +5061,10 @@ blocks.</p>
 <p>The former behavior is available by setting the <code>use_align_attribute</code>
 configuration option to <code>True</code> when enabling the extension.</p>
 <p>For example, to configure the old <code>align</code> behavior:</p>
-<pre class="codehilite"><code>from markdown.extensions.tables import TableExtension
+<div class="language-text highlight"><pre><span></span><code>from markdown.extensions.tables import TableExtension
 
 markdown.markdown(src, extensions=[TableExtension(use_align_attribute=True)])
-</code></pre>
-
+</code></pre></div>
 </li>
 <li>
 <p>Backslash unescaping moved to Treeprocessor (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1131" title="GitHub Issue Python-Markdown/markdown #1131">#1131</a>).</p>
@@ -390,7 +5144,7 @@ and will now raise errors. The relevant objects are listed below.</p>
 valid parameter and will raise an error if provided.</p>
 </li>
 </ul>
-<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">&para;</a></h3>
+<h3 id="added_1">Added<a class="headerlink" href="#added_1" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>Some new configuration options have been added to the
@@ -433,27 +5187,27 @@ formatters will ignore the option, a custom formatter assigned to the
 code block&rsquo;s language in the output.</p>
 </li>
 </ul>
-<h3 id="fixed_17">Fixed<a class="headerlink" href="#fixed_17" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_18">Fixed<a class="headerlink" href="#fixed_18" title="Permanent link">§</a></h3>
 <ul>
 <li>Extension entry-points are only loaded if needed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1216" title="GitHub Issue Python-Markdown/markdown #1216">#1216</a>).</li>
 <li>Added additional checks to the <code>&lt;pre&gt;&lt;code&gt;</code> handling of
   <code>PrettifyTreeprocessor</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1261" title="GitHub Issue Python-Markdown/markdown #1261">#1261</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1263" title="GitHub Issue Python-Markdown/markdown #1263">#1263</a>).</li>
 <li>Fix XML deprecation warnings.</li>
 </ul>
-<h2 id="337-2022-05-05">[3.3.7] - 2022-05-05<a class="headerlink" href="#337-2022-05-05" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_18">Fixed<a class="headerlink" href="#fixed_18" title="Permanent link">&para;</a></h3>
+<h2 id="337-2022-05-05">[3.3.7] - 2022-05-05<a class="headerlink" href="#337-2022-05-05" title="Permanent link">§</a></h2>
+<h3 id="fixed_19">Fixed<a class="headerlink" href="#fixed_19" title="Permanent link">§</a></h3>
 <ul>
 <li>Disallow square brackets in reference link ids (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1209" title="GitHub Issue Python-Markdown/markdown #1209">#1209</a>).</li>
 <li>Retain configured <code>pygments_style</code> after first code block (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1240" title="GitHub Issue Python-Markdown/markdown #1240">#1240</a>).</li>
 <li>Ensure fenced code attributes are properly escaped (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1247" title="GitHub Issue Python-Markdown/markdown #1247">#1247</a>).</li>
 </ul>
-<h2 id="336-2021-11-17">[3.3.6] - 2021-11-17<a class="headerlink" href="#336-2021-11-17" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_19">Fixed<a class="headerlink" href="#fixed_19" title="Permanent link">&para;</a></h3>
+<h2 id="336-2021-11-17">[3.3.6] - 2021-11-17<a class="headerlink" href="#336-2021-11-17" title="Permanent link">§</a></h2>
+<h3 id="fixed_20">Fixed<a class="headerlink" href="#fixed_20" title="Permanent link">§</a></h3>
 <ul>
 <li>Fix a dependency issue (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1195" title="GitHub Issue Python-Markdown/markdown #1195">#1195</a>, <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1196" title="GitHub Issue Python-Markdown/markdown #1196">#1196</a>).</li>
 </ul>
-<h2 id="335-2021-11-16">[3.3.5] - 2021-11-16<a class="headerlink" href="#335-2021-11-16" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_20">Fixed<a class="headerlink" href="#fixed_20" title="Permanent link">&para;</a></h3>
+<h2 id="335-2021-11-16">[3.3.5] - 2021-11-16<a class="headerlink" href="#335-2021-11-16" title="Permanent link">§</a></h2>
+<h3 id="fixed_21">Fixed<a class="headerlink" href="#fixed_21" title="Permanent link">§</a></h3>
 <ul>
 <li>Make the <code>slugify_unicode</code> function not remove diacritical marks (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1118" title="GitHub Issue Python-Markdown/markdown #1118">#1118</a>).</li>
 <li>Fix <code>[toc]</code> detection when used with <code>nl2br</code> extension (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1160" title="GitHub Issue Python-Markdown/markdown #1160">#1160</a>).</li>
@@ -463,8 +5217,8 @@ code block&rsquo;s language in the output.</p>
 <li>Ensure <code>&lt;summary&gt;</code> tags are parsed correctly (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1079" title="GitHub Issue Python-Markdown/markdown #1079">#1079</a>).</li>
 <li>Support Python 3.10 (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1124" title="GitHub Issue Python-Markdown/markdown #1124">#1124</a>).</li>
 </ul>
-<h2 id="334-2021-02-24">[3.3.4] - 2021-02-24<a class="headerlink" href="#334-2021-02-24" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_21">Fixed<a class="headerlink" href="#fixed_21" title="Permanent link">&para;</a></h3>
+<h2 id="334-2021-02-24">[3.3.4] - 2021-02-24<a class="headerlink" href="#334-2021-02-24" title="Permanent link">§</a></h2>
+<h3 id="fixed_22">Fixed<a class="headerlink" href="#fixed_22" title="Permanent link">§</a></h3>
 <ul>
 <li>Properly parse unclosed tags in code spans (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1066" title="GitHub Issue Python-Markdown/markdown #1066">#1066</a>).</li>
 <li>Properly parse processing instructions in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1070" title="GitHub Issue Python-Markdown/markdown #1070">#1070</a>).</li>
@@ -474,28 +5228,28 @@ code block&rsquo;s language in the output.</p>
 <li>Ensure <code>permalinks</code> and <code>anchorlinks</code> are not restricted by <code>toc_depth</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1107" title="GitHub Issue Python-Markdown/markdown #1107">#1107</a>).</li>
 <li>Fix corner cases with lists under admonitions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1102" title="GitHub Issue Python-Markdown/markdown #1102">#1102</a>).</li>
 </ul>
-<h2 id="333-2020-10-25">[3.3.3] - 2020-10-25<a class="headerlink" href="#333-2020-10-25" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_22">Fixed<a class="headerlink" href="#fixed_22" title="Permanent link">&para;</a></h3>
+<h2 id="333-2020-10-25">[3.3.3] - 2020-10-25<a class="headerlink" href="#333-2020-10-25" title="Permanent link">§</a></h2>
+<h3 id="fixed_23">Fixed<a class="headerlink" href="#fixed_23" title="Permanent link">§</a></h3>
 <ul>
 <li>Unify all block-level tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1047" title="GitHub Issue Python-Markdown/markdown #1047">#1047</a>).</li>
 <li>Fix issue where some empty elements would have text rendered as <code>None</code> when using <code>md_in_html</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1049" title="GitHub Issue Python-Markdown/markdown #1049">#1049</a>).</li>
 <li>Avoid catastrophic backtracking in <code>hr</code> regex (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1055" title="GitHub Issue Python-Markdown/markdown #1055">#1055</a>).</li>
 <li>Fix <code>hr</code> HTML handling (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1053" title="GitHub Issue Python-Markdown/markdown #1053">#1053</a>).</li>
 </ul>
-<h2 id="332-2020-10-19">[3.3.2] - 2020-10-19<a class="headerlink" href="#332-2020-10-19" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_23">Fixed<a class="headerlink" href="#fixed_23" title="Permanent link">&para;</a></h3>
+<h2 id="332-2020-10-19">[3.3.2] - 2020-10-19<a class="headerlink" href="#332-2020-10-19" title="Permanent link">§</a></h2>
+<h3 id="fixed_24">Fixed<a class="headerlink" href="#fixed_24" title="Permanent link">§</a></h3>
 <ul>
 <li>Properly parse inline HTML in md_in_html (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1040" title="GitHub Issue Python-Markdown/markdown #1040">#1040</a> &amp; <a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1045" title="GitHub Issue Python-Markdown/markdown #1045">#1045</a>).</li>
 <li>Avoid crashing when md_in_html fails (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1040" title="GitHub Issue Python-Markdown/markdown #1040">#1040</a>).</li>
 </ul>
-<h2 id="331-2020-10-12">[3.3.1] - 2020-10-12<a class="headerlink" href="#331-2020-10-12" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_24">Fixed<a class="headerlink" href="#fixed_24" title="Permanent link">&para;</a></h3>
+<h2 id="331-2020-10-12">[3.3.1] - 2020-10-12<a class="headerlink" href="#331-2020-10-12" title="Permanent link">§</a></h2>
+<h3 id="fixed_25">Fixed<a class="headerlink" href="#fixed_25" title="Permanent link">§</a></h3>
 <ul>
 <li>Correctly parse raw <code>script</code> and <code>style</code> tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1036" title="GitHub Issue Python-Markdown/markdown #1036">#1036</a>).</li>
 <li>Ensure consistent class handling by <code>fenced_code</code> and <code>codehilite</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1032" title="GitHub Issue Python-Markdown/markdown #1032">#1032</a>).</li>
 </ul>
-<h2 id="330-2020-10-06">[3.3.0] - 2020-10-06<a class="headerlink" href="#330-2020-10-06" title="Permanent link">&para;</a></h2>
-<h3 id="changed_7">Changed<a class="headerlink" href="#changed_7" title="Permanent link">&para;</a></h3>
+<h2 id="330-2020-10-06">[3.3.0] - 2020-10-06<a class="headerlink" href="#330-2020-10-06" title="Permanent link">§</a></h2>
+<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>The prefix <code>language-</code> is now prepended to all language classes by default on code blocks.</p>
@@ -511,11 +5265,10 @@ instance of the prefix. Similarly, if you are using a third party syntax highlig
 the prefix, or requires a different prefix, then you will want to redefine the prefix globally using the <code>lang_prefix</code>
 configuration option of either the <code>fenced_code</code> or <code>codehilite</code> extensions.</p>
 <p>For example, to configure <code>fenced_code</code> to not apply any prefix (the previous behavior), set the option to an empty string:</p>
-<pre class="codehilite"><code>from markdown.extensions.fenced_code import FencedCodeExtension
+<div class="language-text highlight"><pre><span></span><code>from markdown.extensions.fenced_code import FencedCodeExtension
 
 markdown.markdown(src, extensions=[FencedCodeExtension(lang_prefix='')])
-</code></pre>
-
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When code highlighting is
@@ -541,7 +5294,7 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 <p>In addition, the documentation for the extensions received an overhaul. The features (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/987" title="GitHub Issue Python-Markdown/markdown #987">#987</a>) and limitations (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/965" title="GitHub Issue Python-Markdown/markdown #965">#965</a>) of the extension are now fully documented.</p>
 </li>
 </ul>
-<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">&para;</a></h3>
+<h3 id="added_2">Added<a class="headerlink" href="#added_2" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>All Pygments&rsquo; options are now available for syntax highlighting (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/816" title="GitHub Issue Python-Markdown/markdown #816">#816</a>).</p>
@@ -591,7 +5344,7 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 <p>Support was added for Python 3.9 and dropped for Python 3.5.</p>
 </li>
 </ul>
-<h3 id="fixed_25">Fixed<a class="headerlink" href="#fixed_25" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_26">Fixed<a class="headerlink" href="#fixed_26" title="Permanent link">§</a></h3>
 <ul>
 <li>Document how to pass configuration options to Extra (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1019" title="GitHub Issue Python-Markdown/markdown #1019">#1019</a>).</li>
 <li>Fix HR which follows strong em (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/897" title="GitHub Issue Python-Markdown/markdown #897">#897</a>).</li>
@@ -602,8 +5355,8 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 <li>Fix complex scenarios involving lists and admonitions (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/1004" title="GitHub Issue Python-Markdown/markdown #1004">#1004</a>).</li>
 <li>Fix complex scenarios with nested ordered and unordered lists in a definition list (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/918" title="GitHub Issue Python-Markdown/markdown #918">#918</a>).</li>
 </ul>
-<h2 id="322-2020-05-08">[3.2.2] - 2020-05-08<a class="headerlink" href="#322-2020-05-08" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_26">Fixed<a class="headerlink" href="#fixed_26" title="Permanent link">&para;</a></h3>
+<h2 id="322-2020-05-08">[3.2.2] - 2020-05-08<a class="headerlink" href="#322-2020-05-08" title="Permanent link">§</a></h2>
+<h3 id="fixed_27">Fixed<a class="headerlink" href="#fixed_27" title="Permanent link">§</a></h3>
 <ul>
 <li>Add <code>checklinks</code> tox environment to ensure all links in documentation are good.</li>
 <li>Refactor extension API documentation (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/729" title="GitHub Issue Python-Markdown/markdown #729">#729</a>).</li>
@@ -615,14 +5368,14 @@ manner as data cells (<code>&lt;td&gt;</code> elements).</p>
 <li>Remove import of <code>packaging</code> (or <code>pkg_resources</code> fallback) entirely.</li>
 <li>Remove <code>setuptools</code> as a run-time dependency (<code>install_required</code>).</li>
 </ul>
-<h2 id="321-2020-02-12">[3.2.1] - 2020-02-12<a class="headerlink" href="#321-2020-02-12" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_27">Fixed<a class="headerlink" href="#fixed_27" title="Permanent link">&para;</a></h3>
+<h2 id="321-2020-02-12">[3.2.1] - 2020-02-12<a class="headerlink" href="#321-2020-02-12" title="Permanent link">§</a></h2>
+<h3 id="fixed_28">Fixed<a class="headerlink" href="#fixed_28" title="Permanent link">§</a></h3>
 <ul>
 <li>The <code>name</code> property in <code>toc_tokens</code> from the TOC extension now
   escapes HTML special characters (<code>&lt;</code>, <code>&gt;</code>, and <code>&amp;</code>).</li>
 </ul>
-<h2 id="320-2020-02-07">[3.2.0] - 2020-02-07<a class="headerlink" href="#320-2020-02-07" title="Permanent link">&para;</a></h2>
-<h3 id="changed_8">Changed<a class="headerlink" href="#changed_8" title="Permanent link">&para;</a></h3>
+<h2 id="320-2020-02-07">[3.2.0] - 2020-02-07<a class="headerlink" href="#320-2020-02-07" title="Permanent link">§</a></h2>
+<h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>Drop support for Python 2.7</p>
@@ -677,7 +5430,7 @@ release.</p>
 <code>import xml.etree.ElementTree as etree</code> in their code.</p>
 </li>
 </ul>
-<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">&para;</a></h3>
+<h3 id="added_3">Added<a class="headerlink" href="#added_3" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>Some new configuration options have been added to the <a href="../extensions/toc/">toc</a>
@@ -707,23 +5460,23 @@ release.</p>
 <p>Add support for Python 3.8.</p>
 </li>
 </ul>
-<h3 id="fixed_28">Fixed<a class="headerlink" href="#fixed_28" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_29">Fixed<a class="headerlink" href="#fixed_29" title="Permanent link">§</a></h3>
 <ul>
 <li>HTML tag placeholders are no longer included in  <code>.toc_tokens</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/899" title="GitHub Issue Python-Markdown/markdown #899">#899</a>).</li>
 <li>Unescape backslash-escaped characters in TOC ids (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/864" title="GitHub Issue Python-Markdown/markdown #864">#864</a>).</li>
 <li>Refactor bold and italic logic in order to solve complex nesting issues (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/792" title="GitHub Issue Python-Markdown/markdown #792">#792</a>).</li>
 <li>Always wrap CodeHilite code in <code>code</code> tags (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/862" title="GitHub Issue Python-Markdown/markdown #862">#862</a>).</li>
 </ul>
-<h2 id="311-2019-05-20">[3.1.1] - 2019-05-20<a class="headerlink" href="#311-2019-05-20" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_29">Fixed<a class="headerlink" href="#fixed_29" title="Permanent link">&para;</a></h3>
+<h2 id="311-2019-05-20">[3.1.1] - 2019-05-20<a class="headerlink" href="#311-2019-05-20" title="Permanent link">§</a></h2>
+<h3 id="fixed_30">Fixed<a class="headerlink" href="#fixed_30" title="Permanent link">§</a></h3>
 <ul>
 <li>Fixed import failure in <code>setup.py</code> when the source directory is not
   on <code>sys.path</code> (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/823" title="GitHub Issue Python-Markdown/markdown #823">#823</a>).</li>
 <li>Prefer public <code>packaging</code> module to pkg_resources&rsquo; private copy of
   it (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/825" title="GitHub Issue Python-Markdown/markdown #825">#825</a>).</li>
 </ul>
-<h2 id="310-2019-03-25">[3.1.0] - 2019-03-25<a class="headerlink" href="#310-2019-03-25" title="Permanent link">&para;</a></h2>
-<h3 id="changed_9">Changed<a class="headerlink" href="#changed_9" title="Permanent link">&para;</a></h3>
+<h2 id="310-2019-03-25">[3.1.0] - 2019-03-25<a class="headerlink" href="#310-2019-03-25" title="Permanent link">§</a></h2>
+<h3 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p><code>markdown.version</code> and <code>markdown.version_info</code> deprecated</p>
@@ -735,7 +5488,7 @@ the legacy attributes will raise a <code>DeprecationWarning</code> if they are a
 a future release the legacy attributes will be removed.</p>
 </li>
 </ul>
-<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">&para;</a></h3>
+<h3 id="added_4">Added<a class="headerlink" href="#added_4" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>A <a href="../contributing/">Contributing Guide</a> has been added (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/732" title="GitHub Issue Python-Markdown/markdown #732">#732</a>).</p>
@@ -754,7 +5507,7 @@ a future release the legacy attributes will be removed.</p>
   section level (<code>&lt;h1&gt;..&lt;hb&gt;</code>) only. (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/787" title="GitHub Issue Python-Markdown/markdown #787">#787</a>).</p>
 </li>
 </ul>
-<h3 id="fixed_30">Fixed<a class="headerlink" href="#fixed_30" title="Permanent link">&para;</a></h3>
+<h3 id="fixed_31">Fixed<a class="headerlink" href="#fixed_31" title="Permanent link">§</a></h3>
 <ul>
 <li>Update CLI to support PyYAML 5.1.</li>
 <li>Overlapping raw HTML matches no longer leave placeholders behind (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/458" title="GitHub Issue Python-Markdown/markdown #458">#458</a>).</li>
@@ -766,14 +5519,14 @@ a future release the legacy attributes will be removed.</p>
 <li>Problems with newlines in references has been fixed (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/742" title="GitHub Issue Python-Markdown/markdown #742">#742</a>).</li>
 <li>Escaped <code>#</code> are now handled in header syntax (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/762" title="GitHub Issue Python-Markdown/markdown #762">#762</a>).</li>
 </ul>
-<h2 id="301-2018-09-28">[3.0.1] - 2018-09-28<a class="headerlink" href="#301-2018-09-28" title="Permanent link">&para;</a></h2>
-<h3 id="fixed_31">Fixed<a class="headerlink" href="#fixed_31" title="Permanent link">&para;</a></h3>
+<h2 id="301-2018-09-28">[3.0.1] - 2018-09-28<a class="headerlink" href="#301-2018-09-28" title="Permanent link">§</a></h2>
+<h3 id="fixed_32">Fixed<a class="headerlink" href="#fixed_32" title="Permanent link">§</a></h3>
 <ul>
 <li>Brought back the <code>version</code> and <code>version_info</code> variables (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/709" title="GitHub Issue Python-Markdown/markdown #709">#709</a>).</li>
 <li>Added support for hexadecimal HTML entities (<a class="gh-link gh-issue" href="https://github.com/Python-Markdown/markdown/issues/712" title="GitHub Issue Python-Markdown/markdown #712">#712</a>).</li>
 </ul>
-<h2 id="300-2018-09-21">[3.0.0] - 2018-09-21<a class="headerlink" href="#300-2018-09-21" title="Permanent link">&para;</a></h2>
-<h3 id="changed_10">Changed<a class="headerlink" href="#changed_10" title="Permanent link">&para;</a></h3>
+<h2 id="300-2018-09-21">[3.0.0] - 2018-09-21<a class="headerlink" href="#300-2018-09-21" title="Permanent link">§</a></h2>
+<h3 id="changed_11">Changed<a class="headerlink" href="#changed_11" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p><code>enable_attributes</code> keyword deprecated</p>
@@ -814,19 +5567,17 @@ Whitelist</a> provides a curated list
 of tags, attributes, and styles suitable for filtering user-provided HTML using
 bleach.</p>
 <p>If your code previously looked like this:</p>
-<pre class="codehilite"><code>html = markdown.markdown(text, safe_mode=True)
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code>html = markdown.markdown(text, safe_mode=True)
+</code></pre></div>
 <p>Then it is recommended that you change your code to read something like this:</p>
-<pre class="codehilite"><code>import bleach
+<div class="language-text highlight"><pre><span></span><code>import bleach
 from bleach_whitelist import markdown_tags, markdown_attrs
 html = bleach.clean(markdown.markdown(text), markdown_tags, markdown_attrs)
-</code></pre>
-
+</code></pre></div>
 <p>If you are not interested in sanitizing untrusted text, but simply desire to
 escape raw HTML, then that can be accomplished through an extension which
 removes HTML parsing:</p>
-<pre class="codehilite"><code>from markdown.extensions import Extension
+<div class="language-text highlight"><pre><span></span><code>from markdown.extensions import Extension
 
 class EscapeHtml(Extension):
     def extendMarkdown(self, md):
@@ -834,8 +5585,7 @@ class EscapeHtml(Extension):
         md.inlinePatterns.deregister('html')
 
 html = markdown.markdown(text, extensions=[EscapeHtml()])
-</code></pre>
-
+</code></pre></div>
 <p>As the HTML would not be parsed with the above Extension, then the serializer
 will escape the raw HTML, which is exactly what happened in previous versions
 with <code>safe_mode="escape"</code>.</p>
@@ -846,13 +5596,11 @@ with <code>safe_mode="escape"</code>.</p>
 all except the <code>text</code> argument on the <code>markdown.markdown()</code> wrapper function.
 Using positional arguments will raise an error. Only keyword arguments should be
 used. For example, if your code previously looked like this:</p>
-<pre class="codehilite"><code>html = markdown.markdown(text, [SomeExtension()])
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code>html = markdown.markdown(text, [SomeExtension()])
+</code></pre></div>
 <p>Then it is recommended that you change it to read something like this:</p>
-<pre class="codehilite"><code>html = markdown.markdown(text, extensions=[SomeExtension()])
-</code></pre>
-
+<div class="language-text highlight"><pre><span></span><code>html = markdown.markdown(text, extensions=[SomeExtension()])
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This change is being made as a result of deprecating <code>"safe_mode"</code> as the
@@ -875,15 +5623,15 @@ entry points which match the old short names. And any third-party extensions
 which define entry points can now get the same behavior. See the documentation
 for each specific extension to find the assigned name.</p>
 <p>If an extension does not define an entry point, then the full path to the
-extension must be used. See the <a href="../reference/#extensions">documentation</a> for
+extension must be used. See the <a href="../library/#extensions">documentation</a> for
 a full explanation of the current behavior.</p>
 </li>
 <li>
 <p>Extension configuration as part of extension name deprecated</p>
 <p>The previously documented method of appending the extension configuration
 options as a string to the extension name is deprecated and will raise an error.
-The <a href="../reference/#extension_configs"><code>extension_configs</code></a> keyword should be
-used instead. See the <a href="../reference/#extension_configs">documentation</a> for a
+The <a href="../library/#extension_configs"><code>extension_configs</code></a> keyword should be
+used instead. See the <a href="../library/#extension_configs">documentation</a> for a
 full explanation of the current behavior.</p>
 </li>
 <li>
@@ -953,7 +5701,7 @@ return new replacement bounds. This helps us to handle links in a better way and
 handle nested brackets and logic that is too much for regular expression.</p>
 </li>
 </ul>
-<h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">&para;</a></h3>
+<h3 id="added_5">Added<a class="headerlink" href="#added_5" title="Permanent link">§</a></h3>
 <ul>
 <li>
 <p>A new <a href="../test_tools/">testing framework</a> is included as a part of the
@@ -982,242 +5730,177 @@ handle nested brackets and logic that is too much for regular expression.</p>
   <a href="../extensions/admonition/">Admonitions</a>.</p>
 </li>
 </ul>
-<h1 id="previous-releases">Previous Releases<a class="headerlink" href="#previous-releases" title="Permanent link">&para;</a></h1>
+<h1 id="previous-releases">Previous Releases<a class="headerlink" href="#previous-releases" title="Permanent link">§</a></h1>
 <p>For information on prior releases, see their changelogs:</p>
 <ul>
 <li><a href="../change_log/">2.x and earlier</a></li>
 </ul>
 
-                    </div>
-                </div>
-            </div>
-    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
                 
-    <li>
-        <a class="reference internal" href="#python-markdown-changelog">Python-Markdown Changelog</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#3103-2026-07-30">[3.10.3] - 2026-07-30</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#3102-2026-02-09">[3.10.2] - 2026-02-09</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#3101-2026-01-21">[3.10.1] - 2026-01-21</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#3100-2025-11-03">[3.10.0] - 2025-11-03</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#390-2025-09-04">[3.9.0] - 2025-09-04</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#382-2025-06-19">[3.8.2] - 2025-06-19</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#381-2025-06-18">[3.8.1] - 2025-06-18</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#380-2025-04-09">[3.8.0] - 2025-04-09</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#370-2024-08-16">[3.7.0] - 2024-08-16</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#360-2024-03-14">[3.6.0] - 2024-03-14</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#352-2024-01-10">[3.5.2] - 2024-01-10</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#351-2023-10-31">[3.5.1] - 2023-10-31</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#350-2023-10-06">[3.5.0] - 2023-10-06</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#344-2023-07-25">[3.4.4] - 2023-07-25</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#343-2023-03-23">[3.4.3] - 2023-03-23</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#342-2023-03-22">[3.4.2] - 2023-03-22</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#341-2022-07-15">[3.4.1] - 2022-07-15</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#340-2022-07-15">[3.4.0] - 2022-07-15</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#337-2022-05-05">[3.3.7] - 2022-05-05</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#336-2021-11-17">[3.3.6] - 2021-11-17</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#335-2021-11-16">[3.3.5] - 2021-11-16</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#334-2021-02-24">[3.3.4] - 2021-02-24</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#333-2020-10-25">[3.3.3] - 2020-10-25</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#332-2020-10-19">[3.3.2] - 2020-10-19</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#331-2020-10-12">[3.3.1] - 2020-10-12</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#330-2020-10-06">[3.3.0] - 2020-10-06</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#322-2020-05-08">[3.2.2] - 2020-05-08</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#321-2020-02-12">[3.2.1] - 2020-02-12</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#320-2020-02-07">[3.2.0] - 2020-02-07</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#311-2019-05-20">[3.1.1] - 2019-05-20</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#310-2019-03-25">[3.1.0] - 2019-03-25</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#301-2018-09-28">[3.0.1] - 2018-09-28</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#300-2018-09-21">[3.0.0] - 2018-09-21</a>
-    </li>
-        </ul>
-    </li>
-                
-    <li>
-        <a class="reference internal" href="#previous-releases">Previous Releases</a>
-    </li>
-            </ul>
-            
-            <h4>Previous topic</h4>
-            <p class="topless">
-                <a href="../contributing/" title="previous page">Contributing to Python-Markdown</a>
-            </p>
-
-            
-            <h4>Next topic</h4>
-            <p class="topless">
-                <a href="../authors/" title="next page">Authors</a>
-            </p>
-
-            <div role="note" aria-label="source link">
-                <h3>This Page</h3>
-                <ul class="this-page-menu">
-                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/changelog.md">Edit on GitHub</a></li>
-                </ul>
+              </article>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../contributing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Contributing to Python-Markdown">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
             </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Contributing to Python-Markdown
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../authors/" class="md-footer__link md-footer__link--next" aria-label="Next: Authors">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Authors
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!--
+  Copyright (c) 2025-2026 Zensical and contributors
 
-        </div>
+  SPDX-License-Identifier: MIT
+  Third-party contributions licensed under DCO
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Copyright and theme information -->
+<div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2010-2026 The Python-Markdown Project.
     </div>
-
-            <div class="clearer"></div>
-        </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-        <h3>Navigation</h3>
-        <ul>
-                <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
-                </li>
-            <li class="right" style="margin-right: 10px">
-                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
-            </li>
-            <li class="right">
-                <a href="../authors/" title="Authors" accesskey="N">next</a> |
-            </li>
-            <li class="right">
-                <a href="../contributing/" title="Contributing to Python-Markdown" accesskey="P">previous</a> |
-            </li>
-            <li><img src="../py.png"
-            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
-            <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.3 documentation</a> &#187;
-            </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        <li class="nav-item">
-            <a href="./">Changelog</a>
-         &#187; </li>
-                    
-        </ul>
+  
+  
+    Made with
+    <a
+      href="https://zensical.org/"
+      target="_blank" rel="noopener"
+    >Zensical</a>,
+    <a
+      href="https://Python-Markdown.github.io/"
+      target="_blank" rel="noopener"
+    >Python-Markdown</a>, and
+    <a
+      href="https://facelessuser.github.io/pymdown-extensions/"
+      target="_blank" rel="noopener"
+    >PyMdown Extensions</a>.
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Python-Markdown" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+    </a>
+  
+</div>
+      
     </div>
-        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
-        </div>
-        <script>var base_url = '..';</script>
-        <script src="../search/main.js"></script>
-
-        <!--
-        MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-07-30 19:05:35.585929+00:00
-        -->
-    </body>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+          
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.tabs","navigation.tabs.sticky","navigation.path","navigation.indexes","navigation.footer","navigation.top","content.code.copy","content.tooltips","content.footnote.tooltips","search.highlight"],"redirect":"../redirect.json","search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
 </html>

@@ -1,79 +1,3189 @@
-<!DOCTYPE html>
 
-<html lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-        
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Python implementation of John Gruber's Markdown.">
+      
+      
         <meta name="author" content="The Python-Markdown Project">
+      
+      
         <link rel="canonical" href="https://Python-Markdown.github.io/contributing/">
-        <link rel="shortcut icon" href="../favicon.ico">
-        <link rel="search" title="Search" href="../search.html" />
-        <link rel="next" title="Changelog" href="../changelog/" />
-        <link rel="prev" title="<code>wikilinks</code>" href="../reference/markdown/extensions/wikilinks/" />
-        <title>Contributing to Python-Markdown &#8212; Python-Markdown 3.10.3 documentation</title>
-        <link rel="stylesheet" href="../static/nature.css" type="text/css" />
-        <link rel="stylesheet" href="../static/pygments.css" type="text/css" />
-        <link rel="stylesheet" href="../assets/_mkdocstrings.css" type="text/css" />
-        <link rel="stylesheet" href="../custom.css" type="text/css" />
-        <link rel="stylesheet" href="../mkdocstrings.css" type="text/css" />
-        <script type="text/javascript" src="../static/jquery.js"></script>
-        <script type="text/javascript" src="../static/underscore.js"></script> 
-    </head>
+      
+      
+        <link rel="prev" href="../reference/markdown.extensions.wikilinks/">
+      
+      
+        <link rel="next" href="../changelog/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/pyMd_icon2.ico">
+      <meta name="generator" content="zensical-0.0.62">
+    
+    
+      
+        <title>Contributing to Python-Markdown - Python-Markdown</title>
+      
+    
+    
+      
+        
+      
+      <link rel="stylesheet" href="../assets/stylesheets/modern/main.ce62732f.min.css">
+      
+        
+          
+        
+        <link rel="stylesheet" href="../assets/stylesheets/modern/palette.812a03bb.min.css">
+      
+      
 
-    <body>
-    <div class="related" role="navigation" aria-label="related navigation">
-        <h3>Navigation</h3>
-        <ul>
-                <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
-                </li>
-            <li class="right" style="margin-right: 10px">
-                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
-            </li>
-            <li class="right">
-                <a href="../changelog/" title="Changelog" accesskey="N">next</a> |
-            </li>
-            <li class="right">
-                <a href="../reference/markdown/extensions/wikilinks/" title="<code>wikilinks</code>" accesskey="P">previous</a> |
-            </li>
-            <li><img src="../py.png"
-            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
-            <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.3 documentation</a> &#187;
-            </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        <li class="nav-item">
-            <a href="./">Contributing to Python-Markdown</a>
-         &#187; </li>
-                    
-                    
-        </ul>
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,500,500i,700,700i%7CJetBrains+Mono:400,400i,700,700i&amp;display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("..",location),__md_scope.pathname.endsWith("/")||(__md_scope=new URL(__md_scope.pathname+"/",location)),__md_hash=e=>[...e].reduce(((e,t)=>(e<<5)-e+t.charCodeAt(0)),0),__md_get=(e,t=localStorage,_=__md_scope)=>JSON.parse(t.getItem(_.pathname+"."+e)),__md_set=(e,t,_=localStorage,a=__md_scope)=>{try{_.setItem(a.pathname+"."+e,JSON.stringify(t))}catch(e){}},document.documentElement.setAttribute("data-platform",navigator.platform)</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer" aria-label="Navigation"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#contributing-to-python-markdown" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
 
-        <div class="document">
-            <div class="documentwrapper">
-                <div class="bodywrapper">
-                    <div class="body" role="main"><h1 id="contributing-to-python-markdown">Contributing to Python-Markdown<a class="headerlink" href="#contributing-to-python-markdown" title="Permanent link">&para;</a></h1>
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="./.." title="Python-Markdown" class="md-header__button md-logo" aria-label="Python-Markdown" data-md-component="logo">
+      
+  <img src="../assets/images/pyMd_icon2.png" alt="Python-Markdown">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer" aria-label="Navigation">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-menu" viewBox="0 0 24 24"><path d="M4 5h16M4 12h16M4 19h16"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Python-Markdown
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Contributing to Python-Markdown
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun-moon" viewBox="0 0 24 24"><path d="M12 2v2M14.837 16.385a6 6 0 1 1-7.223-7.222c.624-.147.97.66.715 1.248a4 4 0 0 0 5.26 5.259c.589-.255 1.396.09 1.248.715M16 12a4 4 0 0 0-4-4M19 5l-1.256 1.256M20 12h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search" aria-label="Search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog" aria-label="Search">
+  <button type="button" class="md-search__button">
+    Search
+  </button>
+</div>
+      
+    
+    <div class="md-header__source">
+      
+        <a href="https://github.com/Python-Markdown/markdown" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Python-Markdown/markdown
+  </div>
+</a>
+      
+    </div>
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./.." class="md-tabs__link">
+        
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../install/" class="md-tabs__link">
+          
+  
+  Usage
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item">
+        <a href="../extensions/api/" class="md-tabs__link">
+          
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+      
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="././" class="md-tabs__link">
+          
+  
+  About
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="./.." title="Python-Markdown" class="md-nav__button md-logo" aria-label="Python-Markdown" data-md-component="logo">
+      
+  <img src="../assets/images/pyMd_icon2.png" alt="Python-Markdown">
+
+    </a>
+    Python-Markdown
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Python-Markdown/markdown" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Python-Markdown/markdown
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="./.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Home
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Usage
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Usage
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Installation
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../library/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Library Reference
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Command Line
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sanitization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sanitization and Security
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../extensions/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Extensions
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Extensions
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/abbreviations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Abbreviations
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/admonition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Admonition
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/attr_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Attribute Lists
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/code_hilite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  CodeHilite
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/definition_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Definition Lists
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Extra
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/fenced_code_blocks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Fenced Code Blocks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/footnotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Footnotes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/legacy_attrs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Legacy Attributes
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/legacy_em/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Legacy Emphasis
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/meta_data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Meta-Data
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/nl2br/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  New Line to Break
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/md_in_html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Markdown in HTML
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/sane_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Sane Lists
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/smarty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  SmartyPants
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Table of Contents
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Tables
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/wikilinks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  WikiLinks
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Development
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  Development
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extensions/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Extension API
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../test_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Test Tools
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  API Reference
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  API Reference
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.preprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;preprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.blockparser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;blockparser</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.blockprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;blockprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.treeprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;treeprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.inlinepatterns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;inlinepatterns</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.postprocessors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;postprocessors</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.serializers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;serializers</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.util/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;util</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.htmlparser/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;htmlparser</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.test_tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;test_tools</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.abbr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;abbr</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.admonition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;admonition</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.attr_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;attr_list</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.codehilite/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;codehilite</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.def_list/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;def_list</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.extra/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;extra</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.fenced_code/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;fenced_code</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.footnotes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;footnotes</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.legacy_attrs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;legacy_attrs</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.legacy_em/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;legacy_em</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.md_in_html/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;md_in_html</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.meta/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;meta</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.nl2br/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;nl2br</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.sane_lists/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;sane_lists</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.smarty/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;smarty</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.tables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;tables</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.toc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;toc</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reference/markdown.extensions.wikilinks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  <code>markdown.&#8203;extensions.&#8203;wikilinks</code>
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  About
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+  About
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Contributing to Python-Markdown
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="././" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Contributing to Python-Markdown
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-of-conduct" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Code of Conduct
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Project Organization
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Issues
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pull Requests
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        AI Contributions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Style Guides
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Style Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Code Style Guide
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentation Style Guide
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Style Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Headers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Links
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-and-warnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes and Warnings
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Code Blocks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rendered-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rendered Markdown
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendered-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rendered Python
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-result-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Manual Result Blocks
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changelog
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Commit Message Style Guide
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Development Environment
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Versions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Version Status
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Version Workflow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Release Process
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-and-pull-request-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Issue and Pull Request Labels
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Issue and Pull Request Labels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-of-issue-or-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type of Issue or Pull Request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category-of-issue-or-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Category of Issue or Pull Request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-of-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Status of Issue
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-of-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Status of Pull Request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Changelog
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../authors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+  Authors
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  
+                    
+                    
+                    
+                      
+                    
+                    
+                      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+                      <div class="md-sidebar-button__wrapper">
+                        <label class="md-sidebar-button" for="__toc"></label>
+                      </div>
+                    
+                  
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--secondary" aria-label="On this page">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      On this page
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#code-of-conduct" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Code of Conduct
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#project-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Project Organization
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issues" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Issues
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pull-requests" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Pull Requests
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ai-contributions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        AI Contributions
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#style-guides" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Style Guides
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Style Guides">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Code Style Guide
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Documentation Style Guide
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Documentation Style Guide">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Headers
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Links
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-and-warnings" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Notes and Warnings
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Code Blocks
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Blocks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rendered-markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rendered Markdown
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rendered-python" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Rendered Python
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#manual-result-blocks" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Manual Result Blocks
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changelog" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Changelog
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-style-guide" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Commit Message Style Guide
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Development Environment
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#versions" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Versions
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Versions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#version-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Version Status
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#version-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Version Workflow
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#release-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Release Process
+      </span>
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issue-and-pull-request-labels" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Issue and Pull Request Labels
+      </span>
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Issue and Pull Request Labels">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#type-of-issue-or-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Type of Issue or Pull Request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#category-of-issue-or-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Category of Issue or Pull Request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-of-issue" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Status of Issue
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-of-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      <span class="md-typeset">
+        Status of Pull Request
+      </span>
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="./.." class="md-path__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+    
+      <li class="md-path__item">
+        <a href="././" class="md-path__link">
+          
+  
+  <span class="md-ellipsis">
+    About
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+  
+
+
+<h1 id="contributing-to-python-markdown">Contributing to Python-Markdown<a class="headerlink" href="#contributing-to-python-markdown" title="Permanent link">§</a></h1>
 <p>The following is a set of guidelines for contributing to Python-Markdown and its
 extensions, which are hosted in the <a href="https://github.com/Python-Markdown">Python-Markdown Organization</a> on GitHub.
 These are mostly guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.</p>
-<h2 id="code-of-conduct">Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permanent link">&para;</a></h2>
+<h2 id="code-of-conduct">Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Permanent link">§</a></h2>
 <p>This project and everyone participating in it is governed by the
 <a href="https://github.com/Python-Markdown/markdown/blob/master/CODE_OF_CONDUCT.md">Python-Markdown Code of Conduct</a>. By participating, you are expected to uphold
 this code. Please report unacceptable behavior to <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#112;&#121;&#116;&#104;&#111;&#110;&#46;&#109;&#97;&#114;&#107;&#100;&#111;&#119;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#112;&#121;&#116;&#104;&#111;&#110;&#46;&#109;&#97;&#114;&#107;&#100;&#111;&#119;&#110;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>.</p>
-<h2 id="project-organization">Project Organization<a class="headerlink" href="#project-organization" title="Permanent link">&para;</a></h2>
+<h2 id="project-organization">Project Organization<a class="headerlink" href="#project-organization" title="Permanent link">§</a></h2>
 <p>The core Python-Markdown code base and any built-in extensions are hosted in the
 <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> project on GitHub. Other extensions maintained by the
 Python-Markdown project may be hosted as separate repositories in the
@@ -87,7 +3197,7 @@ third-party extensions.</p>
 <li>No other branches should be created. Any other branches which exist are
   preserved for historical reasons only.</li>
 </ul>
-<h2 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">&para;</a></h2>
+<h2 id="issues">Issues<a class="headerlink" href="#issues" title="Permanent link">§</a></h2>
 <p>Feature requests, bug reports, usage questions, and other issues can all be
 raised on the GitHub <a href="https://github.com/Python-Markdown/markdown/issues">issue tracker</a>.</p>
 <p>When describing issues try to phrase your ticket in terms of the behavior you
@@ -117,7 +3227,7 @@ questions there.</p>
 <p>Having your issue closed does not necessarily mean the end of a discussion. If
 you believe your issue has been closed incorrectly, explain why and we&rsquo;ll
 consider if it needs to be reopened.</p>
-<h2 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">&para;</a></h2>
+<h2 id="pull-requests">Pull Requests<a class="headerlink" href="#pull-requests" title="Permanent link">§</a></h2>
 <p>A pull request often represents the start of a discussion, and does not
 necessarily need to be the final, finished submission. In fact, if you discover
 an issue and intend to provide a fix for it, there is no need to open an issue
@@ -155,7 +3265,7 @@ to a pull request. Instead, the maintainers would like to be able to follow the
 series of commits along with the discussion about those changes as they
 progress over time. If your pull request is accepted, it will be squashed at
 that time if deemed appropriate.</p>
-<h2 id="ai-contributions">AI Contributions<a class="headerlink" href="#ai-contributions" title="Permanent link">&para;</a></h2>
+<h2 id="ai-contributions">AI Contributions<a class="headerlink" href="#ai-contributions" title="Permanent link">§</a></h2>
 <p>Contributions to the Python-Markdown project are welcome, including those
 developed with the assistance of generative AI tools. However, the use of
 such tools does not change expectations for contributor responsibility,
@@ -183,16 +3293,16 @@ productive, regardless of whether AI tools were used or not. If a contributor
 repeatedly opens unproductive issues or requests, they may be blocked from
 contributing to the project as it is disruptive and disrespectful of the
 maintainers&rsquo; time.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
 <p>This policy was largely inspired by the Astropy Project&rsquo;s 
 <a href="https://github.com/astropy/astropy-project/blob/b842b9bef3c8d69da73d639ea0254ae17fbc1fd1/policies/ai-policy.md">Usage of Generative AI</a> policy.</p>
 </div>
-<h2 id="style-guides">Style Guides<a class="headerlink" href="#style-guides" title="Permanent link">&para;</a></h2>
+<h2 id="style-guides">Style Guides<a class="headerlink" href="#style-guides" title="Permanent link">§</a></h2>
 <p>In an effort to maintain consistency, Python-Markdown adheres to the following
 style guides in its code and documentation. A pull request may be rejected if it
 fails to match the relevant style guides.</p>
-<h3 id="code-style-guide">Code Style Guide<a class="headerlink" href="#code-style-guide" title="Permanent link">&para;</a></h3>
+<h3 id="code-style-guide">Code Style Guide<a class="headerlink" href="#code-style-guide" title="Permanent link">§</a></h3>
 <p>Except as noted below, all pull requests should follow Python&rsquo;s standard <a href="https://www.python.org/dev/peps/pep-0008/">PEP8
 Style Guide</a> and are run through <a href="http://flake8.pycqa.org/en/latest/index.html">Flake8</a> to ensure that the style guide is
 followed.</p>
@@ -209,25 +3319,23 @@ arguments on the first line and further indentation should be used to clearly
 distinguish itself as a continuation line. The closing parenthesis, bracket or
 brace should be on a line by itself and should line up under the first character
 of the line that starts the multi-line construct.</p>
-<pre class="codehilite"><code class="language-python">my_list = [
-    1, 2, 3,
-    4, 5, 6,
-]
-result = some_function_that_takes_arguments(
-    'a', 'b', 'c',
-    'd', 'e', 'f',
-)
-</code></pre>
-
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>    <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="p">]</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="n">result</span> <span class="o">=</span> <span class="n">some_function_that_takes_arguments</span><span class="p">(</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>    <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">,</span> <span class="s1">'c'</span><span class="p">,</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>    <span class="s1">'d'</span><span class="p">,</span> <span class="s1">'e'</span><span class="p">,</span> <span class="s1">'f'</span><span class="p">,</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="p">)</span>
+</span></code></pre></div>
 <p>When the conditional part of an <code>if</code>-statement is long enough to require that it
 be written across multiple lines, extra indentation should be included on the
 conditional continuation line.</p>
-<pre class="codehilite"><code class="language-python">if (this_is_one_thing
-        and that_is_another_thing):
-    do_something()
-</code></pre>
-
-<h3 id="documentation-style-guide">Documentation Style Guide<a class="headerlink" href="#documentation-style-guide" title="Permanent link">&para;</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">if</span> <span class="p">(</span><span class="n">this_is_one_thing</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>        <span class="ow">and</span> <span class="n">that_is_another_thing</span><span class="p">):</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="n">do_something</span><span class="p">()</span>
+</span></code></pre></div>
+<h3 id="documentation-style-guide">Documentation Style Guide<a class="headerlink" href="#documentation-style-guide" title="Permanent link">§</a></h3>
 <p>Documentation should be in American English. The tone of the documentation
 should be simple, plain, objective and well-balanced where possible.</p>
 <p>Keep paragraphs reasonably short.</p>
@@ -235,53 +3343,249 @@ should be simple, plain, objective and well-balanced where possible.</p>
 want to use your editor&rsquo;s tools to automatically hard wrap lines of text.</p>
 <p>Don&rsquo;t use abbreviations such as &lsquo;e.g.&rsquo; but instead use the long form, such as
 &lsquo;For example&rsquo;.</p>
-<p>The documentation is built from the <a href="https://daringfireball.net/projects/markdown/basics">Markdown</a> source files in the <a href="https://github.com/Python-Markdown/markdown/tree/master/docs"><code>docs</code>
-directory</a> by the <a href="https://www.mkdocs.org/">MkDocs</a> static site generator. In addition to
-the basic Markdown syntax, the following extensions are supported: <a href="../extensions/extra/">extra</a>,
-<a href="../extensions/admonition/">admonition</a>, <a href="../extensions/smarty/">smarty</a>, <a href="../extensions/code_hilite/">codehilite</a>, and <a href="../extensions/toc/">toc</a>.</p>
+<p>The documentation is built from the <a href="https://daringfireball.net/projects/markdown/basics">Markdown</a> source files in the
+<a href="https://github.com/Python-Markdown/markdown/tree/master/docs"><code>docs</code> directory</a> by the <a href="https://zensical.org/">Zensical</a> static site generator.
+In addition to the basic Markdown syntax, the following extensions are
+supported: <a href="../extensions/abbreviations/">abbr</a>, <a href="../extensions/admonition/">admonition</a>, <a href="../extensions/attr_list/">attr_list</a>, <a href="../extensions/definition_lists/">def_list</a>, <a href="../extensions/footnotes/">footnotes</a>,
+<a href="../extensions/md_in_html/">md_in_html</a>, <a href="../extensions/smarty/">smarty</a>, <a href="../extensions/toc/">toc</a>, <a href="https://github.com/Python-Markdown/github-links">mdx_gh_links</a>, <a href="https://facelessuser.github.io/pymdown-extensions/extensions/blocks/plugins/html/">pymdownx.blocks.html</a>,
+<a href="https://facelessuser.github.io/pymdown-extensions/extensions/highlight/">pymdownx.highlight</a>, and <a href="https://facelessuser.github.io/pymdown-extensions/extensions/superfences/">pymdownx.superfences</a>.</p>
 <p>There are a few conventions you should follow when working on the
 documentation.</p>
-<h4 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">&para;</a></h4>
+<h4 id="headers">Headers<a class="headerlink" href="#headers" title="Permanent link">§</a></h4>
 <p>Headers should use the hash style. For example:</p>
-<pre class="codehilite"><code class="language-md">## Some important topic
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="gu">## Some important topic</span>
+</span></code></pre></div>
 <p>The underline style should not be used. Don&rsquo;t do this:</p>
-<pre class="codehilite"><code class="language-md">Some important topic
-====================
-</code></pre>
-
-<h4 id="links">Links<a class="headerlink" href="#links" title="Permanent link">&para;</a></h4>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="gh">Some important topic</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="gh">====================</span>
+</span></code></pre></div>
+<h4 id="links">Links<a class="headerlink" href="#links" title="Permanent link">§</a></h4>
 <p>Links should always use the reference style, with the referenced hyperlinks kept
 at the end of the document.</p>
-<pre class="codehilite"><code class="language-md">Here is a link to [some other thing][other-thing].
-
-More text...
-
-[other-thing]: http://example.com/other/thing
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>Here is a link to [some other thing].
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>More text...
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>[<span class="nl">some other thing</span>]: <span class="na">http://example.com/other/thing</span>
+</span></code></pre></div>
 <p>This style helps keep the documentation source consistent and readable.</p>
 <p>If you are linking to another document within Python-Markdown&rsquo;s documentation,
 you should use a relative link, and link to the <code>.md</code> suffix. If applicable, it
 is preferred that the link includes a hash fragment pointing to the specific
 section of the page. For example:</p>
-<pre class="codehilite"><code class="language-md">[authentication]: reference.md#Markdown
-</code></pre>
-
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>[<span class="nl">authentication</span>]: <span class="na">somepage.md#auth</span>
+</span></code></pre></div>
 <p>Linking in this style ensures that the links work when browsing the
 documentation on GitHub. If your Markdown editor makes links clickable, they
 will work there as well. When the documentation is built, these links will be
 converted into regular links which point to the built HTML pages.</p>
-<h4 id="notes-and-warnings">Notes and Warnings<a class="headerlink" href="#notes-and-warnings" title="Permanent link">&para;</a></h4>
+<p>When linking to the objects in the <a href="../reference/markdown/">API documentation</a>, simply use a reference
+to the dot path of the Python object. There is no need to define the
+reference as it is already predefined in a collection of global link
+references.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>[<span class="sb">`markdown.Markdown`</span>][markdown.Markdown]
+</span></code></pre></div>
+<p>Note that as the link label contains code, it should be wrapped in a code span
+and the reference needs to be defined immediately after. This also allows a
+long dot path to be truncated for simplicity in the text.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>[<span class="sb">`someobject`</span>][long.dot.path.to.someobject]
+</span></code></pre></div>
+<h4 id="notes-and-warnings">Notes and Warnings<a class="headerlink" href="#notes-and-warnings" title="Permanent link">§</a></h4>
 <p>If you want to draw attention to a note or warning, use the syntax defined in
 Python-Markdown&rsquo;s <a href="../extensions/admonition/#syntax">Admonition Extension</a>:</p>
-<pre class="codehilite"><code class="language-md">!!! note
-
-    This is the content of the note.
-</code></pre>
-
-<h4 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">&para;</a></h4>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>!!! note
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    This is the content of the note.
+</span></code></pre></div>
+<div class="result">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is the content of the note.</p>
+</div>
+</div>
+<p>In addition to the <a href="https://zensical.org/docs/authoring/admonitions/#supported-types">supported types</a> listed in Zensical&rsquo;s documentation, the
+<code>seealso</code> type is supported. Unlike the other defined types, <code>seealso</code> needs
+the title to be manually defined (<code>"See Also"</code>) as the default behavior will
+not split a generated title into two words.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>!!! seealso "See Also"
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>    See Zensical's documentation on [supported types] for more information.
+</span></code></pre></div>
+<div class="result">
+<div class="admonition seealso">
+<p class="admonition-title">See Also</p>
+<p>See Zensical&rsquo;s documentation on <a href="https://zensical.org/docs/authoring/admonitions/#supported-types">supported types</a> for more information.</p>
+</div>
+</div>
+<h4 id="code-blocks">Code Blocks<a class="headerlink" href="#code-blocks" title="Permanent link">§</a></h4>
+<p>All code blocks should use the fenced code block style and indicate the
+language of the code contained in the block to ensure proper syntax
+highlighting. </p>
+<p>There are two special types of code blocks which will render output based on
+the content of the code block. See <a href="#rendered-markdown">Rendered Markdown</a>
+and <a href="#rendered-python">Rendered Python</a> below. Alternatively, result blocks
+can be <a href="#manual-result-blocks">manually constructed</a>.</p>
+<h5 id="rendered-markdown">Rendered Markdown<a class="headerlink" href="#rendered-markdown" title="Permanent link">§</a></h5>
+<p>If a code block is demonstrating Markdown syntax, it can be assigned the
+<code>md-render</code> attribute in place of the language, and both the Markdown source
+and HTML output will be rendered in a nested set of code blocks.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>``` md-render
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Some <span class="ge">*Markdown*</span> text.
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>```
+</span></code></pre></div>
+<div class="result">
+<div class="language-markdown highlight"><span class="filename">Markdown Source</span><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>Some <span class="ge">*Markdown*</span> text.
+</span></code></pre></div>
+<div class="result"><div class="language-html highlight"><span class="filename">HTML Output</span><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some <span class="p">&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;</span> text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></code></pre></div></div>
+</div>
+<p>The rendered output is generated by an isolated Markdown instance, which is
+separate from the body text of the document. Extensions and configuration
+options are not carried over. If extension(s) need to be enabled for the code
+block, then they can be defined as YAML front-matter within the code block.
+The <code>extensions</code> and <code>extension_configs</code> keywords are the only options which
+are passed on to the isolated Markdown instance.The YAML front-matter is
+stripped from the body of the code block before the code block is passing to
+the isolated Markdown instance.</p>
+<p>The example below will be rendered with the <code>toc</code> extension and that
+extension&rsquo;s <code>permalinks</code> option enabled.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="gu">``` md-render</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="gu">---</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>extensions: [toc]
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>extension_configs:
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>    toc:
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="gu">        permalinks: true</span>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="gu">---</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="gh"># A Markdown header</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>```
+</span></code></pre></div>
+<div class="result">
+<div class="language-markdown highlight"><span class="filename">Markdown Source</span><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="gh"># A Markdown header</span>
+</span></code></pre></div>
+<div class="result"><div class="language-html highlight"><span class="filename">HTML Output</span><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="p">&lt;</span><span class="nt">h1</span> <span class="na">id</span><span class="o">=</span><span class="s">"a-markdown-header"</span><span class="p">&gt;</span>A Markdown header<span class="p">&lt;</span><span class="nt">a</span> <span class="na">class</span><span class="o">=</span><span class="s">"headerlink"</span> <span class="na">href</span><span class="o">=</span><span class="s">"#a-markdown-header"</span> <span class="na">title</span><span class="o">=</span><span class="s">"Permanent link"</span><span class="p">&gt;</span><span class="ni">&amp;para;</span><span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+</span></code></pre></div></div>
+</div>
+<p>Note that the YAML front-matter must be deliminated by a line of at least three
+hyphens (both before and after) and be valid YAML. Any invalid formatting or
+unknown keywords will cause the entire block to not be recognized as a code
+block. Therefore, be sure to confirm the formatting before submitting
+proposed changes which utilize rendered code blocks.</p>
+<p>If a Markdown code block should not receive the special rendering described
+above, then simply assign it the <code>markdown</code> attribute. It will then be
+rendered as a normal Markdown code block.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>``` markdown
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>Some <span class="ge">*Markdown*</span> text.
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>```
+</span></code></pre></div>
+<div class="result">
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>Some <span class="ge">*Markdown*</span> text.
+</span></code></pre></div>
+</div>
+<h5 id="rendered-python">Rendered Python<a class="headerlink" href="#rendered-python" title="Permanent link">§</a></h5>
+<p>If a code block is demonstrating Python code, it can be assigned the
+<code>py-render</code> attribute in place of the language, and both the Python code and
+output will be rendered in a nested set of code blocks. The language of the
+output should be specified using the <code>output-lang</code> attribute.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>``` py-render { output-lang='html' }
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>import markdown
+</span><span id="__span-18-3"><a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>
+</span><span id="__span-18-4"><a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a>src = 'Some <span class="gs">**Markdown**</span> text.'
+</span><span id="__span-18-5"><a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a>fragment = markdown.markdown(src)
+</span><span id="__span-18-6"><a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a>```
+</span></code></pre></div>
+<div class="result">
+<div class="language-python highlight"><span class="filename">Python</span><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">markdown</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="n">src</span> <span class="o">=</span> <span class="s1">'Some **Markdown** text.'</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="n">fragment</span> <span class="o">=</span> <span class="n">markdown</span><span class="o">.</span><span class="n">markdown</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+</span></code></pre></div>
+<div class="result"><div class="language-html highlight"><span class="filename">Value of <code>fragment</code></span><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></code></pre></div></div>
+</div>
+<p>Note that the Python code is executed in an isolated environment. Therefore,
+any imports need to be made to avoid errors. However, as all <code>py-render</code>
+blocks on the same page are run within the same environment, an import only
+needs to be made once (before the first use) for all code blocks on the same
+page. Variables assigned in one block will be available in later blocks on the
+same page.</p>
+<p>In the example below, the variable <code>fragment</code> from the previous code
+block is available within this code block. However, <code>JustHTML</code> needs to be
+imported as it had not been previously.</p>
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>``` py-render { output-lang='html' }
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>from justhtml import JustHTML
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>html = JustHTML(fragment).to_html()
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>```
+</span></code></pre></div>
+<div class="result">
+<div class="language-python highlight"><span class="filename">Python</span><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">justhtml</span><span class="w"> </span><span class="kn">import</span> <span class="n">JustHTML</span>
+</span><span id="__span-22-2"><a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>
+</span><span id="__span-22-3"><a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a><span class="n">html</span> <span class="o">=</span> <span class="n">JustHTML</span><span class="p">(</span><span class="n">fragment</span><span class="p">)</span><span class="o">.</span><span class="n">to_html</span><span class="p">()</span>
+</span></code></pre></div>
+<div class="result"><div class="language-html highlight"><span class="filename">Value of <code>html</code></span><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+</span><span id="__span-23-2"><a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>  <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+</span><span id="__span-23-3"><a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-23-4"><a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span><span id="__span-23-5"><a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</span><span id="__span-23-6"><a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</span></code></pre></div></div>
+</div>
+<p>Each page contains it&rsquo;s own isolated environment. Objects defined on one page
+will not be available on another page and would need to be redefined.</p>
+<p>Output will be generated if one of three conditions are met. Whichever
+condition is encountered first (in decreasing order) is the controlling
+condition.</p>
+<ol>
+<li>If an error is raised, a traceback will be rendered in the output and
+   highlighted using Pygment&rsquo;s <code>PythonTracebackLexer</code> (<code>py3tb</code>). </li>
+<li>If the code writes to STDOUT (for example, it passes text to <code>print()</code>),
+   then the text sent to STDOUT will be rendered in the output and
+   highlighted using the language assigned to <code>output-lang</code>.</li>
+<li>If the last line of the code assigns a value to a variable, the value of
+   that variable will be rendered in the output and highlighted using the
+   language assigned to <code>output-lang</code>.</li>
+</ol>
+<p>If none of the above conditions are met, then the code block will render as
+normal without rendered output. However, the code block will have updated the
+isolated Python environment and any objects created can be referenced in
+later code blocks on the same page.</p>
+<p>If a Python code block should not have it&rsquo;s code executed and rendered, then
+simply assign it the <code>python</code> attribute. It will then be rendered as a normal
+Python code block. Any objects defined in standard Python code blocks
+will <strong>not</strong> be available to <code>py-render</code> style blocks</p>
+<p>Code blocks which contain Python Console sessions are not supported by
+<code>py-render</code>. They should be assigned <code>pycon</code> and contain the code and output
+as copied out of a Python Console session. Any objects defined in Python
+Session code blocks will <strong>not</strong> be available to <code>py-render</code> style blocks.</p>
+<h5 id="manual-result-blocks">Manual Result Blocks<a class="headerlink" href="#manual-result-blocks" title="Permanent link">§</a></h5>
+<p>To create a result block for input which is not Markdown or Python code, the
+block can be created manually using the <a href="https://facelessuser.github.io/pymdown-extensions/extensions/blocks/plugins/html/">pymdownx.blocks.html</a> extension.
+For example, to show the contents of a file generated by a command line call:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>``` shell { title="Console" }
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>echo "Some **Markdown** text." | python -m markdown &gt; output.html
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>```
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a>/// html | div.result
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a>``` html { title='output.html'}
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a>&lt;p&gt;Some &lt;strong&gt;Markdown&lt;/strong&gt; Text.&lt;/p&gt;
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a>```
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a>///
+</span></code></pre></div>
+<div class="result">
+<div class="language-shell highlight"><span class="filename">Console</span><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"Some **Markdown** text."</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>python<span class="w"> </span>-m<span class="w"> </span>markdown<span class="w"> </span>&gt;<span class="w"> </span>output.html
+</span></code></pre></div>
+<div class="result">
+<div class="language-html highlight"><span class="filename">output.html</span><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Some <span class="p">&lt;</span><span class="nt">strong</span><span class="p">&gt;</span>Markdown<span class="p">&lt;/</span><span class="nt">strong</span><span class="p">&gt;</span> Text.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</span></code></pre></div>
+</div>
+</div>
+<p>Note that a normal code block must be immediatley followed by a <code>&lt;div
+class="result"&gt;</code> element which contains the result. The result block may
+contain anything, but is generally expected to contain another code block.
+The resulting code block may have a title assigned to it to clarify that it
+is the result of the preceeding code block (in this case, the name of the
+output file).</p>
+<h4 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">§</a></h4>
 <p>Any commit/pull request which changes the behavior of the Markdown library in
 any way must include an entry in the changelog. If a change only alters the
 documentation or tooling for the project, then an entry in the changelog is
@@ -302,7 +3606,7 @@ series of releases can be found in the archive at <code>docs/change_log/</code> 
 follow a different format. Note that the archived changelogs are not in the site
 navigation and are only linked from the <a href="../changelog/#previous-releases">Previous
 Releases</a> section of the current changelog.</p>
-<h3 id="commit-message-style-guide">Commit Message Style Guide<a class="headerlink" href="#commit-message-style-guide" title="Permanent link">&para;</a></h3>
+<h3 id="commit-message-style-guide">Commit Message Style Guide<a class="headerlink" href="#commit-message-style-guide" title="Permanent link">§</a></h3>
 <p>Use the present tense (&ldquo;Add feature&rdquo; not &ldquo;Added feature&rdquo;).</p>
 <p>Use the imperative mood (&ldquo;Move item to&hellip;&rdquo; not &ldquo;Moves item to&hellip;&rdquo;).</p>
 <p>Limit the first line to 72 characters or less.</p>
@@ -312,7 +3616,7 @@ documentation or changelog. This is where an explanation of the choices made
 should be found. References to issues and pull requests should only provide the
 context in which a choice was made. However, the commit should be able to stand
 on its own.</p>
-<h2 id="development-environment">Development Environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h2>
+<h2 id="development-environment">Development Environment<a class="headerlink" href="#development-environment" title="Permanent link">§</a></h2>
 <p>To start developing on Python-Markdown is it best to create a <a href="https://help.github.com/articles/about-forks">fork</a> of the
 project on GitHub. After <a href="https://help.github.com/articles/cloning-a-repository/">cloning your fork</a> to your local system, you will want
 to <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork">configure a remote</a> that points to the upstream repository so that you can
@@ -321,65 +3625,54 @@ to <a href="https://help.github.com/articles/configuring-a-remote-for-a-fork">co
 environment</a>, which isolates any experimental code from the general system. To
 create a virtual environment, use the following command from the root of the
 local working copy of your GitHub fork:</p>
-<pre class="codehilite"><code class="language-sh">virtualenv venv
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>virtualenv<span class="w"> </span>venv
+</span></code></pre></div>
 <p>That creates a virtual environment which is contained in the <code>venv</code> directory
 within your local working copy. Note that the repository is configured so that
 git will ignore any files within a directory named <code>venv</code> or <code>ENV</code> for this
 very reason.</p>
 <p>On Posix systems (Linux, BSD, MacOS, etc.), use the following command to
 activate the environment:</p>
-<pre class="codehilite"><code class="language-sh">source venv/bin/activate
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a><span class="nb">source</span><span class="w"> </span>venv/bin/activate
+</span></code></pre></div>
 <p>On Windows, use this command instead:</p>
-<pre class="codehilite"><code class="language-sh">venv/Scripts/activate
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-29-1"><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>venv/Scripts/activate
+</span></code></pre></div>
 <p>See the <a href="https://virtualenv.pypa.io/en/stable/user_guide.html">User Guide</a> for more information on using virtual environments.</p>
 <p>To be able to run the Markdown library directly while working on it, install the
 working copy into the environment in <a href="https://setuptools.readthedocs.io/en/latest/setuptools.html#development-mode">Development Mode</a> after activating the
 virtual environment for the first time:</p>
-<pre class="codehilite"><code class="language-sh">pip install -e .
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-30-1"><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+</span></code></pre></div>
 <p>Now any saved changes will immediately be available within the virtual
 environment.</p>
 <p>You can run the command line script with the following command:</p>
-<pre class="codehilite"><code class="language-sh">python -m markdown
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-31-1"><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>python<span class="w"> </span>-m<span class="w"> </span>markdown
+</span></code></pre></div>
 <p>Before building the documentation for the first time, you will need to install
 some optional dependencies with the command:</p>
-<pre class="codehilite"><code class="language-sh">pip install -e .[docs]
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-32-1"><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>docs<span class="o">]</span>
+</span></code></pre></div>
 <p>To build the documentation and serve it locally on a development server, run:</p>
-<pre class="codehilite"><code class="language-sh">mkdocs serve
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-33-1"><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>python<span class="w"> </span>-m<span class="w"> </span>zensical<span class="w"> </span>serve
+</span></code></pre></div>
 <p>Then point your browser at <code>http://127.0.0.1:8000/</code>. For a complete list of
 options available, view MkDocs&rsquo; help with the command:</p>
-<pre class="codehilite"><code class="language-sh">mkdocs --help
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-34-1"><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>python<span class="w"> </span>-m<span class="w"> </span>zensical<span class="w"> </span>--help
+</span></code></pre></div>
 <p>Before running tests for the first time, you will need to install some optional
 dependencies with the command:</p>
-<pre class="codehilite"><code class="language-sh">pip install -e .[testing]
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-35-1"><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="o">[</span>testing<span class="o">]</span>
+</span></code></pre></div>
 <p>And you can directly run the tests with:</p>
-<pre class="codehilite"><code class="language-sh">python -m unittest discover tests
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-36-1"><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>python<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>tests
+</span></code></pre></div>
 <p>To get a coverage report after running the tests, use these commands instead:</p>
-<pre class="codehilite"><code class="language-sh">coverage run --source=markdown -m unittest discover tests
-coverage report --show-missing
-</code></pre>
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-37-1"><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>coverage<span class="w"> </span>run<span class="w"> </span>--source<span class="o">=</span>markdown<span class="w"> </span>-m<span class="w"> </span>unittest<span class="w"> </span>discover<span class="w"> </span>tests
+</span><span id="__span-37-2"><a id="__codelineno-37-2" name="__codelineno-37-2" href="#__codelineno-37-2"></a>coverage<span class="w"> </span>report<span class="w"> </span>--show-missing
+</span></code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>Some tests require the <a href="https://countergram.github.io/pytidylib/">PyTidyLib</a> library, which depends on the <a href="https://www.html-tidy.org/">HTML Tidy</a>
 library. If you do not have PyTidyLib installed, the tests which depend upon
 it will be skipped. Given the difficulty in installing the HTML Tidy library
@@ -395,13 +3688,12 @@ a spellchecker for the documentation. While it is generally fine to leave those
 tests for the continuous integration server to run when a pull request is
 submitted, for more advanced changes, you may want to run those tests locally.
 To do so, simply install tox:</p>
-<pre class="codehilite"><code class="language-sh">pip install tox
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-38-1"><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>pip<span class="w"> </span>install<span class="w"> </span>tox
+</span></code></pre></div>
 <p>Then, to run all configured test environments, simply call the command <code>tox</code>
 with no arguments. See help (<code>tox -h</code>) for more options.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>The tox environments expect that some dependencies are already installed on
 your system. For example, by default, any Python version specific
 environment will fail if that version of Python is not installed.
@@ -418,7 +3710,7 @@ the scope of this guide.</p>
 Understanding those tools will often help in understanding why a test may be
 failing.</p>
 </div>
-<h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">&para;</a></h2>
+<h2 id="versions">Versions<a class="headerlink" href="#versions" title="Permanent link">§</a></h2>
 <p>Python-Markdown follows the <a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">Python Version Specification</a> (originally defined
 in <a href="https://www.python.org/dev/peps/pep-0440/">PEP 440</a>) and uses the <code>MAJOR.MINOR.MICRO[.dev#|a#|b#|rc#]</code> format for
 identifying releases. The status of the <code>master</code> branch should always be
@@ -427,7 +3719,7 @@ converted into a normalized version string which conforms to the
 <a href="https://packaging.python.org/en/latest/specifications/version-specifiers/">Python Version Specification</a>. Each time the version is changed, the
 continuous integration server will run a test to ensure that the current
 version is in a valid normalized format.</p>
-<h3 id="version-status">Version Status<a class="headerlink" href="#version-status" title="Permanent link">&para;</a></h3>
+<h3 id="version-status">Version Status<a class="headerlink" href="#version-status" title="Permanent link">§</a></h3>
 <p>A MAJOR version is in development status when the MINOR version is <code>0</code>, the
 MICRO version is <code>0</code>, and the version includes a <code>dev</code> segment.</p>
 <p>A MINOR version is in development status when the MINOR version is not <code>0</code>, the
@@ -435,7 +3727,7 @@ MICRO version is <code>0</code>, and the version includes a <code>dev</code> seg
 <p>At all other times, the code is considered stable and release-ready.</p>
 <p>MAJOR and MINOR releases may or may not get pre-releases (alpha, beta, release
 candidate, etc.) at the discretion of the project maintainers.</p>
-<h3 id="version-workflow">Version Workflow<a class="headerlink" href="#version-workflow" title="Permanent link">&para;</a></h3>
+<h3 id="version-workflow">Version Workflow<a class="headerlink" href="#version-workflow" title="Permanent link">§</a></h3>
 <p>Bug fixes may be merged from a pull request to the <code>master</code> branch at any time
 so long as all tests pass, including one or more new tests which would have
 failed prior to the change.</p>
@@ -453,7 +3745,7 @@ be named with the most recently released MINOR version. For example, if the
 <code>master</code> branch is at <code>3.1.dev0</code> and the most recent MINOR release was <code>3.0.4</code>,
 then the version branch would be named <code>3.0</code> and any releases from that branch
 would increment the MICRO version only (<code>3.0.5</code>, <code>3.0.6</code>&hellip;).</p>
-<h2 id="release-process">Release Process<a class="headerlink" href="#release-process" title="Permanent link">&para;</a></h2>
+<h2 id="release-process">Release Process<a class="headerlink" href="#release-process" title="Permanent link">§</a></h2>
 <p>When a new release is being prepared, the release manager should follow the
 following steps:</p>
 <ol>
@@ -475,11 +3767,10 @@ following steps:</p>
 <li>
 <p>Create a pull request labeled <code class="label release">release</code> with a commit
    message in the following format:</p>
-<pre class="codehilite"><code>Bump version to X.X.X
-</code></pre>
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="language-text highlight"><pre><span></span><code>Bump version to X.X.X
+</code></pre></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
 <p>For the checks to run properly the <code class="label release">release</code> label
 must be set on GitHub before creating the pull request. If the label
 is added to the pull request later, additional changes will need to
@@ -506,25 +3797,26 @@ deploy manually:</p>
   authentication token will need to be provided).</p>
 </li>
 <li>
-<p>Deploy an update to the documentation using <a href="https://www.mkdocs.org/">MkDocs</a>. The following example
+<p>Deploy an update to the documentation using <a href="https://zensical.org/">Zensical</a>. The following example
   assumes that local clones of the <a href="https://github.com/Python-Markdown/markdown">Python-Markdown/markdown</a> and
   <a href="https://github.com/Python-Markdown/Python-Markdown.github.io"><code>Python-Markdown/Python-Markdown.github.io</code></a>
   repositories are in sibling directories named <code>markdown</code> and <code>Python-Markdown.github.io</code>
   respectively.</p>
-<pre class="codehilite"><code>cd Python-Markdown.github.io
-mkdocs gh-deploy --config-file ../markdown/mkdocs.yml --remote-branch master
-</code></pre>
-
+<div class="language-shell highlight"><pre><span></span><code><span id="__span-39-1"><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a><span class="nb">cd</span><span class="w"> </span>markdown/
+</span><span id="__span-39-2"><a id="__codelineno-39-2" name="__codelineno-39-2" href="#__codelineno-39-2"></a>python<span class="w"> </span>-m<span class="w"> </span>zensical<span class="w"> </span>build<span class="w"> </span>--clean
+</span><span id="__span-39-3"><a id="__codelineno-39-3" name="__codelineno-39-3" href="#__codelineno-39-3"></a><span class="nb">cd</span><span class="w"> </span>../Python-Markdown.github.io/
+</span><span id="__span-39-4"><a id="__codelineno-39-4" name="__codelineno-39-4" href="#__codelineno-39-4"></a>ghp-import<span class="w"> </span>--push<span class="w"> </span>--no-jekyll<span class="w"> </span>--branch<span class="o">=</span>master<span class="w"> </span>../markdown/site
+</span></code></pre></div>
 </li>
 </ul>
 </li>
 </ol>
-<h2 id="issue-and-pull-request-labels">Issue and Pull Request Labels<a class="headerlink" href="#issue-and-pull-request-labels" title="Permanent link">&para;</a></h2>
+<h2 id="issue-and-pull-request-labels">Issue and Pull Request Labels<a class="headerlink" href="#issue-and-pull-request-labels" title="Permanent link">§</a></h2>
 <p>Below are the labels used to track and manage issues and pull requests. The
 labels are loosely grouped by their purpose, but it is not necessary for every
 issue to have a label from every group, and an issue may have more than one
 label from the same group.</p>
-<h3 id="type-of-issue-or-pull-request">Type of Issue or Pull Request<a class="headerlink" href="#type-of-issue-or-pull-request" title="Permanent link">&para;</a></h3>
+<h3 id="type-of-issue-or-pull-request">Type of Issue or Pull Request<a class="headerlink" href="#type-of-issue-or-pull-request" title="Permanent link">§</a></h3>
 <table>
 <thead>
 <tr>
@@ -551,7 +3843,7 @@ label from the same group.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="category-of-issue-or-pull-request">Category of Issue or Pull Request<a class="headerlink" href="#category-of-issue-or-pull-request" title="Permanent link">&para;</a></h3>
+<h3 id="category-of-issue-or-pull-request">Category of Issue or Pull Request<a class="headerlink" href="#category-of-issue-or-pull-request" title="Permanent link">§</a></h3>
 <table>
 <thead>
 <tr>
@@ -574,7 +3866,7 @@ label from the same group.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="status-of-issue">Status of Issue<a class="headerlink" href="#status-of-issue" title="Permanent link">&para;</a></h3>
+<h3 id="status-of-issue">Status of Issue<a class="headerlink" href="#status-of-issue" title="Permanent link">§</a></h3>
 <table>
 <thead>
 <tr>
@@ -621,7 +3913,7 @@ label from the same group.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="status-of-pull-request">Status of Pull Request<a class="headerlink" href="#status-of-pull-request" title="Permanent link">&para;</a></h3>
+<h3 id="status-of-pull-request">Status of Pull Request<a class="headerlink" href="#status-of-pull-request" title="Permanent link">§</a></h3>
 <table>
 <thead>
 <tr>
@@ -707,200 +3999,168 @@ for details.</p>
     }
 </style>
 
-                    </div>
-                </div>
-            </div>
-    <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-            <h3><a href="index.html">Table Of Contents</a></h3>
-            <ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
-    <li>
-        <a class="reference internal" href="#contributing-to-python-markdown">Contributing to Python-Markdown</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#code-of-conduct">Code of Conduct</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#project-organization">Project Organization</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#issues">Issues</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#pull-requests">Pull Requests</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#ai-contributions">AI Contributions</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#style-guides">Style Guides</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#code-style-guide">Code Style Guide</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#documentation-style-guide">Documentation Style Guide</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#headers">Headers</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#links">Links</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#notes-and-warnings">Notes and Warnings</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#changelog">Changelog</a>
-    </li>
-        </ul>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#commit-message-style-guide">Commit Message Style Guide</a>
-    </li>
-        </ul>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#development-environment">Development Environment</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#versions">Versions</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#version-status">Version Status</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#version-workflow">Version Workflow</a>
-    </li>
-        </ul>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#release-process">Release Process</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#issue-and-pull-request-labels">Issue and Pull Request Labels</a>
-        <ul>
-            
-    <li>
-        <a class="reference internal" href="#type-of-issue-or-pull-request">Type of Issue or Pull Request</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#category-of-issue-or-pull-request">Category of Issue or Pull Request</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#status-of-issue">Status of Issue</a>
-    </li>
-            
-    <li>
-        <a class="reference internal" href="#status-of-pull-request">Status of Pull Request</a>
-    </li>
-        </ul>
-    </li>
-        </ul>
-    </li>
-            </ul>
-            
-            <h4>Previous topic</h4>
-            <p class="topless">
-                <a href="../reference/markdown/extensions/wikilinks/" title="previous page"><code>wikilinks</code></a>
-            </p>
-
-            
-            <h4>Next topic</h4>
-            <p class="topless">
-                <a href="../changelog/" title="next page">Changelog</a>
-            </p>
-
-            <div role="note" aria-label="source link">
-                <h3>This Page</h3>
-                <ul class="this-page-menu">
-                    <li><a href="https://github.com/Python-Markdown/markdown/issues">Report a Bug</a></li>
-                    <li><a href="https://github.com/Python-Markdown/markdown/edit/master/docs/contributing.md">Edit on GitHub</a></li>
-                </ul>
+              </article>
             </div>
-            <div id="searchbox" style="display: none" role="search">
-                <h3>Quick search</h3>
-                <form class="search" action="../search.html" method="get">
-                    <div><input type="text" name="q" placeholder="Search docs" /></div>
-                    <div><input type="submit" value="Go" /></div>
-                </form>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-circle-arrow-up" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m16 12-4-4-4 4M12 16V8"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../reference/markdown.extensions.wikilinks/" class="md-footer__link md-footer__link--prev" aria-label="Previous: &lt;code&gt;markdown.&amp;#8203;extensions.&amp;#8203;wikilinks&lt;&#x2f;code&gt;">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M19 12H5"/></svg>
             </div>
-            <script type="text/javascript">$('#searchbox').show(0);</script>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                <code>markdown.&#8203;extensions.&#8203;wikilinks</code>
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../changelog/" class="md-footer__link md-footer__link--next" aria-label="Next: Changelog">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Changelog
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="lucide lucide-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <!--
+  Copyright (c) 2025-2026 Zensical and contributors
 
-        </div>
+  SPDX-License-Identifier: MIT
+  Third-party contributions licensed under DCO
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+-->
+
+<!-- Copyright and theme information -->
+<div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2010-2026 The Python-Markdown Project.
     </div>
-
-            <div class="clearer"></div>
-        </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-        <h3>Navigation</h3>
-        <ul>
-                <li class="right" style="margin-right: 10px">
-                    <a href="https://github.com/Python-Markdown/markdown" title="View this project on GitHub"><img src="../static/github.png" width=16px style="vertical-align: middle; margin-top: -1px" /></a>
-                </li>
-            <li class="right" style="margin-right: 10px">
-                <a href="../sitemap.html" title="Sitemap" accesskey="I">index</a>
-            </li>
-            <li class="right">
-                <a href="../changelog/" title="Changelog" accesskey="N">next</a> |
-            </li>
-            <li class="right">
-                <a href="../reference/markdown/extensions/wikilinks/" title="<code>wikilinks</code>" accesskey="P">previous</a> |
-            </li>
-            <li><img src="../py.png"
-            alt="icon" style="vertical-align: middle; margin-top: -1px"/></li>
-            <li class="nav-item nav-item-0">
-                <a href="..">Python-Markdown 3.10.3 documentation</a> &#187;
-            </li>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-        <li class="nav-item">
-            <a href="./">Contributing to Python-Markdown</a>
-         &#187; </li>
-                    
-                    
-        </ul>
+  
+  
+    Made with
+    <a
+      href="https://zensical.org/"
+      target="_blank" rel="noopener"
+    >Zensical</a>,
+    <a
+      href="https://Python-Markdown.github.io/"
+      target="_blank" rel="noopener"
+    >Python-Markdown</a>, and
+    <a
+      href="https://facelessuser.github.io/pymdown-extensions/"
+      target="_blank" rel="noopener"
+    >PyMdown Extensions</a>.
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/Python-Markdown" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2026 Fonticons, Inc.--><path fill="currentColor" d="M216.5 362.5c-66-8-112.5-55.5-112.5-117 0-25 9-52 24-70-6.5-16.5-5.5-51.5 2-66 20-2.5 47 8 63 22.5 19-6 39-9 63.5-9s44.5 3 62.5 8.5c15.5-14 43-24.5 63-22 7 13.5 8 48.5 1.5 65.5 16 19 24.5 44.5 24.5 70.5 0 61.5-46.5 108-113.5 116.5 17 11 28.5 35 28.5 62.5v52c0 15 12.5 23.5 27.5 17.5C441 459.5 512 369 512 257 512 115.5 397 0 255.5 0S0 115.5 0 257c0 111 70.5 203 165.5 237.5 13.5 5 26.5-4 26.5-17.5v-40c-7 3-16 5-24 5-33 0-52.5-18-66.5-51.5-5.5-13.5-11.5-21.5-23-23-6-.5-8-3-8-6 0-6 10-10.5 20-10.5 14.5 0 27 9 40 27.5 10 14.5 20.5 21 33 21s20.5-4.5 32-16c8.5-8.5 15-16 21-21"/></svg>
+    </a>
+  
+</div>
+      
     </div>
-        <div class="footer" role="contentinfo">Copyright &copy; 2010-2023, The Python-Markdown Project.
-        Created using <a href="https://www.mkdocs.org/">MkDocs</a> 1.6.1.
-        </div>
-        <script>var base_url = '..';</script>
-        <script src="../search/main.js"></script>
-
-        <!--
-        MkDocs version      : 1.6.1
-        Docs Build Date UTC : 2026-07-30 19:05:35.597684+00:00
-        -->
-    </body>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      
+      
+        
+        
+          
+        
+      <script id="__config" type="application/json">{"annotate":null,"base":"..","features":["navigation.tabs","navigation.tabs.sticky","navigation.path","navigation.indexes","navigation.footer","navigation.top","content.code.copy","content.tooltips","content.footnote.tooltips","search.highlight"],"redirect":"../redirect.json","search":"../assets/javascripts/workers/search.7d14d953.min.js","tags":null,"translations":{"clipboard.copied":"Copied to clipboard","clipboard.copy":"Copy to clipboard","search.result.more.one":"1 more on this page","search.result.more.other":"# more on this page","search.result.none":"No matching documents","search.result.one":"1 matching document","search.result.other":"# matching documents","search.result.placeholder":"Type to start searching","search.result.term.missing":"Missing","select.version":"Select version"},"version":null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8dcc8e9c.min.js"></script>
+      
+    
+  </body>
 </html>
